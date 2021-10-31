@@ -1,5 +1,4 @@
-Actor = Actor or require "Scripts/actor"
-local Timer = Actor:extend()
+Timer = Actor:extend()
 
 function Timer:new(time,fun,r)
     self.f = fun
@@ -16,14 +15,7 @@ function Timer:update(dt)
     if(self.rep) then
       self.tAct = self.tFin
     else
-      for k,v in pairs(Scene.getScene():getActorList()) do
-        if v==self then 
-          e = k
-        end
-      end
-      if(e~=nil) then
-        table.remove(Scene.getScene():getActorList(),e)
-      end
+      Scene.getScene():removeThisActor(self)
     end
   end
 end

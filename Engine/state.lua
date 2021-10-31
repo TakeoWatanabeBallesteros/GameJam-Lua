@@ -1,6 +1,4 @@
-Object = Object or require "Scripts/object"
-
-local State = Object:extend()
+State = Object:extend()
 
 function State:new(params)
 	assert(params.name ~= nil, "You cannot have a State with a nil name.")

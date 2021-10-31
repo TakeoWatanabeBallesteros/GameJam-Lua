@@ -1,7 +1,5 @@
 -- Hierarchical FSM based on AS3 StateMachine https://github.com/JesterXL/Lua-Corona-SDK-State-Machine
-
-State = State or require "Scripts/state"
-local StateMachine = Object:extend()
+StateMachine = Object:extend()
 
 function StateMachine:new()
 	self.states = {}

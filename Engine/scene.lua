@@ -30,6 +30,10 @@ function Scene:addActorWithPos(type, x, y, fx, fy)
   end
 end
 
+function Scene:addTimer(seconds, callback, loop)
+  table.insert(self.actors,Timer(seconds, callback, loop))
+end
+
 function Scene:removeActor(type)
   for _,v in ipairs(self:getActorList()) do
     if v:is(type) then

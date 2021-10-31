@@ -1,5 +1,3 @@
-State = State or require "Scripts/state"
-
 local BaseState = {}
 
 function BaseState:new(name, parent, from)

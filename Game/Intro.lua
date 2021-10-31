@@ -2,19 +2,15 @@
 Intro = Actor:extend()
 
 function Intro:new()
-    self.introDuration = 5
-    self.t = 0
+    Scene.getScene():addTimer(5, function() Main_FSM:changeState('menu') end, false)
     Intro.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Intro:update(dt)
-    if self.introDuration<=self.t then
-        Director.goMenu()
-    end
-    self.t = self.t + dt
 end
 
 function Intro:draw()
+    love.graphics.setColor(255, 255, 255, 1)
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y

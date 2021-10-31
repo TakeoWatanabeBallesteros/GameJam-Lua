@@ -3,9 +3,11 @@
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
 Actor = Actor or require "Engine/actor"
+Timer = Timer or require "Engine/timer"
+State = State or require "Engine/state"
+StateMachine = StateMachine or require "Engine/statemachine"
 AnimatedActor = AnimatedActor or require "Engine/animatedactor"
 Scene = Scene or require "Engine/scene"
-FSM = FSM or require "Engine/fsm"
 AudioManager = AudioManager or require "Engine/audioManager"
 Director = Director or require "Game/Director"
 Intro = Intro or require "Game/Intro"
@@ -38,3 +40,4 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 --#region SETTINGS
 
 --#endregion
+
