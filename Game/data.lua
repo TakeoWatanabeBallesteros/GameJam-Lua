@@ -6,12 +6,13 @@ Actor = Actor or require "Engine/actor"
 Timer = Timer or require "Engine/timer"
 State = State or require "Engine/state"
 StateMachine = StateMachine or require "Engine/statemachine"
+Director = Director or require "Game/Director"
 AnimatedActor = AnimatedActor or require "Engine/animatedactor"
 Scene = Scene or require "Engine/scene"
 AudioManager = AudioManager or require "Engine/audioManager"
-Director = Director or require "Game/Director"
 Intro = Intro or require "Game/Intro"
 Menu = Menu or require "Game/Menu"
+Settings = Settings or require "Game/Settings"
 
 --#endregion
 --#region WINDOW

@@ -14,14 +14,19 @@ end
 function Menu:new()
     self.buttons = {}
     self.font = FONT_OTAKU_BUTTONS
-    self.title = "JUEGO DE MIERDA"
+    self.title = "NOMBRE DEL JUEGOS"
     self.ap = false
     --love.graphics.setFont(love.graphics.newFont("/Data/pong.ttf", 70))
     Menu.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
     table.insert(self.buttons, newButton(
         "Start Game", 
         function()
-            Director.goGame()
+            Main_FSM:changeState('play')
+        end))
+    table.insert(self.buttons, newButton(
+        "Settings", 
+        function()
+            Main_FSM:changeState('settings')
         end))
     table.insert(self.buttons, newButton(
         "Exit", 

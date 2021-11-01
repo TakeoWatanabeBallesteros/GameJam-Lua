@@ -76,9 +76,4 @@ function Scene:draw()
   end
 end
 
-function love.keypressed(key)
-  for _,v in ipairs(Scene.getScene():getActorList()) do
-      v:keyPressed(key)
-  end
-end
 return Scene

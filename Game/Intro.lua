@@ -18,10 +18,19 @@ function Intro:draw()
     local sx = self.scale.x
     local sy = self.scale.y
     local rr = self.rot
-    love.graphics.setFont(FONT_OTAKU_TITLE)
-    love.graphics.print("AP GAMES", WW/3.7, WH/2.7)
+    love.graphics.print(
+        'AP GAMES',
+        FONT_OTAKU_TITLE,
+        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth('AP GAMES') * 0.5,
+         WH/2 - FONT_OTAKU_TITLE:getHeight('AP GAMES')
+        )
     love.graphics.setFont(FONT_OTAKU_BUTTONS)
-    love.graphics.print("PRESENTA", WW/3, WH/2)
+    love.graphics.print(
+        'PRESENTA',
+        FONT_OTAKU_BUTTONS,
+        (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('PRESENTA') * 0.5,
+         WH/2 + FONT_OTAKU_BUTTONS:getHeight('PRESENTA')
+        )
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
