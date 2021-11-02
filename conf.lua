@@ -2,7 +2,6 @@
 function love.conf(t)
   t.window.width = 1600
   t.window.height = 900
-  love.window.setFullscreen(fullscreen)
   t.console = true
   t.vsync = true
   t.title = "LovePong 2021"
