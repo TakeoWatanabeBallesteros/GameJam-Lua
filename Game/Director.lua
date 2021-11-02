@@ -35,7 +35,16 @@ function onSplashEnter()
   end
   
   function onPlayEnter()
+    Main_FSM:changeState("editor")
   end
   
   function onPlayExit()
+  end
+
+  function onEditorEnter()
+    
+  end
+
+  function onEditorExit()
+    Scene.getScene():removeActor(Editor)
   end

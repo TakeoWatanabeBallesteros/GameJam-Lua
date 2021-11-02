@@ -2,6 +2,8 @@
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
+Yarnparse = Yarnparse or require "Engine/yarnparse"
+Buttons = Buttons or require "Engine/buttons"
 Actor = Actor or require "Engine/actor"
 Slider = Slider or require "Engine/sliders"
 Timer = Timer or require "Engine/timer"
