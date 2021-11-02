@@ -31,6 +31,7 @@ function onSplashEnter()
   end
   
   function onSettingsExit()
+    Scene.getScene():removeActor(Settings)
   end
   
   function onPlayEnter()

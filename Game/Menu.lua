@@ -1,13 +1,15 @@
 --Takeo Watanabe y Jan de Nobel
 Menu = Actor:extend()
 
-local function newButton(text, fn)
+local function newButton(text, fn, x, y)
     return {
         text = text,
         fn = fn,
 
         now = false,
-        last = false
+        last = false,
+        bx = x or nil,
+        by = y or nil
     }
 end
 
@@ -65,8 +67,8 @@ function Menu:draw()
     for i, button in ipairs(self.buttons) do
         button.last = button.now
 
-        local bx = (WW * 0.5) - (buttonWidth * 0.5)
-        local by = (WH * 0.5) - (totalHeight * 0.5) + cursorY
+        local bx = button.bx or (WW * 0.5) - (buttonWidth * 0.5)
+        local by = button.by or (WH * 0.5) - (totalHeight * 0.5) + cursorY
 
         local color = {0.4, 0.4, 0.5, 1.0}
 
