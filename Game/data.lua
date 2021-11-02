@@ -3,6 +3,7 @@
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
 Actor = Actor or require "Engine/actor"
+Slider = Slider or require "Engine/sliders"
 Timer = Timer or require "Engine/timer"
 State = State or require "Engine/state"
 StateMachine = StateMachine or require "Engine/statemachine"
