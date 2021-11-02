@@ -1,6 +1,6 @@
 Slider = Object:extend()
 
-function Slider:newSlider(x, y, length, value, min, max, setter, style)
+function Slider:new(x, y, length, value, min, max, setter, style)
     local s = {}
     self.value = (value - min) / (max - min)
     self.min = min
@@ -10,10 +10,11 @@ function Slider:newSlider(x, y, length, value, min, max, setter, style)
     self.y = y
     self.length = length
 
-    self.width = self.width or length * 0.1
-    self.orientation = self.orientation or 'horizontal'
-    self.track = self.track or 'rectangle'
-    self.knob = self.knob or 'rectangle'
+    local p = style or {}
+    self.width = p.width or length * 0.1
+    self.orientation = p.orientation or 'horizontal'
+    self.track = p.track or 'rectangle'
+    self.knob = p.knob or 'rectangle'
 
     self.grabbed = false
     self.wasDown = true

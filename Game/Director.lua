@@ -27,6 +27,7 @@ function onSplashEnter()
   end
   
   function onSettingsEnter()
+    Scene.getScene():addActor(Settings)
   end
   
   function onSettingsExit()

@@ -12,3 +12,10 @@ end
 function love.draw()
   Scene.getScene():draw()
 end
+
+function love.keypressed(key, scancode, isrepeat)
+	if key == "f11" then
+		fullscreen = not fullscreen
+		love.window.setFullscreen(fullscreen)
+	end
+end
