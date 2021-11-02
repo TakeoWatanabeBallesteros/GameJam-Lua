@@ -1,11 +1,12 @@
-Actor = Actor or require "Scripts/actor"
+--Actor = Actor or require "Engine/actor"
 Peluche = Actor:extend()
 function Peluche:new(nameP)
   
   self.name = nameP
-  if self.name == "oso" then self.image = love.graphics.newImage("Textures/Peluche1.png") end
-  if self.name == "stitch" then self.image = love.graphics.newImage("Textures/Peluche2.png") end
-  if self.name == "bambi" then self.image = love.graphics.newImage("Textures/Peluche3.png") end
+  if self.name == "oso" then self.image = love.graphics.newImage("Data/mjGanchoTextures/Peluche1.png") end
+  if self.name == "stitch" then self.image = love.graphics.newImage("Data/mjGanchoTextures/Peluche2.png") end
+  if self.name == "bambi" then self.image = love.graphics.newImage("Data/mjGanchoTextures/Peluche3.png") end
+  if self.name == "alex" then self.image = love.graphics.newImage("Data/mjGanchoTextures/PelucheAlex.png") end
   
   self.position = Vector.new(math.random(700,1600),math.random(750,950))
   for _,v in ipairs(actorList) do

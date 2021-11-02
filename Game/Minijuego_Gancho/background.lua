@@ -4,7 +4,7 @@ Background = Actor:extend()
 local background
 
 function Background:new()
-  background = love.graphics.newImage("Textures/background.png")
+  background = love.graphics.newImage("Data/mjGanchoTextures/background.png")
 end
 function Background:update()
 end

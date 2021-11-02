@@ -6,7 +6,7 @@ local img
 shadow = {}
 local gameStates
 local dist
-local p1,p2,p3
+local p1,p2,p3,p4,p5,p6
 local elPeluche
 local gravity
 local minPosMoveX, maxPosMoveX, minPosMoveY, maxPosMoveY
@@ -14,8 +14,8 @@ local minPosMoveX, maxPosMoveX, minPosMoveY, maxPosMoveY
 local scaleFloat,posYFloat,shadowSpeed
 
 function Gancho:new()
-  img = love.graphics.newImage("Textures/gancho.png")
-  imgCerrado = love.graphics.newImage("Textures/ganchoCerrado.png")
+  img = love.graphics.newImage("Data/mjGanchoTextures/gancho.png")
+  imgCerrado = love.graphics.newImage("Data/mjGanchoTextures/ganchoCerrado.png")
   self.speed = 100
   self.position = Vector.new(width/2,-100)
   self.origin = Vector.new(img:getWidth()/2 ,img:getHeight()/2)
@@ -28,7 +28,7 @@ function Gancho:new()
   scaleFloat,posYFloat,shadowSpeed = 20,0.4,1
   
   
-  shadow.shadowImg = love.graphics.newImage("Textures/Shadow.png")
+  shadow.shadowImg = love.graphics.newImage("Data/mjGanchoTextures/Shadow.png")
   shadow.position = Vector.new(self.position.x,800)
   shadow.ox = shadow.shadowImg:getWidth()/2
   shadow.oy = shadow.shadowImg:getHeight()/2
@@ -44,6 +44,9 @@ function Gancho:new()
   
   p3 = Peluche("bambi") --string to define which peluche it is (usar luego para decir por ejemplo: kiero k me cojas el bus laityiar bebé)
   table.insert(actorList,p3)
+  
+  p4 = Peluche("alex")
+  table.insert(actorList,p4)
   
 end
 function Gancho:update(dt)
