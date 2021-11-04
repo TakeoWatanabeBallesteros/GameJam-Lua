@@ -9,8 +9,10 @@ local moveState, lastMoveState
 local speed
 local shots
 local t,c
+local drinksound
 
 function DrinkingGame:new()
+  drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
   background.img0 = love.graphics.newImage("data/mjvodkaGameTextures/0shots.png")
   background.img1 = love.graphics.newImage("data/mjvodkaGameTextures/1shots.png")
   background.img2 = love.graphics.newImage("data/mjvodkaGameTextures/2shots.png")
@@ -76,6 +78,7 @@ function DrinkingGame:update(dt)
     
     if love.keyboard.isDown("space") then
       if moveState == 1 or moveState == 2 then
+      love.audio.play(drinksound)
       shots = shots+1
       lastMoveState = moveState
       moveState = 3
