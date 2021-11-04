@@ -9,10 +9,12 @@ local moveState, lastMoveState
 local speed
 local shots
 local t,c
-local drinksound, backgroundSound
+local drinksound, backgroundSound, disappointmentSound
 
 function DrinkingGame:new()
+  
   drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
+  disappointmentSound = love.audio.newSource("data/mjVodkaGameSounds/Disappointment.mp3","static")
   backgroundSound = love.audio.newSource("data/mjVodkaGameSounds/DecapitamoGallina.mp3","static")
   backgroundSound:setVolume(0.2)
   love.audio.play(backgroundSound)
@@ -77,34 +79,6 @@ function DrinkingGame:update(dt)
     moveState = 2
   end
     
-    
-    
-    if love.keyboard.isDown("space") then
-      if moveState == 1 or moveState == 2 then
-      love.audio.play(drinksound)
-      shots = shots+1
-      lastMoveState = moveState
-      moveState = 3
-      speed = speed +220
-      if playerBar.x > slider.x+slider.img:getWidth()*0.4 and playerBar.x < slider.x+slider.img:getWidth()*0.6 then
-        self.points = self.points+3
-        --c = CameraShake(.2,.4)
-        --table.insert(actorList, c)
-      else
-        self.points = self.points -1
-        --c = CameraShake(.3,1)
-        --table.insert(actorList, c)
-      end
-      
-      t = Timer(3, function() 
-          moveState = lastMoveState
-        end, false)
-      table.insert(actorList,t)
-      end
-      
-    end
-    
-    
 end
 function DrinkingGame:draw()
   love.graphics.draw(background.imgShown,80,80,0,.9,.9,0,0,0,0)
@@ -113,30 +87,32 @@ function DrinkingGame:draw()
   
 end
 
-function DrinkingGame:keyPressed(key)
+function DrinkingGame:keypressed(key)
   
   if key == "space" then
-    if moveState == 1 or moveState == 2 then
-      
-      lastMoveState = moveState
-      moveState = 3
-      speed = speed +100
+      if moveState == 1 or moveState == 2 then
+      shots = shots+1
+      speed = speed +220
       if playerBar.x > slider.x+slider.img:getWidth()*0.4 and playerBar.x < slider.x+slider.img:getWidth()*0.6 then
+        lastMoveState = moveState
+        moveState = 3
         self.points = self.points+3
-        shots = shots+1
-        --c = CameraShake(.2,.4)
-        --table.insert(actorList, c)
+        love.audio.play(drinksound)
+        c = CameraShake(.2,.4)
+        table.insert(actorList, c)
       else
         self.points = self.points -1
-        --c = CameraShake(.3,1)
-        --table.insert(actorList, c)
+        love.audio.play(disappointmentSound)
+        c = CameraShake(.3,1)
+        table.insert(actorList, c)
       end
       
-      t = Timer(2, function() 
+      t = Timer(3, function() 
           moveState = lastMoveState
-          end, false)
-      end
+        end, false)
       table.insert(actorList,t)
+      end
+      
     end
   end
 return DrinkingGame
