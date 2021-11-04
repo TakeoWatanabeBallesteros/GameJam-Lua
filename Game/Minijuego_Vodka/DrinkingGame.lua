@@ -9,10 +9,13 @@ local moveState, lastMoveState
 local speed
 local shots
 local t,c
-local drinksound
+local drinksound, backgroundSound
 
 function DrinkingGame:new()
   drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
+  backgroundSound = love.audio.newSource("data/mjVodkaGameSounds/DecapitamoGallina.mp3","static")
+  backgroundSound:setVolume(0.2)
+  love.audio.play(backgroundSound)
   background.img0 = love.graphics.newImage("data/mjvodkaGameTextures/0shots.png")
   background.img1 = love.graphics.newImage("data/mjvodkaGameTextures/1shots.png")
   background.img2 = love.graphics.newImage("data/mjvodkaGameTextures/2shots.png")
