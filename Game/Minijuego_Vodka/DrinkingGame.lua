@@ -24,6 +24,7 @@ function DrinkingGame:new()
   
   drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
   disappointmentSound = love.audio.newSource("data/mjVodkaGameSounds/Disappointment.mp3","static")
+  disappointmentSound:setVolume(.4)
   backgroundSound = love.audio.newSource("data/mjVodkaGameSounds/DecapitamoGallina.mp3","static")
   backgroundSound:setVolume(0.2)
   love.audio.play(backgroundSound)
