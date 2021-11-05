@@ -13,7 +13,16 @@ local minPosMoveX, maxPosMoveX, minPosMoveY, maxPosMoveY
 
 local scaleFloat,posYFloat,shadowSpeed
 
+local globalTimer, timeShown
+
 function Gancho:new()
+
+  globalTimer = Timer(10,function() 
+  if gameStates < 3 then
+    gameStates = 3
+  end
+  end, false)
+
   img = love.graphics.newImage("Data/mjGanchoTextures/gancho.png")
   imgCerrado = love.graphics.newImage("Data/mjGanchoTextures/ganchoCerrado.png")
   self.speed = 100
@@ -51,6 +60,8 @@ function Gancho:new()
 end
 function Gancho:update(dt)
   
+  timeShown = tostring(math.floor(globalTimer.tAct))
+
   if gameStates == 1 then 
     
     shadow.position.x = self.position.x
@@ -158,6 +169,8 @@ function Gancho:draw()
   if gameStates > 0 and gameStates <4 then love.graphics.draw(img,xx,yy,0,self.scale.x,self.scale.y,ox,oy,0,0)end
   if gameStates > 3 and gameStates <6 then love.graphics.draw(imgCerrado,xx,yy,0,self.scale.x,self.scale.y,ox,oy,0,0)end
   if gameStates > 5 then love.graphics.draw(img,xx,yy,0,self.scale.x,self.scale.y,ox,oy,0,0)end
+
+  love.graphics.print("Time left: "..timeShown,300,120,0,2,2,0,0,0)
   
   
   if gameStates > 0 and gameStates <4 then love.graphics.draw(shadow.shadowImg,shadow.position.x,shadow.position.y,0,shadow.sx,shadow.sy,shadow.ox,shadow.oy,0,0)end
