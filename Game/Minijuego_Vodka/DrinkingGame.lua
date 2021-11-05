@@ -8,16 +8,23 @@ playerBar = {}
 local moveState, lastMoveState
 local speed
 local shots
+local timerGeneral,timeShown
 local t,c
 local drinksound, backgroundSound, disappointmentSound
+local gameStop
 
 function DrinkingGame:new()
   
+  gameStop = false
+  timerGeneral = Timer(30,function() gameStop = true end, false)
+  table.insert(actorList,timerGeneral)
+
   drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
   disappointmentSound = love.audio.newSource("data/mjVodkaGameSounds/Disappointment.mp3","static")
   backgroundSound = love.audio.newSource("data/mjVodkaGameSounds/DecapitamoGallina.mp3","static")
   backgroundSound:setVolume(0.2)
   love.audio.play(backgroundSound)
+
   background.img0 = love.graphics.newImage("data/mjvodkaGameTextures/0shots.png")
   background.img1 = love.graphics.newImage("data/mjvodkaGameTextures/1shots.png")
   background.img2 = love.graphics.newImage("data/mjvodkaGameTextures/2shots.png")
@@ -30,7 +37,6 @@ function DrinkingGame:new()
   background.img9 = love.graphics.newImage("data/mjvodkaGameTextures/9shots.png")
   background.imgDrinking = love.graphics.newImage("data/mjvodkaGameTextures/Drinking.png")
   background.imgShown = background.img
-  --background.laTexturesr = 1
   
   slider.img = love.graphics.newImage("data/mjvodkaGameTextures/Slider.png")
   
@@ -38,7 +44,6 @@ function DrinkingGame:new()
   slider.oy = slider.img:getHeight()/2
   slider.x = 300+slider.ox
   slider.y = 530
-  --slider.laTexturesr = 2
   
   playerBar.img = love.graphics.newImage("data/mjvodkaGameTextures/playerBar.png")
   playerBar.x = slider.x
@@ -53,6 +58,8 @@ function DrinkingGame:new()
 end
 function DrinkingGame:update(dt)
   print(self.points.."     "..shots)
+  
+  timeShown = tostring(math.floor(timerGeneral.tAct))
   if moveState == 1 then playerBar.x = playerBar.x + speed*dt end
   if moveState == 2 then playerBar.x = playerBar.x - speed*dt end
   if moveState == 3 then background.imgShown = background.imgDrinking
@@ -84,6 +91,9 @@ function DrinkingGame:draw()
   love.graphics.draw(background.imgShown,80,80,0,.9,.9,0,0,0,0)
   if (moveState == 1 or moveState == 2) then love.graphics.draw(slider.img,slider.x,slider.y,0,1,1,slider.ox,slider.oy,0,0) end
   if (moveState == 1 or moveState == 2) then love.graphics.draw(playerBar.img,playerBar.x,playerBar.y,0,1,1,slider.ox,slider.oy,0,0) end
+  love.graphics.print("Time left: "..timeShown,1475,120,0,2,2,0,0,0)
+  love.graphics.print("Points: "..self.points,1475,150,0,2,2,0,0,0)
+  love.graphics.print("Shots taken: "..shots,1475,180,0,2,2,0,0,0)
   
 end
 
