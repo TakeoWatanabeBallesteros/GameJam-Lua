@@ -2,15 +2,17 @@
 Intro = Actor:extend()
 
 function Intro:new()
+    self.alpha = 1
     Scene.getScene():addTimer(5, function() Main_FSM:changeState('menu') end, false)
     Intro.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Intro:update(dt)
+    self.alpha = self.alpha - dt/5
 end
 
 function Intro:draw()
-    love.graphics.setColor(255, 255, 255, 1)
+    love.graphics.setColor(255, 255, 255, self.alpha)
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y
