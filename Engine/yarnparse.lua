@@ -26,7 +26,7 @@ function string:extract(open, close)
 end
 
 yarnparse={
-    json=require("json/json")
+    json=require("Engine/json/json")
 } 
 
 yarnparse.load=function(self, filename)
