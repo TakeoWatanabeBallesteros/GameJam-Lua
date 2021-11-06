@@ -25,10 +25,8 @@ function string:extract(open, close)
     return b[1]
 end
 
-
-
 yarnparse={
-    json=require("Engine/json/json")
+    json=require("json/json")
 } 
 
 yarnparse.load=function(self, filename)
@@ -82,7 +80,7 @@ yarnparse.load=function(self, filename)
                         else
                             --splits it so there's the text for the choice, and the node it links to.
                             choices[#choices+1]={text=nxt[1], node=nxt[2]}
-                        end                    
+                        end                 
                     end
                 end
             end
@@ -119,9 +117,9 @@ yarnparse.load=function(self, filename)
                         local text=self.lines[self.at]
                         if string.match(text, ": ") then
                             local buff=text:split(": ")
-                            return {who=buff[1], text=buff[2]}
+                            return {who=buff[1], text=self:text_spliter(buff[2])}
                         end
-                        return {who="none", text=text}
+                        return {who="none", text=self:text_spliter(text)}
                      end,
                      get_parse_strings=function(self, prefix, text, postfix)
                         local s=text:extract(prefix, postfix)
@@ -141,7 +139,7 @@ yarnparse.load=function(self, filename)
                         --check to see if it's a command, if so, do that.
                             if string.match(ret, "<<") then
                                   local p=self:get_parse_strings("<<", ret, ">>")
-                                  if(p.action=="lua") then
+                                  if(p.action=="lua" or p.action=="print") then
                                     local f=loadstring(p.arguments)
                                     f()
                                   else
@@ -154,6 +152,74 @@ yarnparse.load=function(self, filename)
                                 return self.lines[self.at], true
                             end
                         return self:who(ret), false
+                     end,
+                     text_spliter=function(self, text) --Split the text in words and select the color and if will shake
+                        local t = {}
+                        repeat
+                            local c, p
+                            if string.match(text, "%[color=") and not string.match(text:split("%[color")[1], "%[shake") then
+                                c=text:extract("%[color=", "%]")
+                                p=text:extract("%[color=%#%w%w%w%w%w%w%]", "%[%/color%]")
+                                if #t == 0 then
+                                    local w = text:extract(".", "%[color=")
+                                    w = w:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                    end
+                                end
+                                text=text:split("%[%/color%]")[2]
+                                if string.match(p, "%[shake") then
+                                    p=p:extract("%[shake%]", "%[%/shake%]")
+                                    local w = p:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {self:hex2rgb(c), v..' ', true})
+                                    end
+                                else
+                                    local w = p:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {self:hex2rgb(c), v..' ', false})
+                                    end
+                                end
+                            elseif string.match(text, "%[shake") then
+                                p=text:extract("%[shake%]", "%[%/shake%]")
+                                if #t == 0 then
+                                    local w = text:extract(".", "%[shake%]")
+                                    w = w:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                    end
+                                end
+                                text=text:split("%[%/shake%]")[2]
+                                if string.match(p, "%[color=") then
+                                    c=p:extract("%[color=", "%]")
+                                    p=p:extract("%[color=%#%w%w%w%w%w%w%]", "%[%/color%]")
+                                    local w = p:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {self:hex2rgb(c), v..' ', true})
+                                    end
+                                else
+                                    local w = p:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {{1, 1, 1}, v..' ', true})
+                                    end
+                                end
+                            else
+                                local w = text:split(" ")
+                                    for k,v in ipairs(w) do
+                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                    end
+                                break
+                            end
+                        until not text
+                        return t
+                     end,
+                     hex2rgb=function(self,_hex)
+                        local hex = string.gsub(_hex,"%#","")
+                        if hex:len() == 3 then
+                          return {(tonumber("0x"..hex:sub(1,1))*17)/255, (tonumber("0x"..hex:sub(2,2))*17)/255, (tonumber("0x"..hex:sub(3,3))*17)/255}
+                        else
+                          return {tonumber("0x"..hex:sub(1,2))/255, tonumber("0x"..hex:sub(3,4))/255, tonumber("0x"..hex:sub(5,6))/255}
+                        end
                      end,
                      done=function(self)
                         if(self.at>=self.total) then return true else return false end
