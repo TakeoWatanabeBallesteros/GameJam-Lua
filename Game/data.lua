@@ -14,7 +14,9 @@ Director = Director or require "Game/Director"
 AnimatedActor = AnimatedActor or require "Engine/animatedactor"
 Scene = Scene or require "Engine/scene"
 AudioManager = AudioManager or require "Engine/audioManager"
-Intro = Intro or require "Game/Intro"
+Intro_01 = Intro_01 or require "Game/Intro_01"
+Intro_02 = Intro_02 or require "Game/Intro_02"
+Intro_03 = Intro_03 or require "Game/Intro_03"
 Menu = Menu or require "Game/Menu"
 Settings = Settings or require "Game/Settings"
 
@@ -26,8 +28,11 @@ WW, WH = love.graphics.getDimensions()
 LAYERS = {"Background", "Middle", "Front", "HUD"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 --#endregion
---#region Sprites
-
+--#region SPRITES
+    --#region LOGOS
+    LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
+    YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
+    --#endregion
 --#endregion
 --#region FIELD
 

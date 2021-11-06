@@ -3,12 +3,12 @@ Intro = Actor:extend()
 
 function Intro:new()
     self.alpha = 1
-    Scene.getScene():addTimer(5, function() Main_FSM:changeState('menu') end, false)
-    Intro.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
+    Scene.getScene():addTimer(3, function() Main_FSM:changeState('splash_02') end, false)
+    Intro.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,1, 'HUD')
 end
 
 function Intro:update(dt)
-    self.alpha = self.alpha - dt/5
+    self.alpha = self.alpha - dt/3
 end
 
 function Intro:draw()
