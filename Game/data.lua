@@ -1,9 +1,11 @@
 --Takeo Watanabe
+--#region AVATAR_ARRAYS
 local skins_colors = {'clara', 'intermedia', 'oscura'}
 local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
 local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'moño'}
 local hairs_colors = {'azul', 'magenta', 'marron', 'rojo', 'rubio', 'verde'}
 local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
+--#endregion
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
