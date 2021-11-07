@@ -82,6 +82,11 @@ FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/otaku.ttf", 32)
 AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 --#endregion
 --#region SETTINGS
-
+    --#region AVATAR_SETTINGS
+    AVATAR_SETTINGS_SKINS = 1
+    AVATAR_SETTINGS_EYES = 1
+    AVATAR_SETTINGS_HAIRS = 1
+    AVATAR_SETTINGS_CLOTHES = 1
+    --#endregion
 --#endregion
 

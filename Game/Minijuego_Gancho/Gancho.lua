@@ -17,11 +17,7 @@ local globalTimer, timeShown
 
 function Gancho:new()
 
-  globalTimer = Timer(10,function() 
-  if gameStates < 3 then
-    gameStates = 3
-  end
-  end, false)
+  Scene.getScene():addTimer(10,function() gameStates = gameStates < 2 and 2 end, false)
 
   img = love.graphics.newImage("Data/mjGanchoTextures/gancho.png")
   imgCerrado = love.graphics.newImage("Data/mjGanchoTextures/ganchoCerrado.png")
@@ -98,7 +94,7 @@ if gameStates==2 then
     
     self.position.y = self.position.y +dist*(dt/10)
     --print(self.position.y.."     "..shadow.position.y)
-    local t = Timer(5,function() gameStates = 3 end,false)
+    Scene.getScene():addTimer(5,function() gameStates = 3 end,false)
     table.insert(actorList,t)
   end
   
@@ -106,27 +102,21 @@ if gameStates==2 then
   
   if gameStates==3 then
     for _,v in ipairs(actorList) do
-        if Actor.intersect(v,shadow,40) and v:is(Peluche) then 
+        if Actor.dist(shadow,v)< 40 and v:is(Peluche) then 
           gameStates = 4
           elPeluche = v
         end
-        
     end
   end
   
   
   
   if gameStates == 4 then
-    for _,v in ipairs(actorList) do
-        if v:is(Timer) then
-          table.remove(actorList,_)
-        end
+    self.position.y = self.position.y -120*dt
+    elPeluche.position.y = elPeluche.position.y -120*dt
+    if elPeluche.position.y < 400 then
+      gameStates = 5
     end
-          self.position.y = self.position.y -120*dt
-          elPeluche.position.y = elPeluche.position.y -120*dt
-          if elPeluche.position.y < 400 then
-            gameStates = 5
-          end
           
   end
   
@@ -136,7 +126,7 @@ if gameStates==2 then
     elPeluche.position.x = elPeluche.position.x -120*dt
     if elPeluche.position.x < 330 then
             gameStates = 6
-          end
+    end
   end
   
   

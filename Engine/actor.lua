@@ -8,7 +8,7 @@ function Actor:new(image,x,y,fx,fy,speed,layer)
     self.forward = Vector.new(fx or 1,fy or 0)
     self.rot = Vector.ang(self.forward)
     self.speed = speed or 0
-    self.image = image or love.graphics.newImage(DEFAULT_IMAGE)
+    self.image = image or DEFAULT_IMAGE
     self.origin = Vector.new(self.image:getWidth()/2 ,self.image:getHeight()/2)
     self.height = self.image:getHeight()
     self.width  = self.image:getWidth()

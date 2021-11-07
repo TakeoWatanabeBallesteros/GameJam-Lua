@@ -24,14 +24,14 @@ function Intro:draw()
         'AP GAMES',
         FONT_OTAKU_TITLE,
         (WW * 0.5) - FONT_OTAKU_TITLE:getWidth('AP GAMES') * 0.5,
-         WH/2 - FONT_OTAKU_TITLE:getHeight('AP GAMES')
+         WH/2 - FONT_OTAKU_TITLE:getHeight('AP GAMES') * 0.5
         )
     love.graphics.setFont(FONT_OTAKU_BUTTONS)
     love.graphics.print(
         'PRESENTA',
         FONT_OTAKU_BUTTONS,
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('PRESENTA') * 0.5,
-         WH/2 + FONT_OTAKU_BUTTONS:getHeight('PRESENTA')
+         WH/2 + FONT_OTAKU_TITLE:getHeight('AP GAMES') * 0.5
         )
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

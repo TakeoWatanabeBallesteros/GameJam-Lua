@@ -20,4 +20,8 @@ function Timer:update(dt)
   end
 end
 
+function Timer:getTime()
+  return self.tAct
+end
+
 return Timer

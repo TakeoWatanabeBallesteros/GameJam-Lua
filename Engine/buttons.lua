@@ -1,14 +1,17 @@
 Buttons = Object:extend()
 
-function Buttons:new(font)
+function Buttons:new(font, Width, Height, margin)
     self.buttons = {}
+    self.width = Width or WW * (1/3)
+    self.height = Height or 64
     self.font = font
     self.ap = false
+    self.margin = margin or true
 end
 
 function Buttons:update()
-    local buttonHeigth = 64
-    local buttonWidth = WW * (1/3)
+    local buttonHeigth = self.height
+    local buttonWidth = self.width
     local margin = 16
     
     local totalHeight = (buttonHeigth + margin) * #self.buttons
@@ -18,7 +21,9 @@ function Buttons:update()
         button.last = button.now
     
         local bx = button.bx or (WW * 0.5)
-        local by = button.by or (WH * 0.5) - (totalHeight * 0.5) + cursorY
+        local by
+        if self.margin then by = button.by or (WH * 0.5) - (totalHeight * 0.5) + cursorY
+        else by = button.by or (WH * 0.5) end 
 
         bx = bx - (buttonWidth * 0.5)
     
@@ -47,7 +52,6 @@ function Buttons:update()
     
         button.now = love.mouse.isDown(1)
         if button.now and not button.last and hot and self.ap then
-            print("button")
             button.fn()
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, .6, false)
         end
@@ -68,11 +72,11 @@ function Buttons:update()
         love.graphics.print(
             button.text,
             self.font,
-            (WW * 0.5) - textW * 0.5,
-             by + textH * 0.5
+            bx + buttonWidth * 0.5 - textW * 0.5,
+            by + textH * 0.5
             )
     
-        cursorY = cursorY + (buttonHeigth + margin)
+        if self.margin then cursorY = cursorY + (buttonHeigth + margin) end
     end
 end
 

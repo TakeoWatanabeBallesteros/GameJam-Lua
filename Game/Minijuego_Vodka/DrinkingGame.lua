@@ -135,7 +135,6 @@ function DrinkingGame:draw()
   love.graphics.print("Points: "..self.points,1475,150,0,2,2,0,0,0)
   love.graphics.print("Shots taken: "..shots,1475,180,0,2,2,0,0,0)
   love.graphics.print("Tries: "..tries,1475,210,0,2,2,0,0,0)
-  
 end
 
 
