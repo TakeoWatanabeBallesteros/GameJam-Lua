@@ -89,13 +89,13 @@ end
 
 function Buttons:mousepressed( x, y, _button, istouch, presses )
         if _button == 1 then
-            value.ap = true
+            self.ap = true
         end
 end
 
 function Buttons:mousereleased( x, y, _button, istouch, presses )
         if _button == 1 then
-            value.ap = true
+            self.ap = true
         end
 end
 
