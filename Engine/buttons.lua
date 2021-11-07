@@ -87,20 +87,16 @@ function Buttons:newButton(text, fn, x, y)
     })
 end
 
-function love.mousepressed( x, y, _button, istouch, presses )
-    for index, value in ipairs(Scene.getScene():getActorList()) do
-        if _button == 1 and value:is(Buttons) then
+function Buttons:mousepressed( x, y, _button, istouch, presses )
+        if _button == 1 then
             value.ap = true
         end
-    end
 end
 
-function love.mousereleased( x, y, _button, istouch, presses )
-    for index, value in ipairs(Scene.getScene():getActorList()) do
-        if _button == 1 and value:is(Buttons) then
+function Buttons:mousereleased( x, y, _button, istouch, presses )
+        if _button == 1 then
             value.ap = true
         end
-    end
 end
 
 return Buttons

@@ -161,10 +161,11 @@ yarnparse.load=function(self, filename)
                                 c=text:extract("%[color=", "%]")
                                 p=text:extract("%[color=%#%w%w%w%w%w%w%]", "%[%/color%]")
                                 if #t == 0 then
-                                    local w = text:extract(".", "%[color=")
+                                    local w = text:split("%[color=")[1]
                                     w = w:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                        table.insert(t, {{1, 1, 1}, v..' ', false})
+                                        print(v)
                                     end
                                 end
                                 text=text:split("%[%/color%]")[2]
@@ -183,10 +184,11 @@ yarnparse.load=function(self, filename)
                             elseif string.match(text, "%[shake") then
                                 p=text:extract("%[shake%]", "%[%/shake%]")
                                 if #t == 0 then
-                                    local w = text:extract(".", "%[shake%]")
+                                    local w = text:split("%[shake%]")[1]
+                                    print(text)
                                     w = w:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                        table.insert(t, {{1, 1, 1}, v..' ', false})
                                     end
                                 end
                                 text=text:split("%[%/shake%]")[2]
