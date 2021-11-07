@@ -60,7 +60,7 @@ function onSplash_01Enter()
   end
 
   function onEditorEnter()
-    
+    Scene.getScene():addActor(Editor)
   end
 
   function onEditorExit()

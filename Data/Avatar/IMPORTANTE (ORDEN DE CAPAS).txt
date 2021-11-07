@@ -1,0 +1,11 @@
+Está hecho para que se ponga así:
+
+Arriba
+	- ropa
+	- pelo
+	- ojos
+	- piel
+Abajo
+
+
+Importante seguir el orden, sino se solaparán capas que no deben solaparse.

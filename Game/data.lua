@@ -1,4 +1,9 @@
 --Takeo Watanabe
+local skins_colors = {'clara', 'intermedia', 'oscura'}
+local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
+local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'moño'}
+local hairs_colors = {'azul', 'magenta', 'marron', 'rojo', 'rubio', 'verde'}
+local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
@@ -19,6 +24,7 @@ Intro_02 = Intro_02 or require "Game/Intros/Intro_02"
 Intro_03 = Intro_03 or require "Game/Intros/Intro_03"
 Menu = Menu or require "Game/Menu"
 Settings = Settings or require "Game/Settings"
+Editor = Editor or require "Game/Editor"
 
 --#endregion
 --#region WINDOW
@@ -32,6 +38,32 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     --#region LOGOS
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
+    --#endregion
+    --#region AVATAR_SKINS
+    AVATAR_SKINS = {}
+    for index, value in ipairs(skins_colors) do
+        table.insert(AVATAR_SKINS, love.graphics.newImage("Data/Avatar/Skins/piel_"..value..".png"))
+    end
+    --#endregion
+    --#region AVATAR_EYES
+    AVATAR_EYES = {}
+    for index, value in ipairs(eyes_colors) do
+        table.insert(AVATAR_EYES, love.graphics.newImage("Data/Avatar/Eyes/ojos_"..value..".png"))
+    end
+    --#endregion
+    --#region AVATAR_HAIRS
+    AVATAR_HAIRS = {}
+    for index, value in ipairs(hairs_types) do
+        for _index, _value in ipairs(hairs_colors) do
+            table.insert(AVATAR_HAIRS, love.graphics.newImage("Data/Avatar/Hairs/pelo_"..value.."_".._value..".png"))
+        end
+    end
+    --#endregion
+    --#region AVATAR_CLOTHES
+    AVATAR_CLOTHES = {}
+    for index, value in ipairs(clothes_types) do
+        table.insert(AVATAR_CLOTHES, love.graphics.newImage("Data/Avatar/Clothes/ropa_"..value..".png"))
+    end
     --#endregion
 --#endregion
 --#region FIELD
