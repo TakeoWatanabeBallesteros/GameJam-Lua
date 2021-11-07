@@ -1,15 +1,22 @@
 Buttons = Object:extend()
 
-function Buttons:new(font, Width, Height, margin)
+function Buttons:new(fade, font, Width, Height, margin)
+    if fade then self.alpha = 0 else self.alpha = 1 end
     self.buttons = {}
     self.width = Width or WW * (1/3)
     self.height = Height or 64
     self.font = font
     self.ap = false
     self.margin = margin or true
+    self.layer = "Buttons"
 end
 
-function Buttons:update()
+
+function Buttons:update(dt)
+    self.alpha = self.alpha < 1 and self.alpha + dt/1.5 or 1
+end
+
+function Buttons:draw() 
     local buttonHeigth = self.height
     local buttonWidth = self.width
     local margin = 16
@@ -27,7 +34,7 @@ function Buttons:update()
 
         bx = bx - (buttonWidth * 0.5)
     
-        local color = {0.4, 0.4, 0.5, 1.0}
+        local color = {0.4, 0.4, 0.5, self.alpha}
     
         local mx, my = love.mouse.getPosition()
     
@@ -35,19 +42,7 @@ function Buttons:update()
                     my > by and my < by + buttonHeigth
     
         if hot then
-            color = {0.8, 0.8, 0.9, 1}
-        end
-    
-        function love.mousepressed( x, y, _button, istouch, presses )
-            if _button == 1 then
-                self.ap = true
-            end
-        end
-    
-        function love.mousereleased( x, y, _button, istouch, presses )
-            if _button == 1 then
-                self.ap = true
-            end
+            color = {0.8, 0.8, 0.9, self.alpha}
         end
     
         button.now = love.mouse.isDown(1)
@@ -65,7 +60,7 @@ function Buttons:update()
             buttonHeigth
         )
     
-        love.graphics.setColor(0, 0, 0, 1)
+        love.graphics.setColor(0, 0, 0, self.alpha)
     
         local textW = self.font:getWidth(button.text)
         local textH = self.font:getHeight(button.text)
@@ -90,6 +85,22 @@ function Buttons:newButton(text, fn, x, y)
         bx = x or nil,
         by = y or nil
     })
+end
+
+function love.mousepressed( x, y, _button, istouch, presses )
+    for index, value in ipairs(Scene.getScene():getActorList()) do
+        if _button == 1 and value:is(Buttons) then
+            value.ap = true
+        end
+    end
+end
+
+function love.mousereleased( x, y, _button, istouch, presses )
+    for index, value in ipairs(Scene.getScene():getActorList()) do
+        if _button == 1 and value:is(Buttons) then
+            value.ap = true
+        end
+    end
 end
 
 return Buttons

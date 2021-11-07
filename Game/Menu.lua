@@ -2,33 +2,36 @@
 Menu = Actor:extend()
 
 function Menu:new()
+    self.alpha = 0
     self.font = FONT_OTAKU_BUTTONS
-    self.buttons = Buttons(self.font)
+    local b = Buttons(true,self.font)
     self.title = "NOMBRE DEL JUEGOS"
     --love.graphics.setFont(love.graphics.newFont("/Data/pong.ttf", 70))
     Menu.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
-    self.buttons:newButton(
+    b:newButton(
         "Start Game", 
         function()
             Main_FSM:changeState('play')
         end)
-    self.buttons:newButton(
+    b:newButton(
         "Settings", 
         function()
             Main_FSM:changeState('settings')
         end)
-    self.buttons:newButton(
+    b:newButton(
         "Exit", 
         function()
             love.event.quit(0)
         end)
+    Scene.getScene():addButton(b)
 end
 
 function Menu:update(dt)
+    self.alpha = self.alpha < 1 and self.alpha + dt/1.5 or 1
 end
 
 function Menu:draw()
-    love.graphics.setColor(255, 255, 255, 1)
+    love.graphics.setColor(255, 255, 255, self.alpha)
     love.graphics.print(
         self.title,
         FONT_OTAKU_TITLE,
@@ -43,8 +46,6 @@ function Menu:draw()
     local sx = self.scale.x
     local sy = self.scale.y
     local rr = self.rot
-    
-    self.buttons:update()
     
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

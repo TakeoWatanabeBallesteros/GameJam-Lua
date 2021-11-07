@@ -2,13 +2,16 @@
 Intro = Actor:extend()
 
 function Intro:new()
-    self.alpha = 1
-    Scene.getScene():addTimer(3, function() Main_FSM:changeState('splash_02') end, false)
+    self.alpha = 0
+    self.timer = 0
+    self.title = 'LOS DE LA B'
+    Scene.getScene():addTimer(6, function() Main_FSM:changeState('splash_02') end, false)
     Intro.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,1, 'HUD')
 end
 
 function Intro:update(dt)
-    self.alpha = self.alpha - dt/3
+    self.timer = self.timer + dt
+    self.alpha = self.timer < 3 and self.alpha + dt/3 or self.alpha - dt/3
 end
 
 function Intro:draw()
@@ -21,17 +24,17 @@ function Intro:draw()
     local sy = self.scale.y
     local rr = self.rot
     love.graphics.print(
-        'AP GAMES',
+        self.title,
         FONT_OTAKU_TITLE,
-        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth('AP GAMES') * 0.5,
-         WH/2 - FONT_OTAKU_TITLE:getHeight('AP GAMES') * 0.5
+        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth(self.title) * 0.5,
+         WH/2 - FONT_OTAKU_TITLE:getHeight(self.title) * 0.5
         )
     love.graphics.setFont(FONT_OTAKU_BUTTONS)
     love.graphics.print(
         'PRESENTA',
         FONT_OTAKU_BUTTONS,
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('PRESENTA') * 0.5,
-         WH/2 + FONT_OTAKU_TITLE:getHeight('AP GAMES') * 0.5
+         WH/2 + FONT_OTAKU_TITLE:getHeight(self.title) * 0.5
         )
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

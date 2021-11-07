@@ -23,6 +23,10 @@ function Scene:addActor(type)
     end
 end
 
+function Scene:addButton(button)
+  table.insert(self.actors,button)
+end
+
 function Scene:addActorWithPos(type, x, y, fx, fy)
   if type then
     local a=type(x, y, fx, fy)

@@ -33,7 +33,7 @@ Editor = Editor or require "Game/Editor"
 WW, WH = love.graphics.getDimensions()
 --#endregion
 --#region ACTORS
-LAYERS = {"Background", "Middle", "Front", "HUD"}
+LAYERS = {"Background", "Middle", "Front", "HUD", "Buttons"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 --#endregion
 --#region SPRITES
