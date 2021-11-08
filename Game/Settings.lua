@@ -6,7 +6,7 @@ function Settings:new()
     self.slider = Slider(WW/2, WH/2, 300, GAME_SETTINGS_VOLUME, 0, 1, function (v) love.audio.setVolume(v) GAME_SETTINGS_VOLUME = v end)
     Settings.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
     b:newButton(
-        "Back", 
+        "Back",
         function()
             Main_FSM:changeState('menu')
         end,
