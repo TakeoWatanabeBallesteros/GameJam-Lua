@@ -4,8 +4,9 @@ Data = Data or require "Game/data"
 function love.load(arg)
   love.window.setFullscreen(true)
   WW, WH = love.graphics.getDimensions()
+  print(WW, WH)
   StartGame()
-  love.audio.setVolume(.6)
+  love.audio.setVolume(GAME_SETTINGS_VOLUME)
 end
 
 function love.update(dt)

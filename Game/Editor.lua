@@ -123,4 +123,13 @@ function Editor:draw()
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
+function Editor:mousepressed( x, y, _button, istouch, presses )
+end
+function Editor:mousereleased( x, y, _button, istouch, presses )
+end
+function Editor:keypressed(_key)
+end
+function Editor:keyreleased(_key)
+end
+
 return Editor

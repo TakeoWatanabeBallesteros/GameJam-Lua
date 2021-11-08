@@ -2,7 +2,7 @@
 --it's up to you to actually parse commands
 --or do something with tags, etc. This just allows you
 --to load, etc, nodes from a yarn exported to json.
-
+Yarnparse = Object:extend()
 
 function string:split(delimiter)
     local result = { }
@@ -25,16 +25,12 @@ function string:extract(open, close)
     return b[1]
 end
 
-yarnparse={
-    json=require("Engine/json/json")
-} 
-
-yarnparse.load=function(self, filename)
+Yarnparse.load=function(self, filename)
     
     local yarn={}
     local parsed, size=love.filesystem.read("string", filename)
     local hashmap={}
-    local nodes=self.json.decode(parsed)
+    local nodes= JSON.decode(parsed)
     --now to create a loopup table, for faster loading by title
     for i,v in ipairs(nodes) do
         hashmap[v.title]=i
@@ -265,3 +261,4 @@ yarnparse.load=function(self, filename)
 
     }
 end
+return Yarnparse

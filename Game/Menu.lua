@@ -50,4 +50,16 @@ function Menu:draw()
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
+function Menu:mousepressed( x, y, _button, istouch, presses )
+end
+
+function Menu:mousereleased( x, y, _button, istouch, presses )
+end
+
+function Menu:keypressed(_key)
+end
+
+function Menu:keyreleased(_key)
+end
+
 return Menu

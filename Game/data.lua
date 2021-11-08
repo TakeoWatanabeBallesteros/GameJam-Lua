@@ -9,6 +9,7 @@ local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'su
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
+JSON = JSON or require "Engine/json/json"
 Yarnparse = Yarnparse or require "Engine/yarnparse"
 Buttons = Buttons or require "Engine/buttons"
 Actor = Actor or require "Engine/actor"
@@ -27,6 +28,7 @@ Intro_03 = Intro_03 or require "Game/Intros/Intro_03"
 Menu = Menu or require "Game/Menu"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
+Dialogue = Dialogue or require "Game/Dialogue"
 
 --#endregion
 --#region WINDOW
@@ -72,8 +74,9 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 
 --#endregion
 --#region FONTS
-FONT_OTAKU_TITLE = love.graphics.newFont("/Data/otaku.ttf", 55)
-FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/otaku.ttf", 32)
+FONT_OTAKU_TITLE = love.graphics.newFont("/Data/Fonts/otaku.ttf", 55)
+FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/Fonts/otaku.ttf", 32)
+FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", 22)
 --#endregion
 --#region TITLES
 
@@ -82,6 +85,9 @@ FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/otaku.ttf", 32)
 AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 --#endregion
 --#region SETTINGS
+    --#region GAME_SETTINGS
+    GAME_SETTINGS_VOLUME = 0.6
+
     --#region AVATAR_SETTINGS
     AVATAR_SETTINGS_SKINS = 1
     AVATAR_SETTINGS_EYES = 1

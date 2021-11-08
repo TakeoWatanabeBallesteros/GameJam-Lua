@@ -82,33 +82,25 @@ end
 
 function love.mousepressed( x, y, _button, istouch, presses )
   for index, value in ipairs(Scene.getScene():getActorList()) do
-      if  value:is(Buttons) then
-          value:mousepressed(x, y, _button, istouch, presses)
-      end
+    if value then value:mousepressed(x, y, _button, istouch, presses) end
   end
 end
 
 function love.mousereleased( x, y, _button, istouch, presses )
   for index, value in ipairs(Scene.getScene():getActorList()) do
-      if value:is(Buttons) then
-          value:mousereleased( x, y, _button, istouch, presses )
-      end
+    if value then value:mousereleased( x, y, _button, istouch, presses ) end
   end
 end
 
 function love.keypressed(key)
   for index, value in ipairs(Scene.getScene():getActorList()) do
-    if value:is(Buttons) then
-        value:keypressed(key)
-    end
+    if value then value:keypressed(key) end
   end
 end
 
 function love.keyreleased(key)
   for index, value in ipairs(Scene.getScene():getActorList()) do
-    if value:is(Buttons) then
-        value:keyreleased(key)
-    end
+    if value then value:keyreleased(key) end
   end
 end
 

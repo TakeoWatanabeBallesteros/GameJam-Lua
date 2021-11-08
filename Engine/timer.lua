@@ -24,4 +24,16 @@ function Timer:getTime()
   return self.tAct
 end
 
+function Timer:mousepressed( x, y, _button, istouch, presses )
+end
+
+function Timer:mousereleased( x, y, _button, istouch, presses )
+end
+
+function Timer:keypressed(_key)
+end
+
+function Timer:keyreleased(_key)
+end
+
 return Timer

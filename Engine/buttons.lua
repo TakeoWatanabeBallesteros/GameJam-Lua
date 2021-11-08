@@ -99,5 +99,11 @@ function Buttons:mousereleased( x, y, _button, istouch, presses )
         end
 end
 
+function Buttons:keypressed(_key)
+end
+
+function Buttons:keyreleased(_key)
+end
+
 return Buttons
 
