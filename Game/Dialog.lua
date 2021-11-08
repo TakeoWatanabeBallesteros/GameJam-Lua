@@ -40,8 +40,8 @@ function Dialog:draw()
         total_width = total_width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         if total_width>=max_width then
             current_height = current_height + FONT_DIALOGUES_DEFAULT:getHeight(value[2])
-            total_width = WW/3
-            width = WW/3
+            total_width = WW/10
+            width = WW/10
         end
         if not value[3] then
             love.graphics.print({value[1], value[2]}, FONT_DIALOGUES_DEFAULT, width,current_height)
@@ -52,7 +52,7 @@ function Dialog:draw()
         if index<#self.dialogues[self.dialogues_index][2] then
             width = width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         else
-            width = WW/2
+            width = WW/10
         end
     end
     love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)

@@ -2,7 +2,7 @@
 --#region AVATAR_ARRAYS
 local skins_colors = {'clara', 'intermedia', 'oscura'}
 local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
-local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'moño'}
+local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'recogido'}
 local hairs_colors = {'azul', 'magenta', 'marron', 'rojo', 'rubio', 'verde'}
 local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
 --#endregion
@@ -89,7 +89,7 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 --#region FONTS
 FONT_OTAKU_TITLE = love.graphics.newFont("/Data/Fonts/otaku.ttf", 55)
 FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/Fonts/otaku.ttf", 32)
-FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", 22)
+FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", 29)
 --#endregion
 --#region TITLES
 
