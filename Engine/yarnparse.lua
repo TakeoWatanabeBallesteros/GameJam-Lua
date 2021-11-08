@@ -25,8 +25,7 @@ function string:extract(open, close)
     return b[1]
 end
 
-Yarnparse.load=function(self, filename)
-    
+Yarnparse.load=function(self, filename)  
     local yarn={}
     local parsed, size=love.filesystem.read("string", filename)
     local hashmap={}
@@ -160,8 +159,7 @@ Yarnparse.load=function(self, filename)
                                     local w = text:split("%[color=")[1]
                                     w = w:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', false})
-                                        print(v)
+                                        table.insert(t, {{0, 0, 0}, v..' ', false})
                                     end
                                 end
                                 text=text:split("%[%/color%]")[2]
@@ -181,10 +179,9 @@ Yarnparse.load=function(self, filename)
                                 p=text:extract("%[shake%]", "%[%/shake%]")
                                 if #t == 0 then
                                     local w = text:split("%[shake%]")[1]
-                                    print(text)
                                     w = w:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', false})
+                                        table.insert(t, {{0, 0, 0}, v..' ', false})
                                     end
                                 end
                                 text=text:split("%[%/shake%]")[2]
@@ -198,13 +195,13 @@ Yarnparse.load=function(self, filename)
                                 else
                                     local w = p:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', true})
+                                        table.insert(t, {{0, 0, 0}, v..' ', true})
                                     end
                                 end
                             else
                                 local w = text:split(" ")
                                     for k,v in ipairs(w) do
-                                        table.insert(t, {{1, 1, 1}, v..' ', false}) 
+                                        table.insert(t, {{0, 0, 0}, v..' ', false}) 
                                     end
                                 break
                             end

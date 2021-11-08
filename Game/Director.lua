@@ -8,6 +8,7 @@ function StartGame()
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='play'})
+    Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from="editor"})
     
     Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
@@ -69,4 +70,13 @@ function onSplash_01Enter()
     Scene.getScene():removeActor(Editor)
     Scene.getScene():removeActor(Buttons)
     Scene.getScene():removeActor(Buttons)
+  end
+
+  function onIntroEnter()
+    local d = Dialog('Data/Dialogues/Intro.json')
+    Scene.getScene():addDialog(d)
+  end
+
+  function onIntroExit()
+
   end

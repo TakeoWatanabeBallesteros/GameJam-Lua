@@ -83,8 +83,7 @@ function Editor:new()
     b2:newButton(
         "CONTINUAR", 
         function()
-            if AVATAR_SETTINGS_SKINS >1 then AVATAR_SETTINGS_SKINS = AVATAR_SETTINGS_SKINS -1 
-            else AVATAR_SETTINGS_SKINS = #AVATAR_SKINS end
+            Main_FSM:changeState('intro')
         end,
         WW/1.3,
         WH/1.3
@@ -108,10 +107,12 @@ end
 
 function Editor:draw()
     love.graphics.setColor(255, 255, 255, 1)
-    love.graphics.draw(AVATAR_SKINS[AVATAR_SETTINGS_SKINS])
-    love.graphics.draw(AVATAR_EYES[AVATAR_SETTINGS_EYES])
-    love.graphics.draw(AVATAR_HAIRS[AVATAR_SETTINGS_HAIRS])
-    love.graphics.draw(AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTHES])
+    local sx = WW / DIALOG_BOXES['player_1']:getWidth()
+    local sy = WH / DIALOG_BOXES['player_1']:getHeight()
+    love.graphics.draw(AVATAR_SKINS[AVATAR_SETTINGS_SKINS], 0, 0, 0,sx, sy)
+    love.graphics.draw(AVATAR_EYES[AVATAR_SETTINGS_EYES], 0, 0, 0,sx, sy)
+    love.graphics.draw(AVATAR_HAIRS[AVATAR_SETTINGS_HAIRS], 0, 0, 0,sx, sy)
+    love.graphics.draw(AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTHES], 0, 0, 0,sx, sy)
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y

@@ -6,6 +6,10 @@ local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'moño'}
 local hairs_colors = {'azul', 'magenta', 'marron', 'rojo', 'rubio', 'verde'}
 local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
 --#endregion
+--#region CHARACTERS_NAMES
+local characters_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
+--#endregion
+
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
@@ -28,7 +32,7 @@ Intro_03 = Intro_03 or require "Game/Intros/Intro_03"
 Menu = Menu or require "Game/Menu"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
-Dialogue = Dialogue or require "Game/Dialogue"
+Dialog = Dialog or require "Game/Dialog"
 
 --#endregion
 --#region WINDOW
@@ -43,34 +47,43 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
     --#endregion
-    --#region AVATAR_SKINS
-    AVATAR_SKINS = {}
-    for index, value in ipairs(skins_colors) do
-        table.insert(AVATAR_SKINS, love.graphics.newImage("Data/Avatar/Skins/piel_"..value..".png"))
-    end
-    --#endregion
-    --#region AVATAR_EYES
-    AVATAR_EYES = {}
-    for index, value in ipairs(eyes_colors) do
-        table.insert(AVATAR_EYES, love.graphics.newImage("Data/Avatar/Eyes/ojos_"..value..".png"))
-    end
-    --#endregion
-    --#region AVATAR_HAIRS
-    AVATAR_HAIRS = {}
-    for index, value in ipairs(hairs_types) do
-        for _index, _value in ipairs(hairs_colors) do
-            table.insert(AVATAR_HAIRS, love.graphics.newImage("Data/Avatar/Hairs/pelo_"..value.."_".._value..".png"))
+    --#region AVATAR_SPRITES
+        --#region AVATAR_SKINS
+        AVATAR_SKINS = {}
+        for index, value in ipairs(skins_colors) do
+            table.insert(AVATAR_SKINS, love.graphics.newImage("Data/Avatar/Skins/piel_"..value..".png"))
         end
+        --#endregion
+        --#region AVATAR_EYES
+        AVATAR_EYES = {}
+        for index, value in ipairs(eyes_colors) do
+            table.insert(AVATAR_EYES, love.graphics.newImage("Data/Avatar/Eyes/ojos_"..value..".png"))
+        end
+        --#endregion
+        --#region AVATAR_HAIRS
+        AVATAR_HAIRS = {}
+        for index, value in ipairs(hairs_types) do
+            for _index, _value in ipairs(hairs_colors) do
+                table.insert(AVATAR_HAIRS, love.graphics.newImage("Data/Avatar/Hairs/pelo_"..value.."_".._value..".png"))
+            end
+        end
+        --#endregion
+        --#region AVATAR_CLOTHES
+        AVATAR_CLOTHES = {}
+        for index, value in ipairs(clothes_types) do
+            table.insert(AVATAR_CLOTHES, love.graphics.newImage("Data/Avatar/Clothes/ropa_"..value..".png"))
+        end
+        --#endregion
+    --#endregion
+    --#region DIALOG_BOXES
+    DIALOG_BOXES = {}
+    for index, value in ipairs(characters_names) do
+        DIALOG_BOXES[value] = love.graphics.newImage("Data/Dialog_Boxes/cartel_"..value..".png")
     end
     --#endregion
-    --#region AVATAR_CLOTHES
-    AVATAR_CLOTHES = {}
-    for index, value in ipairs(clothes_types) do
-        table.insert(AVATAR_CLOTHES, love.graphics.newImage("Data/Avatar/Clothes/ropa_"..value..".png"))
-    end
-    --#endregion
+
 --#endregion
---#region FIELD
+--#region DIALOGUES_JSON
 
 --#endregion
 --#region FONTS
@@ -89,6 +102,7 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     GAME_SETTINGS_VOLUME = 0.6
 
     --#region AVATAR_SETTINGS
+    AVATAR_SETTINGS_NAME = "default"
     AVATAR_SETTINGS_SKINS = 1
     AVATAR_SETTINGS_EYES = 1
     AVATAR_SETTINGS_HAIRS = 1

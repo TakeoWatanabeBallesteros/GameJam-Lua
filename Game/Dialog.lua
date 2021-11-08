@@ -1,6 +1,6 @@
-Dialogue = Actor:extend()
+Dialog = Actor:extend()
 
-function Dialogue:new(filename)
+function Dialog:new(filename)
     --a stupid simple menu for our test purposes.
     self.menu={
         --select item.
@@ -14,17 +14,24 @@ function Dialogue:new(filename)
     self.text= self.script.text --our global text buffer, for showing one line at a time.
     self.text[1][2] = self.script.who..': ' .. self.text[1][2]
     self.command = false -- this is just so we don't accidently display the command.
+    Dialog.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,0, 'HUD')
 end
 
-function Dialogue:update(dt)
+function Dialog:update(dt)
 end
 
-function Dialogue:draw()
+function Dialog:draw()
+    love.graphics.setColor(255, 255, 255, 1)
+    local sx = WW / DIALOG_BOXES['player_1']:getWidth()
+    local sy = WH / DIALOG_BOXES['player_1']:getHeight()
+    love.graphics.draw(DIALOG_BOXES['player_1'], 0, 0, 0, sx, sy)
+    love.graphics.line(WW/10,0,WW/10,WH)
+    love.graphics.line(WW/1.1,0,WW/1.1,WH)
     --here is our current text.
-    local width = WW/3
-    local total_width = WW/3
-    local current_height = WH/1.5
-    local max_width = WW/3+400
+    local width = WW/10
+    local total_width = WW/10
+    local current_height = WH/1.6
+    local max_width = WW/1.1
     for index, value in ipairs(self.text) do
         total_width = total_width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         if total_width>=max_width then
@@ -44,7 +51,7 @@ function Dialogue:draw()
             width = WW/2
         end
     end
-    love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/2, WH-50)
+    love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)
 
     --display the menu
     if(self.node.has_choices and self.node.body:done()) then
@@ -59,7 +66,7 @@ function Dialogue:draw()
     end
 end
 
-function Dialogue:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
+function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 	love.math.setRandomSeed(math.floor(love.timer.getTime()*updatesPerSecond))
 	for i=1,repeats do
 		local ox,oy = (love.math.random()-0.5)*maxDistance,(love.math.random()-0.5)*maxDistance
@@ -67,12 +74,12 @@ function Dialogue:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 	end
 end
 
-function Dialogue:mousepressed( x, y, _button, istouch, presses )
+function Dialog:mousepressed( x, y, _button, istouch, presses )
 end
-function Dialogue:mousereleased( x, y, _button, istouch, presses )
+function Dialog:mousereleased( x, y, _button, istouch, presses )
 end
 
-function Dialogue:keypressed(key)
+function Dialog:keypressed(key)
     --slow down space bar
     if(not self.node.body:done()) then --are we at the bottom? If not, keep traversing.
         --move to the next line on the body of the node. If it's done, do nothing.
@@ -109,6 +116,6 @@ function Dialogue:keypressed(key)
         end
     end
 end
-function Dialogue:keyreleased(_key)
+function Dialog:keyreleased(_key)
 end
-return Dialogue
+return Dialog
