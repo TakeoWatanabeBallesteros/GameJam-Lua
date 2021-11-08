@@ -80,3 +80,18 @@ function onSplash_01Enter()
   function onIntroExit()
 
   end
+
+  
+  function onTopoEnter()
+    Scene.getScene():addActor(BACKGROUND_TOPO_GAME)
+    Scene.getScene():addActor(MAZO_TOPO_GAME)
+    Scene.getScene():addActor(TOPO_TOPO_GAME)
+  end
+
+  function onTopoExit()
+    Scene.getScene():removeActor(BACKGROUND_TOPO_GAME)
+    Scene.getScene():removeActor(MAZO_TOPO_GAME)
+    Scene.getScene():removeActor(TOPO_TOPO_GAME)
+
+
+  end
