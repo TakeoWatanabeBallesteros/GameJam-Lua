@@ -114,7 +114,7 @@ Yarnparse.load=function(self, filename)
                             local buff=text:split(": ")
                             return {who=buff[1], text=self:text_spliter(buff[2])}
                         end
-                        return {who="none", text=self:text_spliter(text)}
+                        return {who="player_1", text=self:text_spliter(text)}
                      end,
                      get_parse_strings=function(self, prefix, text, postfix)
                         local s=text:extract(prefix, postfix)

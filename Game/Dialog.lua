@@ -1,6 +1,8 @@
 Dialog = Actor:extend()
 
 function Dialog:new(filename)
+    self.dialogues={}
+    self.dialogues_index = 1
     --a stupid simple menu for our test purposes.
     self.menu={
         --select item.
@@ -12,7 +14,9 @@ function Dialog:new(filename)
     --get our starting text, store it in the text buffer.
     self.script=self.node.body:traverse() --this allows us to go line by line
     self.text= self.script.text --our global text buffer, for showing one line at a time.
-    self.text[1][2] = self.script.who..': ' .. self.text[1][2]
+    if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
+    local i = {self.script.who, self.text}
+    table.insert(self.dialogues, i)
     self.command = false -- this is just so we don't accidently display the command.
     Dialog.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,0, 'HUD')
 end
@@ -22,9 +26,9 @@ end
 
 function Dialog:draw()
     love.graphics.setColor(255, 255, 255, 1)
-    local sx = WW / DIALOG_BOXES['player_1']:getWidth()
-    local sy = WH / DIALOG_BOXES['player_1']:getHeight()
-    love.graphics.draw(DIALOG_BOXES['player_1'], 0, 0, 0, sx, sy)
+    local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
+    local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()
+    love.graphics.draw(DIALOG_BOXES[self.dialogues[self.dialogues_index][1]], 0, 0, 0, sx, sy)
     love.graphics.line(WW/10,0,WW/10,WH)
     love.graphics.line(WW/1.1,0,WW/1.1,WH)
     --here is our current text.
@@ -32,7 +36,7 @@ function Dialog:draw()
     local total_width = WW/10
     local current_height = WH/1.6
     local max_width = WW/1.1
-    for index, value in ipairs(self.text) do
+    for index, value in ipairs(self.dialogues[self.dialogues_index][2]) do
         total_width = total_width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         if total_width>=max_width then
             current_height = current_height + FONT_DIALOGUES_DEFAULT:getHeight(value[2])
@@ -45,7 +49,7 @@ function Dialog:draw()
             --love.graphics.print({value[1], value[2]}, font, width,80)
             self:shakyText(20,5,1,value,width,current_height)
         end
-        if index<#self.text then
+        if index<#self.dialogues[self.dialogues_index][2] then
             width = width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         else
             width = WW/2
@@ -54,15 +58,21 @@ function Dialog:draw()
     love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)
 
     --display the menu
-    if(self.node.has_choices and self.node.body:done()) then
+    if(self.node.has_choices and self.node.body:done()) and self.dialogues_index == #self.dialogues then
         for i,v in ipairs(self.node.choices) do
+            local c = {1, 1, 1}
             --our menu selection. The selected text is a diff color
-            if(i==self.menu.select) then love.graphics.setColor(0.9, 0.4, 0.3) end
+            if(i==self.menu.select) then c = {0.9, 0.4, 0.3} end
             --and this is the actual text itself.
-            love.graphics.print(v.text, 100, 200+(i*20))
+            love.graphics.print({c, v.text}, FONT_DIALOGUES_DEFAULT, WW/3,200+(i*40))
             --------------------------------------
-            if(i==self.menu.select) then love.graphics.setColor(1, 1, 1) end
+            if(i==self.menu.select) then c = {1, 1, 1} end
         end
+    end
+    
+    function love.wheelmoved(x, y)
+        if y == -1 and self.dialogues_index < #self.dialogues then self.dialogues_index = self.dialogues_index + 1
+        elseif y == 1 and self.dialogues_index > 1 then self.dialogues_index = self.dialogues_index - 1 end
     end
 end
 
@@ -81,7 +91,7 @@ end
 
 function Dialog:keypressed(key)
     --slow down space bar
-    if(not self.node.body:done()) then --are we at the bottom? If not, keep traversing.
+    if(not self.node.body:done()) and self.dialogues_index == #self.dialogues then --are we at the bottom? If not, keep traversing.
         --move to the next line on the body of the node. If it's done, do nothing.
         
         --if not, check to see if space it prssed. 
@@ -94,11 +104,14 @@ function Dialog:keypressed(key)
             until not self.command
             --text=script.who .. ": " .. script.text
             self.text=self.script.text
-            self.text[1][2] = self.script.who..': ' .. self.text[1][2]
+            if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
+            local i = {self.script.who, self.text}
+            table.insert(self.dialogues, i)
+            self.dialogues_index = self.dialogues_index + 1
         end
     --In case there arechoices,
     --display our simple menu
-    elseif(self.node.has_choices) and self.node.body:done() then
+    elseif(self.node.has_choices) and self.node.body:done() and self.dialogues_index == #self.dialogues then
         if key == "down" then
             self.menu.select=self.menu.select+1
             if(self.menu.select>#self.node.choices) then 
