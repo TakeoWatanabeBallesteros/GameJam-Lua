@@ -16,6 +16,7 @@ function Dialog:new(filename)
     self.text= self.script.text --our global text buffer, for showing one line at a time.
     if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
     local i = {self.script.who, self.text}
+    if i[1] == 'Ricky' or i[1] == 'Marina' then for k,v in ipairs(i[2]) do if v[1][1] == 0 and v[1][2] == 0 and v[1][3] == 0 then v[1] = {1,1,1} end end end
     table.insert(self.dialogues, i)
     self.command = false -- this is just so we don't accidently display the command.
     Dialog.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,0, 'HUD')
@@ -106,6 +107,7 @@ function Dialog:keypressed(key)
             self.text=self.script.text
             if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
             local i = {self.script.who, self.text}
+            if i[1] == 'Marina' or i[1] == 'Ricky' then for k,v in ipairs(i[2]) do if v[1][1] == 0 and v[1][2] == 0 and v[1][3] == 0 then v[1] = {1,1,1} end end end
             table.insert(self.dialogues, i)
             self.dialogues_index = self.dialogues_index + 1
         end

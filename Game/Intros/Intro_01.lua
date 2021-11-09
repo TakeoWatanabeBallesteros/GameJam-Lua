@@ -5,7 +5,7 @@ function Intro_01:new()
     self.alpha = 0
     self.timer = 0
     self.title = 'LOS DE LA B'
-    Scene.getScene():addTimer(6, function() Main_FSM:changeState('splash_02') end, false)
+    Scene.getScene():addTimer(6, function() Main_FSM:changeState('splash_03') end, false)
     Intro_01.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,1,1, 'HUD')
 end
 

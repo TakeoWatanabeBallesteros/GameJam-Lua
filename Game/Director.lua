@@ -12,21 +12,22 @@ function StartGame()
     
     Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
-
 function onSplash_01Enter()
-    Scene.getScene():addActor(Intro_01)
+    local s = require ("Engine/o-ten-one")({background={0, 0, 0}})
+    s.onDone = function() Main_FSM:changeState('splash_02') Scene.getScene():removeThisActor(s) end
+    Scene.getScene():addSplashScreen(s)
   end
   
   function onSplash_01Exit()
-    Scene.getScene():removeActor(Intro_01)
+    
   end
 
   function onSplash_02Enter()
-    Scene.getScene():addActor(Intro_02)
+    Scene.getScene():addActor(Intro_01)
   end
   
   function onSplash_02Exit()
-    Scene.getScene():removeActor(Intro_02)
+    Scene.getScene():removeActor(Intro_01)
   end
 
   function onSplash_03Enter()

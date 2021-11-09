@@ -23,6 +23,10 @@ function Scene:addActor(type)
     end
 end
 
+function Scene:addSplashScreen(s)
+  table.insert(self.actors,s)
+end
+
 function Scene:addButton(button)
   table.insert(self.actors,button)
 end

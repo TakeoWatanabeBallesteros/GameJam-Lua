@@ -1,4 +1,8 @@
 --Takeo Watanabe
+--#region WINDOW
+WW, WH = love.graphics.getDimensions()
+--#endregion
+
 --#region AVATAR_ARRAYS
 local skins_colors = {'clara', 'intermedia', 'oscura'}
 local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
@@ -35,9 +39,7 @@ Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
 
 --#endregion
---#region WINDOW
-WW, WH = love.graphics.getDimensions()
---#endregion
+
 --#region ACTORS
 LAYERS = {"Background", "Middle", "Front", "HUD", "Buttons"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")

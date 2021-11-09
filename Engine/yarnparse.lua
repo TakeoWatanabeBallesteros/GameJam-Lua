@@ -255,7 +255,6 @@ Yarnparse.load=function(self, filename)
             make_choice=function(self, node, choice)
                 return self:get_node(node.choices[choice].node)
             end
-
     }
 end
 return Yarnparse
