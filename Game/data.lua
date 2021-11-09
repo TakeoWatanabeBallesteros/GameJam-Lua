@@ -102,8 +102,9 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 --#endregion
 --#region SETTINGS
     --#region GAME_SETTINGS
-    GAME_SETTINGS_VOLUME = 0.6
-
+    GAME_SETTINGS_VOLUME_MASTER = 0.6
+    GAME_SETTINGS_VOLUME_MUSIC = 0.6
+    GAME_SETTINGS_VOLUME_EFFECTS = 0.6
     --#region AVATAR_SETTINGS
     AVATAR_SETTINGS_NAME = "default"
     AVATAR_SETTINGS_SKINS = 1

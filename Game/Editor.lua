@@ -3,7 +3,7 @@ Editor = Actor:extend()
 function Editor:new()
     self.font = FONT_OTAKU_BUTTONS
     local b1 = Buttons(false,self.font, 64, 64, false)
-    local b2 = Buttons(false,self.font, 256, 64, true)
+    local b2 = Buttons(false,self.font, 256, 64, false)
     Editor.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
     --#region AVATAR_BUTTONS
     b1:newButton(
@@ -94,7 +94,7 @@ function Editor:new()
             Main_FSM:changeState('menu')
         end,
         WW/1.3,
-        WH/1.2
+        WH/1.3+80
     )
     --#endregion
     
