@@ -13,7 +13,7 @@ function StartGame()
     Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
-    local s = require ("Engine/o-ten-one")({background={0, 0, 0}})
+    local s = SplashLib.new({background={0, 0, 0}})
     s.onDone = function() Main_FSM:changeState('splash_02') Scene.getScene():removeThisActor(s) end
     Scene.getScene():addSplashScreen(s)
   end

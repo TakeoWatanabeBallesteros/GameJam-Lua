@@ -2,6 +2,7 @@
 Menu = Actor:extend()
 
 function Menu:new()
+    love.mouse.setVisible(true)
     self.alpha = 0
     self.font = FONT_OTAKU_BUTTONS
     local b = Buttons(true,self.font)

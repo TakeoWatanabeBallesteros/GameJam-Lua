@@ -5,6 +5,7 @@ function love.load(arg)
   love.window.setFullscreen(true)
   WW, WH = love.graphics.getDimensions()
   print(WW, WH)
+  love.mouse.setVisible(false)
   StartGame()
   love.audio.setVolume(GAME_SETTINGS_VOLUME)
 end

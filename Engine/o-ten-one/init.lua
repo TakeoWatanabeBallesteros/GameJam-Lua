@@ -300,8 +300,11 @@ function splashlib.new(init)
   self.draw = splashlib.draw
   self.update = splashlib.update
   self.skip = splashlib.skip
-
-  return self
+  self.mousepressed = splashlib.mousepressed
+  self.mousereleased = splashlib.mousereleased
+  self.keypressed = splashlib.keypressed
+  self.keyreleased = splashlib.keyreleased
+return self
 end
 
 function splashlib:draw()
@@ -384,11 +387,25 @@ function splashlib:skip()
     timer.tween(0.3, self, {alpha = 0})
     timer.after(0.3, function ()
       timer.clear() -- to be safe
-      if self.onDone then self.onDone() end
+      Main_FSM:changeState('menu') 
+      Scene.getScene():removeThisActor(self)
     end)
   end
 end
 
+function splashlib:mousepressed( x, y, _button, istouch, presses )
+end
+function splashlib:mousereleased( x, y, _button, istouch, presses )
+end
+function splashlib:keypressed(_key)
+    if _key == 'space' then
+        self:skip()
+    end
+end
+function splashlib:keyreleased(_key)
+end
+
 setmetatable(splashlib, { __call = function(self, ...) return self.new(...) end })
+
 
 return splashlib

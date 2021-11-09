@@ -17,6 +17,7 @@ local characters_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 
 --#region ALL_CLASES
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
+SplashLib = SplashLib or require ("Engine/o-ten-one")
 JSON = JSON or require "Engine/json/json"
 Yarnparse = Yarnparse or require "Engine/yarnparse"
 Buttons = Buttons or require "Engine/buttons"

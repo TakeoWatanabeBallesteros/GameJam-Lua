@@ -27,7 +27,7 @@ function Settings:draw()
         'VOLUMEN: '..self.volume,
         FONT_OTAKU_BUTTONS,
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('VOLUMEN: '..self.volume) * 0.5,
-         (WH/2) - FONT_OTAKU_BUTTONS:getHeight('VOLUMEN: '..self.volume) * 0.5 - self.slider.width
+         (WH/2) - FONT_OTAKU_BUTTONS:getHeight('VOLUMEN: '..self.volume) * 0.5 - self.slider.height
         )
 end
 
