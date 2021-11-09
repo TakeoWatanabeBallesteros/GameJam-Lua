@@ -44,7 +44,7 @@ end
 function Scene:addTimer(seconds, callback, loop)
   table.insert(self.actors,Timer(seconds, callback, loop))
 end
-function Scene:addTimer(t)
+function Scene:addTimerr(t)
   table.insert(self.actors,t)
 end
 

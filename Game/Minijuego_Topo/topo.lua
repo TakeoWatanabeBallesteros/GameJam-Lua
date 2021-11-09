@@ -11,7 +11,8 @@ local audioHit,mickeySound
 
 function topo:new()
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
-    
+    globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
+    Scene.getScene():addTimerr(globalTimer)
     audioHit = love.audio.newSource("Data/mjWackAMoleGameSounds/blip.wav","static")
     mickeySound = love.audio.newSource("Data/mjWackAMoleGameSounds/MickeyMouseSong.mp3","static")
     mickeySound:setVolume(.7)
@@ -51,7 +52,6 @@ function topo:new()
   
 end
 function topo:update(dt)
-  
   if gamestate == "TopoOut" then
        self.position.x = -300 
        self.position.y = 0 
@@ -97,7 +97,8 @@ function topo:draw()
     local sy = WH/self.height
     local rr = 0
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-    love.graphics.print(points,777, 820,0,3,3,0,0,0,0)
+    love.graphics.print(points,WW/2.1, WH/1.1,0,1,1,0,0,0,0)
+    love.graphics.print(math.floor(globalTimer:getTime()),WW/2.15, WH/1.04,0,1,1,0,0,0,0)
 end
 
 function topo:dist(b)
@@ -105,7 +106,7 @@ function topo:dist(b)
   v=b.position - self.position
   return v:len()
 end
-function topo:mousepressed(x, y, button, istouch)
+function topo:mousepressed(x, y, button, istouch,presses )
   if gamestate == "HitTopo" then
       if button == 1 and self:dist(self.mazo)<60 then gamestate = "TopoOut" 
         points = points+1
@@ -114,7 +115,7 @@ function topo:mousepressed(x, y, button, istouch)
   end
 end
 
-function topo:mousereleased(x,y,button,istouch)
+function topo:mousereleased(x,y,button,istouch,presses )
 end
 
 function topo:keypressed(key)
