@@ -2,6 +2,7 @@
 Data = Data or require "Game/data"
 
 function love.load(arg)
+  SaveManager:load()
   love.window.setFullscreen(true)
   WW, WH = love.graphics.getDimensions()
   print(WW, WH)

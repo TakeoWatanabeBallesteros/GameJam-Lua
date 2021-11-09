@@ -3,9 +3,9 @@ Settings = Actor:extend()
 function Settings:new()
     self.font = FONT_OTAKU_BUTTONS
     local b = Buttons(false,self.font)
-    self.volume_master_slider = Slider(WW/2, WH/2.5, 300, GAME_SETTINGS_VOLUME_MASTER, 0, 1, function (v) love.audio.setVolume(v) GAME_SETTINGS_VOLUME_MASTER = v end)
-    self.volume_music_slider = Slider(WW/2, WH/2, 300, GAME_SETTINGS_VOLUME_MUSIC, 0, 1, function (v) GAME_SETTINGS_VOLUME_MUSIC = v end)
-    self.volume_effects_slider = Slider(WW/2, WH/1.666, 300, GAME_SETTINGS_VOLUME_EFFECTS, 0, 1, function (v) GAME_SETTINGS_VOLUME_EFFECTS = v end)
+    self.volume_master_slider = Slider(WW/2, WH/2.5, 300, GAME_SETTINGS_VOLUME_MASTER, 0, 1, function (v) love.audio.setVolume(v) GAME_SETTINGS_VOLUME_MASTER = v SaveManager:saveSettings() end)
+    self.volume_music_slider = Slider(WW/2, WH/2, 300, GAME_SETTINGS_VOLUME_MUSIC, 0, 1, function (v) GAME_SETTINGS_VOLUME_MUSIC = v SaveManager:saveSettings() end)
+    self.volume_effects_slider = Slider(WW/2, WH/1.666, 300, GAME_SETTINGS_VOLUME_EFFECTS, 0, 1, function (v) GAME_SETTINGS_VOLUME_EFFECTS = v SaveManager:saveSettings() end)
     Settings.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
     b:newButton(
         "Back",
