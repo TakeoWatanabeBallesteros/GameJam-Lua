@@ -18,8 +18,9 @@ function Mazo:draw()
     local yy = self.position.y
     local oy = self.origin.y
     
-    local sx = .4
-    local sy = .4
+    
+    local sx = WW/self.width*0.4
+    local sy = WH/self.height*0.4
     
     local rr = 0
     love.graphics.draw(self.shadow,xx,yy,rr,sx,sy,ox,oy,0,0)
