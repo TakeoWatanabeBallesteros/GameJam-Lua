@@ -4,13 +4,13 @@ Intro_03 = Actor:extend()
 function Intro_03:new()
     self.alpha = 0
     self.timer = 0
-    Scene.getScene():addTimer(6, function() Main_FSM:changeState('menu') end, false)
+    Scene.getScene():addTimer(5, function() Main_FSM:changeState('splash_02') end, false)
     Intro_03.super.new(self,YARN_ICON,WW/2,WH/2-50,0,1,1, 'HUD')
 end
 
 function Intro_03:update(dt)
     self.timer = self.timer + dt
-    self.alpha = self.timer < 3 and self.alpha + dt/3 or self.alpha - dt/3
+    self.alpha = self.timer < 3 and self.alpha + dt/2 or self.alpha - dt/2
 end
 
 function Intro_03:draw()

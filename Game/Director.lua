@@ -2,8 +2,8 @@ function StartGame()
     Main_FSM = StateMachine()
     Main_FSM:addState("null",{})
     Main_FSM:addState("splash_01",{ enter = onSplash_01Enter, exit = onSplash_01Exit , from="null"})
-    Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_01"})
-    Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_02"})
+    Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_03"})
+    Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
     Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'editor'}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
@@ -17,7 +17,7 @@ function StartGame()
 end
 function onSplash_01Enter()
     local s = SplashLib.new({background={0, 0, 0}})
-    s.onDone = function() Main_FSM:changeState('splash_02') Scene.getScene():removeThisActor(s) end
+    s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
     Scene.getScene():addSplashScreen(s)
   end
   
@@ -27,7 +27,7 @@ function onSplash_01Enter()
 
   function onSplash_02Enter()
     local s = SplashLib.new({fill = 'rain'})
-    s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
+    s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) end
     Scene.getScene():addSplashScreen(s)
   end
   
