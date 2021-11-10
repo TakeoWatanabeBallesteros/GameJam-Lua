@@ -10,6 +10,9 @@ function StartGame()
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='play'})
     Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from="editor"})
     
+
+
+    Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
     Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
@@ -23,11 +26,13 @@ function onSplash_01Enter()
   end
 
   function onSplash_02Enter()
-    Scene.getScene():addActor(Intro_01)
+    local s = SplashLib.new({fill = 'rain'})
+    --s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
+    s.onDone = function() Scene.getScene():removeThisActor(s) Scene.getScene():addSplashScreen(SplashLib.new({fill = 'rain'})) end
+    Scene.getScene():addSplashScreen(s)
   end
   
   function onSplash_02Exit()
-    Scene.getScene():removeActor(Intro_01)
   end
 
   function onSplash_03Enter()
@@ -87,9 +92,11 @@ function onSplash_01Enter()
     Scene.getScene():addActor(BACKGROUND_TOPO_GAME)
     Scene.getScene():addActor(MAZO_TOPO_GAME)
     Scene.getScene():addActor(TOPO_TOPO_GAME)
+    Scene.getScene():addActor(Topo_State_Manager)
   end
 
   function onTopoExit()
+    Scene.getScene():removeActor(Topo_State_Manager)
     Scene.getScene():removeActor(BACKGROUND_TOPO_GAME)
     Scene.getScene():removeActor(MAZO_TOPO_GAME)
     Scene.getScene():removeActor(TOPO_TOPO_GAME)

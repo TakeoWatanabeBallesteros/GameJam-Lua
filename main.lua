@@ -1,4 +1,3 @@
---Takeo Watanabe
 Data = Data or require "Game/data"
 
 function love.load(arg)

@@ -44,7 +44,7 @@ end
 function Scene:addTimer(seconds, callback, loop)
   table.insert(self.actors,Timer(seconds, callback, loop))
 end
-function Scene:addTimerr(t)
+function Scene:addTimerObj(t)
   table.insert(self.actors,t)
 end
 
@@ -74,6 +74,14 @@ end
 
 function Scene:getActorList()
     return self.actors
+end
+
+function Scene:getActor(actor)
+  for _,v in ipairs(self.actors) do
+    if v:is(actor) then
+      return v
+    end
+  end
 end
 
 function Scene:update(dt)

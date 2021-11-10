@@ -16,6 +16,7 @@ local characters_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 
 
 --#region ALL_CLASES
 Serialize = Serialize or require "Engine/ser"
+Suit = Suit or require "suit"
 Vector = Vector or require "Engine/vector"
 Object = Object or require "Engine/object"
 SplashLib = SplashLib or require ("Engine/o-ten-one")
@@ -118,15 +119,19 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 
 
 --#region TOPOGAME
+    --#region REQUIRES
+    BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
+    MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
+    TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
+    --#endregion
 BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/background.png")
-BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
 
 MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoNoHit.png")
 MazoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoHit.png")
-MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
+
 
 SHADOW_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/shadow.png")
 
 TOPO_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/topo.png")
-TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
+
 --#endregion

@@ -49,7 +49,7 @@ function splashlib.new(init)
   local width, height = love.graphics.getDimensions()
 
   self.layer = 'HUD'
-  self.background = init.background == nil and colors.bg or init.background
+  self.background = init.background == nil and colors.shadow or init.background
   self.delay_before = init.delay_before or 0.3
   self.delay_after = init.delay_after or 0.7
 
@@ -57,7 +57,7 @@ function splashlib.new(init)
     local rain = {}
     rain.spacing_x = 110
     rain.spacing_y = 80
-    rain.image = love.graphics.newImage(current_folder .. "/baby.png")
+    rain.image = love.graphics.newImage(current_folder .. "/Logo_gamejam_128.png")
     rain.img_w = rain.image:getWidth()
     rain.img_h = rain.image:getHeight()
     rain.ox = -rain.img_w / 2
@@ -85,7 +85,7 @@ function splashlib.new(init)
       batch:clear()
 
       if batch:getBufferSize() < batch_w * batch_h then
-        batch:setBufferSize(batch_w * batch_h)
+        --batch:setBufferSize(batch_w * batch_h)
       end
 
       for i = 0, batch_h - 1 do
@@ -112,7 +112,7 @@ function splashlib.new(init)
       love.graphics.draw(rain.batch, -rain.spacing_x, small_y, 0, 0.5, 0.5)
 
       love.graphics.setBlendMode("alpha")
-      love.graphics.setColor(.81, .81, .81, 1)
+      love.graphics.setColor(0.81, 0.81, 0.81, 1)
       love.graphics.draw(rain.batch, -rain.spacing_x, big_y)
 
       love.graphics.draw(gradient)
@@ -317,8 +317,8 @@ function splashlib:draw()
   if self.fill and self.elapsed > self.delay_before + 0.6 then
     self:fill()
   end
-
-  self.canvas:renderTo(function()
+  if not self.fill then
+    self.canvas:renderTo(function()
     love.graphics.push()
     love.graphics.translate(width / 2, height / 2)
 
@@ -373,6 +373,7 @@ function splashlib:draw()
   )
   love.graphics.setShader()
   love.graphics.pop()
+  end
 end
 
 function splashlib:update(dt)

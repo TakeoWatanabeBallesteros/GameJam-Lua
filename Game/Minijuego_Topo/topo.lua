@@ -12,7 +12,7 @@ local audioHit,mickeySound
 function topo:new()
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
     globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
-    Scene.getScene():addTimerr(globalTimer)
+    Scene.getScene():addTimerObj(globalTimer)
     audioHit = love.audio.newSource("Data/mjWackAMoleGameSounds/blip.wav","static")
     mickeySound = love.audio.newSource("Data/mjWackAMoleGameSounds/MickeyMouseSong.mp3","static")
     mickeySound:setVolume(.7)
@@ -23,12 +23,7 @@ function topo:new()
     
     math.randomseed(os.time())
     
-    for _,v in ipairs(Scene.getScene():getActorList()) do
-      if v:is(MAZO_TOPO_GAME) then
-      self.mazo = v
-      break
-    end
-  end
+    self.mazo = Scene.getScene():getActor(MAZO_TOPO_GAME)
   
   
     offsetshadowposy = 130--necesario para colliders
@@ -53,8 +48,8 @@ function topo:new()
 end
 function topo:update(dt)
   if gamestate == "TopoOut" then
-       self.position.x = -300 
-       self.position.y = 0 
+       self.position.x = -300
+       self.position.y = 0
        gamestate = "SetTimerForNewTopo"
        hole = math.random(1,11)
        randomTime = math.random(0,100)
