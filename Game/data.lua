@@ -154,3 +154,32 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'ace', 'jack', 'ki
     --#endregion
 
 --#endregion
+
+
+
+--#region DrinkingGame
+--#region Sprites
+SAD_FACE_DRINKINGAME = love.graphics.newImage("data/mjVodkaGameTextures/SadFace.png")
+BACKGROUND_DRINKINGAME_0 = love.graphics.newImage("data/mjvodkaGameTextures/0shots.png")
+BACKGROUND_DRINKINGAME_1 = love.graphics.newImage("data/mjvodkaGameTextures/1shots.png")
+BACKGROUND_DRINKINGAME_2 = love.graphics.newImage("data/mjvodkaGameTextures/2shots.png")
+BACKGROUND_DRINKINGAME_3 = love.graphics.newImage("data/mjvodkaGameTextures/3shots.png")
+BACKGROUND_DRINKINGAME_4 = love.graphics.newImage("data/mjvodkaGameTextures/4shots.png")
+BACKGROUND_DRINKINGAME_5 = love.graphics.newImage("data/mjvodkaGameTextures/5shots.png")
+BACKGROUND_DRINKINGAME_6 = love.graphics.newImage("data/mjvodkaGameTextures/6shots.png")
+BACKGROUND_DRINKINGAME_7 = love.graphics.newImage("data/mjvodkaGameTextures/7shots.png")
+BACKGROUND_DRINKINGAME_8 = love.graphics.newImage("data/mjvodkaGameTextures/8shots.png")
+BACKGROUND_DRINKINGAME_9 = love.graphics.newImage("data/mjvodkaGameTextures/9shots.png")
+BACKGROUND_DRINKINGAME_Drinking = love.graphics.newImage("data/mjvodkaGameTextures/Drinking.png")
+
+SLIDER_DRINKINGAME = love.graphics.newImage("data/mjvodkaGameTextures/Slider.png")
+PLAYERBAR_DRINKINGAME = love.graphics.newImage("data/mjvodkaGameTextures/playerBar.png")
+--#endregion
+--#region requires
+BACKGROUND_DRINKING_GAME = BACKGROUND_DRINKING_GAME or require "Game/Minijuego_Vodka/BackgroundDrinkinGame"
+SLIDER_DRINKING_GAME = SLIDER_DRINKING_GAME or require "Game/Minijuego_Vodka/SliderDrinkingGame"
+DRINKING_GAME = DRINKING_GAME or require "Game/Minijuego_Vodka/DrinkingGame"
+PLAYERBAR_DRINKING_GAME = PLAYERBAR_DRINKING_GAME or require "Game/Minijuego_Vodka/PlayerBarDrinkingGame"
+--#endregion
+
+--#endregion
