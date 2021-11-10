@@ -27,8 +27,7 @@ function onSplash_01Enter()
 
   function onSplash_02Enter()
     local s = SplashLib.new({fill = 'rain'})
-    --s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
-    s.onDone = function() Scene.getScene():removeThisActor(s) Scene.getScene():addSplashScreen(SplashLib.new({fill = 'rain'})) end
+    s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
     Scene.getScene():addSplashScreen(s)
   end
   
