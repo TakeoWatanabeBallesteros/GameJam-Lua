@@ -13,7 +13,7 @@ end
 
 function Blackjack_Manager:update(dt)
     math.randomseed(os.time())
-    if self.currentState == 'Initial_Cards' then 
+    if self.currentState == 'Initial_Cards' then
         self:IntialCards()
     elseif self.currentState == 'Hit' then
         self:Hit()
