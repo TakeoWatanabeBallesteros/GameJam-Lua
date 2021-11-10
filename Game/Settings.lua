@@ -25,24 +25,26 @@ end
 
 function Settings:draw()
     love.graphics.setColor(255, 255, 255, 1)
-    self.volume_master_slider:draw()
     self.volume_master = math.floor(self.volume_master_slider:getValue()*100)
     self.volume_music = math.floor(self.volume_music_slider:getValue()*100)
     self.volume_effects = math.floor(self.volume_effects_slider:getValue()*100)
+    if self.volume_master == 69 and self.volume_effects == 69 and self.volume_music == 69 then love.graphics.setColor(217/255, 117/255, 221/255, 1)
+    else love.graphics.setColor(255, 255, 255, 1) end
+    self.volume_master_slider:draw()
+    self.volume_effects_slider:draw()
+    self.volume_music_slider:draw()
     love.graphics.print(
         'MAIN: '..self.volume_master,
         FONT_OTAKU_BUTTONS,
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('MAIN: '..self.volume_master) * 0.5,
          (WH/2.5) - FONT_OTAKU_BUTTONS:getHeight('MAIN: '..self.volume_master) * 0.5 - self.volume_master_slider.width * 1.5
         )
-    self.volume_music_slider:draw()
     love.graphics.print(
         'MUSIC: '..self.volume_music,
         FONT_OTAKU_BUTTONS,
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('MUSIC: '..self.volume_music) * 0.5,
          (WH/2) - FONT_OTAKU_BUTTONS:getHeight('MUSIC: '..self.volume_music) * 0.5 - self.volume_music_slider.width * 1.5
         )
-    self.volume_effects_slider:draw()
     love.graphics.print(
         'EFFECTS: '..self.volume_effects,
         FONT_OTAKU_BUTTONS,

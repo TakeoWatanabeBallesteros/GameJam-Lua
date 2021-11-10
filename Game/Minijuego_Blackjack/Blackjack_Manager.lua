@@ -61,7 +61,9 @@ function Blackjack_Manager:IntialCards()
 end
 
 function Blackjack_Manager:Hit()
-    table.insert(self.player,1,cards[math.random(#cards)])
+    local i = math.random(#cards)
+    table.insert(self.player,1,cards[i])
+    self.p:addCard(i)
     --Check if win or lose
     if self.player[1] == 1 and self.player[3] <= 10 then self.player[3] = self.player[3]+11
     elseif  self.player[1] == 1 and self.player[3] > 10 then self.player[3] = self.player[3]+1
@@ -71,8 +73,11 @@ function Blackjack_Manager:Hit()
 end
 
 function Blackjack_Manager:DealerPlays()
-    while self.dealer[1] < 17 and self.dealer[1] < self.player[3] do
-        self.dealer[1] = self.dealer[1] + cards[math.random(#cards)]
+    self.dealer[3] = self.dealer[1] + self.dealer[2]
+    while self.dealer[3]< 17 and self.dealer[3] < self.player[3] do
+        local i = math.random(#cards)
+        self.dealer[3] = self.dealer[3] + cards[i]
+        self.d:addCard(i)
     end
     self:CheckWin()
 end
@@ -83,6 +88,15 @@ function Blackjack_Manager:CheckWin()
     elseif self.dealer[1] <= 21 and self.player[3]<self.dealer[1] then self.currentState = 'Lose'
     elseif self.dealer[1] > 21 and self.player[3] <= 21 then self.currentState = 'Win'
     end
+end
+
+function Blackjack_Manager:mousepressed( x, y, _button, istouch, presses )
+end
+function Blackjack_Manager:mousereleased( x, y, _button, istouch, presses )
+end
+function Blackjack_Manager:keypressed(_key)
+end
+function Blackjack_Manager:keyreleased(_key)
 end
 
 return Blackjack_Manager

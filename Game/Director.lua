@@ -13,6 +13,7 @@ function StartGame()
 
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
+    Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
     Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
@@ -99,6 +100,8 @@ function onSplash_01Enter()
     Scene.getScene():removeActor(BACKGROUND_TOPO_GAME)
     Scene.getScene():removeActor(MAZO_TOPO_GAME)
     Scene.getScene():removeActor(TOPO_TOPO_GAME)
+  end
 
-
+  function onBlackjackEnter()
+    Scene.getScene():addActor(Blackjack_Background)
   end

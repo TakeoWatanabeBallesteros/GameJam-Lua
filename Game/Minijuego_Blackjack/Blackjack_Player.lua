@@ -28,4 +28,13 @@ function Blackjack_Player:addCard(idx)
     table.insert(self.cards,idx)
 end
 
+function Blackjack_Player:mousepressed( x, y, _button, istouch, presses )
+end
+function Blackjack_Player:mousereleased( x, y, _button, istouch, presses )
+end
+function Blackjack_Player:keypressed(_key)
+end
+function Blackjack_Player:keyreleased(_key)
+end
+
 return Blackjack_Player

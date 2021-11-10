@@ -120,18 +120,37 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
 
 --#region TOPOGAME
     --#region REQUIRES
-    BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
-    MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
-    TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
+    --BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
+    --MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
+    --TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
     --#endregion
-BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/background.png")
+--BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/background.png")
 
-MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoNoHit.png")
-MazoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoHit.png")
+--MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoNoHit.png")
+--MazoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoHit.png")
 
 
-SHADOW_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/shadow.png")
+--SHADOW_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/shadow.png")
 
-TOPO_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/topo.png")
+--TOPO_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/topo.png")
+
+--#endregion
+
+--#region BLACKJACK
+local suits = {'club', 'diamond', 'heart', 'spade'}
+local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'ace', 'jack', 'king', 'queen'}
+    --#region SPRITES
+    BLACKJACK_BACKGROUND = love.graphics.newImage("Data/Blackjack_Textures/Blackjack_table.jpg")
+    CARDS={}
+    for index, suit in ipairs(suits) do
+        CARDS[suit] = {}
+        for index, value in ipairs(values) do
+            table.insert(CARDS[suit], love.graphics.newImage("Data/Blackjack_Textures/Cards/"..suit.."_"..value..".png"))
+        end
+    end
+    --#endregion
+    --#region REQUIRES
+    Blackjack_Background = Blackjack_Background or require "Game/Minijuego_Blackjack/Blackjack_Background"
+    --#endregion
 
 --#endregion
