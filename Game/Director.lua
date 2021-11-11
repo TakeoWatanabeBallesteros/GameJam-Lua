@@ -15,7 +15,7 @@ function StartGame()
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
     Main_FSM:addState("DrinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:setInitialState("null")Main_FSM:changeState("blackjack")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
