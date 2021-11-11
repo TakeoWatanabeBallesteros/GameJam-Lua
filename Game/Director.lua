@@ -13,6 +13,7 @@ function StartGame()
 
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
+    Main_FSM:addState("DrinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
     Main_FSM:setInitialState("null")Main_FSM:changeState("blackjack")
 end
@@ -108,4 +109,20 @@ function onSplash_01Enter()
     Scene.getScene():addActor(Blackjack_Player)
     Scene.getScene():addActor(Blackjack_Dealer)
     Scene.getScene():addActor(Blackjack_Manager)
+  end
+
+  
+  function onDrinkingGameEnter()
+    Scene:getScene():addActor(BACKGROUND_DRINKING_GAME)
+    Scene:getScene():addActor(SLIDER_DRINKING_GAME)
+    Scene:getScene():addActor(PLAYERBAR_DRINKING_GAME)
+    Scene:getScene():addActor(DRINKING_GAME)
+
+  end
+
+  function onDrinkingGameExit()
+    Scene:getScene():removeActor(BACKGROUND_DRINKING_GAME)
+    Scene:getScene():removeActor(SLIDER_DRINKING_GAME)
+    Scene:getScene():removeActor(PLAYERBAR_DRINKING_GAME)
+    Scene:getScene():removeActor(DRINKING_GAME)
   end
