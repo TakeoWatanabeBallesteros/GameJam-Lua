@@ -191,4 +191,23 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
     PLAYERBAR_DRINKING_GAME = PLAYERBAR_DRINKING_GAME or require "Game/Minijuego_Vodka/PlayerBarDrinkingGame"
 --#endregion
 
+--#region GanchoGame
+
+ BACKGROUND_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/background.png")
+ PELUCHE_ALEX = love.graphics.newImage("Data/Gancho_Textures/PelucheAleks.png")
+ PELUCHE_MARINA = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
+ PELUCHE_ARNAU = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
+ PELUCHE_TAKEO = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
+ PELUCHE_VERONIKA = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
+ PELUCHE_RICKY = love.graphics.newImage("Data/Gancho_Textures/Peluche3.png")
+ GANCHO_ABIERTO_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/gancho.png")
+ GANCHO_CERRADO_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/ganchoCerrado.png")
+ SOMBRA_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/Shadow.png")
+
+
+ BACKGROUNDGANCHOGAME = BACKGROUNDGANCHOGAME or require "Game/Minijuego_Gancho/BackgroundGanchoGame"
+ GANCHO_GANCHO_GAME = GANCHO_GANCHO_GAME or require "Game/Minijuego_Gancho/GanchoGanchoGame"
+ PELUCHE_GANCHO_GAME = PELUCHE_GANCHO_GAME or require "Game/Minijuego_Gancho/PelucheGanchoGame"
+
+--#endregion
 --#endregion
