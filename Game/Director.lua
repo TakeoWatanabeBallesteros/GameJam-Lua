@@ -13,9 +13,10 @@ function StartGame()
 
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
-    Main_FSM:addState("DrinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
+    Main_FSM:addState("drinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
+    Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
+    Main_FSM:setInitialState("null")Main_FSM:changeState("programar")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
@@ -111,6 +112,9 @@ function onSplash_01Enter()
     Scene.getScene():addActor(Blackjack_Manager)
   end
 
+  function onProgramarEnter()
+    Scene.getScene():addActor(Programar_Manager)
+  end
   
   function onDrinkingGameEnter()
     Scene:getScene():addActor(BACKGROUND_DRINKING_GAME)
