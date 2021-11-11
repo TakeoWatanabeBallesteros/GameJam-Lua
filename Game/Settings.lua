@@ -2,22 +2,19 @@ Settings = Actor:extend()
 
 function Settings:new()
     self.font = FONT_OTAKU_BUTTONS
-    local b = Buttons(false,self.font)
     self.volume_master_slider = Slider(WW/2, WH/2.5, 300, GAME_SETTINGS_VOLUME_MASTER, 0, 1, function (v) love.audio.setVolume(v) GAME_SETTINGS_VOLUME_MASTER = v SaveManager:saveSettings() end)
     self.volume_music_slider = Slider(WW/2, WH/2, 300, GAME_SETTINGS_VOLUME_MUSIC, 0, 1, function (v) GAME_SETTINGS_VOLUME_MUSIC = v SaveManager:saveSettings() end)
     self.volume_effects_slider = Slider(WW/2, WH/1.666, 300, GAME_SETTINGS_VOLUME_EFFECTS, 0, 1, function (v) GAME_SETTINGS_VOLUME_EFFECTS = v SaveManager:saveSettings() end)
     Settings.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
-    b:newButton(
-        "Back",
-        function()
-            Main_FSM:changeState('menu')
-        end,
-        WW/2,
-        WH-100)
-    Scene.getScene():addButton(b)
 end
 
 function Settings:update(dt)
+    Suit.layout:reset(WW/2-WW/5/2, WH-100)
+    if Suit.Button("ATRAS", {id=1}, Suit.layout:row(WW/5, WH/20)).hit then
+        Main_FSM:changeState('menu')
+    end
+    Suit.layout:reset(WW/2-(WW/5)/2, WH/2-(WW/20)*3/2)
+    Suit.layout:padding(40)
     self.volume_master_slider:update()
     self.volume_music_slider:update()
     self.volume_effects_slider:update()
@@ -51,6 +48,7 @@ function Settings:draw()
         (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('EFFECTS: '..self.volume_effects) * 0.5,
          (WH/1.666) - FONT_OTAKU_BUTTONS:getHeight('EFFECTS: '..self.volume_effects) * 0.5 - self.volume_effects_slider.width * 1.5
         )
+    Suit.draw()
 end
 
 function Settings:mousepressed( x, y, _button, istouch, presses )

@@ -43,7 +43,7 @@ function Programar_Manager.ChangeScreen()
     print('a')
     --o.index = o.index < #o.screens and o.index + 1 or 1
     --o.drawing = o.screens[o.index]
-    Scene.getScene():addTimer(0.8, function() Programar_Manager.ChangeScreen() end, false)
+    Scene.getScene():addTimer(0.2, function() Programar_Manager.ChangeScreen() end, false)
     end
 end
 

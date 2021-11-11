@@ -4,15 +4,16 @@ function StartGame()
     Main_FSM:addState("splash_01",{ enter = onSplash_01Enter, exit = onSplash_01Exit , from="null"})
     Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_03"})
     Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
-    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'editor'}})
+    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'editor', 'menu_avatar'}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
-    Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='play'})
+    Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})
+    Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='menu_avatar'})
     Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from="editor"})
     
 
 
-    Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
+    Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"}) 
     Main_FSM:addState("drinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
@@ -52,7 +53,6 @@ function onSplash_01Enter()
   
   function onMenuExit()
     Scene.getScene():removeActor(Menu)
-    Scene.getScene():removeActor(Buttons)
   end
   
   function onSettingsEnter()
@@ -61,14 +61,21 @@ function onSplash_01Enter()
   
   function onSettingsExit()
     Scene.getScene():removeActor(Settings)
-    Scene.getScene():removeActor(Buttons)
   end
   
   function onPlayEnter()
-    Main_FSM:changeState("editor")
+    Main_FSM:changeState("menu_avatar")
   end
   
   function onPlayExit()
+  end
+
+  function onMenu_AvatarEnter()
+    Scene.getScene():addActor(Menu_Avatar)
+  end
+
+  function onMenu_AvatarExit()
+    Scene.getScene():removeActor(Menu_Avatar)
   end
 
   function onEditorEnter()

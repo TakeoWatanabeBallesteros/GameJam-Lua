@@ -10,7 +10,8 @@ function Dialog:new(filename)
     }
     self.yarn=Yarnparse:load(filename)
     self.node=self.yarn:get_node("Start")
-
+    self.dialog_background = require('Game/Dialog_Background')()
+    self.background = love.graphics.newImage("Data/Dialogs_Backgrounds/Intro_Background.png")
     --get our starting text, store it in the text buffer.
     self.script=self.node.body:traverse() --this allows us to go line by line
     self.text= self.script.text --our global text buffer, for showing one line at a time.
@@ -26,6 +27,7 @@ function Dialog:update(dt)
 end
 
 function Dialog:draw()
+    self.dialog_background:draw(self.background)
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()

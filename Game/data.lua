@@ -41,6 +41,7 @@ Menu = Menu or require "Game/Menu"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
+Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
 
 --#endregion
 
