@@ -14,9 +14,10 @@ function StartGame()
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("blackjack")
 end
 function onSplash_01Enter()
+    love.mouse.setVisible(false)
     local s = SplashLib.new({background={0, 0, 0}})
     s.onDone = function() Main_FSM:changeState('splash_03') Scene.getScene():removeThisActor(s) end
     Scene.getScene():addSplashScreen(s)
@@ -104,4 +105,7 @@ function onSplash_01Enter()
 
   function onBlackjackEnter()
     Scene.getScene():addActor(Blackjack_Background)
+    Scene.getScene():addActor(Blackjack_Player)
+    Scene.getScene():addActor(Blackjack_Dealer)
+    Scene.getScene():addActor(Blackjack_Manager)
   end

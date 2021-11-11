@@ -107,8 +107,8 @@ end
 
 function Editor:draw()
     love.graphics.setColor(255, 255, 255, 1)
-    local sx = WW / DIALOG_BOXES['player_1']:getWidth()
-    local sy = WH / DIALOG_BOXES['player_1']:getHeight()
+    local sx = WW / AVATAR_SKINS[AVATAR_SETTINGS_SKINS]:getWidth()
+    local sy = WH / AVATAR_SKINS[AVATAR_SETTINGS_SKINS]:getHeight()
     love.graphics.draw(AVATAR_SKINS[AVATAR_SETTINGS_SKINS], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_EYES[AVATAR_SETTINGS_EYES], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_HAIRS[AVATAR_SETTINGS_HAIRS], 0, 0, 0,sx, sy)

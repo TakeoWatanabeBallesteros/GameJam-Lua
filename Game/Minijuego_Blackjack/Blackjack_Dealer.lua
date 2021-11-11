@@ -12,7 +12,12 @@ end
 function Blackjack_Dealer:draw()
     love.graphics.setColor(255, 255, 255, 1)
     for index, value in ipairs(self.cards) do
-        
+        if (currentState == 'Stay' or currentState == 'Win' or currentState == 'Lose' or currentState == 'Draw') or index == 1 then
+            love.graphics.draw(value,WW/2.2+index*30,WH/9.4+index*30,0, WW/1920, WH/1080)
+        end
+        if index == 2 and not (currentState == 'Stay' or currentState == 'Win' or currentState == 'Lose' or currentState == 'Draw') then
+            love.graphics.draw(CARD_BACK,WW/2.2+index*30,WH/9.4+index*30,0, WW/1920, WH/1080)
+        end
     end
     local xx = self.position.x
     local ox = self.origin.x
@@ -24,8 +29,8 @@ function Blackjack_Dealer:draw()
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
-function Blackjack_Dealer:addCard(idx)
-    table.insert(self.cards,idx)
+function Blackjack_Dealer:addCard(idx, suit)
+    table.insert(self.cards,CARDS[suit][idx])
 end
 
 function Blackjack_Dealer:mousepressed( x, y, _button, istouch, presses )

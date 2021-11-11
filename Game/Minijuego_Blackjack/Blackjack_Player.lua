@@ -10,22 +10,22 @@ function Blackjack_Player:update(dt)
 end
 
 function Blackjack_Player:draw()
-  love.graphics.setColor(255, 255, 255, 1)
-  for index, value in ipairs(self.cards) do
-      
-  end
-  local xx = self.position.x
-  local ox = self.origin.x
-  local yy = self.position.y
-  local oy = self.origin.y
-  local sx = self.scale.x
-  local sy = self.scale.y
-  local rr = self.rot
-  love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
+    love.graphics.setColor(255, 255, 255, 1)
+    for index, value in ipairs(self.cards) do
+        love.graphics.draw(value,WW/2.2+index*30,WH/2+index*30,0, WW/1920, WH/1080)
+    end
+    local xx = self.position.x
+    local ox = self.origin.x
+    local yy = self.position.y
+    local oy = self.origin.y
+    local sx = self.scale.x
+    local sy = self.scale.y
+    local rr = self.rot
+    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
-function Blackjack_Player:addCard(idx)
-    table.insert(self.cards,idx)
+function Blackjack_Player:addCard(idx, suit)
+    table.insert(self.cards,CARDS[suit][idx])
 end
 
 function Blackjack_Player:mousepressed( x, y, _button, istouch, presses )

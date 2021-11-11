@@ -18,7 +18,7 @@ function Blackjack_Background:draw()
   local sy = WH/self.height
   local rr = self.rot
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-  love.graphics.draw(CARDS.heart[3], WW/2, WH/2)
+  love.graphics.draw(CARD_BACK, WW/2-CARD_BACK:getWidth()/2, WH/10-CARD_BACK:getHeight()/2 ,0, WW/1920, WH/1080)
 end
 
 function Blackjack_Background:mousepressed( x, y, _button, istouch, presses )
