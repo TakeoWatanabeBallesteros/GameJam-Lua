@@ -1,5 +1,6 @@
 --actually it's just an array of screens whit a diferent word, read when the player press the space and then check if he did it
 --when the sprite with the line of code whas the correct, easy game
+--need to load the screens but the base of loop printing is done IMO
 Programar_Manager = Actor:extend()
 
 function Programar_Manager:new()
