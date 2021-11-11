@@ -16,8 +16,10 @@ function StartGame()
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"}) 
     Main_FSM:addState("drinkingGame",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
+    Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
+
+    Main_FSM:setInitialState("null")Main_FSM:changeState("gancho")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
@@ -136,4 +138,15 @@ function onSplash_01Enter()
     Scene:getScene():removeActor(SLIDER_DRINKING_GAME)
     Scene:getScene():removeActor(PLAYERBAR_DRINKING_GAME)
     Scene:getScene():removeActor(DRINKING_GAME)
+  end
+
+  function onGanchoEnter()
+    Scene:getScene():addActor(Gancho_Background)
+    Scene:getScene():addActor(Gancho_Gancho)
+    Scene:getScene():addActor(Gancho_Manager)
+  end
+
+  function onGanchoExit()
+    Scene:getScene():removeActor(Gancho_Background)
+    Scene:getScene():removeActor(Gancho_Gancho)
   end

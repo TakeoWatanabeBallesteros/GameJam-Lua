@@ -23,6 +23,10 @@ function Scene:addActor(type)
     end
 end
 
+function Scene:addActorObj(o)
+  table.insert(self.actors,o)
+end
+
 function Scene:addSplashScreen(s)
   table.insert(self.actors,s)
 end
@@ -44,6 +48,7 @@ end
 function Scene:addTimer(seconds, callback, loop)
   table.insert(self.actors,Timer(seconds, callback, loop))
 end
+
 function Scene:addTimerObj(t)
   table.insert(self.actors,t)
 end

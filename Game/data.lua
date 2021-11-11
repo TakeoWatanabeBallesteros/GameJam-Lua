@@ -4,10 +4,10 @@ WW, WH = love.graphics.getDimensions()
 --#endregion
 
 --#region AVATAR_ARRAYS
-local skins_colors = {'clara', 'intermedia', 'oscura'}
+local skins_colors = {'clara', 'intermedia', 'intermedia2', 'intermedia3', 'oscura', 'oscura2'}
 local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
 local hairs_types = {'pelado', 'corto', 'mediamelena', 'largo', 'recogido'}
-local hairs_colors = {'azul', 'magenta', 'marron', 'rojo', 'rubio', 'verde'}
+local hairs_colors = {'azul', 'magenta', 'marron', 'oscuro','rojo', 'rubio', 'verde'}
 local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
 --#endregion
 --#region CHARACTERS_NAMES
@@ -78,7 +78,9 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
         --#region AVATAR_CLOTHES
         AVATAR_CLOTHES = {}
         for index, value in ipairs(clothes_types) do
-            table.insert(AVATAR_CLOTHES, love.graphics.newImage("Data/Avatar/Clothes/ropa_"..value..".png"))
+            for i = 1, 3 do
+                table.insert(AVATAR_CLOTHES, love.graphics.newImage("Data/Avatar/Clothes/ropa_"..value.."_"..i..".png"))
+            end
         end
         --#endregion
     --#endregion
@@ -190,25 +192,25 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
     SLIDER_DRINKING_GAME = SLIDER_DRINKING_GAME or require "Game/Minijuego_Vodka/SliderDrinkingGame"
     DRINKING_GAME = DRINKING_GAME or require "Game/Minijuego_Vodka/DrinkingGame"
     PLAYERBAR_DRINKING_GAME = PLAYERBAR_DRINKING_GAME or require "Game/Minijuego_Vodka/PlayerBarDrinkingGame"
+    --#endregion
 --#endregion
 
 --#region GanchoGame
+ GANCHO_BACKGROUND = love.graphics.newImage("Data/Gancho_Textures/background.png")
+ GANCHO_PELUCHE_ALEX = love.graphics.newImage("Data/Gancho_Textures/PelucheAleks.png")
+ GANCHO_PELUCHE_MARINA = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
+ GANCHO_PELUCHE_ARNAU = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
+ GANCHO_PELUCHE_TAKEO = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
+ GANCHO_PELUCHE_VERONIKA = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
+ GANCHO_PELUCHE_RICKY = love.graphics.newImage("Data/Gancho_Textures/Peluche3.png")
+ GANCHO_GANCHO_ABIERTO = love.graphics.newImage("Data/Gancho_Textures/gancho.png")
+ GANCHO_GANCHO_CERRADO = love.graphics.newImage("Data/Gancho_Textures/ganchoCerrado.png")
+ GANCHO_SOMBRA = love.graphics.newImage("Data/Gancho_Textures/Shadow.png")
 
- BACKGROUND_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/background.png")
- PELUCHE_ALEX = love.graphics.newImage("Data/Gancho_Textures/PelucheAleks.png")
- PELUCHE_MARINA = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
- PELUCHE_ARNAU = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
- PELUCHE_TAKEO = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
- PELUCHE_VERONIKA = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
- PELUCHE_RICKY = love.graphics.newImage("Data/Gancho_Textures/Peluche3.png")
- GANCHO_ABIERTO_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/gancho.png")
- GANCHO_CERRADO_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/ganchoCerrado.png")
- SOMBRA_GANCHOGAME = love.graphics.newImage("Data/Gancho_Textures/Shadow.png")
 
-
- BACKGROUNDGANCHOGAME = BACKGROUNDGANCHOGAME or require "Game/Minijuego_Gancho/BackgroundGanchoGame"
- GANCHO_GANCHO_GAME = GANCHO_GANCHO_GAME or require "Game/Minijuego_Gancho/GanchoGanchoGame"
- PELUCHE_GANCHO_GAME = PELUCHE_GANCHO_GAME or require "Game/Minijuego_Gancho/PelucheGanchoGame"
-
+ Gancho_Background = Gancho_Background or require "Game/Minijuego_Gancho/Gancho_Background"
+ Gancho_Gancho = Gancho_Gancho or require "Game/Minijuego_Gancho/Gancho_Gancho"
+ Gancho_Peluche = Gancho_Peluche or require "Game/Minijuego_Gancho/Gancho_Peluche"
+Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager"
 --#endregion
 --#endregion
