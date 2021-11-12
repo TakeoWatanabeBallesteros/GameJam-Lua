@@ -78,6 +78,9 @@ function Editor:UI_BUTTONS()
     Suit.layout:reset(WW/1.3-(WW/5/2), WH/1.3)
     Suit.layout:padding(40)
     if Suit.Button("CONTINUAR", {id=9}, Suit.layout:row(WW/5, WH/20)).hit then
+        if AVATAR_SELECTED == 1 then SaveManager:saveAvatar_1()
+        elseif AVATAR_SELECTED == 2 then SaveManager:saveAvatar_2()
+        elseif AVATAR_SELECTED == 3 then SaveManager:saveAvatar_3() end
         Main_FSM:changeState('intro')
     end
     if Suit.Button("ATRAS", {id=10}, Suit.layout:row()).hit then

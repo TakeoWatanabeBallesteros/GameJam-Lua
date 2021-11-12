@@ -11,7 +11,7 @@ function Dialog:new(filename)
     self.yarn=Yarnparse:load(filename)
     self.node=self.yarn:get_node("Start")
     self.dialog_background = require('Game/Dialog_Background')()
-    self.background = love.graphics.newImage("Data/Dialogs_Backgrounds/Intro_Background.png")
+    self.background = love.graphics.newImage("Data/Dialogues_Backgrounds/Intro_Background.png")
     --get our starting text, store it in the text buffer.
     self.script=self.node.body:traverse() --this allows us to go line by line
     self.text= self.script.text --our global text buffer, for showing one line at a time.
@@ -31,6 +31,7 @@ function Dialog:draw()
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()
+    love.graphics.draw(AVATAR_ALEX, 0, 0, 0,sx, sy)
     love.graphics.draw(DIALOG_BOXES[self.dialogues[self.dialogues_index][1]], 0, 0, 0, sx, sy)
     love.graphics.line(WW/10,0,WW/10,WH)
     love.graphics.line(WW/1.1,0,WW/1.1,WH)
@@ -77,6 +78,7 @@ function Dialog:draw()
         if y == -1 and self.dialogues_index < #self.dialogues then self.dialogues_index = self.dialogues_index + 1
         elseif y == 1 and self.dialogues_index > 1 then self.dialogues_index = self.dialogues_index - 1 end
     end
+    
 end
 
 function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)

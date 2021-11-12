@@ -1,29 +1,163 @@
 SaveManager = Object:extend()
 
 function SaveManager:load()
-    if not love.filesystem.getInfo("settings.txt") then
-        local settings = {}
-        settings.mainVolume = 0.6
-        settings.musicVolume = 0.6
-        settings.effectVolume = 0.6
-      
-        love.filesystem.write("settings.txt", Serialize(settings))
-    end
-    
-    local chunk = love.filesystem.load("settings.txt")
-    self.settings = chunk()
-      GAME_SETTINGS_VOLUME_MASTER = self.settings.mainVolume
-      GAME_SETTINGS_VOLUME_MUSIC = self.settings.musicVolume
-      GAME_SETTINGS_VOLUME_EFFECTS = self.settings.effectVolume
-  end
-
-  function SaveManager:saveSettings()
+  if not love.filesystem.getInfo("settings.txt") then
     local settings = {}
-    settings.mainVolume = GAME_SETTINGS_VOLUME_MASTER
-    settings.musicVolume = GAME_SETTINGS_VOLUME_MUSIC
-    settings.effectVolume = GAME_SETTINGS_VOLUME_EFFECTS
-    
+    settings.mainVolume = 0.6
+    settings.musicVolume = 0.6
+    settings.effectVolume = 0.6
+
     love.filesystem.write("settings.txt", Serialize(settings))
   end
 
-  return SaveManager
+  local chunk = love.filesystem.load("settings.txt")
+  self.settings = chunk()
+  GAME_SETTINGS_VOLUME_MASTER = self.settings.mainVolume
+  GAME_SETTINGS_VOLUME_MUSIC = self.settings.musicVolume
+  GAME_SETTINGS_VOLUME_EFFECTS = self.settings.effectVolume
+end
+
+function SaveManager:loadAvatar_1()
+  if not love.filesystem.getInfo("avatar_1.txt") then
+    local avatar_1 = {}
+    avatar_1.name = "Nombre"
+    avatar_1.skin = 1
+    avatar_1.eyes = 1
+    avatar_1.hair = 1
+    avatar_1.cloth = 1
+
+    love.filesystem.write("avatar_1.txt", Serialize(avatar_1))
+  end
+
+  local chunk = love.filesystem.load("avatar_1.txt")
+  self.avatar_1 = chunk()
+  AVATAR_1_SETTINGS_NAME = self.avatar_1.name
+  AVATAR_1_SETTINGS_SKINS = self.avatar_1.skin
+  AVATAR_1_SETTINGS_EYES = self.avatar_1.eyes
+  AVATAR_1_SETTINGS_HAIRS = self.avatar_1.hair
+  AVATAR_1_SETTINGS_CLOTHES = self.avatar_1.cloth
+
+  AVATAR_SETTINGS_NAME = self.avatar_1.name
+  AVATAR_SETTINGS_SKINS = self.avatar_1.skin
+  AVATAR_SETTINGS_EYES = self.avatar_1.eyes
+  AVATAR_SETTINGS_HAIRS = self.avatar_1.hair
+  AVATAR_SETTINGS_CLOTHES = self.avatar_1.cloth
+
+  return AVATAR_1_SETTINGS_NAME
+end
+
+function SaveManager:loadAvatar_2()
+  if not love.filesystem.getInfo("avatar_2.txt") then
+    local avatar_2 = {}
+    avatar_2.name = "Nombre"
+    avatar_2.skin = 1
+    avatar_2.eyes = 1
+    avatar_2.hair = 1
+    avatar_2.cloth = 1
+
+    love.filesystem.write("avatar_2.txt", Serialize(avatar_2))
+  end
+
+  local chunk = love.filesystem.load("avatar_2.txt")
+  self.avatar_2 = chunk()
+  AVATAR_2_SETTINGS_NAME = self.avatar_2.name
+  AVATAR_2_SETTINGS_SKINS = self.avatar_2.skin
+  AVATAR_2_SETTINGS_EYES = self.avatar_2.eyes
+  AVATAR_2_SETTINGS_HAIRS = self.avatar_2.hair
+  AVATAR_2_SETTINGS_CLOTHES = self.avatar_2.cloth
+
+  AVATAR_SETTINGS_NAME = self.avatar_2.name
+  AVATAR_SETTINGS_SKINS = self.avatar_2.skin
+  AVATAR_SETTINGS_EYES = self.avatar_2.eyes
+  AVATAR_SETTINGS_HAIRS = self.avatar_2.hair
+  AVATAR_SETTINGS_CLOTHES = self.avatar_2.cloth
+
+  return AVATAR_2_SETTINGS_NAME
+end
+
+function SaveManager:loadAvatar_3()
+  if not love.filesystem.getInfo("avatar_3.txt") then
+    local avatar_3 = {}
+    avatar_3.name = "Nombre"
+    avatar_3.skin = 1
+    avatar_3.eyes = 1
+    avatar_3.hair = 1
+    avatar_3.cloth = 1
+
+    love.filesystem.write("avatar_3.txt", Serialize(avatar_3))
+  end
+
+  local chunk = love.filesystem.load("avatar_3.txt")
+  self.avatar_3 = chunk()
+  AVATAR_3_SETTINGS_NAME = self.avatar_3.name
+  AVATAR_3_SETTINGS_SKINS = self.avatar_3.skin
+  AVATAR_3_SETTINGS_EYES = self.avatar_3.eyes
+  AVATAR_3_SETTINGS_HAIRS = self.avatar_3.hair
+  AVATAR_3_SETTINGS_CLOTHES = self.avatar_3.cloth
+
+  AVATAR_SETTINGS_NAME = self.avatar_3.name
+  AVATAR_SETTINGS_SKINS = self.avatar_3.skin
+  AVATAR_SETTINGS_EYES = self.avatar_3.eyes
+  AVATAR_SETTINGS_HAIRS = self.avatar_3.hair
+  AVATAR_SETTINGS_CLOTHES = self.avatar_3.cloth
+
+  return AVATAR_3_SETTINGS_NAME
+end
+
+function SaveManager:saveSettings()
+  local settings = {}
+  settings.mainVolume = GAME_SETTINGS_VOLUME_MASTER
+  settings.musicVolume = GAME_SETTINGS_VOLUME_MUSIC
+  settings.effectVolume = GAME_SETTINGS_VOLUME_EFFECTS
+  
+  love.filesystem.write("settings.txt", Serialize(settings))
+end
+
+function SaveManager:saveAvatar_1()
+  local avatar = {}
+  avatar.name = AVATAR_SETTINGS_NAME
+  avatar.skin = AVATAR_SETTINGS_SKINS
+  avatar.eyes = AVATAR_SETTINGS_EYES
+  avatar.hair = AVATAR_SETTINGS_HAIRS
+  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  love.filesystem.write("avatar_1.txt", Serialize(avatar))
+end
+
+function SaveManager:saveAvatar_2()
+  local avatar = {}
+  avatar.name = AVATAR_SETTINGS_NAME
+  avatar.skin = AVATAR_SETTINGS_SKINS
+  avatar.eyes = AVATAR_SETTINGS_EYES
+  avatar.hair = AVATAR_SETTINGS_HAIRS
+  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  love.filesystem.write("avatar_2.txt", Serialize(avatar))
+end
+
+function SaveManager:saveAvatar_3()
+  local avatar = {}
+  avatar.name = AVATAR_SETTINGS_NAME
+  avatar.skin = AVATAR_SETTINGS_SKINS
+  avatar.eyes = AVATAR_SETTINGS_EYES
+  avatar.hair = AVATAR_SETTINGS_HAIRS
+  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  love.filesystem.write("avatar_3.txt", Serialize(avatar))
+end
+
+function SaveManager:deleteAvatar_1()
+  love.filesystem.remove("avatar_1.txt")
+end
+
+function SaveManager:deleteAvatar_2()
+  love.filesystem.remove("avatar_2.txt")
+end
+
+function SaveManager:deleteAvatar_3()
+  love.filesystem.remove("avatar_3.txt")
+end
+
+function SaveManager:checkFile(path)
+  if love.filesystem.getInfo(tostring(path)) then return true end
+  return false
+end
+
+return SaveManager

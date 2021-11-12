@@ -9,7 +9,7 @@ function StartGame()
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
     Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='menu_avatar'})
-    Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from="editor"})
+    Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from={'editor', 'menu_avatar'}})
     
 
 
@@ -19,7 +19,7 @@ function StartGame()
     Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("gancho")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)

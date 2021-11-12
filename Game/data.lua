@@ -42,7 +42,7 @@ Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
 Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
-
+AVATAR_ALEX = love.graphics.newImage("Data/Avatar/Characters/avatar_alex.png")
 --#endregion
 
 --#region ACTORS
@@ -55,6 +55,7 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
     --#endregion
     --#region AVATAR_SPRITES
+    AVATAR_SILUET = love.graphics.newImage("Data/Avatar/silueta_avatar.png")
         --#region AVATAR_SKINS
         AVATAR_SKINS = {}
         for index, value in ipairs(skins_colors) do
@@ -96,9 +97,9 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 
 --#endregion
 --#region FONTS
-FONT_OTAKU_TITLE = love.graphics.newFont("/Data/Fonts/otaku.ttf", 55)
-FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/Fonts/otaku.ttf", 32)
-FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", 29)
+FONT_OTAKU_TITLE = love.graphics.newFont("/Data/Fonts/otaku.ttf", WW*55/1920)
+FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/Fonts/otaku.ttf", WW*32/1920)
+FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", WW*29/1920)
 --#endregion
 --#region TITLES
 
@@ -111,16 +112,40 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     GAME_SETTINGS_VOLUME_MASTER = 0.6
     GAME_SETTINGS_VOLUME_MUSIC = 0.6
     GAME_SETTINGS_VOLUME_EFFECTS = 0.6
-    --#region AVATAR_SETTINGS
-    AVATAR_SETTINGS_NAME = "default"
-    AVATAR_SETTINGS_SKINS = 1
-    AVATAR_SETTINGS_EYES = 1
-    AVATAR_SETTINGS_HAIRS = 1
-    AVATAR_SETTINGS_CLOTHES = 1
+    --#region AVATAR_DATA
+    AVATAR_SELECTED = nil
+        --#region AVATAR_SETTINGS
+        AVATAR_SETTINGS_NAME = nil
+        AVATAR_SETTINGS_SKINS = nil
+        AVATAR_SETTINGS_EYES = nil
+        AVATAR_SETTINGS_HAIRS = nil
+        AVATAR_SETTINGS_CLOTHES = nil
+        --#endregion
+        --#region AVATAR_1_SETTINGS
+        AVATAR_1_SETTINGS_NAME = nil
+        AVATAR_1_SETTINGS_SKINS = nil
+        AVATAR_1_SETTINGS_EYES = nil
+        AVATAR_1_SETTINGS_HAIRS = nil
+        AVATAR_1_SETTINGS_CLOTHES = nil
+        --#endregion
+        --#region AVATAR_2_SETTINGS
+        AVATAR_2_SETTINGS_NAME = nil
+        AVATAR_2_SETTINGS_SKINS = nil
+        AVATAR_2_SETTINGS_EYES = nil
+        AVATAR_2_SETTINGS_HAIRS = nil
+        AVATAR_2_SETTINGS_CLOTHES = nil
+        --#endregion
+        --#region AVATAR_3_SETTINGS
+        AVATAR_3_SETTINGS_NAME = nil
+        AVATAR_3_SETTINGS_SKINS = nil
+        AVATAR_3_SETTINGS_EYES = nil
+        AVATAR_3_SETTINGS_HAIRS = nil
+        AVATAR_3_SETTINGS_CLOTHES = nil
+        --#endregion
     --#endregion
 --#endregion
 
-
+--#endregion
 --#region TOPOGAME
     --#region REQUIRES
     --BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
@@ -212,5 +237,4 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
  Gancho_Gancho = Gancho_Gancho or require "Game/Minijuego_Gancho/Gancho_Gancho"
  Gancho_Peluche = Gancho_Peluche or require "Game/Minijuego_Gancho/Gancho_Peluche"
 Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager"
---#endregion
 --#endregion
