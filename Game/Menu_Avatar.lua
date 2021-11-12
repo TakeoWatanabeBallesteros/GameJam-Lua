@@ -55,7 +55,13 @@ function Menu_Avatar:update(dt)
     Suit.layout:reset(WW/1.47+(WW/6/2), WH/1.38-(WH/19*4/2))
     Suit.layout:padding(WH/21.6)
     if Suit.Button("CONTINUAR", {id=4}, Suit.layout:row(WW/6, WH/19)).hit then
-        if #self.preview > 1 then Main_FSM:changeState('intro') end
+        if #self.preview > 1 then 
+            table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_SKINS[AVATAR_SETTINGS_SKIN])
+            table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_EYES[AVATAR_SETTINGS_EYE])
+            table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_HAIRS[AVATAR_SETTINGS_HAIR])
+            table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTH])
+            Main_FSM:changeState('intro') 
+        end
     end
     if Suit.Button("EDITAR", {id=5}, Suit.layout:row(WW/6, WH/19)).hit then
         if AVATAR_SELECTED then

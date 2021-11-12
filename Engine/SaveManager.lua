@@ -38,10 +38,10 @@ function SaveManager:loadAvatar_1()
   AVATAR_1_SETTINGS_CLOTHES = self.avatar_1.cloth
 
   AVATAR_SETTINGS_NAME = self.avatar_1.name
-  AVATAR_SETTINGS_SKINS = self.avatar_1.skin
-  AVATAR_SETTINGS_EYES = self.avatar_1.eyes
-  AVATAR_SETTINGS_HAIRS = self.avatar_1.hair
-  AVATAR_SETTINGS_CLOTHES = self.avatar_1.cloth
+  AVATAR_SETTINGS_SKIN = self.avatar_1.skin
+  AVATAR_SETTINGS_EYE = self.avatar_1.eyes
+  AVATAR_SETTINGS_HAIR = self.avatar_1.hair
+  AVATAR_SETTINGS_CLOTH = self.avatar_1.cloth
 
   return AVATAR_1_SETTINGS_NAME
 end
@@ -67,10 +67,10 @@ function SaveManager:loadAvatar_2()
   AVATAR_2_SETTINGS_CLOTHES = self.avatar_2.cloth
 
   AVATAR_SETTINGS_NAME = self.avatar_2.name
-  AVATAR_SETTINGS_SKINS = self.avatar_2.skin
-  AVATAR_SETTINGS_EYES = self.avatar_2.eyes
-  AVATAR_SETTINGS_HAIRS = self.avatar_2.hair
-  AVATAR_SETTINGS_CLOTHES = self.avatar_2.cloth
+  AVATAR_SETTINGS_SKIN = self.avatar_2.skin
+  AVATAR_SETTINGS_EYE = self.avatar_2.eyes
+  AVATAR_SETTINGS_HAIR = self.avatar_2.hair
+  AVATAR_SETTINGS_CLOTH = self.avatar_2.cloth
 
   return AVATAR_2_SETTINGS_NAME
 end
@@ -96,10 +96,10 @@ function SaveManager:loadAvatar_3()
   AVATAR_3_SETTINGS_CLOTHES = self.avatar_3.cloth
 
   AVATAR_SETTINGS_NAME = self.avatar_3.name
-  AVATAR_SETTINGS_SKINS = self.avatar_3.skin
-  AVATAR_SETTINGS_EYES = self.avatar_3.eyes
-  AVATAR_SETTINGS_HAIRS = self.avatar_3.hair
-  AVATAR_SETTINGS_CLOTHES = self.avatar_3.cloth
+  AVATAR_SETTINGS_SKIN = self.avatar_3.skin
+  AVATAR_SETTINGS_EYE = self.avatar_3.eyes
+  AVATAR_SETTINGS_HAIR = self.avatar_3.hair
+  AVATAR_SETTINGS_CLOTH = self.avatar_3.cloth
 
   return AVATAR_3_SETTINGS_NAME
 end
@@ -116,30 +116,30 @@ end
 function SaveManager:saveAvatar_1()
   local avatar = {}
   avatar.name = AVATAR_SETTINGS_NAME
-  avatar.skin = AVATAR_SETTINGS_SKINS
-  avatar.eyes = AVATAR_SETTINGS_EYES
-  avatar.hair = AVATAR_SETTINGS_HAIRS
-  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  avatar.skin = AVATAR_SETTINGS_SKIN
+  avatar.eyes = AVATAR_SETTINGS_EYE
+  avatar.hair = AVATAR_SETTINGS_HAIR
+  avatar.cloth = AVATAR_SETTINGS_CLOTH
   love.filesystem.write("avatar_1.txt", Serialize(avatar))
 end
 
 function SaveManager:saveAvatar_2()
   local avatar = {}
   avatar.name = AVATAR_SETTINGS_NAME
-  avatar.skin = AVATAR_SETTINGS_SKINS
-  avatar.eyes = AVATAR_SETTINGS_EYES
-  avatar.hair = AVATAR_SETTINGS_HAIRS
-  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  avatar.skin = AVATAR_SETTINGS_SKIN
+  avatar.eyes = AVATAR_SETTINGS_EYE
+  avatar.hair = AVATAR_SETTINGS_HAIR
+  avatar.cloth = AVATAR_SETTINGS_CLOTH
   love.filesystem.write("avatar_2.txt", Serialize(avatar))
 end
 
 function SaveManager:saveAvatar_3()
   local avatar = {}
   avatar.name = AVATAR_SETTINGS_NAME
-  avatar.skin = AVATAR_SETTINGS_SKINS
-  avatar.eyes = AVATAR_SETTINGS_EYES
-  avatar.hair = AVATAR_SETTINGS_HAIRS
-  avatar.cloth = AVATAR_SETTINGS_CLOTHES
+  avatar.skin = AVATAR_SETTINGS_SKIN
+  avatar.eyes = AVATAR_SETTINGS_EYE
+  avatar.hair = AVATAR_SETTINGS_HAIR
+  avatar.cloth = AVATAR_SETTINGS_CLOTH
   love.filesystem.write("avatar_3.txt", Serialize(avatar))
 end
 

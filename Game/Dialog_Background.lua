@@ -1,11 +1,12 @@
 Dialog_Background = Actor:extend()
 
-
 function Dialog_Background:new()
     Dialog_Background.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,0,0, 'Background')
 end
+
 function Dialog_Background:update()
 end
+
 function Dialog_Background:draw(sprite)
     local xx = self.position.x
     local ox = self.origin.x

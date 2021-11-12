@@ -11,7 +11,8 @@ local hairs_colors = {'azul', 'magenta', 'marron', 'oscuro','rojo', 'rubio', 've
 local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'sudadera'}
 --#endregion
 --#region CHARACTERS_NAMES
-local characters_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
+local characters_boxes_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
+local characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
 --#endregion
 
 --#region ALL_CLASES
@@ -84,14 +85,21 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
             end
         end
         --#endregion
+        --#region AVATAR_CHARACTERS
+        AVATAR_CHARACTERS = {}
+        for index, value in ipairs(characters_names) do
+            --AVATAR_CHARACTERS[value] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..value..'.png')
+        end
+        AVATAR_CHARACTERS['alex'] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..'alex'..'.png')
+        AVATAR_CHARACTERS['arnau'] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..'arnau'..'.png')
+        --#endregion
     --#endregion
     --#region DIALOG_BOXES
     DIALOG_BOXES = {}
-    for index, value in ipairs(characters_names) do
+    for index, value in ipairs(characters_boxes_names) do
         DIALOG_BOXES[value] = love.graphics.newImage("Data/Dialog_Boxes/cartel_"..value..".png")
     end
     --#endregion
-
 --#endregion
 --#region DIALOGUES_JSON
 
@@ -112,14 +120,16 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     GAME_SETTINGS_VOLUME_MASTER = 0.6
     GAME_SETTINGS_VOLUME_MUSIC = 0.6
     GAME_SETTINGS_VOLUME_EFFECTS = 0.6
+    --#endregion
     --#region AVATAR_DATA
     AVATAR_SELECTED = nil
         --#region AVATAR_SETTINGS
+        AVATAR_SETTINGS_SPRITES = {}
         AVATAR_SETTINGS_NAME = nil
-        AVATAR_SETTINGS_SKINS = nil
-        AVATAR_SETTINGS_EYES = nil
-        AVATAR_SETTINGS_HAIRS = nil
-        AVATAR_SETTINGS_CLOTHES = nil
+        AVATAR_SETTINGS_SKIN = nil
+        AVATAR_SETTINGS_EYE = nil
+        AVATAR_SETTINGS_HAIR = nil
+        AVATAR_SETTINGS_CLOTH = nil
         --#endregion
         --#region AVATAR_1_SETTINGS
         AVATAR_1_SETTINGS_NAME = nil
@@ -143,7 +153,6 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
         AVATAR_3_SETTINGS_CLOTHES = nil
         --#endregion
     --#endregion
---#endregion
 
 --#endregion
 --#region TOPOGAME

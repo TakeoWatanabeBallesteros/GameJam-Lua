@@ -11,7 +11,7 @@ function Dialog:new(filename)
     self.yarn=Yarnparse:load(filename)
     self.node=self.yarn:get_node("Start")
     self.dialog_background = require('Game/Dialog_Background')()
-    self.background = love.graphics.newImage("Data/Dialogues_Backgrounds/Intro_Background.png")
+    self.background = love.graphics.newImage("Data/Dialogues_Backgrounds/Party_Background.png")
     --get our starting text, store it in the text buffer.
     self.script=self.node.body:traverse() --this allows us to go line by line
     self.text= self.script.text --our global text buffer, for showing one line at a time.
@@ -31,21 +31,27 @@ function Dialog:draw()
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()
-    love.graphics.draw(AVATAR_ALEX, 0, 0, 0,sx, sy)
+    if self.dialogues[self.dialogues_index][1] ~= 'player_1' then love.graphics.draw(AVATAR_CHARACTERS.arnau, 0, 0, 0,sx, sy) end
     love.graphics.draw(DIALOG_BOXES[self.dialogues[self.dialogues_index][1]], 0, 0, 0, sx, sy)
+    if self.dialogues[self.dialogues_index][1] == 'player_1' then
+        for index, value in ipairs(AVATAR_SETTINGS_SPRITES) do
+            love.graphics.draw(value, WW/65, WH/1.662, 0, sx*0.33, sy*0.33)
+        end
+    end
     love.graphics.line(WW/10,0,WW/10,WH)
+    love.graphics.line(WW/5,0,WW/5,WH)
     love.graphics.line(WW/1.1,0,WW/1.1,WH)
     --here is our current text.
-    local width = WW/10
-    local total_width = WW/10
+    local width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
+    local total_width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
     local current_height = WH/1.6
     local max_width = WW/1.1
     for index, value in ipairs(self.dialogues[self.dialogues_index][2]) do
         total_width = total_width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         if total_width>=max_width then
             current_height = current_height + FONT_DIALOGUES_DEFAULT:getHeight(value[2])
-            total_width = WW/10
-            width = WW/10
+            total_width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
+            width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
         end
         if not value[3] then
             love.graphics.print({value[1], value[2]}, FONT_DIALOGUES_DEFAULT, width,current_height)
@@ -56,7 +62,7 @@ function Dialog:draw()
         if index<#self.dialogues[self.dialogues_index][2] then
             width = width + FONT_DIALOGUES_DEFAULT:getWidth(value[2])
         else
-            width = WW/10
+            width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
         end
     end
     love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)
