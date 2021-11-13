@@ -7,16 +7,12 @@ local randomTime
 local globalTimer-- falta un timer global (El jugador juega 30 segundos solo o hasta que llega a 20 topos)
 local points
 
-local audioHit,mickeySound
 
 function topo:new()
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
     globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
     Scene.getScene():addTimerObj(globalTimer)
-    audioHit = love.audio.newSource("Data/mjWackAMoleGameSounds/blip.wav","static")
-    mickeySound = love.audio.newSource("Data/mjWackAMoleGameSounds/MickeyMouseSong.mp3","static")
-    mickeySound:setVolume(.7)
-    love.audio.play(mickeySound)
+    AudioManager.PlayMusic(MICKEY_MUSIC_TOPO,GAME_SETTINGS_VOLUME_MUSIC,false)
     
     gamestate = {"HitTopo", "TopoOut","SetTimerForNewTopo","SetTopoPos", "EndGame"}
     gamestate = "HitTopo"
@@ -78,9 +74,6 @@ function topo:update(dt)
   
   
   
-  -- self.pos.y = shadow.pos.y-130
- --print(shadow.position.x.."  "..shadow.position.y)
- --print(self.position.x.."  "..self.position.y)
 end
 function topo:draw()
 
@@ -91,9 +84,11 @@ function topo:draw()
     local sx = WW/self.width
     local sy = WH/self.height
     local rr = 0
+    if not (gamestate == "EndGame")  then
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-    love.graphics.print(points,WW/2.1, WH/1.1,0,1,1,0,0,0,0)
-    love.graphics.print(math.floor(globalTimer:getTime()),WW/2.15, WH/1.04,0,1,1,0,0,0,0)
+    love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100,0,0.2,0.2,0,0,0,0)
+    love.graphics.print(math.floor(globalTimer:getTime()),WW/2.1, WH/1.09,0,0.7,0.7,0,0,0,0)
+    end
 end
 
 function topo:dist(b)
@@ -105,7 +100,7 @@ function topo:mousepressed(x, y, button, istouch,presses )
   if gamestate == "HitTopo" then
       if button == 1 and self:dist(self.mazo)<60 then gamestate = "TopoOut" 
         points = points+1
-        love.audio.play(audioHit)
+        AudioManager.PlayMusic(HIT_TOPO_SOUND,GAME_SETTINGS_VOLUME_EFFECTS,false)
       end
   end
 end

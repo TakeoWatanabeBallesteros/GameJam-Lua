@@ -52,7 +52,7 @@ function Gancho_Gancho:update(dt)
     end
   end
   if gameStates==2 then
-    AudioManager.PlayMusic(GANCHO_AUDIO,0.6,false)
+    AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false)
     if self.position.y< shadow.position.y then
       self.position.y = self.position.y+speed*dt*2
     end
@@ -78,7 +78,7 @@ function Gancho_Gancho:update(dt)
     end
   end
   if gameStates == 4 then
-    AudioManager.PlayMusic(GANCHO_AUDIO,0.6,false)
+    AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false)
     self.position.y = self.position.y -120*dt
     elPeluche.position.y = elPeluche.position.y -120*dt
     if elPeluche.position.y < WH/8 then
@@ -150,10 +150,10 @@ end
 function Gancho_Gancho:mousereleased(x,y,button,istouch,presses )
 end
 function Gancho_Gancho:keypressed(key)
-if key == "w" then love.audio.play(GANCHO_AUDIO) end
-if key == "s" then love.audio.play(GANCHO_AUDIO) end
-if key == "a" then love.audio.play(GANCHO_AUDIO) end
-if key == "d" then love.audio.play(GANCHO_AUDIO) end
+if key == "w" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+if key == "s" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+if key == "a" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+if key == "d" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
 
 end
 function Gancho_Gancho:keyreleased(key)

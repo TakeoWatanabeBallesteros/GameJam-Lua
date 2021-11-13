@@ -13,22 +13,16 @@ local background,slider,playerBar
 
 local t, globalTimer
 
-local drinksound, backgroundSound, disappointmentSound
-local gamestate
+GameStateDrinkingGame = GameStateDrinkingGame
 
 function DrinkingGame:new()
   DrinkingGame.super.new(self,SLIDER_DRINKINGAME,WW,-WH,0,0,0, 'HUD')
-  gamestate = {"PlayingGame", "EndGame"}
-  gamestate = "PlayingGame"
-  globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
+  GameStateDrinkingGame = {"PlayingGame", "EndGame"}
+  GameStateDrinkingGame = "PlayingGame"
+  globalTimer = Timer(30,function() GameStateDrinkingGame = "EndGame" end, false)
   Scene.getScene():addTimerObj(globalTimer)
 
-  drinksound = love.audio.newSource("Data/Vodka_Sounds/drinking.mp3","static")
-  disappointmentSound = love.audio.newSource("Data/Vodka_Sounds/Disappointment.mp3","static") 
-  disappointmentSound:setVolume(.1)
-  backgroundSound = love.audio.newSource("Data/Vodka_Sounds/DecapitamoGallina.mp3","static")
-  backgroundSound:setVolume(0.1)
-  love.audio.play(backgroundSound)
+  AudioManager.PlayMusic(BACKGROUND_SOUND_DRINKINGAME,GAME_SETTINGS_VOLUME_MUSIC/6,false)
 
   self.shots = 0
   self.tries = 0
@@ -57,7 +51,7 @@ end
 end
 function DrinkingGame:update(dt)
 
-  if gamestate == "PlayingGame" then
+  if GameStateDrinkingGame == "PlayingGame" then
       if moveStateDrinkingGame == 1 then playerBar.position.x = playerBar.position.x + self.speed*dt end
       if moveStateDrinkingGame == 2 then playerBar.position.x = playerBar.position.x - self.speed*dt end
       if moveStateDrinkingGame == 3 then background.BACKGROUND_DRINKINGAME_Shown = BACKGROUND_DRINKINGAME_Drinking
@@ -83,16 +77,18 @@ function DrinkingGame:update(dt)
         playerBar.position.x = slider.position.x + slider.width*0.4-2
         moveStateDrinkingGame = 2
       end
+    elseif GameStateDrinkingGame == "EndGame" then
+      --Scene.getScene():addTimer(3, function() Main_FSM:changeState('gancho') end, false)
       end
   
     
 end
 function DrinkingGame:draw()
-  if gamestate == "PlayingGame" then
-  love.graphics.print(math.floor(globalTimer:getTime()),WW/2.02, WH/1.04,0,1,1,0,0,0,0)
-  love.graphics.print("Points: "..self.points,WW/1.2,WH/30,0,2,2,0,0,0)
-  love.graphics.print("Shots taken: "..self.shots,WW/1.2,WH/10,0,2,2,0,0,0)
-  love.graphics.print("Tries: "..self.tries,WW/1.2,WH/6,0,2,2,0,0,0)
+  if GameStateDrinkingGame == "PlayingGame" then
+  love.graphics.print(math.floor(globalTimer:getTime()),WW/2.1, WH/1.15,0,1,1,0,0,0,0)
+  love.graphics.print("Points: "..self.points,WW/1.2,WH/30,0,0.3,0.3,0,0,0)
+  love.graphics.print("Shots taken: "..self.shots,WW/1.2,WH/10,0,0.3,0.3,0,0,0)
+  love.graphics.print("Tries: "..self.tries,WW/1.2,WH/6,0,0.3,0.3,0,0,0)
   end
 end
 
@@ -103,7 +99,7 @@ function DrinkingGame:mousereleased(x,y,button,istouch,presses )
 end
 
 function DrinkingGame:keypressed(key)
-  if gamestate == "PlayingGame" then
+  if GameStateDrinkingGame == "PlayingGame" then
     if key == "space" then
       if moveStateDrinkingGame == 1 or moveStateDrinkingGame == 2 then
       self.speed = self.speed +220
@@ -113,13 +109,13 @@ function DrinkingGame:keypressed(key)
        lastmoveStateDrinkingGame = moveStateDrinkingGame
        moveStateDrinkingGame = 3
        self.points = self.points+3
-       love.audio.play(drinksound)
+       AudioManager.PlayMusic(DRINK_SOUND,GAME_SETTINGS_VOLUME_EFFECTS,false)
        --Scene.getScene():addActor(CameraShake(.2,.4))
-       t = Timer(3,function() moveStateDrinkingGame = lastmoveStateDrinkingGame end, false)
+       t = Timer(3.5,function() moveStateDrinkingGame = lastmoveStateDrinkingGame end, false)
        Scene.getScene():addTimerObj(t)
       else
         self.points = self.points -1
-        love.audio.play(disappointmentSound)
+        AudioManager.PlayMusic(DISAPPOINTMENT_SOUND,GAME_SETTINGS_VOLUME_EFFECTS/6,false)
         --Scene.getScene():addActor(CameraShake(.3,.6))
 
       lastmoveStateDrinkingGame = moveStateDrinkingGame

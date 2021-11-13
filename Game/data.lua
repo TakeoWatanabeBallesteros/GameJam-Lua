@@ -169,6 +169,10 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
     TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
     --#endregion
+    --#region SOUNDS
+    HIT_TOPO_SOUND = love.audio.newSource("Data/Topo_Sounds/blip.wav","static")
+    MICKEY_MUSIC_TOPO = love.audio.newSource("Data/Topo_Sounds/MickeyMouseSong.mp3","static")
+    --#endregion
 BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/background.png")
 
 MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/MazoNoHit.png")
@@ -233,6 +237,11 @@ end
     BACKGROUND_DRINKINGAME_Drinking = love.graphics.newImage("Data/Vodka_Textures/Drinking.png")
     SLIDER_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/Slider.png")
     PLAYERBAR_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/playerBar.png")
+    --#endregion
+    --#region sounds
+    DRINK_SOUND = love.audio.newSource("Data/Vodka_Sounds/drinking.mp3","static")
+    DISAPPOINTMENT_SOUND = love.audio.newSource("Data/Vodka_Sounds/Disappointment.mp3","static") 
+    BACKGROUND_SOUND_DRINKINGAME = love.audio.newSource("Data/Vodka_Sounds/DecapitamoGallina.mp3","static")
     --#endregion
     --#region requires
     BACKGROUND_DRINKING_GAME = BACKGROUND_DRINKING_GAME or require "Game/Minijuego_Vodka/BackgroundDrinkinGame"

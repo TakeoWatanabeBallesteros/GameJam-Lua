@@ -14,7 +14,7 @@ function PlayerBarDrinkingGame:draw()
     local sx = WW/1920
     local sy = WH/1080
     local rr = 0
-    if (moveStateDrinkingGame == 1 or moveStateDrinkingGame == 2) then love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0) end
+    if (moveStateDrinkingGame == 1 or moveStateDrinkingGame == 2) and GameStateDrinkingGame == "PlayingGame" then love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0) end
 
 end
 function PlayerBarDrinkingGame:mousepressed(x, y, button, istouch,presses )
