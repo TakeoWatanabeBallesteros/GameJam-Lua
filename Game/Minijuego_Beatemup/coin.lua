@@ -9,7 +9,7 @@ function Coin.new(x,y)
    local instance = setmetatable({}, Coin)
    instance.x = x
    instance.y = y
-   instance.img = love.graphics.newImage("assets/coin.png")
+   instance.img = love.graphics.newImage("Data/Beatemup_Textures/coin.png")
    instance.width = instance.img:getWidth()
    instance.height = instance.img:getHeight()
    instance.scaleX = 1
