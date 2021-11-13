@@ -7,7 +7,6 @@ Spike.width = Spike.img:getWidth()
 Spike.height = Spike.img:getHeight()
 
 local ActiveSpikes = {}
-local Player = require("player")
 
 function Spike.removeAll()
    for i,v in ipairs(ActiveSpikes) do
@@ -55,12 +54,23 @@ end
 function Spike.beginContact(a, b, collision)
    for i,instance in ipairs(ActiveSpikes) do
       if a == instance.physics.fixture or b == instance.physics.fixture then
-         if a == Player.physics.fixture or b == Player.physics.fixture then
-            Player:takeDamage(instance.damage)
+         if a == player.physics.fixture or b == player.physics.fixture then
+            player:takeDamage(instance.damage)
             return true
          end
       end
    end
+end
+
+function Spike:mousepressed(x, y, button, istouch,presses )
+end
+
+function Spike:mousereleased(x,y,button,istouch,presses )
+end
+
+function Spike:keypressed(key)
+end
+function Spike:keyreleased(key)
 end
 
 return Spike

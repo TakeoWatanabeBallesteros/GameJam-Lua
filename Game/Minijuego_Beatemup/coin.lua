@@ -85,4 +85,15 @@ function Coin.beginContact(a, b, collision)
    end
 end
 
+function Coin:mousepressed(x, y, button, istouch,presses )
+end
+
+function Coin:mousereleased(x,y,button,istouch,presses )
+end
+
+function Coin:keypressed(key)
+end
+function Coin:keyreleased(key)
+end
+
 return Coin

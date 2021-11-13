@@ -54,5 +54,14 @@ function Stone.drawAll()
       instance:draw()
    end
 end
+function Stone:mousepressed(x, y, button, istouch,presses )
+end
 
+function Stone:mousereleased(x,y,button,istouch,presses )
+end
+
+function Stone:keypressed(key)
+end
+function Stone:keyreleased(key)
+end
 return Stone

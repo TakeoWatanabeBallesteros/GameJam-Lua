@@ -65,4 +65,15 @@ function Map:spawnEntities()
 	end
 end
 
+function Map:mousepressed(x, y, button, istouch,presses )
+end
+
+function Map:mousereleased(x,y,button,istouch,presses )
+end
+
+function Map:keypressed(key)
+end
+function Map:keyreleased(key)
+end
+
 return Map
