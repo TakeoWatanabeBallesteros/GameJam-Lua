@@ -24,10 +24,8 @@ SplashLib = SplashLib or require ("Engine/o-ten-one")
 SaveManager = SaveManager or require "Engine/SaveManager"
 JSON = JSON or require "Engine/json/json"
 Yarnparse = Yarnparse or require "Engine/yarnparse"
-Buttons = Buttons or require "Engine/buttons"
 Actor = Actor or require "Engine/actor"
 CameraShake = CameraShake or require "Engine/CameraShake"
-Slider = Slider or require "Engine/sliders"
 Timer = Timer or require "Engine/timer"
 State = State or require "Engine/state"
 StateMachine = StateMachine or require "Engine/statemachine"
@@ -88,10 +86,8 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
         --#region AVATAR_CHARACTERS
         AVATAR_CHARACTERS = {}
         for index, value in ipairs(characters_names) do
-            --AVATAR_CHARACTERS[value] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..value..'.png')
+            AVATAR_CHARACTERS[value] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..value..'.png')
         end
-        AVATAR_CHARACTERS['alex'] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..'alex'..'.png')
-        AVATAR_CHARACTERS['arnau'] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..'arnau'..'.png')
         --#endregion
     --#endregion
     --#region DIALOG_BOXES
@@ -105,9 +101,11 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 
 --#endregion
 --#region FONTS
-FONT_OTAKU_TITLE = love.graphics.newFont("/Data/Fonts/otaku.ttf", WW*55/1920)
-FONT_OTAKU_BUTTONS = love.graphics.newFont("/Data/Fonts/otaku.ttf", WW*32/1920)
-FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", WW*29/1920)
+FONT_TITLE = love.graphics.newFont("/Data/Fonts/master_of_break.otf", WW*225/1920)
+FONT_TITLE_2 = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*155/1920)
+FONT_BUTTONS = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*34/1920)
+FONT_BUTTONS_BIG = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*40/1920)
+FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf", WW*35/1920)
 --#endregion
 --#region TITLES
 
@@ -200,26 +198,31 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
     --#region REQUIRES
     Programar_Manager = Programar_Manager or require "Game/Minijuego_Programar/Programar_Manager"
     --#endregion
-
-
+PROGRAMAR_SCREENS = {}
+for i = 1, 2, 1 do
+    PROGRAMAR_SCREENS[i] = {}
+    for j = 1, 5, 1 do
+        PROGRAMAR_SCREENS[i][j] = love.graphics.newImage("Data/Programar_Screens/Code_"..i.."_"..j..".PNG")
+    end
+end
 --#endregion
 
 --#region DrinkingGame
     --#region Sprites
-    SAD_FACE_DRINKINGAME = love.graphics.newImage("data/Vodka_Textures/SadFace.png")
-    BACKGROUND_DRINKINGAME_0 = love.graphics.newImage("data/Vodka_Textures/0shots.png")
-    BACKGROUND_DRINKINGAME_1 = love.graphics.newImage("data/Vodka_Textures/1shots.png")
-    BACKGROUND_DRINKINGAME_2 = love.graphics.newImage("data/Vodka_Textures/2shots.png")
-    BACKGROUND_DRINKINGAME_3 = love.graphics.newImage("data/Vodka_Textures/3shots.png")
-    BACKGROUND_DRINKINGAME_4 = love.graphics.newImage("data/Vodka_Textures/4shots.png")
-    BACKGROUND_DRINKINGAME_5 = love.graphics.newImage("data/Vodka_Textures/5shots.png")
-    BACKGROUND_DRINKINGAME_6 = love.graphics.newImage("data/Vodka_Textures/6shots.png")
-    BACKGROUND_DRINKINGAME_7 = love.graphics.newImage("data/Vodka_Textures/7shots.png")
-    BACKGROUND_DRINKINGAME_8 = love.graphics.newImage("data/Vodka_Textures/8shots.png")
-    BACKGROUND_DRINKINGAME_9 = love.graphics.newImage("data/Vodka_Textures/9shots.png")
-    BACKGROUND_DRINKINGAME_Drinking = love.graphics.newImage("data/Vodka_Textures/Drinking.png")
-    SLIDER_DRINKINGAME = love.graphics.newImage("data/Vodka_Textures/Slider.png")
-    PLAYERBAR_DRINKINGAME = love.graphics.newImage("data/Vodka_Textures/playerBar.png")
+    SAD_FACE_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/SadFace.png")
+    BACKGROUND_DRINKINGAME_0 = love.graphics.newImage("Data/Vodka_Textures/0shots.png")
+    BACKGROUND_DRINKINGAME_1 = love.graphics.newImage("Data/Vodka_Textures/1shots.png")
+    BACKGROUND_DRINKINGAME_2 = love.graphics.newImage("Data/Vodka_Textures/2shots.png")
+    BACKGROUND_DRINKINGAME_3 = love.graphics.newImage("Data/Vodka_Textures/3shots.png")
+    BACKGROUND_DRINKINGAME_4 = love.graphics.newImage("Data/Vodka_Textures/4shots.png")
+    BACKGROUND_DRINKINGAME_5 = love.graphics.newImage("Data/Vodka_Textures/5shots.png")
+    BACKGROUND_DRINKINGAME_6 = love.graphics.newImage("Data/Vodka_Textures/6shots.png")
+    BACKGROUND_DRINKINGAME_7 = love.graphics.newImage("Data/Vodka_Textures/7shots.png")
+    BACKGROUND_DRINKINGAME_8 = love.graphics.newImage("Data/Vodka_Textures/8shots.png")
+    BACKGROUND_DRINKINGAME_9 = love.graphics.newImage("Data/Vodka_Textures/9shots.png")
+    BACKGROUND_DRINKINGAME_Drinking = love.graphics.newImage("Data/Vodka_Textures/Drinking.png")
+    SLIDER_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/Slider.png")
+    PLAYERBAR_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/playerBar.png")
     --#endregion
     --#region requires
     BACKGROUND_DRINKING_GAME = BACKGROUND_DRINKING_GAME or require "Game/Minijuego_Vodka/BackgroundDrinkinGame"

@@ -1,8 +1,7 @@
 Editor = Actor:extend()
 
 function Editor:new()
-    self.font = FONT_OTAKU_BUTTONS
-    local b2 = Buttons(false,self.font, 256, 64, false)
+    self.font = FONT_BUTTONS_BIG
     Editor.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
     self.name = {text=AVATAR_SETTINGS_NAME}
 end

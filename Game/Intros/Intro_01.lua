@@ -25,16 +25,16 @@ function Intro_01:draw()
     local rr = self.rot
     love.graphics.print(
         self.title,
-        FONT_OTAKU_TITLE,
-        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth(self.title) * 0.5,
-         WH/2 - FONT_OTAKU_TITLE:getHeight(self.title) * 0.5
+        FONT_TITLE,
+        (WW * 0.5) - FONT_TITLE:getWidth(self.title) * 0.5,
+         WH/2 - FONT_TITLE:getHeight(self.title) * 0.5
         )
-    love.graphics.setFont(FONT_OTAKU_BUTTONS)
+    love.graphics.setFont(FONT_BUTTONS_BIG)
     love.graphics.print(
         'PRESENTA',
-        FONT_OTAKU_BUTTONS,
-        (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('PRESENTA') * 0.5,
-         WH/2 + FONT_OTAKU_TITLE:getHeight(self.title) * 0.5
+        FONT_BUTTONS_BIG,
+        (WW * 0.5) - FONT_BUTTONS_BIG:getWidth('PRESENTA') * 0.5,
+         WH/2 + FONT_TITLE:getHeight(self.title) * 0.5
         )
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

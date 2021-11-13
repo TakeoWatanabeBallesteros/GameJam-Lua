@@ -1,6 +1,12 @@
 Dialog = Actor:extend()
 
 function Dialog:new(filename)
+    self.initPos = Vector(WW/1.083-(1920/2)*(WW/1920)*0.5, WH/3-(1080)*(WH/1080)*0.5)
+    self.finalPos = Vector(WW/65,WH/1.662)
+    self.initScale = {(WW/1920)*0.5,(WH/1080)*0.5}
+    self.finalScale = {(WW/1920)*0.33, (WH/1080)*0.33}
+    self.pos = self.initPos
+    self.s = self.initScale
     self.dialogues={}
     self.dialogues_index = 1
     --a stupid simple menu for our test purposes.
@@ -24,6 +30,10 @@ function Dialog:new(filename)
 end
 
 function Dialog:update(dt)
+    self.pos = self.pos.x > self.finalPos.x and self.pos + Vector(self.finalPos.x - self.initPos.x, self.finalPos.y - self.initPos.y)*dt or self.finalPos
+    --self.pos = self.pos + Vector(self.finalPos.x - self.pos.x, self.finalPos.y - self.pos.y):normalize() * dt/2
+    self.s[1] = self.s[1] > self.finalScale[1] and self.s[1] - dt/3 or self.finalScale[1]
+    self.s[2] = self.s[2] > self.finalScale[2] and self.s[2] - dt/3 or self.finalScale[2]
 end
 
 function Dialog:draw()
@@ -31,11 +41,11 @@ function Dialog:draw()
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()
-    if self.dialogues[self.dialogues_index][1] ~= 'player_1' then love.graphics.draw(AVATAR_CHARACTERS.arnau, 0, 0, 0,sx, sy) end
+    if self.dialogues[self.dialogues_index][1] ~= 'player_1' then love.graphics.draw(AVATAR_CHARACTERS[string.lower(self.dialogues[self.dialogues_index][1])], 0, 0, 0,sx, sy) end
     love.graphics.draw(DIALOG_BOXES[self.dialogues[self.dialogues_index][1]], 0, 0, 0, sx, sy)
     if self.dialogues[self.dialogues_index][1] == 'player_1' then
         for index, value in ipairs(AVATAR_SETTINGS_SPRITES) do
-            love.graphics.draw(value, WW/65, WH/1.662, 0, sx*0.33, sy*0.33)
+            love.graphics.draw(value, WW/65,WH/1.662, 0, (WW/1920)*0.33, (WH/1080)*0.33)
         end
     end
     love.graphics.line(WW/10,0,WW/10,WH)
@@ -69,12 +79,14 @@ function Dialog:draw()
 
     --display the menu
     if(self.node.has_choices and self.node.body:done()) and self.dialogues_index == #self.dialogues then
+        Suit.draw()
         for i,v in ipairs(self.node.choices) do
             local c = {1, 1, 1}
+            self:buttons(v.text)
             --our menu selection. The selected text is a diff color
             if(i==self.menu.select) then c = {0.9, 0.4, 0.3} end
             --and this is the actual text itself.
-            love.graphics.print({c, v.text}, FONT_DIALOGUES_DEFAULT, WW/3,200+(i*40))
+            love.graphics.print({c, v.text}, FONT_DIALOGUES_DEFAULT, WW/3,(WH/5.4)+(i*40))
             --------------------------------------
             if(i==self.menu.select) then c = {1, 1, 1} end
         end
@@ -93,6 +105,13 @@ function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 		local ox,oy = (love.math.random()-0.5)*maxDistance,(love.math.random()-0.5)*maxDistance
 		love.graphics.print({_text[1], _text[2]},FONT_DIALOGUES_DEFAULT,x+ox,y+oy)
 	end
+end
+
+function Dialog:buttons(text)
+    Suit.layout:reset(WW/3,(WH/5.4)+(40))
+    if Suit.Button(text, {id=1, font = FONT_DIALOGUES_DEFAULT}, Suit.layout:row(FONT_DIALOGUES_DEFAULT:getWidth(text), FONT_DIALOGUES_DEFAULT:getHeight(text))).hit then
+
+    end
 end
 
 function Dialog:mousepressed( x, y, _button, istouch, presses )

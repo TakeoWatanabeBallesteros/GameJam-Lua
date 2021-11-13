@@ -17,9 +17,9 @@ function Intro_03:draw()
     love.graphics.setColor(255, 255, 255, self.alpha)
     love.graphics.print(
         'MADE WITH YARNEDITOR',
-        FONT_OTAKU_TITLE,
-        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth('MADE WITH YARNEDITOR') * 0.5,
-         WH/2 + self.width*0.5 - FONT_OTAKU_TITLE:getHeight('MADE WITH YARNEDITOR') * 0.5
+        FONT_TITLE_2,
+        (WW * 0.5) - FONT_TITLE_2:getWidth('MADE WITH YARNEDITOR') * 0.5,
+         WH/2 + self.width*0.5 - FONT_TITLE_2:getHeight('MADE WITH YARNEDITOR') * 0.5
         )
     local xx = self.position.x
     local ox = self.origin.x

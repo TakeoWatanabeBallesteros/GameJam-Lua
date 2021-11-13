@@ -52,23 +52,23 @@ function Blackjack_Manager:draw()
     if currentState == 'Win' then
     love.graphics.print(
             'HAS GANADO!',
-            FONT_OTAKU_BUTTONS,
-            (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('HAS GANADO!') * 0.5,
-            (WH/2.5) - FONT_OTAKU_BUTTONS:getHeight('HAS GANADO!') * 0.5
+            FONT_BUTTONS_BIG,
+            (WW * 0.5) - FONT_BUTTONS_BIG:getWidth('HAS GANADO!') * 0.5,
+            (WH/2.5) - FONT_BUTTONS_BIG:getHeight('HAS GANADO!') * 0.5
             )
         elseif currentState == 'Lose' then
             love.graphics.print(
             'HAS PERDIDO POR FEKA!',
-            FONT_OTAKU_BUTTONS,
-            (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('HAS PERDIDO POR FEKA!') * 0.5,
-            (WH/2.5) - FONT_OTAKU_BUTTONS:getHeight('HAS PERDIDO POR FEKA!') * 0.5
+            FONT_BUTTONS_BIG,
+            (WW * 0.5) - FONT_BUTTONS_BIG:getWidth('HAS PERDIDO POR FEKA!') * 0.5,
+            (WH/2.5) - FONT_BUTTONS_BIG:getHeight('HAS PERDIDO POR FEKA!') * 0.5
             )
         elseif currentState == 'Draw' then
             love.graphics.print(
             'EMPATE',
-            FONT_OTAKU_BUTTONS,
-            (WW * 0.5) - FONT_OTAKU_BUTTONS:getWidth('EMPATE') * 0.5,
-            (WH/2.5) - FONT_OTAKU_BUTTONS:getHeight('EMPATE') * 0.5
+            FONT_BUTTONS_BIG,
+            (WW * 0.5) - FONT_BUTTONS_BIG:getWidth('EMPATE') * 0.5,
+            (WH/2.5) - FONT_BUTTONS_BIG:getHeight('EMPATE') * 0.5
             )
         end
     Suit:draw()

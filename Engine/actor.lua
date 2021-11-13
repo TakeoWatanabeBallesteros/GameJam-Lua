@@ -22,7 +22,7 @@ function Actor:draw()
 end
 
 function Actor.dist(a,b)
-  v=b.position - a.position
+  local v=b.position - a.position
   return v:len()
 end
 

@@ -22,14 +22,14 @@ function DrinkingGame:new()
   gamestate = "PlayingGame"
   globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
   Scene.getScene():addTimerObj(globalTimer)
-  
-  drinksound = love.audio.newSource("data/mjVodkaGameSounds/drinking.mp3","static")
-  disappointmentSound = love.audio.newSource("data/mjVodkaGameSounds/Disappointment.mp3","static") 
+
+  drinksound = love.audio.newSource("Data/Vodka_Sounds/drinking.mp3","static")
+  disappointmentSound = love.audio.newSource("Data/Vodka_Sounds/Disappointment.mp3","static") 
   disappointmentSound:setVolume(.1)
-  backgroundSound = love.audio.newSource("data/mjVodkaGameSounds/DecapitamoGallina.mp3","static")
+  backgroundSound = love.audio.newSource("Data/Vodka_Sounds/DecapitamoGallina.mp3","static")
   backgroundSound:setVolume(0.1)
   love.audio.play(backgroundSound)
-  
+
   self.shots = 0
   self.tries = 0
   self.speed = 700

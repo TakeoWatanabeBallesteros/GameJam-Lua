@@ -4,7 +4,7 @@ Menu_Avatar = Actor:extend()
 function Menu_Avatar:new()
     love.mouse.setVisible(true)
     self.alpha = 0
-    self.font = FONT_OTAKU_TITLE
+    self.font = FONT_TITLE_2
     if SaveManager:checkFile('avatar_1.txt') then self.name_1 = SaveManager:loadAvatar_1()
     else self.name_1 = 'Vacio' end
     if SaveManager:checkFile('avatar_2.txt') then self.name_2 = SaveManager:loadAvatar_2()
@@ -23,6 +23,7 @@ function Menu_Avatar:update(dt)
         hovered = {bg = { 50/255,153/255,187/255, self.alpha}, fg = {255/255,255/255,255/255, self.alpha}},
         active  = {bg = {255/255,153/255,  0/255, self.alpha}, fg = {225/255,225/255,225/255, self.alpha}}
     }
+    love.graphics.setFont(FONT_BUTTONS_BIG)
     Suit.layout:reset(WW/2-(WW/1.05)/2, WH/5.5)
     Suit.layout:padding(WH/20)
     if Suit.Button(self.name_1, {id=1}, Suit.layout:row(WW/1.5, WH/5)).hit then
@@ -55,7 +56,10 @@ function Menu_Avatar:update(dt)
     Suit.layout:reset(WW/1.47+(WW/6/2), WH/1.38-(WH/19*4/2))
     Suit.layout:padding(WH/21.6)
     if Suit.Button("CONTINUAR", {id=4}, Suit.layout:row(WW/6, WH/19)).hit then
-        if #self.preview > 1 then 
+        if #self.preview > 1 then
+            if AVATAR_SELECTED == 1 then SaveManager:loadAvatar_1()
+            elseif AVATAR_SELECTED == 2 then SaveManager:loadAvatar_2()
+            elseif AVATAR_SELECTED == 3 then SaveManager:loadAvatar_3() end
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_SKINS[AVATAR_SETTINGS_SKIN])
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_EYES[AVATAR_SETTINGS_EYE])
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_HAIRS[AVATAR_SETTINGS_HAIR])
@@ -95,12 +99,12 @@ function Menu_Avatar:draw()
     love.graphics.setColor(255, 255, 255, self.alpha)
     love.graphics.print(
         self.title,
-        FONT_OTAKU_TITLE,
-        (WW * 0.5) - FONT_OTAKU_TITLE:getWidth(self.title) * 0.5,
-         20 + FONT_OTAKU_TITLE:getHeight(self.title) * 0.5
+        FONT_TITLE_2,
+        (WW * 0.5) - FONT_TITLE_2:getWidth(self.title) * 0.5,
+         WH/11 - FONT_TITLE_2:getHeight(self.title) * 0.5
         )
     for index, value in ipairs(self.preview) do
-        love.graphics.draw(value,WW/1.083,WH/3,0,sx*0.5,sy*0.5,value:getWidth()/2,value:getHeight()/2,0,0)
+        love.graphics.draw(value,WW/1.083-(value:getWidth()/2)*sx*0.5,WH/3-(value:getHeight()/2)*sy*0.5,0,sx*0.5,sy*0.5)
     end
     Suit.draw()
     local xx = self.position.x
