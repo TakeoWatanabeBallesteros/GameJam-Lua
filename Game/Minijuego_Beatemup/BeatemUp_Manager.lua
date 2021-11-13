@@ -1,16 +1,14 @@
+BeatemUp_Manager = Actor:extend()
 
-
- BeatemUp_BeatemUp = Actor:extend()
-
-function BeatemUp_BeatemUp:new(x,y)
+function BeatemUp_Manager:new(x,y)
 	enemy.loadAssets()
 	map:load()
-	
 	gui:load()
 	player:load()
+    BeatemUp_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
-function BeatemUp_BeatemUp:update(dt) 
+function BeatemUp_Manager:update(dt) 
 	World:update(dt)
 	player:update(dt)
 	coin.updateAll(dt)
@@ -22,8 +20,7 @@ function BeatemUp_BeatemUp:update(dt)
 	map:update(dt)
 end
 
-function BeatemUp_BeatemUp:draw()
-	BeatemUp_Background:draw()
+function BeatemUp_Manager:draw()
 	map.level:draw(-camera.x, -camera.y, camera.scale, camera.scale)
 
 	camera:apply()
@@ -47,18 +44,18 @@ end
 function endContact(a, b, collision)
 	player:endContact(a, b, collision)
 end
-function BeatemUp_BeatemUp:mousepressed(x, y, button, istouch,presses )
+function BeatemUp_Manager:mousepressed(x, y, button, istouch,presses )
 end
 
-function BeatemUp_BeatemUp:mousereleased(x,y,button,istouch,presses )
+function BeatemUp_Manager:mousereleased(x,y,button,istouch,presses )
 end
 
-function BeatemUp_BeatemUp:keypressed(key)
+function BeatemUp_Manager:keypressed(key)
 	player:jump(key)
 	player:Attack(key)
 end
-function BeatemUp_BeatemUp:keyreleased(key)
+function BeatemUp_Manager:keyreleased(key)
 end
 
 
-return BeatemUp_BeatemUp
+return BeatemUp_Manager

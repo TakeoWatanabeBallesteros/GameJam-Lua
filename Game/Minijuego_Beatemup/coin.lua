@@ -3,7 +3,6 @@
 local Coin = {}
 Coin.__index = Coin
 local ActiveCoins = {}
-local Player = require("player")
 
 function Coin.new(x,y)
    local instance = setmetatable({}, Coin)
@@ -27,8 +26,8 @@ end
 function Coin:remove()
    for i,instance in ipairs(ActiveCoins) do
       if instance == self then
-         Player:incrementCoins()
-         print(Player.coins)
+         player:incrementCoins()
+         print(player.coins)
          self.physics.body:destroy()
          table.remove(ActiveCoins, i)
       end
@@ -77,7 +76,7 @@ end
 function Coin.beginContact(a, b, collision)
    for i,instance in ipairs(ActiveCoins) do
       if a == instance.physics.fixture or b == instance.physics.fixture then
-         if a == Player.physics.fixture or b == Player.physics.fixture then
+         if a == player.physics.fixture or b == player.physics.fixture then
             instance.toBeRemoved = true
             return true
          end

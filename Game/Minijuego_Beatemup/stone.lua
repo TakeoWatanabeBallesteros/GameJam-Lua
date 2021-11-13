@@ -1,6 +1,6 @@
 
 
-local Stone = {img = love.graphics.newImage("assets/stone.png")}
+local Stone = {img = love.graphics.newImage("Data/Beatemup_Textures/stone.png")}
 Stone.__index = Stone
 
 Stone.width = Stone.img:getWidth()

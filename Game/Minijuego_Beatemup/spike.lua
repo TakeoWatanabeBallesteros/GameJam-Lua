@@ -1,6 +1,6 @@
 
 
-local Spike = {img = love.graphics.newImage("assets/spike.png")}
+local Spike = {img = love.graphics.newImage("Data/Beatemup_Textures/spike.png")}
 Spike.__index = Spike
 
 Spike.width = Spike.img:getWidth()

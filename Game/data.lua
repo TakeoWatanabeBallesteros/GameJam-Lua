@@ -264,7 +264,7 @@ Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager
 
 --#region BeatemUp
 BeatemUp_Backgroundimg = love.graphics.newImage("Data/BeatemUp_Textures/background.png")
-player = player or require("Game/Minijuego_Beatemup/player")
+player = player or require("Game/Minijuego_Beatemup/BeatemUp_Player")
 coin = coin or require("Game/Minijuego_Beatemup/coin")
 gui = gui or require("Game/Minijuego_Beatemup/gui")
 spike = spike or require("Game/Minijuego_Beatemup/spike")
@@ -272,5 +272,6 @@ stone = stone or require("Game/Minijuego_Beatemup/stone")
 camera = camera or require("Game/Minijuego_Beatemup/camera")
 enemy = enemy or require("Game/Minijuego_Beatemup/enemy")
 map = map or require("Game/Minijuego_Beatemup/map")
-BeatemUp_Background = require("Game/Minijuego_Beatemup/BeatemUp_Background")
+BeatemUp_Background = BeatemUp_Background or require("Game/Minijuego_Beatemup/BeatemUp_Background")
+BeatemUp_Manager = BeatemUp_Manager or require("Game/Minijuego_Beatemup/BeatemUp_Manager")
 --#endregion

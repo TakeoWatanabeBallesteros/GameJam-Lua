@@ -1,11 +1,6 @@
 
 local Map = {}
-local STI = require("sti")
-local Coin = require("coin")
-local Spike = require("spike")
-local Stone = require("stone")
-local Enemy = require("enemy")
-local Player = require("player")
+local STI = require("Game/Minijuego_Beatemup/sti")
 
 function Map:load()
    self.currentLevel = 1
@@ -34,19 +29,19 @@ function Map:next()
    self:clean()
    self.currentLevel = self.currentLevel + 1
    self:init()
-   Player:resetPosition()
+   player:resetPosition()
 end
 
 function Map:clean()
    self.level:box2d_removeLayer("solid")
-   Coin.removeAll()
-   Enemy.removeAll()
-   Stone.removeAll()
-   Spike.removeAll()
+   coin.removeAll()
+   enemy.removeAll()
+   stone.removeAll()
+   spike.removeAll()
 end
 
 function Map:update()
-   if Player.x > MapWidth - 16 then
+   if player.x > MapWidth - 16 then
       self:next()
    end
 end
@@ -54,13 +49,13 @@ end
 function Map:spawnEntities()
 	for i,v in ipairs(self.entityLayer.objects) do
 		if v.type == "spikes" then
-			Enemy.new(v.x + v.width / 2, v.y + v.height / 2)
+			enemy.new(v.x + v.width / 2, v.y + v.height / 2)
 		elseif v.type == "stone" then
-			Enemy.new(v.x + v.width / 2, v.y + v.height / 2)
+			enemy.new(v.x + v.width / 2, v.y + v.height / 2)
 		elseif v.type == "enemy" then
-			Enemy.new(v.x + v.width / 2, v.y + v.height / 2)
+			enemy.new(v.x + v.width / 2, v.y + v.height / 2)
 		elseif v.type == "coin" then
-			Enemy.new(v.x, v.y)
+			enemy.new(v.x, v.y)
 		end
 	end
 end

@@ -21,7 +21,7 @@ function StartGame()
     Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("spalsh_01")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("programar")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
@@ -125,7 +125,9 @@ function onSplash_01Enter()
 
   function onProgramarEnter()
     --Scene.getScene():addActor(Programar_Manager)
-    Scene.getScene():addActor(Characters_Selection)
+    --Scene.getScene():addActor(Characters_Selection)
+    Scene.getScene():addActor(BeatemUp_Background)
+    Scene.getScene():addActor(BeatemUp_Manager)
   end
   
   function onDrinkingGameEnter()

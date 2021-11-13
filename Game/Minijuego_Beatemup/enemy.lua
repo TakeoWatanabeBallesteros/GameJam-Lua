@@ -2,7 +2,6 @@
 
 local Enemy = {}
 Enemy.__index = Enemy
-local Player = require("player")
 
 local ActiveEnemies = {}
 
@@ -190,12 +189,12 @@ end
 function Enemy.beginContact(a, b, collision)
    for i,instance in ipairs(ActiveEnemies) do
       if a == instance.physics.fixture or b == instance.physics.fixture then
-         if a == Player.physics.fixture or b == Player.physics.fixture then
+         if a == player.physics.fixture or b == player.physics.fixture then
             
-            Player:takeDamage(instance.damage)
+            player:takeDamage(instance.damage)
             instance:attack()
          end
-         instance:takeDamage(Player.damage)
+         instance:takeDamage(player.damage)
          instance:incrementRage()
          instance:flipDirection()
          

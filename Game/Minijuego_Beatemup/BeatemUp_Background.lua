@@ -1,4 +1,4 @@
-Beatemup_Background = Actor:extend()
+BeatemUp_Background = Actor:extend()
 
 function BeatemUp_Background:new(x,y)
     BeatemUp_Background.super.new(self,BeatemUp_Backgroundimg,WW/2,WH/2,0,0,0, 'Background')
@@ -15,7 +15,7 @@ function BeatemUp_Background:draw()
   local oy = self.origin.y
   local sx = WW/self.width
   local sy = WH/self.height
-  local rr = self.rot
+  local rr = 0
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 

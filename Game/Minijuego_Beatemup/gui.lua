@@ -1,7 +1,6 @@
 
 
 local GUI = {}
-local Player = require("player")
 
 function GUI:load()
    self.coins = {}
@@ -13,7 +12,7 @@ function GUI:load()
    self.coins.y = 50
 
    self.hearts = {}
-   self.hearts.img = love.graphics.newImage("Data/Beatemup_Textures/hearts.png")
+   self.hearts.img = love.graphics.newImage("Data/Beatemup_Textures/heart.png")
    self.hearts.width = self.hearts.img:getWidth()
    self.hearts.height = self.hearts.img:getHeight()
    self.hearts.x = 0
@@ -35,7 +34,7 @@ function GUI:draw()
 end
 
 function GUI:displayHearts()
-   for i=1,Player.health.current do
+   for i=1,player.health.current do
       local x = self.hearts.x + self.hearts.spacing * i
       love.graphics.setColor(0,0,0,0.5)
       love.graphics.draw(self.hearts.img, x + 2, self.hearts.y + 2, 0, self.hearts.scale, self.hearts.scale)
@@ -56,9 +55,9 @@ function GUI:displayCoinText()
    local x = self.coins.x + self.coins.width * self.coins.scale
    local y = self.coins.y + self.coins.height / 2 * self.coins.scale - self.font:getHeight() / 2
    love.graphics.setColor(0,0,0,0.5)
-   love.graphics.print(" : "..Player.coins, x + 2, y + 2)
+   love.graphics.print(" : "..player.coins, x + 2, y + 2)
    love.graphics.setColor(1,1,1,1)
-   love.graphics.print(" : "..Player.coins, x, y)
+   love.graphics.print(" : "..player.coins, x, y)
 end
 function GUI:mousepressed(x, y, button, istouch,presses )
 end
