@@ -164,21 +164,20 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     --#endregion
 
 --#endregion
---#region TOPOGAME
     --#region REQUIRES
-    --BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
-    --MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
-    --TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
+    BACKGROUND_TOPO_GAME = BACKGROUND_TOPO_GAME or require "Game/Minijuego_Topo/background"
+    MAZO_TOPO_GAME = MAZO_TOPO_GAME or require "Game/Minijuego_Topo/Mazo"
+    TOPO_TOPO_GAME = TOPO_TOPO_GAME or require "Game/Minijuego_Topo/topo"
     --#endregion
---BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/background.png")
+BACKGROUND_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/background.png")
 
---MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoNoHit.png")
---MazoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/MazoHit.png")
+MazoNoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/MazoNoHit.png")
+MazoHit_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/MazoHit.png")
 
 
---SHADOW_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/shadow.png")
+SHADOW_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/shadow.png")
 
---TOPO_IMAGE_TOPO_GAME = love.graphics.newImage("Data/mjWackAMoleGameTexture/topo.png")
+TOPO_IMAGE_TOPO_GAME = love.graphics.newImage("Data/Topo_Textures/topo.png")
 
 --#endregion
 
@@ -246,20 +245,29 @@ end
 --#region GanchoGame
  GANCHO_BACKGROUND = love.graphics.newImage("Data/Gancho_Textures/background.png")
  GANCHO_PELUCHE_ALEX = love.graphics.newImage("Data/Gancho_Textures/PelucheAleks.png")
- GANCHO_PELUCHE_MARINA = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
- GANCHO_PELUCHE_ARNAU = love.graphics.newImage("Data/Gancho_Textures/Peluche1.png")
- GANCHO_PELUCHE_TAKEO = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
- GANCHO_PELUCHE_VERONIKA = love.graphics.newImage("Data/Gancho_Textures/Peluche2.png")
- GANCHO_PELUCHE_RICKY = love.graphics.newImage("Data/Gancho_Textures/Peluche3.png")
+ GANCHO_PELUCHE_MARINA = love.graphics.newImage("Data/Gancho_Textures/PelucheMarina.png")
+ GANCHO_PELUCHE_ARNAU = love.graphics.newImage("Data/Gancho_Textures/PelucheArnau.png")
+ GANCHO_PELUCHE_TAKEO = love.graphics.newImage("Data/Gancho_Textures/PelucheTakeo.png")
+ GANCHO_PELUCHE_VERONIKA = love.graphics.newImage("Data/Gancho_Textures/PelucheVeronika.png")
+ GANCHO_PELUCHE_RICKY = love.graphics.newImage("Data/Gancho_Textures/PelucheRicky.png")
  GANCHO_GANCHO_ABIERTO = love.graphics.newImage("Data/Gancho_Textures/gancho.png")
  GANCHO_GANCHO_CERRADO = love.graphics.newImage("Data/Gancho_Textures/ganchoCerrado.png")
  GANCHO_SOMBRA = love.graphics.newImage("Data/Gancho_Textures/Shadow.png")
+
+ --#region sounds 
+ GANCHO_AUDIO = love.audio.newSource("data/Gancho_Sounds/MotorSound.mp3","static")
+ --#endregion
+ --#region font
+ TIMER_FONT =love.graphics.newFont("Data/Gancho_Textures/Font.TTF",100)
+ love.graphics.setFont(TIMER_FONT)
+ --#endregion
 
 
  Gancho_Background = Gancho_Background or require "Game/Minijuego_Gancho/Gancho_Background"
  Gancho_Gancho = Gancho_Gancho or require "Game/Minijuego_Gancho/Gancho_Gancho"
  Gancho_Peluche = Gancho_Peluche or require "Game/Minijuego_Gancho/Gancho_Peluche"
 Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager"
+--#endregion
 --#endregion
 
 --#region BeatemUp

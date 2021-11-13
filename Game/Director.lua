@@ -154,4 +154,6 @@ function onSplash_01Enter()
   function onGanchoExit()
     Scene:getScene():removeActor(Gancho_Background)
     Scene:getScene():removeActor(Gancho_Gancho)
+    Scene:getScene():removeActor(Gancho_Manager)
+
   end
