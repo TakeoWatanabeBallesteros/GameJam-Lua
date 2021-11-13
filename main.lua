@@ -1,6 +1,6 @@
 Data = Data or require "Game/data"
 
-id = '909024282619813918'
+local appId = require("applicationId")
 
 function love.load(arg)
   SaveManager:load()
@@ -9,7 +9,7 @@ function love.load(arg)
   print(WW, WH)
   StartGame()
   love.audio.setVolume(GAME_SETTINGS_VOLUME_MASTER)
-  Discord_RPC.initialize(id, true)
+  Discord_RPC.initialize(appId, true)
   now = os.time(os.date("*t"))
   detailsNow = "In Mainmenu"
   stateNow = ""
@@ -49,6 +49,10 @@ function love.draw()
   Scene.getScene():draw()
   love.graphics.setColor(1,1,1)
   love.graphics.line(WW/2,0, WW/2, WH)
+end
+
+function love.quit()
+  Discord_RPC.shutdown()
 end
 
 --[[ function love.keypressed(key, scancode, isrepeat)

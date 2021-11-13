@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Takeo: ¡¿BRO BRO BRO QUIERES VER EL TREMENDO CÓDIGO QUE ME HE MARCADO?! Wait, tu no me suenas, ¿eres nuev@?\nSi.\nTakeo: ¿Tu tambien eres asexual? Si quieres podemos ir a programar duntos.\n[[answer ]]",
+		"position": {
+			"x": 399,
+			"y": 76
+		},
+		"colorID": 0
+	},
+	{
+		"title": "answer",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": 519,
+			"y": -144
+		},
+		"colorID": 0
+	}
+]

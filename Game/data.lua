@@ -12,7 +12,7 @@ local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'su
 --#endregion
 --#region CHARACTERS_NAMES
 local characters_boxes_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
-local characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
+characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
 --#endregion
 
 --#region ALL_CLASES
@@ -42,7 +42,7 @@ Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
 Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
-AVATAR_ALEX = love.graphics.newImage("Data/Avatar/Characters/avatar_alex.png")
+Characters_Selection = Characters_Selection or require "Game/Characters_Selection"
 --#endregion
 
 --#region ACTORS
@@ -97,7 +97,7 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
         --#region AVATAR_CHARACTERS_BUTTONS
         AVATAR_CHARACTERS_BUTTONS = {}
         for index, value in ipairs(characters_names) do
-            table.insert(AVATAR_CHARACTERS_BUTTONS, love.graphics.newImage("Data/Avatar/Characters_Buttons/boton_"..value..".png"))
+            AVATAR_CHARACTERS_BUTTONS[value] = love.graphics.newImage("Data/Avatar/Characters_Buttons/boton_"..value..".png")
         end
         --#endregion
     --#endregion
