@@ -21,7 +21,7 @@ function StartGame()
     Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("programar")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)

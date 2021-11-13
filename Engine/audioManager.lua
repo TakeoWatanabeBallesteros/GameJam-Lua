@@ -7,7 +7,15 @@ function AudioManager.PlaySound(source, volume, loop)
     clone:setLooping(loop)
     clone:play()
 end
+
+function AudioManager.PlayMusic(source, volume, loop)
+    source:setVolume(volume)
+    source:setLooping(loop)
+    source:play()
+end
+
 function AudioManager.StopSound(soruce)
     soruce:stop()
 end
+
 return AudioManager
