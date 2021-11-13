@@ -60,5 +60,15 @@ function GUI:displayCoinText()
    love.graphics.setColor(1,1,1,1)
    love.graphics.print(" : "..Player.coins, x, y)
 end
+function GUI:mousepressed(x, y, button, istouch,presses )
+end
+
+function GUI:mousereleased(x,y,button,istouch,presses )
+end
+
+function GUI:keypressed(key)
+end
+function GUI:keyreleased(key)
+end
 
 return GUI

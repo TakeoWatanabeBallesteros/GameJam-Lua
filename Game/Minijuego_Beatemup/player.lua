@@ -54,31 +54,31 @@ function Player:loadAssets()
 
    self.animation.run = {total = 6, current = 1, img = {}}
    for i=1, self.animation.run.total do
-      self.animation.run.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/run/"..i..".png")
+      self.animation.run.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/run/"..i..".png")
    end
 
    self.animation.idle = {total = 4, current = 1, img = {}}
    for i=1, self.animation.idle.total do
-      self.animation.idle.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/idle/"..i..".png")
+      self.animation.idle.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/idle/"..i..".png")
    end
 
    self.animation.air = {total = 4, current = 1, img = {}}
    for i=1, self.animation.air.total do
-      self.animation.air.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/air/"..i..".png")
+      self.animation.air.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/air/"..i..".png")
    end
 
    self.animation.death = {total = 4, current = 1, img = {}}
       for i=1, self.animation.death.total do
-         self.animation.death.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/death/"..i..".png")
+         self.animation.death.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/death/"..i..".png")
       end
 
    self.animation.attack = {total = 4, current = 1, img = {}}
    for i=1, self.animation.attack.total do
-   self.animation.attack.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/attack/"..i..".png")
+   self.animation.attack.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/attack/"..i..".png")
    end
    self.animation.takehit = {total = 4, current = 1, img = {}}
    for i=1, self.animation.takehit.total do
-      self.animation.takehit.img[i] = love.graphics.newImage("Data/Beatemup_Textures/player/takehit/"..i..".png")
+      self.animation.takehit.img[i] = love.graphics.newImage("Data/Beatemup_Textures/Player/takehit/"..i..".png")
    end
 
    self.animation.draw = self.animation.idle.img[1]
@@ -313,6 +313,17 @@ function Player:draw()
    love.graphics.setColor(self.color.red, self.color.green, self.color.blue)
    love.graphics.draw(self.animation.draw, self.x, self.y, 0, scaleX, 1, self.animation.width / 2, self.animation.height / 2)
    love.graphics.setColor(1,1,1,1)
+end
+
+function Player:mousepressed(x, y, button, istouch,presses )
+end
+
+function Player:mousereleased(x,y,button,istouch,presses )
+end
+
+function Player:keypressed(key)
+end
+function Player:keyreleased(key)
 end
 
 return Player

@@ -28,4 +28,14 @@ function Camera:setPosition(x, y)
    end
 end
 
+function Camera:mousepressed(x, y, button, istouch,presses )
+end
+
+function Camera:mousereleased(x,y,button,istouch,presses )
+end
+
+function Camera:keypressed(key)
+end
+function Camera:keyreleased(key)
+end
 return Camera
