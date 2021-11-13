@@ -261,3 +261,6 @@ end
  Gancho_Peluche = Gancho_Peluche or require "Game/Minijuego_Gancho/Gancho_Peluche"
 Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager"
 --#endregion
+
+--#region BeatemUp
+BeatemUp_Background = love.graphics.newImage("Data/BeatemUp_Textures/background.png")

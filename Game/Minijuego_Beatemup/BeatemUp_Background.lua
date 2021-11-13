@@ -1,7 +1,7 @@
 Beatemup_Background = Actor:extend()
 
 function BeatemUp_Background:new(x,y)
-    BeatemUp_Background.super.new(self,BLACKJACK_BACKGROUND,WW/2,WH/2,0,0,0, 'Background')
+    BeatemUp_Background.super.new(self,BeatemUp_Background,WW/2,WH/2,0,0,0, 'Background')
 end
 
 function BeatemUp_Background:update(dt)
