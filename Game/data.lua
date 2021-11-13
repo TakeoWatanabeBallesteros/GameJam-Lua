@@ -16,6 +16,7 @@ local characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
 --#endregion
 
 --#region ALL_CLASES
+Discord_RPC = Discord_RPC or require "Engine/discordRPC"
 Serialize = Serialize or require "Engine/ser"
 Suit = Suit or require "suit"
 Vector = Vector or require "Engine/vector"
@@ -53,6 +54,10 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
     --#endregion
+    --#region BACKGROUNDS
+    MENU_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/menu_background.png")
+    DEFAULT_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/default_background.png")
+    --#endregion
     --#region AVATAR_SPRITES
     AVATAR_SILUET = love.graphics.newImage("Data/Avatar/silueta_avatar.png")
         --#region AVATAR_SKINS
@@ -89,6 +94,12 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
             AVATAR_CHARACTERS[value] = love.graphics.newImage('Data/Avatar/Characters/avatar_'..value..'.png')
         end
         --#endregion
+        --#region AVATAR_CHARACTERS_BUTTONS
+        AVATAR_CHARACTERS_BUTTONS = {}
+        for index, value in ipairs(characters_names) do
+            table.insert(AVATAR_CHARACTERS_BUTTONS, love.graphics.newImage("Data/Avatar/Characters_Buttons/boton_"..value..".png"))
+        end
+        --#endregion
     --#endregion
     --#region DIALOG_BOXES
     DIALOG_BOXES = {}
@@ -101,7 +112,7 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 
 --#endregion
 --#region FONTS
-FONT_TITLE = love.graphics.newFont("/Data/Fonts/master_of_break.otf", WW*225/1920)
+FONT_TITLE = love.graphics.newFont("/Data/Fonts/master_of_break.otf", WW*300/1920)
 FONT_TITLE_2 = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*155/1920)
 FONT_BUTTONS = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*34/1920)
 FONT_BUTTONS_BIG = love.graphics.newFont("/Data/Fonts/kenyan coffee rg.ttf", WW*40/1920)

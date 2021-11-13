@@ -19,6 +19,7 @@ function Settings:update(dt)
 end
 
 function Settings:draw()
+    love.graphics.draw(DEFAULT_BACKGROUND,0,0,0,WW/1920, WH/1080)
     love.graphics.setFont(FONT_BUTTONS)
     love.graphics.setColor(255, 255, 255, 1)
     if math.floor(self.slider_main.value*100) == 69 and math.floor(self.slider_music.value*100) == 69 and math.floor(self.slider_effects.value*100) == 69 then 
@@ -28,7 +29,7 @@ function Settings:draw()
             active  = {bg = {255/255,153/255,  0/255}, fg = {225/255,225/255,225/255}}
         }
     else Suit.theme.color = {
-        normal  = {bg = { 66/255, 66/255, 66/255}, fg = {188/255,188/255,188/255}},
+        normal  = {bg = { 66/255, 66/255, 66/255}, fg = {0/255,0/255,0/255}},
         hovered = {bg = { 50/255,153/255,187/255}, fg = {255/255,255/255,255/255}},
         active  = {bg = {255/255,153/255,  0/255}, fg = {225/255,225/255,225/255}}
     } end

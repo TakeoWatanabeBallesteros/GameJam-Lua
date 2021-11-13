@@ -4,40 +4,65 @@ function Menu:new()
     love.mouse.setVisible(true)
     self.alpha = 0
     self.font = FONT_TITLE
-    self.title = "Tecnodates"
+    self.title = "Tecno Dates"
     --love.graphics.setFont(love.graphics.newFont("/Data/pong.ttf", 70))
     Menu.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Menu:update(dt)
-    self.alpha = self.alpha < 1 and self.alpha + dt/1.5 or 1
+    self.alpha = self.alpha < 1 and self.alpha + dt/3 or 1
     Suit.theme.color = {
-        normal  = {bg = { 66/255, 66/255, 66/255, self.alpha}, fg = {188/255,188/255,188/255, self.alpha}},
-        hovered = {bg = { 50/255,153/255,187/255, self.alpha}, fg = {255/255,255/255,255/255, self.alpha}},
+        normal  = {bg = { 66/255, 66/255, 66/255, self.alpha-0.2}, fg = {188/255,188/255,188/255, self.alpha}},
+        hovered = {bg = { 50/255,153/255,187/255, self.alpha-0.1}, fg = {255/255,255/255,255/255, self.alpha}},
         active  = {bg = {255/255,153/255,  0/255, self.alpha}, fg = {225/255,225/255,225/255, self.alpha}}
     }
-    Suit.layout:reset(WW/2-(WW/2.3)/2, WH/2.2-(WW/20)*3/2)
+    --Suit.layout:reset(WW/2-(WW/2.3)/2, WH/2-(WW/20)*3/2)
+    --love.graphics.setFont(FONT_BUTTONS)
+    --[[ if Suit.Button("JUGAR", {id=1}, Suit.layout:row(WW/2.3, WH/20)).hit then
+        Main_FSM:changeState('play')
+    end
+    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2-(WW/20)*3/2)+WH/10)
+    if Suit.Button("PERSONAJES", {id=2}, Suit.layout:row(WW/4.8, WH/20)).hit then
+        
+    end
+    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+WH/10)
+    if Suit.Button("MINIJUEGOS", {id=3}, Suit.layout:row(WW/4.8, WH/20)).hit then
+        
+    end
+    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2-(WW/20)*3/2)+(2*WH/10))
+    if Suit.Button("AJUSTES", {id=4}, Suit.layout:row(WW/4.8, WH/20)).hit then
+        Main_FSM:changeState('settings')
+    end
+    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+(2*WH/10))
+    if Suit.Button("CREDITOS", {id=5}, Suit.layout:row(WW/4.8, WH/20)).hit then
+        
+    end
+    Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2-(WW/20)*3/2)+(3*WH/10))
+    if Suit.Button("SALIR", {id=6}, Suit.layout:row(WW/2.3, WH/20)).hit then
+        love.event.quit(0)
+    end ]]
+    Suit.layout:reset(WW/2-(WW/2.3)/2, WH/2.1-(WW/20)*3/2)
     love.graphics.setFont(FONT_BUTTONS)
     if Suit.Button("JUGAR", {id=1}, Suit.layout:row(WW/2.3, WH/20)).hit then
         Main_FSM:changeState('play')
     end
-    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2.2-(WW/20)*3/2)+WH/10)
+    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2.1-(WW/20)*3/2)+WH/15)
     if Suit.Button("PERSONAJES", {id=2}, Suit.layout:row(WW/4.8, WH/20)).hit then
         
     end
-    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2.2-(WW/20)*3/2)+WH/10)
+    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2.1-(WW/20)*3/2)+WH/15)
     if Suit.Button("MINIJUEGOS", {id=3}, Suit.layout:row(WW/4.8, WH/20)).hit then
         
     end
-    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2.2-(WW/20)*3/2)+(2*WH/10))
+    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2.1-(WW/20)*3/2)+(2*WH/15))
     if Suit.Button("AJUSTES", {id=4}, Suit.layout:row(WW/4.8, WH/20)).hit then
         Main_FSM:changeState('settings')
     end
-    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2.2-(WW/20)*3/2)+(2*WH/10))
+    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2.1-(WW/20)*3/2)+(2*WH/15))
     if Suit.Button("CREDITOS", {id=5}, Suit.layout:row(WW/4.8, WH/20)).hit then
         
     end
-    Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2.2-(WW/20)*3/2)+(3*WH/10))
+    Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2.1-(WW/20)*3/2)+(3*WH/15))
     if Suit.Button("SALIR", {id=6}, Suit.layout:row(WW/2.3, WH/20)).hit then
         love.event.quit(0)
     end
@@ -54,12 +79,20 @@ function Menu:update(dt)
 end
 
 function Menu:draw()
-    love.graphics.setColor(255, 255, 255, self.alpha)
+    love.graphics.draw(MENU_BACKGROUND,0,0,0,WW/1920, WH/1080)
+    love.graphics.setColor(162/255, 89/255, 126/255, self.alpha)
+    --[[ love.graphics.print(
+        self.title,
+        self.font,
+        (WW/2) - self.font:getWidth(self.title) * 0.5,
+         (WH/12.5)
+        ) ]]
+
     love.graphics.print(
         self.title,
         self.font,
         (WW/2) - self.font:getWidth(self.title) * 0.5,
-         (WH/120) + self.font:getHeight(self.title) * 0.5
+         (WH/1.4)
         )
     love.graphics.setColor(255, 255, 255, self.alpha)
     Suit.draw()
