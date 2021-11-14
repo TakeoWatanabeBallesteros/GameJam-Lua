@@ -3,7 +3,7 @@ Pong_Director = Pong_Object:extend()
 
 local fsm = Pong_FSM.create({
 events = {
-    { name = 'startgame',  from = {'none','intro', 'game', 'leaderboard', 'gameover', 'settings', 'gameselect'},  to = 'intro' },
+    { name = 'startgame',  from = {'none'},  to = 'intro' },
     { name = 'tomenu', from = {'intro', 'game', 'leaderboard', 'gameover', 'settings', 'gameselect'}, to = 'menu' },
     { name = 'togameselect', from = 'menu', to = 'gameselect'},
     { name = 'togame',  from = {'gamneover', 'pause', 'gameselect', 'none', 'menu'}, to = 'game' },

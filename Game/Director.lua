@@ -7,7 +7,7 @@ function StartGame()
     Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
     Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'splash_04', 'settings', 'menu_avatar', 
                                                                                     'menu_characters', 'menu_minigames', 'intro', 'pong',
-                                                                                    "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
+                                                                                    "topo", "vodka", "blackjack", "gancho", "programar","dormir", 'chao', 'final'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
     Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from={'menu',"programar"}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
@@ -18,6 +18,11 @@ function StartGame()
     Main_FSM:addState("character_select",{ enter= onCharacter_SelectEnter, exit= onCharacter_SelectExit, from={'intro'}})
     Main_FSM:addState("dialog",{ enter= onDialogEnter, exit= onDialogExit,from={'editor', "character_select",'menu_avatar', 'pong',
     "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
+
+    Main_FSM:addState("chao",{ enter= onChaoEnter, exit= onChaoExit, from={'dialog'}}) 
+    Main_FSM:addState("final",{ enter= onFinalEnter, exit= onFinalExit, from={'dialog'}})
+
+
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from={'dialog', 'menu_minigames'}}) 
     Main_FSM:addState("vodka",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from={'dialog', 'menu_minigames'}})
@@ -31,6 +36,25 @@ function StartGame()
     Main_FSM:setInitialState("null") Main_FSM:changeState('splash_01')
 end
 
+function OnChaoEnter()
+  Scene.getScene():removeActor(Dialog)
+  Scene.getScene():addActor(Final_Malo)
+end
+
+function OnChaoExit()
+  Scene.getScene():removeActor(Final_Malo)
+  Scene.getScene():addActor(Menu)
+end
+
+function OnFinalEnter()
+  Scene.getScene():removeActor(Dialog)
+  Scene.getScene():addActor(Final_Malo)
+end
+
+function OnFinalExit()
+  Scene.getScene():removeActor(Final_Malo)
+  Scene.getScene():addActor(Menu)
+end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
     local s = SplashLib.new({background={0, 0, 0}})

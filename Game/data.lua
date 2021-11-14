@@ -49,16 +49,28 @@ Menu_Characters = Menu_Characters or require "Game/Menu_Characters"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
+Final_Bueno = Final_Bueno or require "Game/Final_Bueno"
+Final_Malo = Final_Malo or require "Game/Final_Malo"
 Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
 Menu_Minigames = Menu_Minigames or require "Game/Menu_Minigames"
 Characters_Selection = Characters_Selection or require "Game/Characters_Selection"
 --#endregion
 MINIGAME = false
+WHO = nil
 --#region ACTORS
 LAYERS = {"Background", "Middle", "Front", "HUD", "Buttons"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
 --#endregion
 --#region SPRITES
+WIN_BACKGROUND = {}
+for index, Q in ipairs(characters_names) do
+    WIN_BACKGROUND[Q] = love.graphics.newImage("Data/Win_Backgrounds/victoria_"..Q..".png")
+end
+LOSE_BACKGROUND = {}
+for index, Q in ipairs(characters_names) do
+    LOSE_BACKGROUND[Q] = love.graphics.newImage("Data/Lose_Backgrounds/derrota_"..Q..".png")
+end
+
     --#region LOGOS
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
