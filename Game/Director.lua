@@ -17,14 +17,15 @@ function StartGame()
     Main_FSM:addState("dialog",{ enter= onDialogEnter, exit= onDialogExit})
 
     Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from={'dialog', 'menu_minigames'}}) 
-    Main_FSM:addState("vodka",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from={'dialog', 'menu_minigames', 'null'}})
+    Main_FSM:addState("vodka",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("blackjack", { enter = onBlackjackEnter, exit= onBlackjackExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("gancho", { enter = onGanchoEnter, exit= onGanchoExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("programar", { enter = onProgramarEnter, exit= onBlackjackExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("dormir", { enter = onDormirEnter, exit= onDormirExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("pelea", { enter = onPeleaEnter, exit= onPeleaExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("pong", { enter = onPongEnter, exit= onPongExit, from={'dialog', 'menu_minigames'}})
-    Main_FSM:setInitialState("null") Main_FSM:changeState("vodka")
+
+    Main_FSM:setInitialState("null") Main_FSM:changeState('splash_01')
 end
 
 function onSplash_01Enter()

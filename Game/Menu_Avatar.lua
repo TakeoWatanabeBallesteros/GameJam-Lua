@@ -114,7 +114,7 @@ function Menu_Avatar:draw()
     local sx = self.scale.x
     local sy = self.scale.y
     local rr = self.rot
-    
+    love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
