@@ -5,13 +5,7 @@ Enemy.__index = Enemy
 
 local ActiveEnemies = {}
 
-function Enemy.removeAll()
-   for i,v in ipairs(ActiveEnemies) do
-      v.physics.body:destroy()
-   end
 
-   ActiveEnemies = {}
-end
 
 function Enemy.new(x,y)
    local instance = setmetatable({}, Enemy)
@@ -54,6 +48,8 @@ function Enemy.new(x,y)
    instance.physics.body:setMass(25)
    table.insert(ActiveEnemies, instance)
 end
+
+
 
 function Enemy.loadAssets()
    Enemy.runAnim = {}
@@ -106,6 +102,17 @@ function Enemy:tintRed()
    self.color.blue = 0
 end
 
+function Enemy.remove()
+   for i,v in ipairs(ActiveEnemies) do
+      if v.life == 0 then
+         v.body:remove()
+      end
+      
+   end
+
+   ActiveEnemies = {}
+end
+
 function Enemy:incrementRage()
    self.rageCounter = self.rageCounter + 1
    if self.rageCounter > self.rageTrigger then
@@ -126,11 +133,15 @@ function Enemy:takeDamage(amount)
       self.state = "takehit"
    else 
       self.life = 0
-      --self:die()
+      self:die()
       self.state = "death"
       
    end
    print("Enemy health: "..self.life)
+end
+
+function Enemy:die()
+   self:remove()
 end
 
 function Enemy:attack()
@@ -193,8 +204,9 @@ function Enemy.beginContact(a, b, collision)
             
             player:takeDamage(instance.damage)
             instance:attack()
+            instance:takeDamage(player.damage)
          end
-         instance:takeDamage(player.damage)
+         --instance:takeDamage(player.damage)
          instance:incrementRage()
          instance:flipDirection()
          

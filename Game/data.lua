@@ -329,6 +329,11 @@ Gancho_Manager = Gancho_Manager or require "Game/Minijuego_Gancho/Gancho_Manager
 --#endregion
 
 --#region BeatemUp
+--#region sounds
+Jumping = love.audio.newSource("Data/BeatemUp_Sounds/player_jump.mp3","static")
+Attack = love.audio.newSource("Data/BeatemUp_Sounds/player_attack.mp3","static")
+Hit = love.audio.newSource("Data/BeatemUp_Sounds/player_hit.mp3","static")
+--#endregion
 BeatemUp_Backgroundimg = love.graphics.newImage("Data/Beatemup_Textures/background.png")
 player = player or require("Game/Minijuego_Beatemup/BeatemUp_Player")
 coin = coin or require("Game/Minijuego_Beatemup/coin")
