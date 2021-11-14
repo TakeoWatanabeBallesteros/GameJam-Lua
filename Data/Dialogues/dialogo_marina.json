@@ -1,0 +1,72 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Marina: Hola, tú eres nuev@, ¿verdad?\nAsí es.\nMarina: ¿Y qué es lo que más te gusta de momento?\n[[answer: Me gusta mucho Programación |Enfermo]]\n[[answer: Me encanta Arte |Animacion]]\n[[answer: Me gusta Diseño de Juegos|Diseño de Juegos kek]]",
+		"position": {
+			"x": -45,
+			"y": 218
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Enfermo",
+		"tags": "",
+		"body": "Marina: Ya hay que ser masoca... \nMarina: Adiós...\nMarina: Ugh...\n<<scene:chao>>",
+		"position": {
+			"x": -377,
+			"y": -230
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Animacion",
+		"tags": "",
+		"body": "Marina: A mi también me gusta mucho arte. \nMarina: Es divertido aunque hay que tener mucha paciencia para no reventar la tableta contra el escritorio. \nMarina: Yo solo llevo 6 rotas jaja.\nMarina: Bien, ¿y tú qué tal llevas el pong? Yo ya lo tengo casi terminado, me faltan los retoques finales.\nMarina: ¿Quieres verlo?\n\n[[answer: Okey, vamos a verlo. |Pong]]\n[[answer: Ayer estuve toda la noche jugando al lol y quiero dormir un poco, buenas noches. |Dormir]]",
+		"position": {
+			"x": -105,
+			"y": -490
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Diseño de Juegos kek",
+		"tags": "",
+		"body": "Marina: A mi diseño no me va mucho... \nMarina: Bueno, me podrás ayudar en proyecto.\nMarina: Mira, ¿quieres ver mi pong? \n[[answer: No sé a qué viene pero sí, supongo. |Pong]]\n[[answer: No gracias, preferiría hacer cualquier otra cosa. |Dormir]]",
+		"position": {
+			"x": 1053,
+			"y": -70
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pong",
+		"tags": "",
+		"body": "Marina: Si ganas tú me compras una nueva tableta gráfica. \nMarina: Si gano yo me compras dos. Dale.\n<<scene:pong>>\nMarina: Buff, la verdad es que hay que cambiar cosas. \nMarina: Hazme lo que me falta porfa que no sé hacerlo. \n[[answer: Pero hazlo tu zángana, no te jode. |Prog]]\n[[answer: Si me regalas un pingüino de mascota trato hecho. |Prog]]",
+		"position": {
+			"x": 321,
+			"y": -110
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Dormir",
+		"tags": "",
+		"body": "Marina: Ah, pues nada. Igualmente toca emprenedoria.\nMarina: Nos vemos luego. \n<<scene:dormir>>\nMarina: Necesito ayuda con programación. Que falta nada para la entrega de la práctica, porfa.\n[[answer: Okey, supongo que no me queda otra. |Prog]]\n[[answer: La verdad es que estoy muy ocupado no haciendo nada. Déjame en paz. |Prog]]",
+		"position": {
+			"x": 455,
+			"y": -712
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Prog",
+		"tags": "",
+		"body": "Marina: Vamos, es programación, no será muy difícil. \nMarina: Solo será imposible. Vamos a darle.\n<<scene:programar>>\nMarina: A ver, eres un inútil en programación. \nMarina: Eso quiere decir que estás como casi toda la clase, no te preocupes. \nMarina: Oye, ¿qué te parece venir conmigo al arcade? Será divertido.\nAcabas quedando con ella y vas a los arcade de Mataró.\n<<background:arcade>>\nMarina: Mira, hay una máquina para sacar peluches. \nMarina: ¿Podrías sacarme uno? Si lo haces te invito a un juego, al que quieras. \n<<scene:gancho>>\nMarina: Mira, ahí está el juego de los topos, te puedo invitar a ese.\nTe va a invitar a un juego. Esta es una oportunidad de oro, no la fastidies.\n<<scene:topo>>\nMarina: Te ha salido bastante bien. ¿Te apetece ir a tomar algo?\nMarina: Conozco un sitio que está muy bien.\n<<background:party>>\nMarina: Ten cuidado, no te vaya a dar un coma etílico bebiendo.\n<<scene:vodka>>\nMarina: Y es por eso por lo que los ornitorrincos no pueden tocar la pandereta. \nMarina: Eh, ¿has visto a esos de ahí intentando robar a gente de la forma más indiscreta posible?\nMarina: Creo que deberías hacer algo. Si, tú. [color=#ff0000]Vamos.[/color] \nCuando te quieres dar cuenta ya estás peleándote. \n<<scene:pelea>>\nMarina: [shake] ESO HA SIDO UNA PASADA [/shake]\nNo has estado nada mal. Los moratones en el cuerpo sobran, pero no ha estado mal.\n<<scene:final>>",
+		"position": {
+			"x": 472,
+			"y": -436
+		},
+		"colorID": 0
+	}
+]
