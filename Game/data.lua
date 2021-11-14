@@ -66,6 +66,8 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     MINIGAMES_BUTTONS_UI = love.graphics.newImage("Data/Menu_Minijuegos/menu_minijuego.png")
     DEFAULT_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/default_background.png")
     EDITOR_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/fondo_custom.png")
+
+    DIALOGUES_BACKGROUNDS = {}
     --#endregion
     --#region MINIGAMES_TUTORIALS
     MINIGAMES_TUTORIALS = {}

@@ -8,34 +8,34 @@ end
 function Characters_Selection:update(dt)
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.alex.normal, {id = 60, mask = CHARACTERS_BUTTONS.alex.mask, hovered = CHARACTERS_BUTTONS.alex.hovered, active = CHARACTERS_BUTTONS.alex.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.alex.normal, {id = 60, mask = CHARACTERS_BUTTONS.alex.mask, hovered = CHARACTERS_BUTTONS.alex.hovered, active = CHARACTERS_BUTTONS.alex.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.ricky.normal, {id = 61, mask = CHARACTERS_BUTTONS.ricky.mask, hovered = CHARACTERS_BUTTONS.ricky.hovered, active = CHARACTERS_BUTTONS.ricky.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.ricky.normal, {id = 61, mask = CHARACTERS_BUTTONS.ricky.mask, hovered = CHARACTERS_BUTTONS.ricky.hovered, active = CHARACTERS_BUTTONS.ricky.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.takeo.normal, {id = 62, mask = CHARACTERS_BUTTONS.takeo.mask, hovered = CHARACTERS_BUTTONS.takeo.hovered, active = CHARACTERS_BUTTONS.takeo.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.takeo.normal, {id = 62, mask = CHARACTERS_BUTTONS.takeo.mask, hovered = CHARACTERS_BUTTONS.takeo.hovered, active = CHARACTERS_BUTTONS.takeo.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
         local d = Dialog('Data/Dialogues/dialogo_takeo.json')
         Scene.getScene():addDialog(d)
         Main_FSM:changeState('dialog')
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.arnau.normal, {id = 63, mask = CHARACTERS_BUTTONS.arnau.mask, hovered = CHARACTERS_BUTTONS.arnau.hovered, active = CHARACTERS_BUTTONS.arnau.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.arnau.normal, {id = 63, mask = CHARACTERS_BUTTONS.arnau.mask, hovered = CHARACTERS_BUTTONS.arnau.hovered, active = CHARACTERS_BUTTONS.arnau.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.marina.normal, {id = 64, mask = CHARACTERS_BUTTONS.marina.mask, hovered = CHARACTERS_BUTTONS.marina.hovered, active = CHARACTERS_BUTTONS.marina.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.marina.normal, {id = 64, mask = CHARACTERS_BUTTONS.marina.mask, hovered = CHARACTERS_BUTTONS.marina.hovered, active = CHARACTERS_BUTTONS.marina.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    if Suit.ImageButton(CHARACTERS_BUTTONS.vero.normal, {id = 65, mask = CHARACTERS_BUTTONS.vero.mask, hovered = CHARACTERS_BUTTONS.vero.hovered, active = CHARACTERS_BUTTONS.vero.active}, Suit.layout:row(WW,WH)).hit then
+    if Suit.ImageButton(CHARACTERS_BUTTONS.vero.normal, {id = 65, mask = CHARACTERS_BUTTONS.vero.mask, hovered = CHARACTERS_BUTTONS.vero.hovered, active = CHARACTERS_BUTTONS.vero.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
     end
 
