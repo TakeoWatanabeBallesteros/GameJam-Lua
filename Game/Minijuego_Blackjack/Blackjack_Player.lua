@@ -12,7 +12,7 @@ end
 function Blackjack_Player:draw()
     love.graphics.setColor(255, 255, 255, 1)
     for index, value in ipairs(self.cards) do
-        love.graphics.draw(value,WW/2.2+index*30,WH/2+index*30,0, WW/1920, WH/1080)
+        love.graphics.draw(value,WW/2.2+index*30,WH/1.8+index*30,0, WW/1920, WH/1080)
     end
     local xx = self.position.x
     local ox = self.origin.x

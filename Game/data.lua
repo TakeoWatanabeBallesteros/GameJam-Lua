@@ -229,6 +229,11 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
     --#region REQUIRES
     Programar_Manager = Programar_Manager or require "Game/Minijuego_Programar/Programar_Manager"
     --#endregion
+PROGRAMAR_VIDAS = {
+    love.graphics.newImage("Data/Programar_Screens/Program_UI/programar_vida_1.png"),
+    love.graphics.newImage("Data/Programar_Screens/Program_UI/programar_vida_2.png"),
+    love.graphics.newImage("Data/Programar_Screens/Program_UI/programar_vida_3.png")
+}
 PROGRAMAR_SCREENS = {}
 for i = 1, 2, 1 do
     PROGRAMAR_SCREENS[i] = {}
@@ -236,6 +241,19 @@ for i = 1, 2, 1 do
         PROGRAMAR_SCREENS[i][j] = love.graphics.newImage("Data/Programar_Screens/Code_"..i.."_"..j..".PNG")
     end
 end
+--#endregion
+
+--#region DORMIR
+Dormir_Manager = Dormir_Manager or require "Game/Minijuego_Dormir/Dormir_Manager"
+DORMIR_BACKGROUND = love.graphics.newImage("Data/Dormir_Sprites/background_minijuego_dormir.png")
+DORMIR_PROFE_SPRITES = {
+    love.graphics.newImage("Data/Dormir_Sprites/profe_espaldas.png"),
+    love.graphics.newImage("Data/Dormir_Sprites/profe_frente.png"),
+    love.graphics.newImage("Data/Dormir_Sprites/profe_pillado.png")
+
+}
+DORMIR_FONT = love.graphics.newFont("Data/Dormir_Sprites/digital-7.ttf", WW*60/1920)
+
 --#endregion
 
 --#region DrinkingGame
@@ -256,7 +274,7 @@ end
     PLAYERBAR_DRINKINGAME = love.graphics.newImage("Data/Vodka_Textures/playerBar.png")
     --#endregion
     --#region sounds
-    DRINK_SOUND = love.audio.newSource("Data/Vodka_Sounds/drinking.mp3","static")
+    DRINK_SOUND = love.audio.newSource("Data/Vodka_Sounds/Drinking.mp3","static")
     DISAPPOINTMENT_SOUND = love.audio.newSource("Data/Vodka_Sounds/Disappointment.mp3","static") 
     BACKGROUND_SOUND_DRINKINGAME = love.audio.newSource("Data/Vodka_Sounds/DecapitamoGallina.mp3","static")
     --#endregion
@@ -281,7 +299,7 @@ end
  GANCHO_SOMBRA = love.graphics.newImage("Data/Gancho_Textures/Shadow.png")
 
  --#region sounds 
- GANCHO_AUDIO = love.audio.newSource("data/Gancho_Sounds/MotorSound.mp3","static")
+ GANCHO_AUDIO = love.audio.newSource("Data/Gancho_Sounds/MotorSound.mp3","static")
  --#endregion
  --#region font
  TIMER_FONT =love.graphics.newFont("Data/Gancho_Textures/Font.TTF",100)
@@ -329,7 +347,6 @@ function GenerateImageButton(name)
         end
         return r,g,b,a
      end
-     
 
     local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png")
     normal:mapPixel(alpha)
@@ -341,12 +358,14 @@ function GenerateImageButton(name)
     CHARACTERS_BUTTONS[name].mask = normal
 end
 
-CHARACTERS_BUTTONS = {}
-for k,v in ipairs(characters_names) do
-    CHARACTERS_BUTTONS[v] = {}
-    GenerateImageButton(v)
+function SPRITES_MAPPING_1()
+    CHARACTERS_BUTTONS = {}
+    for k,v in ipairs(characters_names) do
+        CHARACTERS_BUTTONS[v] = {}
+        GenerateImageButton(v)
+    end
+    SPRITES_MAPPING_2()
 end
-
 
 function GenerateImageButton_Info(name)
     local function alpha( x, y, r, g, b, a )
@@ -406,15 +425,22 @@ function GenerateImageButton_Info2(name)
     CHARACTERS_INFO_SILUETA[name].mask = normal
 end
 
-CHARACTERS_INFO = {}
-for k,v in ipairs(characters_names) do
-    CHARACTERS_INFO[v] = {}
-    GenerateImageButton_Info(v)
-    print(CHARACTERS_INFO[v].mask)
+
+function SPRITES_MAPPING_2()
+    CHARACTERS_INFO = {}
+    for k,v in ipairs(characters_names) do
+        CHARACTERS_INFO[v] = {}
+        GenerateImageButton_Info(v)
+        print(CHARACTERS_INFO[v].mask)
+    end
+    SPRITES_MAPPING_3()
 end
-CHARACTERS_INFO_SILUETA = {}
-for k,v in ipairs(characters_names) do
-    CHARACTERS_INFO_SILUETA[v] = {}
-    GenerateImageButton_Info2(v)
+
+function SPRITES_MAPPING_3()
+    CHARACTERS_INFO_SILUETA = {}
+    for k,v in ipairs(characters_names) do
+        CHARACTERS_INFO_SILUETA[v] = {}
+        GenerateImageButton_Info2(v)
+    end
 end
 --#endregion

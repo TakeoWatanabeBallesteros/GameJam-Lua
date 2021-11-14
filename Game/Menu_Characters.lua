@@ -2,7 +2,7 @@ Menu_Characters = Actor:extend()
 
 function Menu_Characters:new()
     self.font = FONT_BUTTONS_BIG
-    Menu_Characters.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
+    Menu_Characters.super.new(self,AVATAR_CHARACTERS_INFO_BAJO,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Menu_Characters:update(dt)
@@ -53,7 +53,7 @@ function Menu_Characters:draw()
     local oy = self.origin.y
     local sx = WW/1920
     local sy = WH/1080
-    local rr = self.rot
+    local rr = 0
     
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

@@ -21,8 +21,10 @@ function StartGame()
     Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
     Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
+    Main_FSM:addState("dormir", {enter = onDormirEnter, exit= onDormirExit, from='null'})
+    Main_FSM:addState("pelea", {enter = onPeleaEnter, exit= onPeleaExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("programar")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
@@ -141,10 +143,19 @@ function onSplash_01Enter()
   end
 
   function onProgramarEnter()
-    --Scene.getScene():addActor(Programar_Manager)
-    --Scene.getScene():addActor(Characters_Selection)
-    Scene.getScene():addActor(BeatemUp_Background)
-    Scene.getScene():addActor(BeatemUp_Manager)
+    Scene.getScene():addActor(Programar_Manager)
+  end
+
+  function onProgramarExit()
+    Scene.getScene():removeActor(Programar_Manager)
+  end
+
+  function onDormirEnter()
+    Scene.getScene():addActor(Dormir_Manager)
+  end
+
+  function onDormirExit()
+    Scene.getScene():removeActor(Dormir_Manager)
   end
   
   function onDrinkingGameEnter()
@@ -172,5 +183,14 @@ function onSplash_01Enter()
     Scene:getScene():removeActor(Gancho_Background)
     Scene:getScene():removeActor(Gancho_Gancho)
     Scene:getScene():removeActor(Gancho_Manager)
+
+  end
+
+  function onPeleaEnter()
+    Scene.getScene():addActor(BeatemUp_Background)
+    Scene.getScene():addActor(BeatemUp_Manager)
+  end
+
+  function onPeleaExit()
 
   end
