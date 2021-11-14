@@ -26,7 +26,7 @@ function Menu_Avatar:update(dt)
     love.graphics.setFont(FONT_BUTTONS_BIG)
     Suit.layout:reset(WW/2-(WW/1.05)/2, WH/5.5)
     Suit.layout:padding(WH/20)
-    if Suit.Button(self.name_1, {id=1}, Suit.layout:row(WW/1.5, WH/5)).hit then
+    if Suit.Button(self.name_1, {id=16}, Suit.layout:row(WW/1.5, WH/5)).hit then
         if SaveManager:checkFile('avatar_1.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_1_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_1_SETTINGS_EYES],
@@ -35,7 +35,7 @@ function Menu_Avatar:update(dt)
         else self.preview = {AVATAR_SILUET} end
         AVATAR_SELECTED = 1
     end
-    if Suit.Button(self.name_2, {id=2}, Suit.layout:row()).hit then
+    if Suit.Button(self.name_2, {id=17}, Suit.layout:row()).hit then
         if SaveManager:checkFile('avatar_2.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_2_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_2_SETTINGS_EYES],
@@ -44,7 +44,7 @@ function Menu_Avatar:update(dt)
         else self.preview = {AVATAR_SILUET} end
         AVATAR_SELECTED = 2
     end
-    if Suit.Button(self.name_3, {id=3}, Suit.layout:row()).hit then
+    if Suit.Button(self.name_3, {id=18}, Suit.layout:row()).hit then
         if SaveManager:checkFile('avatar_3.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_3_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_3_SETTINGS_EYES],
@@ -55,7 +55,7 @@ function Menu_Avatar:update(dt)
     end
     Suit.layout:reset(WW/1.47+(WW/6/2), WH/1.38-(WH/19*4/2))
     Suit.layout:padding(WH/21.6)
-    if Suit.Button("CONTINUAR", {id=4}, Suit.layout:row(WW/6, WH/19)).hit then
+    if Suit.Button("CONTINUAR", {id=19}, Suit.layout:row(WW/6, WH/19)).hit then
         if #self.preview > 1 then
             if AVATAR_SELECTED == 1 then SaveManager:loadAvatar_1()
             elseif AVATAR_SELECTED == 2 then SaveManager:loadAvatar_2()
@@ -67,14 +67,14 @@ function Menu_Avatar:update(dt)
             Main_FSM:changeState('intro') 
         end
     end
-    if Suit.Button("EDITAR", {id=5}, Suit.layout:row(WW/6, WH/19)).hit then
+    if Suit.Button("EDITAR", {id=20}, Suit.layout:row(WW/6, WH/19)).hit then
         if AVATAR_SELECTED then
             if AVATAR_SELECTED == 1 then SaveManager:loadAvatar_1()
             elseif AVATAR_SELECTED == 2 then SaveManager:loadAvatar_2()
             elseif AVATAR_SELECTED == 3 then SaveManager:loadAvatar_3() end
         Main_FSM:changeState('editor') end
     end
-    if Suit.Button("BORRAR", {id=6}, Suit.layout:row()).hit then
+    if Suit.Button("BORRAR", {id=21}, Suit.layout:row()).hit then
         if AVATAR_SELECTED == 1 then
             SaveManager:deleteAvatar_1()
             self.preview = {AVATAR_SILUET}
@@ -88,7 +88,7 @@ function Menu_Avatar:update(dt)
             self.preview = {AVATAR_SILUET}
             self.name_3 = 'Vacio' end
     end
-    if Suit.Button("MENU", {id=7}, Suit.layout:row()).hit then
+    if Suit.Button("MENU", {id=22}, Suit.layout:row()).hit then
         Main_FSM:changeState('menu')
     end
 end

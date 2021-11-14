@@ -9,8 +9,7 @@ local globalTimer
 local scaleFloat,posYFloat,shadowSpeed,speed,posPeluche
 
 function Gancho_Gancho:new()
-  globalTimer = Timer(10,function() if gameStates < 2 then gameStates = 2 end end, false)
-  Scene.getScene():addTimerObj(globalTimer)
+  globalTimer = 10
 
   speed = 100
   Gancho_Gancho.super.new(self,GANCHO_GANCHO_ABIERTO,WW/2,-WH/6,1,0,0, 'Front')
@@ -27,7 +26,10 @@ function Gancho_Gancho:update(dt)
 
   else
   shadow.position.x = self.position.x
-  
+  globalTimer = globalTimer > 0 and globalTimer - dt or 0
+  if globalTimer == 0 then
+    if gameStates < 2 then gameStates = 2 end
+  end
   if gameStates == 1 then 
     if not love.keyboard.isDown("w") and not love.keyboard.isDown("s") and not love.keyboard.isDown("a") and not love.keyboard.isDown("d")then
       AudioManager.StopSound(GANCHO_AUDIO)
@@ -112,7 +114,6 @@ function Gancho_Gancho:update(dt)
   if gameStates == 7 then
     if elPeluche == nil then
       --compatibility = -5
-      print("SAMADOULAE")
       gameStates = 9
   else 
       --compatibility = +25
@@ -162,7 +163,7 @@ function Gancho_Gancho:draw()
   local rr = 0
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
   love.graphics.setColor(255, 0, 0)
-  if gameStates < 2 then   love.graphics.print(math.floor(globalTimer:getTime()),WW/7.5, WH/6,0,1,1,0,0,0,0)  end
+  if gameStates < 2 then   love.graphics.print(math.floor(globalTimer),WW/7.5, WH/6,0,1,1,0,0,0,0)  end
   love.graphics.setColor(255, 255, 255)
   if gameStates < 4 then love.graphics.draw(shadow.img,shadow.position.x,shadow.position.y,0,ssx,ssy,ox,oy,0,0) end
   love.graphics.setBackgroundColor(0, 0, 0)

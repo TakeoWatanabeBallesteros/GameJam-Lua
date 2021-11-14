@@ -63,7 +63,7 @@ function Menu:update(dt)
         
     end
     Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2-(WW/20)*3/2)+(3*WH/15))
-    if Suit.Button("SALIR", {id=69}, Suit.layout:row(WW/2.3, WH/20)).hit then
+    if Suit.Button("SALIR", {id=6}, Suit.layout:row(WW/2.3, WH/20)).hit then
         love.event.quit(0)
     end
     Suit.layout:reset(WW/50, WH/1.07)

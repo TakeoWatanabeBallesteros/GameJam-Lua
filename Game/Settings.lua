@@ -10,7 +10,7 @@ end
 
 function Settings:update(dt)
     Suit.layout:reset(WW/2-WW/5/2, WH/1.09)
-    if Suit.Button("ATRAS", {id=4}, Suit.layout:row(WW/5, WH/20)).hit then
+    if Suit.Button("ATRAS", {id=9}, Suit.layout:row(WW/5, WH/20)).hit then
         Main_FSM:changeState('menu')
     end
     Suit.layout:reset(WW/2-(WW/5)/2, WH/2-(WW/20)*3/2)
@@ -39,18 +39,18 @@ end
 function Settings:sliders()
     Suit.layout:reset(WW/2-(WW/6.4)/2, WH/2.5)
     Suit.layout:padding(40)
-    Suit.Label('VOLUMEN GENERAL: '..tostring(math.floor(self.slider_main.value*100)), Suit.layout:row(300,0))
-    if Suit.Slider(self.slider_main, {id=1}, Suit.layout:row(WW/6.4, WH/54)).changed then
+    Suit.Label('VOLUMEN GENERAL: '..tostring(math.floor(self.slider_main.value*100)), {id=10},Suit.layout:row(300,0))
+    if Suit.Slider(self.slider_main, {id=13}, Suit.layout:row(WW/6.4, WH/54)).changed then
         GAME_SETTINGS_VOLUME_MASTER = self.slider_main.value
         SaveManager:saveSettings()
     end
-    Suit.Label('VOLUMEN MUSICA: '..tostring(math.floor(self.slider_music.value*100)), Suit.layout:row(300,0))
-    if Suit.Slider(self.slider_music, {id=2}, Suit.layout:row(WW/6.4, WH/54)).changed then
+    Suit.Label('VOLUMEN MUSICA: '..tostring(math.floor(self.slider_music.value*100)),  {id=11},Suit.layout:row(300,0))
+    if Suit.Slider(self.slider_music, {id=14}, Suit.layout:row(WW/6.4, WH/54)).changed then
         GAME_SETTINGS_VOLUME_MUSIC = self.slider_music.value
         SaveManager:saveSettings()
     end
-    Suit.Label('VOLUMEN EFFECTOS: '..tostring(math.floor(self.slider_effects.value*100)), Suit.layout:row(300,0))
-    if Suit.Slider(self.slider_effects, {id=3}, Suit.layout:row(WW/6.4, WH/54)).changed then
+    Suit.Label('VOLUMEN EFFECTOS: '..tostring(math.floor(self.slider_effects.value*100)),  {id=12},Suit.layout:row(300,0))
+    if Suit.Slider(self.slider_effects, {id=15}, Suit.layout:row(WW/6.4, WH/54)).changed then
         GAME_SETTINGS_VOLUME_EFFECTS = self.slider_effects.value
         SaveManager:saveSettings()
     end

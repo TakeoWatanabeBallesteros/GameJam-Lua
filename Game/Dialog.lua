@@ -73,10 +73,8 @@ function Dialog:draw()
 
     --display the menu
     if(self.node.has_choices and self.node.body:done()) and self.dialogues_index == #self.dialogues then
-        Suit.draw()
         for i,v in ipairs(self.node.choices) do
             local c = {1, 1, 1}
-            self:buttons(v.text)
             --our menu selection. The selected text is a diff color
             if(i==self.menu.select) then c = {0.9, 0.4, 0.3} end
             --and this is the actual text itself.
@@ -99,13 +97,6 @@ function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 		local ox,oy = (love.math.random()-0.5)*maxDistance,(love.math.random()-0.5)*maxDistance
 		love.graphics.print({_text[1], _text[2]},FONT_DIALOGUES_DEFAULT,x+ox,y+oy)
 	end
-end
-
-function Dialog:buttons(text)
-    Suit.layout:reset(WW/3,(WH/5.4)+(40))
-    if Suit.Button(text, {id=1, font = FONT_DIALOGUES_DEFAULT}, Suit.layout:row(FONT_DIALOGUES_DEFAULT:getWidth(text), FONT_DIALOGUES_DEFAULT:getHeight(text))).hit then
-
-    end
 end
 
 function Dialog:mousepressed( x, y, _button, istouch, presses )

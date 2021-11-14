@@ -37,10 +37,10 @@ function Blackjack_Manager:update(dt)
     love.graphics.setFont(FONT_BUTTONS)
     Suit.layout:reset(WW/2-WW/20, WH/1.2)
     Suit.layout:padding(10)
-    if Suit.Button("Pedir Carta", Suit.layout:row(WW/10, WH/24)).hit then
+    if Suit.Button("Pedir Carta", {id=54}, Suit.layout:row(WW/10, WH/24)).hit then
         if currentState == "Waiting" then currentState = 'Hit'end
     end
-    if Suit.Button("Plantarse", Suit.layout:row()).hit then
+    if Suit.Button("Plantarse", {id=55}, Suit.layout:row()).hit then
         if currentState == "Waiting" then currentState = 'Stay' end
     end
     self.timer = self.timer > 0 and self.timer - dt or 0
