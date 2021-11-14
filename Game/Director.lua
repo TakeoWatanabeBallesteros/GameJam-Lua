@@ -19,8 +19,8 @@ function StartGame()
     Main_FSM:addState("dialog",{ enter= onDialogEnter, exit= onDialogExit,from={'editor', "character_select",'menu_avatar', 'pong',
     "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
 
-    Main_FSM:addState("chao",{ enter= onChaoEnter, exit= onChaoExit, from={'dialog'}}) 
-    Main_FSM:addState("final",{ enter= onFinalEnter, exit= onFinalExit, from={'dialog'}})
+    Main_FSM:addState("chao",{ enter= onChaoEnter, exit= onChaoExit, from={'dialog','null'}}) 
+    Main_FSM:addState("final",{ enter= onFinalEnter, exit= onFinalExit, from={'dialog', 'null'}})
 
 
 
@@ -250,7 +250,6 @@ end
 
 function onChaoExit()
   Scene.getScene():removeActor(Final_Malo)
-  Scene.getScene():addActor(Menu)
 end
 
 function onFinalEnter()
@@ -260,5 +259,4 @@ end
 
 function onFinalExit()
   Scene.getScene():removeActor(Final_Malo)
-  Scene.getScene():addActor(Menu)
 end

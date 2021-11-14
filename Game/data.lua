@@ -56,7 +56,7 @@ Menu_Minigames = Menu_Minigames or require "Game/Menu_Minigames"
 Characters_Selection = Characters_Selection or require "Game/Characters_Selection"
 --#endregion
 MINIGAME = false
-WHO = nil
+WHO = 'alex'
 --#region ACTORS
 LAYERS = {"Background", "Middle", "Front", "HUD", "Buttons"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")

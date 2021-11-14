@@ -55,9 +55,9 @@ Pong_FIELD_BRAZIL_IMAGE = love.graphics.newImage("Pong/BrazilField.png")
 Pong_FIELD_OTAKU_IMAGE = love.graphics.newImage("Pong/OtakuField.png")
 --#endregion
 --#region FONTS
-Pong_FONT_PONG_TITLE = love.graphics.newFont("Pong/pong.TTF", 55)
+Pong_FONT_PONG_TITLE = love.graphics.newFont("Pong/pong.ttf", 55)
 Pong_FONT_OTAKU_TITLE = love.graphics.newFont("Pong/otaku.TTF", 55)
-Pong_FONT_PONG_BUTTONS = love.graphics.newFont("Pong/pong.TTf", 32)
+Pong_FONT_PONG_BUTTONS = love.graphics.newFont("Pong/pong.ttf", 32)
 Pong_FONT_OTAKU_BUTTONS = love.graphics.newFont("Pong/otaku.TTF", 32)
 --#endregion
 --#region TITLES

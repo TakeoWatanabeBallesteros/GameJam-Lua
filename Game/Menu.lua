@@ -16,31 +16,6 @@ function Menu:update(dt)
         hovered = {bg = { 50/255,153/255,187/255, self.alpha-0.1}, fg = {255/255,255/255,255/255, self.alpha}},
         active  = {bg = {255/255,153/255,  0/255, self.alpha}, fg = {225/255,225/255,225/255, self.alpha}}
     }
-    --Suit.layout:reset(WW/2-(WW/2.3)/2, WH/2-(WW/20)*3/2)
-    --love.graphics.setFont(FONT_BUTTONS)
-    --[[ if Suit.Button("JUGAR", {id=1}, Suit.layout:row(WW/2.3, WH/20)).hit then
-        Main_FSM:changeState('play')
-    end
-    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2-(WW/20)*3/2)+WH/10)
-    if Suit.Button("PERSONAJES", {id=2}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        
-    end
-    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+WH/10)
-    if Suit.Button("MINIJUEGOS", {id=3}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        
-    end
-    Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2-(WW/20)*3/2)+(2*WH/10))
-    if Suit.Button("AJUSTES", {id=4}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        Main_FSM:changeState('settings')
-    end
-    Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+(2*WH/10))
-    if Suit.Button("CREDITOS", {id=5}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        
-    end
-    Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2-(WW/20)*3/2)+(3*WH/10))
-    if Suit.Button("SALIR", {id=6}, Suit.layout:row(WW/2.3, WH/20)).hit then
-        love.event.quit(0)
-    end ]]
     Suit.layout:reset(WW/2-(WW/2.3)/2, WH/2-(WW/20)*3/2)
     love.graphics.setFont(FONT_BUTTONS)
     if Suit.Button("JUGAR", {id=1}, Suit.layout:row(WW/2.3, WH/20)).hit then

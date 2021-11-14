@@ -15,7 +15,7 @@ function Final_Malo:draw()
     local sx = WW/1920
     local sy = WH/1080
     local rr = 0
-    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
+    love.graphics.draw(LOSE_BACKGROUND[WHO],0,0,rr,sx,sy,ox,oy,0,0)
 end
 
 function Final_Malo:mousepressed( x, y, _button, istouch, presses )
