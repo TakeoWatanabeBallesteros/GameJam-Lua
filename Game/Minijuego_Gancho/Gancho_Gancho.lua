@@ -118,7 +118,7 @@ function Gancho_Gancho:update(dt)
   end
 end
   if gameStates == 8 then
-    COMPATIBILIDAD = COMPATIBILIDAD +20
+    COMPATIBILIDAD = COMPATIBILIDAD +10
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
