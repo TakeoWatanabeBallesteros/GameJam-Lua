@@ -5,7 +5,7 @@ function StartGame()
     Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_04"})
     Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
     Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
-    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames', 'intro'}})
+    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames', 'intro', 'pong'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
     Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from='menu'})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
@@ -14,18 +14,17 @@ function StartGame()
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='menu_avatar'})
     Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from={'editor', 'menu_avatar'}})
     Main_FSM:addState("character_select",{ enter= onCharacter_SelectEnter, exit= onCharacter_SelectExit, from={'intro'}})
-    
+    Main_FSM:addState("dialog",{ enter= onDialogEnter, exit= onDialogExit})
 
-
-    Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from="null"}) 
-    Main_FSM:addState("vodka",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from="null"})
-    Main_FSM:addState("blackjack", {enter = onBlackjackEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
-    Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
-    Main_FSM:addState("dormir", {enter = onDormirEnter, exit= onDormirExit, from='null'})
-    Main_FSM:addState("pelea", {enter = onPeleaEnter, exit= onPeleaExit, from='null'})
-
-    Main_FSM:setInitialState("null") Main_FSM:changeState("splash_01")
+    Main_FSM:addState("topo",{ enter= onTopoEnter, exit= onTopoExit, from={'dialog', 'menu_minigames'}}) 
+    Main_FSM:addState("vodka",{ enter= onDrinkingGameEnter, exit= onDrinkingGameExit, from={'dialog', 'menu_minigames', 'null'}})
+    Main_FSM:addState("blackjack", { enter = onBlackjackEnter, exit= onBlackjackExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:addState("gancho", { enter = onGanchoEnter, exit= onGanchoExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:addState("programar", { enter = onProgramarEnter, exit= onBlackjackExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:addState("dormir", { enter = onDormirEnter, exit= onDormirExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:addState("pelea", { enter = onPeleaEnter, exit= onPeleaExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:addState("pong", { enter = onPongEnter, exit= onPongExit, from={'dialog', 'menu_minigames'}})
+    Main_FSM:setInitialState("null") Main_FSM:changeState("vodka")
 end
 
 function onSplash_01Enter()
@@ -73,6 +72,14 @@ function onMenuExit()
   Scene.getScene():removeActor(Menu)
 end
 
+function onMenu_MinigamesEnter()
+
+end
+
+function onMenu_MinigamesExit()
+
+end
+
 function onMenu_CharactersEnter()
   Scene.getScene():addActor(Menu_Characters)
 end
@@ -111,13 +118,16 @@ end
 
 function onEditorExit()
   Scene.getScene():removeActor(Editor)
-  Scene.getScene():removeActor(Buttons)
-  Scene.getScene():removeActor(Buttons)
 end
 
 function onIntroEnter()
   local d = Dialog('Data/Dialogues/Intro.json')
   Scene.getScene():addDialog(d)
+end
+
+function onIntroExit()
+  ON_PAUSE = true
+  Scene.getScene():removeActor(Dialog)
 end
 
 function onCharacter_SelectEnter()
@@ -128,8 +138,12 @@ function onCharacter_SelectExit()
   Scene.getScene():removeActor(Characters_Selection)
 end
 
-function onIntroExit()
-  Scene.getScene():removeActor(Dialog)
+function onDialogEnter()
+  ON_PAUSE = false
+end
+
+function onDialogExit()
+  ON_PAUSE = true
 end
 
 function onTopoEnter()
@@ -153,6 +167,13 @@ function onBlackjackEnter()
   Scene.getScene():addActor(Blackjack_Manager)
 end
 
+function onBlackjackExit()
+  Scene.getScene():removeActor(Blackjack_Background)
+  Scene.getScene():removeActor(Blackjack_Player)
+  Scene.getScene():removeActor(Blackjack_Dealer)
+  Scene.getScene():removeActor(Blackjack_Manager)
+end
+
 function onProgramarEnter()
   Scene.getScene():addActor(Programar_Manager)
 end
@@ -168,7 +189,15 @@ end
 function onDormirExit()
   Scene.getScene():removeActor(Dormir_Manager)
 end
-  
+
+function onPongEnter()
+  Scene:getScene():addActor(Pong_Manager)
+end
+
+function onPongExit()
+  Scene:getScene():removeActor(Pong_Manager)
+end
+
 function onDrinkingGameEnter()
   Scene:getScene():addActor(BACKGROUND_DRINKING_GAME)
   Scene:getScene():addActor(SLIDER_DRINKING_GAME)

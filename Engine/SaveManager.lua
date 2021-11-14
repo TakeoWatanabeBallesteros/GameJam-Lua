@@ -15,6 +15,27 @@ function SaveManager:load()
   GAME_SETTINGS_VOLUME_MASTER = self.settings.mainVolume
   GAME_SETTINGS_VOLUME_MUSIC = self.settings.musicVolume
   GAME_SETTINGS_VOLUME_EFFECTS = self.settings.effectVolume
+
+  if not love.filesystem.getInfo("characters_fucked.txt") then
+    local characters_fucked = {}
+    characters_fucked.alex = false
+    characters_fucked.ricky = false
+    characters_fucked.takeo = false
+    characters_fucked.arnau= false
+    characters_fucked.vero = false
+    characters_fucked.marina = false
+
+    love.filesystem.write("characters_fucked.txt", Serialize(characters_fucked))
+  end
+
+  local chunk = love.filesystem.load("characters_fucked.txt")
+  self.characters_fucked = chunk()
+        CHARACTER_ALEX   =   self.characters_fucked.alex
+        CHARACTER_RICKY  = self.characters_fucked.ricky
+        CHARACTER_TAKEO  = self.characters_fucked.takeo
+        CHARACTER_ARNAU  = self.characters_fucked.arnau
+        CHARACTER_VERO   = self.characters_fucked.vero
+        CHARACTER_MARINA =   self.characters_fucked.marina
 end
 
 function SaveManager:loadAvatar_1()
@@ -111,6 +132,16 @@ function SaveManager:saveSettings()
   settings.effectVolume = GAME_SETTINGS_VOLUME_EFFECTS
   
   love.filesystem.write("settings.txt", Serialize(settings))
+
+  local characters_fucked = {}
+    characters_fucked.alex =   CHARACTER_ALEX  
+    characters_fucked.ricky =  CHARACTER_RICKY 
+    characters_fucked.takeo =  CHARACTER_TAKEO 
+    characters_fucked.arnau=   CHARACTER_ARNAU 
+    characters_fucked.vero =   CHARACTER_VERO  
+    characters_fucked.marina = CHARACTER_MARINA
+
+    love.filesystem.write("characters_fucked.txt", Serialize(characters_fucked))
 end
 
 function SaveManager:saveAvatar_1()

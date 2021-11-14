@@ -142,6 +142,7 @@ function Gancho_Gancho:draw()
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
   love.graphics.setColor(255, 0, 0)
   if gameStates < 2 then   love.graphics.print(math.floor(globalTimer:getTime()),WW/7.5, WH/6,0,1,1,0,0,0,0)  end
+  love.graphics.setColor(255, 255, 255)
   if gameStates < 4 then love.graphics.draw(shadow.img,shadow.position.x,shadow.position.y,0,ssx,ssy,ox,oy,0,0) end
 end
 

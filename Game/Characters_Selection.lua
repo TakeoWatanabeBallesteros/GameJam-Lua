@@ -19,7 +19,9 @@ function Characters_Selection:update(dt)
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if Suit.ImageButton(CHARACTERS_BUTTONS.takeo.normal, {id = 3, mask = CHARACTERS_BUTTONS.takeo.mask, hovered = CHARACTERS_BUTTONS.takeo.hovered, active = CHARACTERS_BUTTONS.takeo.active}, Suit.layout:row(WW,WH)).hit then
-
+        local d = Dialog('Data/Dialogues/dialogo_takeo.json')
+        Scene.getScene():addDialog(d)
+        Main_FSM:changeState('dialog')
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)

@@ -12,7 +12,7 @@ function Gancho_Manager:new()
 
 end
 
-function Gancho_Manager:update()
+function Gancho_Manager:update(dt)
 end
 
 function Gancho_Manager:draw()

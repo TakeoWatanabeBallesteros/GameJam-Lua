@@ -46,7 +46,7 @@ Dialog = Dialog or require "Game/Dialog"
 Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
 Characters_Selection = Characters_Selection or require "Game/Characters_Selection"
 --#endregion
-
+MINIGAME = false
 --#region ACTORS
 LAYERS = {"Background", "Middle", "Front", "HUD", "Buttons"}
 DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
@@ -148,6 +148,14 @@ AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
     GAME_SETTINGS_VOLUME_MASTER = 0.6
     GAME_SETTINGS_VOLUME_MUSIC = 0.6
     GAME_SETTINGS_VOLUME_EFFECTS = 0.6
+    --#endregion
+    --#region CHARACTERS_FUCKED
+    CHARACTER_ALEX = false
+    CHARACTER_RICKY = false
+    CHARACTER_TAKEO = false
+    CHARACTER_ARNAU = false
+    CHARACTER_MARINA = false
+    CHARACTER_VERO = false
     --#endregion
     --#region AVATAR_DATA
     AVATAR_SELECTED = nil
@@ -256,6 +264,10 @@ DORMIR_PROFE_SPRITES = {
 }
 DORMIR_FONT = love.graphics.newFont("Data/Dormir_Sprites/digital-7.ttf", WW*60/1920)
 
+--#endregion
+
+--#region PONG
+Pong_Manager = Pong_Manager or require "Game/Minijuego_Pong/Pong_Manager"
 --#endregion
 
 --#region DrinkingGame
