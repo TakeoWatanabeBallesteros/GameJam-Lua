@@ -2,7 +2,7 @@ Editor = Actor:extend()
 
 function Editor:new()
     self.font = FONT_BUTTONS_BIG
-    Editor.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
+    Editor.super.new(self,EDITOR_BACKGROUND,WW/2,WH/2,0,-1,0, 'HUD')
     self.name = {text=AVATAR_SETTINGS_NAME}
 end
 
@@ -12,6 +12,14 @@ function Editor:update(dt)
 end
 
 function Editor:draw()
+    local xx = self.position.x
+    local ox = self.origin.x
+    local yy = self.position.y
+    local oy = self.origin.y
+    local sx = WW/1920
+    local sy = WH/1080
+    local rr = 0
+    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / AVATAR_SKINS[AVATAR_SETTINGS_SKIN]:getWidth()
     local sy = WH / AVATAR_SKINS[AVATAR_SETTINGS_SKIN]:getHeight()
@@ -19,15 +27,7 @@ function Editor:draw()
     love.graphics.draw(AVATAR_EYES[AVATAR_SETTINGS_EYE], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_HAIRS[AVATAR_SETTINGS_HAIR], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTH], 0, 0, 0,sx, sy)
-    local xx = self.position.x
-    local ox = self.origin.x
-    local yy = self.position.y
-    local oy = self.origin.y
-    local sx = self.scale.x
-    local sy = self.scale.y
-    local rr = self.rot
     Suit:draw()
-    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
 function Editor:AvatarButtons()

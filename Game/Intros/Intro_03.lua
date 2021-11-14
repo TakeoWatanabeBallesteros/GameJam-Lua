@@ -4,7 +4,7 @@ Intro_03 = Actor:extend()
 function Intro_03:new()
     self.alpha = 0
     self.timer = 0
-    Scene.getScene():addTimer(5, function() Main_FSM:changeState('splash_02') end, false)
+    Scene.getScene():addTimer(5, function() Main_FSM:changeState('splash_04') end, false)
     Intro_03.super.new(self,YARN_ICON,WW/2,WH/2-50,0,1,1, 'HUD')
 end
 

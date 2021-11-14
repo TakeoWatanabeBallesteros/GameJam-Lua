@@ -12,7 +12,7 @@ local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'su
 --#endregion
 --#region CHARACTERS_NAMES
 local characters_boxes_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
-characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
+local characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
 --#endregion
 
 --#region ALL_CLASES
@@ -37,7 +37,9 @@ AudioManager = AudioManager or require "Engine/audioManager"
 Intro_01 = Intro_01 or require "Game/Intros/Intro_01"
 Intro_02 = Intro_02 or require "Game/Intros/Intro_02"
 Intro_03 = Intro_03 or require "Game/Intros/Intro_03"
+Intro_04 = Intro_04 or require "Game/Intros/Intro_04"
 Menu = Menu or require "Game/Menu"
+Menu_Characters = Menu_Characters or require "Game/Menu_Characters"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
@@ -53,10 +55,12 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     --#region LOGOS
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
+    TALKATIVE_LOGO = love.graphics.newImage("Data/Logos/logo_empresa.png")
     --#endregion
     --#region BACKGROUNDS
     MENU_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/menu_background.png")
     DEFAULT_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/default_background.png")
+    EDITOR_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/fondo_custom.png")
     --#endregion
     --#region AVATAR_SPRITES
     AVATAR_SILUET = love.graphics.newImage("Data/Avatar/silueta_avatar.png")
@@ -98,6 +102,19 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
         AVATAR_CHARACTERS_BUTTONS = {}
         for index, value in ipairs(characters_names) do
             AVATAR_CHARACTERS_BUTTONS[value] = love.graphics.newImage("Data/Avatar/Characters_Buttons/boton_"..value..".png")
+        end
+        --#endregion
+        --#region AVATAR_CHARACTERS_INFO
+        AVATAR_CHARACTERS_INFO = {}
+        for index, value in ipairs(characters_names) do
+            AVATAR_CHARACTERS_INFO[value] = love.graphics.newImage("Data/Avatar/Characters_Info/info_"..value..".png")
+        end
+        --#endregion
+        AVATAR_CHARACTERS_INFO_BAJO = love.graphics.newImage("Data/Avatar/Characters_Info/mitad_inferior.png")
+        --#region AVATAR_CHARACTERS_INFO_SILUETA
+        AVATAR_CHARACTERS_INFO_SILUETA = {}
+        for index, value in ipairs(characters_names) do
+            AVATAR_CHARACTERS_INFO_SILUETA[value] = love.graphics.newImage("Data/Avatar/Characters_Info_Silueta/info_"..value.."_silueta.png")
         end
         --#endregion
     --#endregion
@@ -291,4 +308,113 @@ enemy = enemy or require("Game/Minijuego_Beatemup/enemy")
 map = map or require("Game/Minijuego_Beatemup/map")
 BeatemUp_Background = BeatemUp_Background or require("Game/Minijuego_Beatemup/BeatemUp_Background")
 BeatemUp_Manager = BeatemUp_Manager or require("Game/Minijuego_Beatemup/BeatemUp_Manager")
+--#endregion
+
+--#region SPRITES MAPPING
+function GenerateImageButton(name)
+    local function alpha( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,1
+        end
+        return r,g,b,a
+     end
+
+    local function alpha2( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,0.7
+        end
+        return r,g,b,a
+     end
+    
+    local function alpha3( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,a
+        end
+        return r,g,b,a
+     end
+     
+
+    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png")
+    normal:mapPixel(alpha)
+    hovered:mapPixel(alpha2)
+    active:mapPixel(alpha3)
+    CHARACTERS_BUTTONS[name].normal = love.graphics.newImage(normal)
+    CHARACTERS_BUTTONS[name].hovered = love.graphics.newImage(hovered)
+    CHARACTERS_BUTTONS[name].active = love.graphics.newImage(active)
+    CHARACTERS_BUTTONS[name].mask = normal
+end
+
+CHARACTERS_BUTTONS = {}
+for k,v in ipairs(characters_names) do
+    CHARACTERS_BUTTONS[v] = {}
+    GenerateImageButton(v)
+end
+
+
+function GenerateImageButton_Info(name)
+    local function alpha( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,1
+            end
+            return r,g,b,a
+        end
+
+    local function alpha2( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,0.7
+            end
+            return r,g,b,a
+        end
+    
+    local function alpha3( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,a
+            end
+            return r,g,b,a
+        end
+
+    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png")
+    normal:mapPixel(alpha)
+    hovered:mapPixel(alpha2)
+    active:mapPixel(alpha3)
+    CHARACTERS_INFO[name].normal = love.graphics.newImage(normal)
+    CHARACTERS_INFO[name].hovered = love.graphics.newImage(hovered)
+    CHARACTERS_INFO[name].active = love.graphics.newImage(active)
+    CHARACTERS_INFO[name].mask = normal
+end
+
+function GenerateImageButton_Info2(name)
+    local function alpha( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,1
+            end
+            return r,g,b,a
+        end
+
+    local function alpha2( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,0.7
+            end
+            return r,g,b,a
+        end
+    
+    local function alpha3( x, y, r, g, b, a )
+            if a ~= 0 then return r,g,b,a
+            end
+            return r,g,b,a
+        end
+
+    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png"), love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png"), love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png")
+    normal:mapPixel(alpha)
+    hovered:mapPixel(alpha2)
+    active:mapPixel(alpha3)
+    CHARACTERS_INFO_SILUETA[name].normal = love.graphics.newImage(normal)
+    CHARACTERS_INFO_SILUETA[name].hovered = love.graphics.newImage(hovered)
+    CHARACTERS_INFO_SILUETA[name].active = love.graphics.newImage(active)
+    CHARACTERS_INFO_SILUETA[name].mask = normal
+end
+
+CHARACTERS_INFO = {}
+for k,v in ipairs(characters_names) do
+    CHARACTERS_INFO[v] = {}
+    GenerateImageButton_Info(v)
+    print(CHARACTERS_INFO[v].mask)
+end
+CHARACTERS_INFO_SILUETA = {}
+for k,v in ipairs(characters_names) do
+    CHARACTERS_INFO_SILUETA[v] = {}
+    GenerateImageButton_Info2(v)
+end
 --#endregion

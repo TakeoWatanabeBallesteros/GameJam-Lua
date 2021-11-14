@@ -48,7 +48,7 @@ function splashlib.new(init)
   local self = {}
   local width, height = love.graphics.getDimensions()
 
-  self.layer = 'HUD'
+  self.layer = 'Background'
   self.background = init.background == nil and colors.shadow or init.background
   self.delay_before = init.delay_before or 0.3
   self.delay_after = init.delay_after or 0.7

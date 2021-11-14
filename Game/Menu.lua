@@ -48,7 +48,7 @@ function Menu:update(dt)
     end
     Suit.layout:reset((WW/2-(WW/5)/2)-(WW/4.2/2), (WH/2-(WW/20)*3/2)+WH/15)
     if Suit.Button("PERSONAJES", {id=2}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        
+        Main_FSM:changeState('menu_characters')
     end
     Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+WH/15)
     if Suit.Button("MINIJUEGOS", {id=3}, Suit.layout:row(WW/4.8, WH/20)).hit then

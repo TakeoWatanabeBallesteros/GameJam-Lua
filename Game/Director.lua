@@ -2,8 +2,9 @@ function StartGame()
     Main_FSM = StateMachine()
     Main_FSM:addState("null",{})
     Main_FSM:addState("splash_01",{ enter = onSplash_01Enter, exit = onSplash_01Exit , from="null"})
-    Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_03"})
+    Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_04"})
     Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
+    Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
     Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
     Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from='menu'})
@@ -21,7 +22,7 @@ function StartGame()
     Main_FSM:addState("gancho", {enter = onGanchoEnter, exit= onGanchoExit, from='null'})
     Main_FSM:addState("programar", {enter = onProgramarEnter, exit= onBlackjackExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("gancho")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("splash_01")
 end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
@@ -35,8 +36,9 @@ function onSplash_01Enter()
   end
 
   function onSplash_02Enter()
+    Scene.getScene():addActor(Intro_02)
     local s = SplashLib.new({fill = 'rain'})
-    s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) end
+    s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) Scene.getScene():removeActor(Intro_02) end
     Scene.getScene():addSplashScreen(s)
   end
   
@@ -50,6 +52,14 @@ function onSplash_01Enter()
   function onSplash_03Exit()
     Scene.getScene():removeActor(Intro_03)
   end
+
+  function onSplash_04Enter()
+    Scene.getScene():addActor(Intro_04)
+  end
+  
+  function onSplash_04Exit()
+    Scene.getScene():removeActor(Intro_04)
+  end
   
   function onMenuEnter()
     Scene.getScene():addActor(Menu)
@@ -57,6 +67,13 @@ function onSplash_01Enter()
   
   function onMenuExit()
     Scene.getScene():removeActor(Menu)
+  end
+  function onMenu_CharactersEnter()
+    Scene.getScene():addActor(Menu_Characters)
+  end
+  
+  function onMenu_CharactersExit()
+    Scene.getScene():removeActor(Menu_Characters)
   end
   
   function onSettingsEnter()
