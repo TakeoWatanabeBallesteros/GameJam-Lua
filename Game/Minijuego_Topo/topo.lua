@@ -95,13 +95,13 @@ function topo:draw()
     local sy = WH/self.height
     local rr = 0
     if gamestate ~= "EndGame"  then
-    COMPATIBILIDAD = COMPATIBILIDAD + points
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100)
     love.graphics.setColor(255, 0, 0)
     love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09)
     love.graphics.setColor(255, 255, 255)
     else
+      COMPATIBILIDAD = COMPATIBILIDAD + points
       AudioManager.StopSound(MICKEY_MUSIC_TOPO)
       Scene.getScene():removeActor(Timer)
       love.mouse.setVisible(false)
