@@ -24,8 +24,9 @@ function StartGame()
     Main_FSM:addState("dormir", {enter = onDormirEnter, exit= onDormirExit, from='null'})
     Main_FSM:addState("pelea", {enter = onPeleaEnter, exit= onPeleaExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("programar")
+    Main_FSM:setInitialState("null")Main_FSM:changeState("gancho")
 end
+
 function onSplash_01Enter()
     love.mouse.setVisible(false)
     local s = SplashLib.new({background={0, 0, 0}})
@@ -33,164 +34,161 @@ function onSplash_01Enter()
     Scene.getScene():addSplashScreen(s)
   end
   
-  function onSplash_01Exit()
-    
-  end
-
-  function onSplash_02Enter()
-    Scene.getScene():addActor(Intro_02)
-    local s = SplashLib.new({fill = 'rain'})
-    s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) Scene.getScene():removeActor(Intro_02) end
-    Scene.getScene():addSplashScreen(s)
-  end
+function onSplash_01Exit()
   
-  function onSplash_02Exit()
-  end
+end
 
-  function onSplash_03Enter()
-    Scene.getScene():addActor(Intro_03)
-  end
+function onSplash_02Enter()
+  Scene.getScene():addActor(Intro_02)
+  local s = SplashLib.new({fill = 'rain'})
+  s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) Scene.getScene():removeActor(Intro_02) end
+  Scene.getScene():addSplashScreen(s)
+end
   
-  function onSplash_03Exit()
-    Scene.getScene():removeActor(Intro_03)
-  end
+function onSplash_02Exit()
+end
 
-  function onSplash_04Enter()
-    Scene.getScene():addActor(Intro_04)
-  end
+function onSplash_03Enter()
+  Scene.getScene():addActor(Intro_03)
+end
   
-  function onSplash_04Exit()
-    Scene.getScene():removeActor(Intro_04)
-  end
+function onSplash_03Exit()
+  Scene.getScene():removeActor(Intro_03)
+end
+
+function onSplash_04Enter()
+  Scene.getScene():addActor(Intro_04)
+end
   
-  function onMenuEnter()
-    Scene.getScene():addActor(Menu)
-  end
+function onSplash_04Exit()
+  Scene.getScene():removeActor(Intro_04)
+end
   
-  function onMenuExit()
-    Scene.getScene():removeActor(Menu)
-  end
-  function onMenu_CharactersEnter()
-    Scene.getScene():addActor(Menu_Characters)
-  end
+function onMenuEnter()
+  Scene.getScene():addActor(Menu)
+end
   
-  function onMenu_CharactersExit()
-    Scene.getScene():removeActor(Menu_Characters)
-  end
+function onMenuExit()
+  Scene.getScene():removeActor(Menu)
+end
+
+function onMenu_CharactersEnter()
+  Scene.getScene():addActor(Menu_Characters)
+end
   
-  function onSettingsEnter()
-    Scene.getScene():addActor(Settings)
-  end
+function onMenu_CharactersExit()
+  Scene.getScene():removeActor(Menu_Characters)
+end
   
-  function onSettingsExit()
-    Scene.getScene():removeActor(Settings)
-  end
+function onSettingsEnter()
+  Scene.getScene():addActor(Settings)
+end
   
-  function onPlayEnter()
-    Main_FSM:changeState("menu_avatar")
-  end
+function onSettingsExit()
+  Scene.getScene():removeActor(Settings)
+end
   
-  function onPlayExit()
-  end
-
-  function onMenu_AvatarEnter()
-    Scene.getScene():addActor(Menu_Avatar)
-  end
-
-  function onMenu_AvatarExit()
-    Scene.getScene():removeActor(Menu_Avatar)
-  end
-
-  function onEditorEnter()
-    Scene.getScene():addActor(Editor)
-  end
-
-  function onEditorExit()
-    Scene.getScene():removeActor(Editor)
-    Scene.getScene():removeActor(Buttons)
-    Scene.getScene():removeActor(Buttons)
-  end
-
-  function onIntroEnter()
-    local d = Dialog('Data/Dialogues/Intro.json')
-    Scene.getScene():addDialog(d)
-  end
-
-  function onIntroExit()
-
-  end
-
+function onPlayEnter()
+  Main_FSM:changeState("menu_avatar")
+end
   
-  function onTopoEnter()
-    Scene.getScene():addActor(BACKGROUND_TOPO_GAME)
-    Scene.getScene():addActor(MAZO_TOPO_GAME)
-    Scene.getScene():addActor(TOPO_TOPO_GAME)
-    Scene.getScene():addActor(Topo_State_Manager)
-  end
-
-  function onTopoExit()
-    Scene.getScene():removeActor(Topo_State_Manager)
-    Scene.getScene():removeActor(BACKGROUND_TOPO_GAME)
-    Scene.getScene():removeActor(MAZO_TOPO_GAME)
-    Scene.getScene():removeActor(TOPO_TOPO_GAME)
-  end
-
-  function onBlackjackEnter()
-    Scene.getScene():addActor(Blackjack_Background)
-    Scene.getScene():addActor(Blackjack_Player)
-    Scene.getScene():addActor(Blackjack_Dealer)
-    Scene.getScene():addActor(Blackjack_Manager)
-  end
-
-  function onProgramarEnter()
-    Scene.getScene():addActor(Programar_Manager)
-  end
-
-  function onProgramarExit()
-    Scene.getScene():removeActor(Programar_Manager)
-  end
-
-  function onDormirEnter()
-    Scene.getScene():addActor(Dormir_Manager)
-  end
-
-  function onDormirExit()
-    Scene.getScene():removeActor(Dormir_Manager)
-  end
+function onPlayExit()
   
-  function onDrinkingGameEnter()
-    Scene:getScene():addActor(BACKGROUND_DRINKING_GAME)
-    Scene:getScene():addActor(SLIDER_DRINKING_GAME)
-    Scene:getScene():addActor(PLAYERBAR_DRINKING_GAME)
-    Scene:getScene():addActor(DRINKING_GAME)
+end
 
-  end
+function onMenu_AvatarEnter()
+  Scene.getScene():addActor(Menu_Avatar)
+end
 
-  function onDrinkingGameExit()
-    Scene:getScene():removeActor(BACKGROUND_DRINKING_GAME)
-    Scene:getScene():removeActor(SLIDER_DRINKING_GAME)
-    Scene:getScene():removeActor(PLAYERBAR_DRINKING_GAME)
-    Scene:getScene():removeActor(DRINKING_GAME)
-  end
+function onMenu_AvatarExit()
+  Scene.getScene():removeActor(Menu_Avatar)
+end
 
-  function onGanchoEnter()
-    Scene:getScene():addActor(Gancho_Background)
-    Scene:getScene():addActor(Gancho_Gancho)
-    Scene:getScene():addActor(Gancho_Manager)
-  end
+function onEditorEnter()
+  Scene.getScene():addActor(Editor)
+end
 
-  function onGanchoExit()
-    Scene:getScene():removeActor(Gancho_Background)
-    Scene:getScene():removeActor(Gancho_Gancho)
-    Scene:getScene():removeActor(Gancho_Manager)
+function onEditorExit()
+  Scene.getScene():removeActor(Editor)
+  Scene.getScene():removeActor(Buttons)
+  Scene.getScene():removeActor(Buttons)
+end
 
-  end
+function onIntroEnter()
+  local d = Dialog('Data/Dialogues/Intro.json')
+  Scene.getScene():addDialog(d)
+end
 
-  function onPeleaEnter()
-    Scene.getScene():addActor(BeatemUp_Background)
-    Scene.getScene():addActor(BeatemUp_Manager)
-  end
+function onIntroExit()
+end
 
-  function onPeleaExit()
+function onTopoEnter()
+  Scene.getScene():addActor(BACKGROUND_TOPO_GAME)
+  Scene.getScene():addActor(MAZO_TOPO_GAME)
+  Scene.getScene():addActor(TOPO_TOPO_GAME)
+  Scene.getScene():addActor(Topo_State_Manager)
+end
 
-  end
+function onTopoExit()
+  Scene.getScene():removeActor(Topo_State_Manager)
+  Scene.getScene():removeActor(BACKGROUND_TOPO_GAME)
+  Scene.getScene():removeActor(MAZO_TOPO_GAME)
+  Scene.getScene():removeActor(TOPO_TOPO_GAME)
+end
+
+function onBlackjackEnter()
+  Scene.getScene():addActor(Blackjack_Background)
+  Scene.getScene():addActor(Blackjack_Player)
+  Scene.getScene():addActor(Blackjack_Dealer)
+  Scene.getScene():addActor(Blackjack_Manager)
+end
+
+function onProgramarEnter()
+  Scene.getScene():addActor(Programar_Manager)
+end
+
+function onProgramarExit()
+  Scene.getScene():removeActor(Programar_Manager)
+end
+
+function onDormirEnter()
+  Scene.getScene():addActor(Dormir_Manager)
+end
+
+function onDormirExit()
+  Scene.getScene():removeActor(Dormir_Manager)
+end
+  
+function onDrinkingGameEnter()
+  Scene:getScene():addActor(BACKGROUND_DRINKING_GAME)
+  Scene:getScene():addActor(SLIDER_DRINKING_GAME)
+  Scene:getScene():addActor(PLAYERBAR_DRINKING_GAME)
+  Scene:getScene():addActor(DRINKING_GAME)
+end
+
+function onDrinkingGameExit()
+  Scene:getScene():removeActor(BACKGROUND_DRINKING_GAME)
+  Scene:getScene():removeActor(SLIDER_DRINKING_GAME)
+  Scene:getScene():removeActor(PLAYERBAR_DRINKING_GAME)
+  Scene:getScene():removeActor(DRINKING_GAME)
+end
+
+function onGanchoEnter()
+  Scene:getScene():addActor(Gancho_Background)
+  Scene:getScene():addActor(Gancho_Gancho)
+  Scene:getScene():addActor(Gancho_Manager)
+end
+
+function onGanchoExit()
+  Scene:getScene():removeActor(Gancho_Background)
+  Scene:getScene():removeActor(Gancho_Gancho)
+  Scene:getScene():removeActor(Gancho_Manager)
+end
+
+function onPeleaEnter()
+  Scene.getScene():addActor(BeatemUp_Background)
+  Scene.getScene():addActor(BeatemUp_Manager)
+end
+
+function onPeleaExit()
+end

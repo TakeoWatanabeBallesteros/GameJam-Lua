@@ -21,6 +21,21 @@ function discordApplyPresence()
   if Main_FSM.state == "menu" then
     detailsNow = 'In Mainmenu'
     stateNow = ''
+  elseif Main_FSM.state == "menu_characters" then
+    detailsNow = 'In Menu Characters'
+    stateNow = ''
+  elseif Main_FSM.state == "menu_minigames" then
+    detailsNow = 'In Menu Minigames'
+    stateNow = ''
+  elseif Main_FSM.state == "menu_avatar" then
+    detailsNow = 'In Avatar Selection'
+    stateNow = ''
+  elseif Main_FSM.state == "editor" then
+    detailsNow = 'In Avatar Editor'
+    stateNow = ''
+  elseif Main_FSM.state == "settings" then
+    detailsNow = 'In Settings'
+    stateNow = ''
   else
     detailsNow = "In Mainmenu"
     stateNow = ""
@@ -28,7 +43,7 @@ function discordApplyPresence()
 
   presence = {
     largeImageKey = "largeimage",
-    largeImageText = "TecnoDates 0.6.0",
+    largeImageText = "TecnoDates 0.8.0",
     details = detailsNow,
     state = stateNow,
     startTimestamp = now,
