@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Ricky: [shake]HEY, ¡¿QUÉ PASA GENTE?! LLEGÓ EL ADMIN[/shake] Espera,tú eres nuev@, ¿no?\nSi.\nRicky: Buff, ¿ya estás trabajando?\n[[answer: Solo estoy llorando con programación |Enfermo]]\n[[answer: Solo estoy dibujando un poquito |Animacion]]\n[[answer: Solo estoy adelantando de diseño|Diseño de Juegos kek]]",
+		"body": "Ricky: [shake]HEY, ¡¿QUÉ PASA GENTE?! LLEGÓ EL ADMIN[/shake] Espera,tú eres nuev@, ¿no?\nLo miras con cara de miedo, pero es el popular admin, y la verdad es que está bueno...\nRicky: Buff, ¿ya estás trabajando?\n[[answer: Solo estoy llorando con programación |Enfermo]]\n[[answer: Solo estoy dibujando un poquito |Animacion]]\n[[answer: Solo estoy adelantando lo de diseño|Diseño de Juegos kek]]",
 		"position": {
 			"x": -38,
-			"y": 228
+			"y": 226
 		},
 		"colorID": 0
 	},
@@ -14,8 +14,8 @@
 		"tags": "",
 		"body": "Ricky: Pues enséñame bro que yo con esto no me aclaro jaja.\nRicky: Es que mira que miseria de pong que me ha salido.\n[[answer: Supongo que no me queda otra. |Pong]]\n[[answer: La verdad es que preferiria amputarme una pierna. |Dormir]]",
 		"position": {
-			"x": -375,
-			"y": -227
+			"x": -376,
+			"y": -228
 		},
 		"colorID": 0
 	},
@@ -34,8 +34,8 @@
 		"tags": "",
 		"body": "Ricky: [shake]¡ESA ES![/shake] Sigue asi y puede que terminemos teniendo secso.\nRicky: Pero de momento te tendras que conformar con ver mi pong. Por algo se empieza.\n[[answer: Okey, enseñame el pong. No tengo nada mejor que hacer. |Pong]]\n[[answer: La verdad es que no me apetece. |Dormir]]",
 		"position": {
-			"x": 1137,
-			"y": -10
+			"x": 1135,
+			"y": -12
 		},
 		"colorID": 0
 	},
@@ -44,8 +44,8 @@
 		"tags": "",
 		"body": "Ricky: Vamos a echar una partidita. Mira, si ganas tenemos sexo...\nRicky: Si pierdes también. ¡Vamos a darle!\n<<scene:pong>>\nRicky: Esta fresquísimo, ¿eh?\nRicky: Aún queda algo de tiempo hasta la entrega. Vamos a mejorarlo un poquito.\n[[answer: Pero si es tu puto trabajo hazlo tú solo desgraciado. |Prog]]\n[[answer: Lo que sea por pasar tiempo contigo hermoso. |Prog]]",
 		"position": {
-			"x": 422,
-			"y": -338
+			"x": 420,
+			"y": -340
 		},
 		"colorID": 0
 	},
@@ -54,18 +54,18 @@
 		"tags": "",
 		"body": "Ricky: Pues buena suerte bro.\nRicky: Ahora toca emprenedoria, intenta no sobarte en clase jaja.\n<<scene:dormir>>\nRicky: Bro, que se me habia olvidado añadirle una cosa al pong, necesito ayuda urgente. \n[[answer: Ugh, está bien. Pero me debes 50 euros y una copia física de Ronaldinho Soccer 64. |Prog]]\n[[answer: Okey, supongo que no me queda otra. |Prog]]",
 		"position": {
-			"x": 512,
-			"y": -989
+			"x": 510,
+			"y": -991
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Prog",
 		"tags": "",
-		"body": "Ricky: Bien si nos ponemos en serio puede que lleguemos al 5.\nRicky: ...\nRicky: Ni se te ocurra hacer la rima. \n<<scene:programar>>\nRicky: A ver, se te da como la mierda, pero con práctica se te seguirá dando igual de mal. \nRicky: Mira, estoy harto de programar. Vámonos a los arcade.\nRicky: [color=#ff0000]Es una orden del admin.[/color]\nAcabas quedando con Ricky un poco en contra de tu voluntad. \nNo llamas a la policía porque sabes que no podrían hacer nada contra un admin.\n<<background:arcade>>\nRicky: Mira, una máquina para sacar peluches. \nRicky: Sacame el mejor y puede que te invite a un juego. \n<<scene:gancho>>\nRicky: A ver, que te iba a invitar igualmente jaja. \nRicky: ¿Te invito al de los topos? \nTe van a invitar al minijuego del topo. No la puedes fastidiar, tienes que impresionarle.\n<<scene:topo>>\nRicky: Pues oye, no ha estado mal jaja. \nRicky: Mira, ¿qué te parece si vamos a tomar algo? Venga va. \n<<background:party>>\nRicky: Ahora toca beber bro, no te cortes.\n<<scene:vodka>>\nRicky: ...Y por eso tienes que jugar a Kingdom Hearts. \nRicky: No, no me has oido bien. \nRicky: [shake][color=#ff0000]TIENES QUE JUGAR A KINGDOM HEARTS[/color] [/shake]\nRicky: Hostia, mira ese puesto de Blackjack. Una partidita, ¿no?\n<<scene:blackjack>>\nRicky: [shake] BRO BRO, alta partidita.[/shake]\nHa sido un día interesante. \n<<scene:final>>",
+		"body": "Ricky: Bien si nos ponemos en serio puede que lleguemos al 5.\nRicky: ...\nRicky: Ni se te ocurra hacer la rima. \n<<scene:programar>>\nRicky: A ver, se te da como la mierda, pero con práctica se te seguirá dando igual de mal. \nRicky: Mira, estoy harto de programar. Vámonos a los arcade.\nRicky: [color=#ff0000]Es una orden del admin.[/color]\nAcabas quedando con Ricky un poco en contra de tu voluntad. \nNo llamas a la policía porque sabes que no podrían hacer nada contra el admin.\n<<background:arcade>>\nRicky: Mira, una máquina para sacar peluches. \nRicky: Sacame el mejor y puede que te invite a un juego. \n<<scene:gancho>>\nRicky: A ver, que te iba a invitar igualmente jaja. \nRicky: ¿Te invito al de los topos? \nTe van a invitar al minijuego del topo. No la puedes fastidiar, tienes que impresionarle.\n<<scene:topo>>\nRicky: Pues oye, no ha estado mal jaja. \nRicky: Mira, ¿qué te parece si vamos a tomar algo? Venga va. \n<<background:party>>\nRicky: Ahora toca beber bro, no te cortes.\n<<scene:vodka>>\nRicky: ...Y por eso tienes que jugar a Kingdom Hearts. \nRicky: No, no me has oido bien. \nRicky: [shake][color=#ff0000]TIENES QUE JUGAR A KINGDOM HEARTS[/color] [/shake]\nRicky: Hostia, mira ese puesto de Blackjack. Una partidita, ¿no?\n<<scene:blackjack>>\nRicky: [shake] BRO BRO, alta partidita.[/shake]\nHa sido un día interesante. \n<<scene:final>>",
 		"position": {
-			"x": 510,
-			"y": -649
+			"x": 506,
+			"y": -653
 		},
 		"colorID": 0
 	}
