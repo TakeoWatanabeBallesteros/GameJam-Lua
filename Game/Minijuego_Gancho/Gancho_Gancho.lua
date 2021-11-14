@@ -101,13 +101,12 @@ function Gancho_Gancho:update(dt)
     self.image = GANCHO_GANCHO_ABIERTO
     gravity = gravity+dt*100
     elPeluche.position.y = elPeluche.position.y +gravity
-    if elPeluche.position.y > -WH/6 then 
-      for _,v in ipairs(Scene.getScene():getActorList()) do
-        if v==elPeluche then table.remove(Scene.getScene():getActorList(),_) end
-        gameStates = 7
-      end
-    else
-      gameStates = 9
+    if elPeluche.position.y > WH+WH/2 then 
+      --for _,v in ipairs(Scene.getScene():getActorList()) do
+        --if v==elPeluche then table.remove(Scene.getScene():getActorList(),_) end
+        --gameStates = 7
+      --end
+      gameStates = 7
     end
   end
 
@@ -135,7 +134,7 @@ end
   if gameStates == 9 then
     if self.position.y > -WH/6 then self.position.y = self.position.y -120*dt 
     end
-    if self.position.y < -WH/6 then
+    if self.position.y < WH/6 then
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
