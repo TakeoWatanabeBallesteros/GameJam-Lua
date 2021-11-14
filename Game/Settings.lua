@@ -9,7 +9,7 @@ function Settings:new()
 end
 
 function Settings:update(dt)
-    Suit.layout:reset(WW/2-WW/5/2, WH-100)
+    Suit.layout:reset(WW/2-WW/5/2, WH/1.09)
     if Suit.Button("ATRAS", {id=4}, Suit.layout:row(WW/5, WH/20)).hit then
         Main_FSM:changeState('menu')
     end

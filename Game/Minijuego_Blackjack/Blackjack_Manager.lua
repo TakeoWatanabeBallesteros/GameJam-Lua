@@ -6,6 +6,7 @@ function Blackjack_Manager:new(x,y)
     currentState = 'Initial_Cards'
     self.dealer = {}
     self.player = {}
+    self.font = DORMIR_FONT
     self.p = Scene.getScene():getActor(Blackjack_Player)
     self.d = Scene.getScene():getActor(Blackjack_Dealer)
     Blackjack_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,1,0,0, 'HUD')
@@ -15,9 +16,14 @@ function Blackjack_Manager:new(x,y)
         active  = {bg = {255/255,153/255,  0/255}, fg = {225/255,225/255,225/255}}
     }
     self.timer = 0
+    self.timer2 = 60
+    self.skip = false
 end
 
 function Blackjack_Manager:update(dt)
+    if not self.skip then
+
+    else
     math.randomseed(os.time())
     if currentState == 'Initial_Cards' then
         self:IntialCards()
@@ -38,7 +44,14 @@ function Blackjack_Manager:update(dt)
         if currentState == "Waiting" then currentState = 'Stay' end
     end
     self.timer = self.timer > 0 and self.timer - dt or 0
+    self.timer2 = self.timer2 > 0 and self.timer2 - dt or 0
+    if self.timer2 == 0 then
+        if not MINIGAME then
+            Main_FSM:changeState('dialog')
+        else Main_FSM:changeState('menu') MINIGAME = false end
+    end
     Blackjack_Manager.super.update(self,dt)
+    end
 end
 
 function Blackjack_Manager:draw()
@@ -47,8 +60,8 @@ function Blackjack_Manager:draw()
     local ox = self.origin.x
     local yy = self.position.y
     local oy = self.origin.y
-    local sx = self.scale.x
-    local sy = self.scale.y
+    local sx = WW/1920
+    local sy = WH/1080
     local rr = self.rot
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     if currentState == 'Win' then
@@ -74,6 +87,15 @@ function Blackjack_Manager:draw()
             )
         end
     Suit:draw()
+    love.graphics.print(
+        math.floor(self.timer2),
+        self.font,
+        (WW/1.2) - self.font:getWidth(math.floor(self.timer2)) * 0.5,
+        (WH/10)
+        )
+        love.graphics.setColor(255,255,255, self.alpha)
+    love.graphics.setBackgroundColor(0, 0, 0)
+    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.blackjack, 0, 0, 0, sx, sy) end
 end
 
 function Blackjack_Manager:IntialCards()
@@ -124,6 +146,7 @@ function Blackjack_Manager:Hit()
     elseif  self.player[1] == 1 and self.player[3] > 10 then self.player[3] = self.player[3]+1
     elseif self.player[1] + self.player[3] > 21 then currentState = 'Lose'
     self.player[3] = self.player[1] + self.player[3]
+    self.timer = 1.5
     else self.player[3] = self.player[1] + self.player[3] end
     if currentState ~= 'Lose' then currentState = 'Waiting'end
 end
@@ -138,6 +161,7 @@ function Blackjack_Manager:DealerPlays()
         if self.dealer[1] == 1 and self.dealer[3] <= 10 then self.dealer[3] = self.dealer[3]+11
         elseif  self.dealer[1] == 1 and self.dealer[3] > 10 then self.dealer[3] = self.dealer[3]+1
         elseif self.dealer[1] + self.dealer[3] > 21 then currentState = 'Win'
+        self.timer = 1.5
         self.dealer[3] = self.dealer[1] + self.dealer[3] 
         else self.dealer[3] = self.dealer[1] + self.dealer[3] end
         self.d:addCard(i,s)
@@ -161,6 +185,7 @@ end
 function Blackjack_Manager:mousereleased( x, y, _button, istouch, presses )
 end
 function Blackjack_Manager:keypressed(_key)
+    if _key == 'space' then self.skip = true end
 end
 function Blackjack_Manager:keyreleased(_key)
 end

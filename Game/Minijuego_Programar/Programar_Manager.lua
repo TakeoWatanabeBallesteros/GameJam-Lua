@@ -1,25 +1,33 @@
 --actually it's just an array of screens whit a diferent word, read when the player press the space and then check if he did it
 --when the sprite with the line of code whas the correct, easy game
 --need to load the screens but the base of loop printing is done IMO
-Programar_Manager = Actor:extend()
+Programar_Manager_ = Actor:extend()
 
-function Programar_Manager:new()
+function Programar_Manager_:new()
     local states = {'Start','Moving', 'Correct', 'Incorrect', 'Finish'}
     self.currentState = 'Start'
     self.screens = {{'print', 2}, {'while', 1}, {'repeat', 2}, {'code',2}, {'float',2}} --1 is correct and 2 is incorrect
     self.index = 1
-   Programar_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,1,0,0, 'Background')
+   Programar_Manager_.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,1,0,0, 'Background')
    self.errores = 0
+   self.i =1
+   self.timer = 20
+   self.skip = false
 end
 
-function Programar_Manager:update(dt)
+function Programar_Manager_:update(dt)
+    if not self.skip then
+
+    else
+    self.timer = self.timer > 0 and self.timer - dt or 0
     if self.currentState == 'Start' then
         self.currentState = 'Moving'
-        Programar_Manager.ChangeScreen()
+        Programar_Manager_.ChangeScreen()
     end
 end
+end
 
-function Programar_Manager:draw()
+function Programar_Manager_:draw()
   love.graphics.setColor(255, 255, 255, 1)
   local xx = self.position.x
   local ox = self.origin.x
@@ -35,41 +43,61 @@ function Programar_Manager:draw()
         end
     end
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
+  love.graphics.setColor(255,255,255, self.alpha)
+    love.graphics.setBackgroundColor(0, 0, 0)
+  if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.programar, 0, 0, 0, sx, sy) end
 end
 
-function Programar_Manager:CodeLinesDraw()
+function Programar_Manager_:CodeLinesDraw()
     local sx = WW/1920
     local sy = WH/1080
-    love.graphics.draw(PROGRAMAR_SCREENS[2][self.index],0,0,0,sx,sy)
+    love.graphics.draw(PROGRAMAR_SCREENS[self.i][self.index],0,0,0,sx,sy)
 end
 
-function Programar_Manager.ChangeScreen()
-    local o = Scene.getScene():getActor(Programar_Manager)
+function Programar_Manager_.ChangeScreen()
+    local o = Scene.getScene():getActor(Programar_Manager_)
     if o.currentState == 'Moving' then
     o.index = o.index < #o.screens and o.index + 1 or 1
     o.drawing = o.screens[o.index]
-    Scene.getScene():addTimer(0.3, function() Programar_Manager.ChangeScreen() end, false)
+    Scene.getScene():addTimer(0.3, function() Programar_Manager_.ChangeScreen() end, false)
     end
 end
 
-function Programar_Manager:mousepressed( x, y, _button, istouch, presses )
+function Programar_Manager_:mousepressed( x, y, _button, istouch, presses )
 end
-function Programar_Manager:mousereleased( x, y, _button, istouch, presses )
+function Programar_Manager_:mousereleased( x, y, _button, istouch, presses )
 end
-function Programar_Manager:keypressed(_key)
+function Programar_Manager_:keypressed(_key)
     if _key == 'space' then
-        if self.index == 1 then
+        if self.index == 1 and self.skip then
+            AudioManager.PlaySound(PROGRAMAR_BIEN, GAME_SETTINGS_VOLUME_EFFECTS, false)
             --self.currentState = 'Correct'
-            print("good")
-        else
+            if self.i ==2 then 
+                Scene.getScene():removeActor(Timer)
+                self.currentState = 'Finish'
+                if not MINIGAME then
+                    Main_FSM:changeState('dialog')
+                else  Main_FSM:changeState('menu') MINIGAME = false  end
+            end
+            if self.i ==1 then self.i = 2 end
+        elseif self.skip or (self.skip and self.timer == 0) then
             --self.currentState = 'Incorrect'
-            print("Bad")
+            AudioManager.PlaySound(PROGRAMAR_MAL, GAME_SETTINGS_VOLUME_EFFECTS, false)
             self.errores = self.errores < 3 and self.errores + 1 or 3
+            if self.errores ==3 then
+                Scene.getScene():removeActor(Timer)
+                print("Bad")
+                self.currentState = 'Finish'
+                if not MINIGAME then
+                    Main_FSM:changeState('dialog')
+                else  Main_FSM:changeState('menu') MINIGAME = false  end
+            end
+        elseif not self.skip then
+            self.skip = true
         end
-        --self.currentState = 'Finish'
     end
 end
-function Programar_Manager:keyreleased(_key)
+function Programar_Manager_:keyreleased(_key)
 end
 
-return Programar_Manager
+return Programar_Manager_

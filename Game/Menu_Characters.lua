@@ -6,7 +6,7 @@ function Menu_Characters:new()
 end
 
 function Menu_Characters:update(dt)
-    Suit.layout:reset(WW/2-WW/5/2, WH-100)
+    Suit.layout:reset(WW/2-(WW/5/2), WH/1.09)
     if Suit.Button("ATRAS", {id=7}, Suit.layout:row(WW/5, WH/20)).hit then
         Main_FSM:changeState('menu')
     end
@@ -79,6 +79,7 @@ function Menu_Characters:update(dt)
 end
 
 function Menu_Characters:draw()
+    love.graphics.draw(DEFAULT_BACKGROUND,0,0,0,WW/1920, WH/1080)
     love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
     love.graphics.setFont(FONT_BUTTONS)
     love.graphics.setColor(255, 255, 255, 1)
@@ -90,7 +91,7 @@ function Menu_Characters:draw()
     local sx = WW/1920
     local sy = WH/1080
     local rr = 0
-    
+    love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
