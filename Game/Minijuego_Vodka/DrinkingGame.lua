@@ -89,10 +89,10 @@ function DrinkingGame:update(dt)
 end
 function DrinkingGame:draw()
   if GameStateDrinkingGame == "PlayingGame" then
-  love.graphics.print(math.floor(globalTimer:getTime()),WW/2.1, WH/1.15,0,1,1,0,0,0,0)
-  love.graphics.print("Points: "..self.points,WW/1.2,WH/30,0,0.3,0.3,0,0,0)
-  love.graphics.print("Shots taken: "..self.shots,WW/1.2,WH/10,0,0.3,0.3,0,0,0)
-  love.graphics.print("Tries: "..self.tries,WW/1.2,WH/6,0,0.3,0.3,0,0,0)
+  love.graphics.print(math.floor(globalTimer:getTime()),WW/2.1, WH/1.15,0,WW/1920,WH/1080,0,0,0,0)
+  love.graphics.print("Points: "..self.points,WW/1.2,WH/30,0,WW/1920,WW/1080,0,0,0)
+  love.graphics.print("Shots taken: "..self.shots,WW/1.2,WH/10,0,WW/1920,WH/1080,0,0,0)
+  love.graphics.print("Tries: "..self.tries,WW/1.2,WH/6,0,WW/1920,WH/1080,0,0,0)
   end
 end
 
