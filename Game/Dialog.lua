@@ -90,7 +90,9 @@ function Dialog:draw()
     end
 
 end
-love.graphics.print(COMPATIBILIDAD,WW/1.2,WW/2,0,WW/1920, WH/1080,0,0,0,0)
+love.graphics.setColor(255,0,0)
+love.graphics.print(COMPATIBILIDAD.."%",WW/1.2,WW/2,0,WW/1920, WH/1080,0,0,0,0)
+love.graphics.setColor(255,255,255)
 end
 
 function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)

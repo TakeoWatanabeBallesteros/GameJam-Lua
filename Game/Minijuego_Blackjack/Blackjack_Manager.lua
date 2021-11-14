@@ -4,6 +4,7 @@ local suits = {'club', 'diamond', 'heart', 'spade'}
 
 function Blackjack_Manager:new(x,y)
     currentState = 'Initial_Cards'
+    love.mouse.setVisible(true)
     self.dealer = {}
     self.player = {}
     self.font = DORMIR_FONT
@@ -65,7 +66,7 @@ function Blackjack_Manager:draw()
     local rr = self.rot
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     if currentState == 'Win' then
-        COMPATIBILIDAD = COMPATIBILIDAD + 5
+        
     love.graphics.print(
             'HAS GANADO!',
             FONT_BUTTONS_BIG,
@@ -80,7 +81,6 @@ function Blackjack_Manager:draw()
             (WH/2.5) - FONT_BUTTONS_BIG:getHeight('HAS PERDIDO POR FEKA!') * 0.5
             )
         elseif currentState == 'Draw' then
-            COMPATIBILIDAD = COMPATIBILIDAD+1
             love.graphics.print(
             'EMPATE',
             FONT_BUTTONS_BIG,
