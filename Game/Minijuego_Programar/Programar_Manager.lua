@@ -73,6 +73,7 @@ function Programar_Manager_:keypressed(_key)
             AudioManager.PlaySound(PROGRAMAR_BIEN, GAME_SETTINGS_VOLUME_EFFECTS, false)
             --self.currentState = 'Correct'
             if self.i ==2 then 
+                COMPATIBILIDAD = COMPATIBILIDAD +10
                 Scene.getScene():removeActor(Timer)
                 self.currentState = 'Finish'
                 if not MINIGAME then
