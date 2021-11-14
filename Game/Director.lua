@@ -127,6 +127,7 @@ end
 function onIntroEnter()
   local d = Dialog('Data/Dialogues/Intro.json')
   Scene.getScene():addDialog(d)
+  COMPATIBILIDAD = 50
 end
 
 function onIntroExit()

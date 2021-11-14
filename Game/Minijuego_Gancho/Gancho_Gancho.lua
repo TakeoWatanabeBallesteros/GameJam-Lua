@@ -112,15 +112,13 @@ function Gancho_Gancho:update(dt)
 
   if gameStates == 7 then
     if elPeluche == nil then
-      --compatibility = -5
       gameStates = 9
   else 
-      --compatibility = +25
       gameStates = 8
   end
 end
   if gameStates == 8 then
-    --pantalla de victoria?
+    COMPATIBILIDAD = COMPATIBILIDAD +20
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
     Scene:getScene():removeActor(Gancho_Peluche)
