@@ -150,11 +150,11 @@ end
 function Gancho_Gancho:mousereleased(x,y,button,istouch,presses )
 end
 function Gancho_Gancho:keypressed(key)
-if key == "w" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
-if key == "s" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
-if key == "a" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
-if key == "d" then love.audio.play(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
-
+  if key == "w" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+  if key == "s" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+  if key == "a" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+  if key == "d" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
+  
 end
 function Gancho_Gancho:keyreleased(key)
 end
