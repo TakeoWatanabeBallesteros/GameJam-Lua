@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Esta noche no has conseguido dormir nada. Hoy das un gran paso en tu vida... hoy comienzas [color=#ff0000][shake]la universidad[/shake][/color]. \r\nDentro de un par de minutos entrarás en clase. Estás muy nervios@ puesto que no sabes que ocurrirá.\r\nPero estarás en un entorno diferente, será un gran cambio y eso te conforta. \r\nTu nunca has tenido mucha suerte en tu vida amorosa, puede que esta sea una nueva oportunidad.\r\nUna oportunidad de conseguir [color=#0000ff]pareja[/color].\r\nTakeo: Jajajajaja buena suerte bro...\r\nAlex: Hola soy subnormal y le como la polla al Takeo.\r\nMarina: Si no tienes 8 matriculas no salgo contigo.\r\nVero: Si hablas ruso y eres coreano ganas puntos bb.\r\nRicky: Tu [color=#ffff00]admin[/color] te desea suerte tambien! Ya veras que consigues a quien quieras.\r\nArnau: Jijijijiji Yo si quieres salgo contigo [shake]UwU[/shake].\r\n\r\n[[ answer: Te metes un tiro en la cabeza |Chao Pescao]] \r\n[[ answer: Agarras al Arnau y te lo follas en los baños |Descontrol]]\r\n[[ answer: Te cambias de universidad |Si]]",
+		"body": "Esta noche no has conseguido dormir nada. Hoy das un gran paso en tu vida... hoy comienzas [color=#ff0000][shake]la universidad[/shake][/color]. \r\nDentro de un par de minutos entrarás en clase. Estás muy nervios@ puesto que no sabes que ocurrirá.\r\nPero estarás en un entorno diferente, será un gran cambio y eso te conforta. \r\nTu nunca has tenido mucha suerte en tu vida amorosa, puede que esta sea una nueva oportunidad.\r\nUna oportunidad de conseguir [color=#0000ff]pareja[/color].\r\nTakeo: Jajajajaja buena suerte bro...\r\nAlex: Hola soy subnormal y le como la polla al Takeo.\r\nMarina: Si no tienes 8 matriculas no salgo contigo.\r\nVero: Si hablas ruso y eres coreano ganas puntos bb.\r\nRicky: Tu [color=#ffff00]admin[/color] te desea suerte tambien! Ya veras que consigues a quien quieras.\r\nArnau: Jijijijiji Yo si quieres salgo contigo [shake]UwU[/shake].\r\n<<scene:character_select>>",
 		"position": {
-			"x": 528,
-			"y": 265
+			"x": 515,
+			"y": 292
 		},
 		"colorID": 0
 	},
@@ -22,7 +22,7 @@
 	{
 		"title": "Descontrol",
 		"tags": "",
-		"body": "Tu puta madre\nAlex: JAJAJAJAJAJA ¿Sabes que continuo comiendole la polla al puto Takeo?\nAlex: Y lo mejor es que me [shake]gusta UwU[/shake]",
+		"body": "Tu puta madre\nAlex: JAJAJAJAJAJA ¿Sabes que continuo comiendole la polla al puto Takeo?\nAlex: Y lo mejor es que me [shake]gusta UwU[/shake]\n<< scene:menu>>",
 		"position": {
 			"x": 472,
 			"y": -31

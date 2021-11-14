@@ -137,6 +137,10 @@ Yarnparse.load=function(self, filename)
                                   if(p.action=="lua" or p.action=="print") then
                                     local f=loadstring(p.arguments)
                                     f()
+                                  elseif p.action=="scene" then
+                                    ON_PAUSE = true
+                                    print(p.arguments)
+                                    Main_FSM:changeState(p.arguments)
                                   else
                                     if(self.exposed[p.action]) then
                                         self.exposed[p.action](p.arguments)

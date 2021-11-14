@@ -5,7 +5,7 @@ function StartGame()
     Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_04"})
     Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
     Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
-    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames'}})
+    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames', 'intro'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
     Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from='menu'})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
@@ -13,6 +13,7 @@ function StartGame()
     Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='menu_avatar'})
     Main_FSM:addState("intro",{ enter= onIntroEnter, exit= onIntroExit, from={'editor', 'menu_avatar'}})
+    Main_FSM:addState("character_select",{ enter= onCharacter_SelectEnter, exit= onCharacter_SelectExit, from={'intro'}})
     
 
 
@@ -24,7 +25,7 @@ function StartGame()
     Main_FSM:addState("dormir", {enter = onDormirEnter, exit= onDormirExit, from='null'})
     Main_FSM:addState("pelea", {enter = onPeleaEnter, exit= onPeleaExit, from='null'})
 
-    Main_FSM:setInitialState("null")Main_FSM:changeState("gancho")
+    Main_FSM:setInitialState("null") Main_FSM:changeState("splash_01")
 end
 
 function onSplash_01Enter()
@@ -119,7 +120,16 @@ function onIntroEnter()
   Scene.getScene():addDialog(d)
 end
 
+function onCharacter_SelectEnter()
+  Scene.getScene():addActor(Characters_Selection)
+end
+
+function onCharacter_SelectExit()
+  Scene.getScene():removeActor(Characters_Selection)
+end
+
 function onIntroExit()
+  Scene.getScene():removeActor(Dialog)
 end
 
 function onTopoEnter()

@@ -6,13 +6,8 @@ function Characters_Selection:new()
 end
 
 function Characters_Selection:update(dt)
-    Suit.layout:reset(WW/2-WW/5/2, WH-100)
-    if Suit.Button("ATRAS", {id=4}, Suit.layout:row(WW/5, WH/20)).hit then
-        Main_FSM:changeState('menu')
-    end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-    
     if Suit.ImageButton(CHARACTERS_BUTTONS.alex.normal, {id = 1, mask = CHARACTERS_BUTTONS.alex.mask, hovered = CHARACTERS_BUTTONS.alex.hovered, active = CHARACTERS_BUTTONS.alex.active}, Suit.layout:row(WW,WH)).hit then
 
     end

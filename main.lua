@@ -37,7 +37,7 @@ function discordApplyPresence()
     detailsNow = 'In Settings'
     stateNow = ''
   else
-    detailsNow = "In Mainmenu"
+    detailsNow = "Playing"
     stateNow = ""
   end
 
@@ -63,8 +63,6 @@ end
 --aa
 function love.draw()
   Scene.getScene():draw()
-  love.graphics.setColor(1,1,1)
-  love.graphics.line(WW/2,0, WW/2, WH)
 end
 
 function love.quit()

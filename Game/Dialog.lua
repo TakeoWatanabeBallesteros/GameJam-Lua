@@ -30,13 +30,10 @@ function Dialog:new(filename)
 end
 
 function Dialog:update(dt)
-    self.pos = self.pos.x > self.finalPos.x and self.pos + Vector(self.finalPos.x - self.initPos.x, self.finalPos.y - self.initPos.y)*dt or self.finalPos
-    --self.pos = self.pos + Vector(self.finalPos.x - self.pos.x, self.finalPos.y - self.pos.y):normalize() * dt/2
-    self.s[1] = self.s[1] > self.finalScale[1] and self.s[1] - dt/3 or self.finalScale[1]
-    self.s[2] = self.s[2] > self.finalScale[2] and self.s[2] - dt/3 or self.finalScale[2]
 end
 
 function Dialog:draw()
+    if not ON_PAUSE then
     self.dialog_background:draw(self.background)
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
@@ -48,9 +45,6 @@ function Dialog:draw()
             love.graphics.draw(value, WW/65,WH/1.662, 0, (WW/1920)*0.33, (WH/1080)*0.33)
         end
     end
-    love.graphics.line(WW/10,0,WW/10,WH)
-    love.graphics.line(WW/5,0,WW/5,WH)
-    love.graphics.line(WW/1.1,0,WW/1.1,WH)
     --here is our current text.
     local width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
     local total_width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
@@ -96,7 +90,7 @@ function Dialog:draw()
         if y == -1 and self.dialogues_index < #self.dialogues then self.dialogues_index = self.dialogues_index + 1
         elseif y == 1 and self.dialogues_index > 1 then self.dialogues_index = self.dialogues_index - 1 end
     end
-    
+end
 end
 
 function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
@@ -120,6 +114,7 @@ function Dialog:mousereleased( x, y, _button, istouch, presses )
 end
 
 function Dialog:keypressed(key)
+    if not ON_PAUSE then
     --slow down space bar
     if(not self.node.body:done()) and self.dialogues_index == #self.dialogues then --are we at the bottom? If not, keep traversing.
         --move to the next line on the body of the node. If it's done, do nothing.
@@ -133,7 +128,8 @@ function Dialog:keypressed(key)
                 self.script, self.command=self.node.body:traverse()
             until not self.command
             --text=script.who .. ": " .. script.text
-            self.text=self.script.text
+            if self.script then self.text=self.script.text 
+            else return end
             if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
             local i = {self.script.who, self.text}
             if i[1] == 'Marina' or i[1] == 'Ricky' then for k,v in ipairs(i[2]) do if v[1][1] == 0 and v[1][2] == 0 and v[1][3] == 0 then v[1] = {1,1,1} end end end
@@ -159,6 +155,7 @@ function Dialog:keypressed(key)
             self.node=self.yarn:make_choice(self.node, self.menu.select)
         end
     end
+end
 end
 function Dialog:keyreleased(_key)
 end

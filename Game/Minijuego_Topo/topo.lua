@@ -9,8 +9,10 @@ local points
 
 
 function topo:new()
+    love.mouse.setVisible(false)
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
     globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
+    self.time = 30
     Scene.getScene():addTimerObj(globalTimer)
     AudioManager.PlayMusic(MICKEY_MUSIC_TOPO,GAME_SETTINGS_VOLUME_MUSIC,false)
     
@@ -43,6 +45,7 @@ function topo:new()
   
 end
 function topo:update(dt)
+  self.time = self.time > 0 and self.time - dt or 0
   if gamestate == "TopoOut" then
        self.position.x = -300
        self.position.y = 0
@@ -87,7 +90,11 @@ function topo:draw()
     if not (gamestate == "EndGame")  then
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100,0,0.2,0.2,0,0,0,0)
-    love.graphics.print(math.floor(globalTimer:getTime()),WW/2.1, WH/1.09,0,0.7,0.7,0,0,0,0)
+    love.graphics.setColor(255, 0, 0)
+    love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09,0,0.7,0.7,0,0,0,0)
+    love.graphics.setColor(255, 255, 255)
+    else
+      love.mouse.setVisible(false)
     end
 end
 

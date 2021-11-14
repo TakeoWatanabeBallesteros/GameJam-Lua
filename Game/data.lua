@@ -126,6 +126,8 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     --#endregion
 --#endregion
 --#region DIALOGUES_JSON
+ON_PAUSE = false
+
 
 --#endregion
 --#region FONTS
