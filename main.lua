@@ -14,6 +14,7 @@ function love.load(arg)
   detailsNow = "In Mainmenu"
   stateNow = ""
   nextPresenceUpdate = 0
+  SPRITES_MAPPING_1()
 end
 
 function discordApplyPresence()

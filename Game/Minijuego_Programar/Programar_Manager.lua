@@ -9,6 +9,7 @@ function Programar_Manager:new()
     self.screens = {{'print', 2}, {'while', 1}, {'repeat', 2}, {'code',2}, {'float',2}} --1 is correct and 2 is incorrect
     self.index = 1
    Programar_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,1,0,0, 'Background')
+   self.vidas = 3
 end
 
 function Programar_Manager:update(dt)
@@ -24,10 +25,13 @@ function Programar_Manager:draw()
   local ox = self.origin.x
   local yy = self.position.y
   local oy = self.origin.y
-  local sx = WW/self.width
-  local sy = WH/self.height
-  local rr = self.rot
+  local sx = WW/1920
+  local sy = WH/1080
+  local rr = 0
   self:CodeLinesDraw()
+  for i = 1, self.vidas do
+    love.graphics.draw(PROGRAMAR_VIDAS[i],0,0,rr,sx,sy)
+  end
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
@@ -58,6 +62,7 @@ function Programar_Manager:keypressed(_key)
         else
             --self.currentState = 'Incorrect'
             print("Bad")
+            self.vidas = self.vidas > 0 and self.vidas - 1
         end
         --self.currentState = 'Finish'
     end

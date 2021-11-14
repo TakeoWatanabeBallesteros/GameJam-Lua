@@ -14,6 +14,7 @@ function Blackjack_Manager:new(x,y)
         hovered = {bg = { 50/255,153/255,187/255}, fg = {255/255,255/255,255/255}},
         active  = {bg = {255/255,153/255,  0/255}, fg = {225/255,225/255,225/255}}
     }
+    self.timer = 0
 end
 
 function Blackjack_Manager:update(dt)
@@ -24,7 +25,10 @@ function Blackjack_Manager:update(dt)
         self:Hit()
     elseif currentState == 'Stay' then
         self:DealerPlays()
+    elseif (currentState == 'Win' or currentState == 'Lose' or currentState == 'Draw') and self.timer == 0 then
+        currentState = 'Initial_Cards'
     end
+    love.graphics.setFont(FONT_BUTTONS)
     Suit.layout:reset(WW/2-WW/20, WH/1.2)
     Suit.layout:padding(10)
     if Suit.Button("Pedir Carta", Suit.layout:row(WW/10, WH/24)).hit then
@@ -33,9 +37,7 @@ function Blackjack_Manager:update(dt)
     if Suit.Button("Plantarse", Suit.layout:row()).hit then
         if currentState == "Waiting" then currentState = 'Stay' end
     end
-    if Suit.Button("Dele", Suit.layout:row()).hit then
-        currentState = 'Initial_Cards'
-    end
+    self.timer = self.timer > 0 and self.timer - dt or 0
     Blackjack_Manager.super.update(self,dt)
 end
 
@@ -148,8 +150,9 @@ function Blackjack_Manager:CheckWin()
     elseif self.dealer[3] <= 21 and self.player[3]==self.dealer[3] then currentState = 'Draw'
     elseif self.dealer[3] <= 21 and self.player[3]<self.dealer[3] then currentState = 'Lose'
     elseif self.dealer[3] > 21 and self.player[3] <= 21 then currentState = 'Win'
-    elseif self.dealer[3] > 21 and self.player[3] > 21 then currentState = 'Draw' 
+    elseif self.dealer[3] > 21 and self.player[3] > 21 then currentState = 'Draw'
     end
+    self.timer = 1.5
     print(self.dealer[3], self.player[3])
 end
 

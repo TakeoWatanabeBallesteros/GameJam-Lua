@@ -2,7 +2,7 @@ Characters_Selection = Actor:extend()
 
 function Characters_Selection:new()
     self.font = FONT_BUTTONS_BIG
-    Characters_Selection.super.new(self,AVATAR_CHARACTERS_INFO_BAJO,WW/2,WH/2,0,-1,0, 'HUD')
+    Characters_Selection.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Characters_Selection:update(dt)
