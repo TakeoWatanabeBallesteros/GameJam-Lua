@@ -13,66 +13,66 @@ function Menu_Characters:update(dt)
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_ALEX then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.alex.normal, {id = 42, mask =    CHARACTERS_INFO_SILUETA.alex.mask, hovered = CHARACTERS_INFO_SILUETA.alex.hovered, active = CHARACTERS_INFO_SILUETA.alex.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.alex.normal, {id = 42, mask =    CHARACTERS_INFO_SILUETA.alex.mask, hovered = CHARACTERS_INFO_SILUETA.alex.hovered, active = CHARACTERS_INFO_SILUETA.alex.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.alex.normal, {id = 43, mask =    CHARACTERS_INFO.alex.mask, hovered = CHARACTERS_INFO.alex.hovered, active = CHARACTERS_INFO.alex.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.alex.normal, {id = 43, mask =    CHARACTERS_INFO.alex.mask, hovered = CHARACTERS_INFO.alex.hovered, active = CHARACTERS_INFO.alex.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_RICKY then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.ricky.normal, {id = 44,   mask = CHARACTERS_INFO_SILUETA.ricky.mask, hovered = CHARACTERS_INFO_SILUETA.ricky.hovered, active = CHARACTERS_INFO_SILUETA.ricky.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.ricky.normal, {id = 44,   mask = CHARACTERS_INFO_SILUETA.ricky.mask, hovered = CHARACTERS_INFO_SILUETA.ricky.hovered, active = CHARACTERS_INFO_SILUETA.ricky.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.ricky.normal, {id = 45,   mask = CHARACTERS_INFO.ricky.mask, hovered = CHARACTERS_INFO.ricky.hovered, active = CHARACTERS_INFO.ricky.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.ricky.normal, {id = 45,   mask = CHARACTERS_INFO.ricky.mask, hovered = CHARACTERS_INFO.ricky.hovered, active = CHARACTERS_INFO.ricky.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_TAKEO then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.takeo.normal, {id = 46,   mask = CHARACTERS_INFO_SILUETA.takeo.mask, hovered = CHARACTERS_INFO_SILUETA.takeo.hovered, active = CHARACTERS_INFO_SILUETA.takeo.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.takeo.normal, {id = 46,   mask = CHARACTERS_INFO_SILUETA.takeo.mask, hovered = CHARACTERS_INFO_SILUETA.takeo.hovered, active = CHARACTERS_INFO_SILUETA.takeo.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.takeo.normal, {id = 47,   mask = CHARACTERS_INFO.takeo.mask, hovered = CHARACTERS_INFO.takeo.hovered, active = CHARACTERS_INFO.takeo.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.takeo.normal, {id = 47,   mask = CHARACTERS_INFO.takeo.mask, hovered = CHARACTERS_INFO.takeo.hovered, active = CHARACTERS_INFO.takeo.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_ARNAU then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.arnau.normal, {id = 48,   mask = CHARACTERS_INFO_SILUETA.arnau.mask, hovered = CHARACTERS_INFO_SILUETA.arnau.hovered, active = CHARACTERS_INFO_SILUETA.arnau.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.arnau.normal, {id = 48,   mask = CHARACTERS_INFO_SILUETA.arnau.mask, hovered = CHARACTERS_INFO_SILUETA.arnau.hovered, active = CHARACTERS_INFO_SILUETA.arnau.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.arnau.normal, {id = 49,   mask = CHARACTERS_INFO.arnau.mask, hovered = CHARACTERS_INFO.arnau.hovered, active = CHARACTERS_INFO.arnau.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.arnau.normal, {id = 49,   mask = CHARACTERS_INFO.arnau.mask, hovered = CHARACTERS_INFO.arnau.hovered, active = CHARACTERS_INFO.arnau.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_MARINA then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.marina.normal, {id = 50, mask =  CHARACTERS_INFO_SILUETA.marina.mask, hovered = CHARACTERS_INFO_SILUETA.marina.hovered, active = CHARACTERS_INFO_SILUETA.marina.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.marina.normal, {id = 50, mask =  CHARACTERS_INFO_SILUETA.marina.mask, hovered = CHARACTERS_INFO_SILUETA.marina.hovered, active = CHARACTERS_INFO_SILUETA.marina.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.marina.normal, {id = 51, mask =  CHARACTERS_INFO.marina.mask, hovered = CHARACTERS_INFO.marina.hovered, active = CHARACTERS_INFO.marina.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.marina.normal, {id = 51, mask =  CHARACTERS_INFO.marina.mask, hovered = CHARACTERS_INFO.marina.hovered, active = CHARACTERS_INFO.marina.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if not CHARACTER_VERO then
-        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.vero.normal, {id = 52,    mask = CHARACTERS_INFO_SILUETA.vero.mask, hovered = CHARACTERS_INFO_SILUETA.vero.hovered, active = CHARACTERS_INFO_SILUETA.vero.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO_SILUETA.vero.normal, {id = 52,    mask = CHARACTERS_INFO_SILUETA.vero.mask, hovered = CHARACTERS_INFO_SILUETA.vero.hovered, active = CHARACTERS_INFO_SILUETA.vero.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     else
-        if Suit.ImageButton(CHARACTERS_INFO.vero.normal, {id = 53,    mask = CHARACTERS_INFO.vero.mask, hovered = CHARACTERS_INFO.vero.hovered, active = CHARACTERS_INFO.vero.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(CHARACTERS_INFO.vero.normal, {id = 53,    mask = CHARACTERS_INFO.vero.mask, hovered = CHARACTERS_INFO.vero.hovered, active = CHARACTERS_INFO.vero.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
 
         end
     end

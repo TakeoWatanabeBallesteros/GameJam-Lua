@@ -12,43 +12,43 @@ function Menu_Minigames:update(dt)
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.beber.normal, {id = 34, mask =    MINIGAMES_BUTTONS.beber.mask, hovered = MINIGAMES_BUTTONS.beber.hovered, active = MINIGAMES_BUTTONS.beber.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.beber.normal, {id = 34, mask =    MINIGAMES_BUTTONS.beber.mask, hovered = MINIGAMES_BUTTONS.beber.hovered, active = MINIGAMES_BUTTONS.beber.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('vodka')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.blackjack.normal, {id = 35,   mask = MINIGAMES_BUTTONS.blackjack.mask, hovered = MINIGAMES_BUTTONS.blackjack.hovered, active = MINIGAMES_BUTTONS.blackjack.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.blackjack.normal, {id = 35,   mask = MINIGAMES_BUTTONS.blackjack.mask, hovered = MINIGAMES_BUTTONS.blackjack.hovered, active = MINIGAMES_BUTTONS.blackjack.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('blackjack')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.clase.normal, {id = 36,   mask = MINIGAMES_BUTTONS.clase.mask, hovered = MINIGAMES_BUTTONS.clase.hovered, active = MINIGAMES_BUTTONS.clase.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.clase.normal, {id = 36,   mask = MINIGAMES_BUTTONS.clase.mask, hovered = MINIGAMES_BUTTONS.clase.hovered, active = MINIGAMES_BUTTONS.clase.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('dormir')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.gancho.normal, {id = 37,   mask = MINIGAMES_BUTTONS.gancho.mask, hovered = MINIGAMES_BUTTONS.gancho.hovered, active = MINIGAMES_BUTTONS.gancho.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.gancho.normal, {id = 37,   mask = MINIGAMES_BUTTONS.gancho.mask, hovered = MINIGAMES_BUTTONS.gancho.hovered, active = MINIGAMES_BUTTONS.gancho.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('gancho')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.pong.normal, {id = 38, mask =  MINIGAMES_BUTTONS.pong.mask, hovered = MINIGAMES_BUTTONS.pong.hovered, active = MINIGAMES_BUTTONS.pong.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.pong.normal, {id = 38, mask =  MINIGAMES_BUTTONS.pong.mask, hovered = MINIGAMES_BUTTONS.pong.hovered, active = MINIGAMES_BUTTONS.pong.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('pong')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.programar.normal, {id = 39,    mask = MINIGAMES_BUTTONS.programar.mask, hovered = MINIGAMES_BUTTONS.programar.hovered, active = MINIGAMES_BUTTONS.programar.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.programar.normal, {id = 39,    mask = MINIGAMES_BUTTONS.programar.mask, hovered = MINIGAMES_BUTTONS.programar.hovered, active = MINIGAMES_BUTTONS.programar.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('programar')
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.topo.normal, {id = 40,    mask = MINIGAMES_BUTTONS.topo.mask, hovered = MINIGAMES_BUTTONS.topo.hovered, active = MINIGAMES_BUTTONS.topo.active}, Suit.layout:row(WW,WH)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.topo.normal, {id = 40,    mask = MINIGAMES_BUTTONS.topo.mask, hovered = MINIGAMES_BUTTONS.topo.hovered, active = MINIGAMES_BUTTONS.topo.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('topo')
             MINIGAME = true
         end
