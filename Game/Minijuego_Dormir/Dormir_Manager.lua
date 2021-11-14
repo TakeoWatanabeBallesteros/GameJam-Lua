@@ -10,16 +10,48 @@ function Dormir_Manager:new()
   self.alpha = 1
   self.time = 120
   self.percent = 50
+  self.skip = false
+  self.lost = false
+  self.timeToTurn = 0
+  self.ap = 0
 end
 
 function Dormir_Manager:update(dt)
+    math.randomseed(os.time())
+    if not self.skip then
+
+    else
+    if self.timeToTurn == 0 then
+        if self.ap > 0 then
+            self.ap = self.ap > 0 and self.ap - dt or 0
+            self.currentState = 'Mirando'
+
+        else
+            AudioManager.PlayMusic(DORMIR_ESCRIBIR, GAME_SETTINGS_VOLUME_EFFECTS, true)
+            self.currentState = 'Espaldas'
+            self.timeToTurn = math.random(10,20)
+            self.ap = math.random(3,7)
+        end
+    elseif self.timeToTurn < 2 then
+        AudioManager.StopSound(DORMIR_ESCRIBIR)
+    end
     if self.pressed then
         self.alpha = self.alpha > 0 and self.alpha - dt/3 or 0
     else self.alpha = self.alpha < 1 and self.alpha + dt/3 or 1 end
-    if self.alpha == 0 then self.percent = self.percent < 100 and self.percent + dt or 100
-    elseif self.alpha == 1 then self.percent = self.percent > 0 and self.percent - dt/3 or 0 end
+    if self.alpha == 0 then self.percent = self.percent < 100 and self.percent + dt*2 or 100
+    elseif self.alpha == 0 then self.percent = self.percent > 0 and self.percent - dt/3 or 0 
+        if self.currentState == 'Mirando' then self.lost = true end
+    end
     self.time = self.time > 0 and self.time - dt or 0
+    self.timeToTurn = self.timeToTurn > 0 and self.timeToTurn - dt or 0
     self.profe:update(dt)
+    if self.time == 0 or self.percent == 100 or self.lost then 
+        AudioManager.StopSound(DORMIR_ESCRIBIR)
+        if not MINIGAME then
+            Main_FSM:changeState('dialog')
+        else Main_FSM:changeState('menu') MINIGAME = false end
+    end
+end
 end
 
 function Dormir_Manager:draw()
@@ -56,6 +88,8 @@ function Dormir_Manager:draw()
         (WH/10) + self.font:getHeight(math.floor(self.time))*1.5
         )
     love.graphics.setColor(255,255,255, self.alpha)
+    love.graphics.setBackgroundColor(0, 0, 0)
+    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.clase, 0, 0, 0, sx, sy) end
 end
 
 function Dormir_Manager:mousepressed( x, y, _button, istouch, presses )
@@ -65,7 +99,8 @@ function Dormir_Manager:mousereleased( x, y, _button, istouch, presses )
 end
 
 function Dormir_Manager:keypressed(_key)
-    if _key == 'space' then
+    if _key == 'space' then 
+        self.skip = true
         self.pressed = true
     end
 end

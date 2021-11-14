@@ -33,7 +33,7 @@ function Pong_Menu:new()
     table.insert(self.buttons, newButton(
         "Exit", 
         function()
-            love.event.quit(0)
+            --love.event.quit(0)
         end))
 end
 

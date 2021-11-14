@@ -7,6 +7,7 @@ local gravity
 local globalTimer
 
 local scaleFloat,posYFloat,shadowSpeed,speed,posPeluche
+
 function Gancho_Gancho:new()
   globalTimer = Timer(10,function() if gameStates < 2 then gameStates = 2 end end, false)
   Scene.getScene():addTimerObj(globalTimer)
@@ -18,9 +19,13 @@ function Gancho_Gancho:new()
   scaleFloat,posYFloat,shadowSpeed = 10,20,1
   shadow.img = GANCHO_SOMBRA
   shadow.position = Vector.new(self.position.x,self.position.y +WH/1.7)
+  self.skip = false
 end
 
 function Gancho_Gancho:update(dt)
+  if not self.skip then
+
+  else
   shadow.position.x = self.position.x
   
   if gameStates == 1 then 
@@ -46,9 +51,6 @@ function Gancho_Gancho:update(dt)
       self.scale.y = self.scale.y+(dt/scaleFloat)
       self.position.y = self.position.y - posYFloat*dt
       shadow.position.y = shadow.position.y+shadowSpeed
-    end
-    if love.keyboard.isDown("space") then
-      gameStates = 2 
     end
   end
   if gameStates==2 then
@@ -97,11 +99,13 @@ function Gancho_Gancho:update(dt)
     self.image = GANCHO_GANCHO_ABIERTO
     gravity = gravity+dt*100
     elPeluche.position.y = elPeluche.position.y +gravity
-    if elPeluche.position.y > WH then 
+    if elPeluche.position.y > -WH/6 then 
       for _,v in ipairs(Scene.getScene():getActorList()) do
         if v==elPeluche then table.remove(Scene.getScene():getActorList(),_) end
         gameStates = 7
       end
+    else
+      gameStates = 9
     end
   end
 
@@ -110,23 +114,40 @@ function Gancho_Gancho:update(dt)
       --compatibility = -5
       print("SAMADOULAE")
       gameStates = 9
-  elseif elPeluche.name == "takeo" then
+  else 
       --compatibility = +25
       gameStates = 8
-      print("HAMZAGAY")
-  elseif elPeluche.name == "el que no quiere xd" then
-      --compatibility = +10
-      gameStates = 8
-    end
   end
+end
   if gameStates == 8 then
     --pantalla de victoria?
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    if not MINIGAME then
+      Main_FSM:changeState('dialog')
+    else Main_FSM:changeState('menu') MINIGAME = false end
   end
   if gameStates == 9 then
-    if self.position.y > -WH/6 then     self.position.y = self.position.y -120*dt end
+    if self.position.y > -WH/6 then self.position.y = self.position.y -120*dt 
+    end
+    if self.position.y < -WH/6 then
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
+    Scene:getScene():removeActor(Gancho_Peluche)
     --Pantalla de derrota
+    if not MINIGAME then
+      Main_FSM:changeState('dialog')
+    else Main_FSM:changeState('menu') MINIGAME = false end
   end
-
+end
+end
 end
 
 function Gancho_Gancho:draw()
@@ -144,6 +165,8 @@ function Gancho_Gancho:draw()
   if gameStates < 2 then   love.graphics.print(math.floor(globalTimer:getTime()),WW/7.5, WH/6,0,1,1,0,0,0,0)  end
   love.graphics.setColor(255, 255, 255)
   if gameStates < 4 then love.graphics.draw(shadow.img,shadow.position.x,shadow.position.y,0,ssx,ssy,ox,oy,0,0) end
+  love.graphics.setBackgroundColor(0, 0, 0)
+  if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.gancho, 0, 0, 0, sx, sy) end
 end
 
 function Gancho_Gancho:mousepressed(x, y, button, istouch,presses )
@@ -155,7 +178,12 @@ function Gancho_Gancho:keypressed(key)
   if key == "s" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
   if key == "a" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
   if key == "d" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
-  
+  if key == 'space' then 
+    if  self.skip == true and gameStates < 2  then
+    gameStates = 2 
+  end
+  self.skip = true 
+end
 end
 function Gancho_Gancho:keyreleased(key)
 end

@@ -5,9 +5,11 @@ function StartGame()
     Main_FSM:addState("splash_02",{ enter = onSplash_02Enter, exit = onSplash_02Exit , from="splash_04"})
     Main_FSM:addState("splash_03",{ enter = onSplash_03Enter, exit = onSplash_03Exit , from="splash_01"})
     Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
-    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'settings', 'menu_avatar', 'menu_characters', 'menu_minigames', 'intro', 'pong'}})
+    Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'splash_04', 'settings', 'menu_avatar', 
+                                                                                    'menu_characters', 'menu_minigames', 'intro', 'pong',
+                                                                                    "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
-    Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from='menu'})
+    Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from={'menu',"programar"}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
     Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})
@@ -40,7 +42,7 @@ function onSplash_01Exit()
 end
 
 function onSplash_02Enter()
-  Scene.getScene():addActor(Intro_02)
+  Scene.getScene():addActor(Intro_02)  
   local s = SplashLib.new({fill = 'rain'})
   s.onDone = function() Main_FSM:changeState('menu') Scene.getScene():removeThisActor(s) Scene.getScene():removeActor(Intro_02) end
   Scene.getScene():addSplashScreen(s)
@@ -74,11 +76,11 @@ function onMenuExit()
 end
 
 function onMenu_MinigamesEnter()
-
+  Scene.getScene():addActor(Menu_Minigames)
 end
 
 function onMenu_MinigamesExit()
-
+  Scene.getScene():removeActor(Menu_Minigames)
 end
 
 function onMenu_CharactersEnter()
@@ -176,11 +178,11 @@ function onBlackjackExit()
 end
 
 function onProgramarEnter()
-  Scene.getScene():addActor(Programar_Manager)
+  Scene.getScene():addActor(Programar_Manager_)
 end
 
 function onProgramarExit()
-  Scene.getScene():removeActor(Programar_Manager)
+  Scene.getScene():removeActor(Programar_Manager_)
 end
 
 function onDormirEnter()

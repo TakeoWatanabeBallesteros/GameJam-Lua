@@ -11,7 +11,6 @@ local points
 function topo:new()
     love.mouse.setVisible(false)
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
-    globalTimer = Timer(30,function() gamestate = "EndGame" end, false)
     self.time = 30
     Scene.getScene():addTimerObj(globalTimer)
     AudioManager.PlayMusic(MICKEY_MUSIC_TOPO,GAME_SETTINGS_VOLUME_MUSIC,false)
@@ -42,10 +41,16 @@ function topo:new()
   
   points = 0
 
+  self.skip = false
   
 end
+
 function topo:update(dt)
+  if not self.skip then
+
+  else
   self.time = self.time > 0 and self.time - dt or 0
+  if self.time == 0 then gamestate = "EndGame" end
   if gamestate == "TopoOut" then
        self.position.x = -300
        self.position.y = 0
@@ -76,7 +81,7 @@ function topo:update(dt)
   end
   
   
-  
+end
 end
 function topo:draw()
 
@@ -87,15 +92,23 @@ function topo:draw()
     local sx = WW/self.width
     local sy = WH/self.height
     local rr = 0
-    if not (gamestate == "EndGame")  then
+    if gamestate ~= "EndGame"  then
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-    love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100,0,0.2,0.2,0,0,0,0)
+    love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100)
     love.graphics.setColor(255, 0, 0)
-    love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09,0,0.7,0.7,0,0,0,0)
+    love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09)
     love.graphics.setColor(255, 255, 255)
     else
+      AudioManager.StopSound(MICKEY_MUSIC_TOPO)
+      Scene.getScene():removeActor(Timer)
       love.mouse.setVisible(false)
+      if not MINIGAME then
+        Main_FSM:changeState('dialog')
+    else Main_FSM:changeState('menu') MINIGAME = false end
     end
+    love.graphics.setColor(255,255,255, self.alpha)
+    love.graphics.setBackgroundColor(0, 0, 0)
+    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.topo, 0, 0, 0, sx, sy) end
 end
 
 function topo:dist(b)
@@ -116,6 +129,7 @@ function topo:mousereleased(x,y,button,istouch,presses )
 end
 
 function topo:keypressed(key)
+  if key == 'space' then self.skip = true self.mazo.bool = true end
 end
 function topo:keyreleased(key)
 end

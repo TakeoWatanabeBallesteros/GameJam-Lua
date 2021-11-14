@@ -108,7 +108,7 @@ end
 function Player:die()
    print("Player died")
    self.alive = false
-   love.event.quit(0)
+   --love.event.quit(0)
 end
 
 function Player:respawn()

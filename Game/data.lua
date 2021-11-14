@@ -14,6 +14,9 @@ local clothes_types = {'camisa', 'camiseta', 'cuelloalto', 'jersey', 'peto', 'su
 local characters_boxes_names = {'player_1','Takeo', 'Alex', 'Ricky', 'Arnau', 'Vero', 'Marina'}
 local characters_names = {'takeo', 'alex', 'ricky', 'arnau', 'vero', 'marina'}
 --#endregion
+--#region MINIGAMES_NAMES
+local minigames_names = {'beber', 'blackjack', 'clase', 'gancho', 'pong', 'programar', 'topo'}
+--#endregion
 
 --#region ALL_CLASES
 Discord_RPC = Discord_RPC or require "Engine/discordRPC"
@@ -44,6 +47,7 @@ Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
 Dialog = Dialog or require "Game/Dialog"
 Menu_Avatar = Menu_Avatar or require "Game/Menu_Avatar"
+Menu_Minigames = Menu_Minigames or require "Game/Menu_Minigames"
 Characters_Selection = Characters_Selection or require "Game/Characters_Selection"
 --#endregion
 MINIGAME = false
@@ -59,8 +63,15 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     --#endregion
     --#region BACKGROUNDS
     MENU_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/menu_background.png")
+    MINIGAMES_BUTTONS_UI = love.graphics.newImage("Data/Menu_Minijuegos/menu_minijuego.png")
     DEFAULT_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/default_background.png")
     EDITOR_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/fondo_custom.png")
+    --#endregion
+    --#region MINIGAMES_TUTORIALS
+    MINIGAMES_TUTORIALS = {}
+    for k,v in ipairs(minigames_names) do
+        MINIGAMES_TUTORIALS[v] = love.graphics.newImage("Data/Minigames_Tutorials/como_jugar_"..v..".png")
+    end
     --#endregion
     --#region AVATAR_SPRITES
     AVATAR_SILUET = love.graphics.newImage("Data/Avatar/silueta_avatar.png")
@@ -237,7 +248,7 @@ local values = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'king', 'q
 
 --#region PROGRAMAR
     --#region REQUIRES
-    Programar_Manager = Programar_Manager or require "Game/Minijuego_Programar/Programar_Manager"
+    Programar_Manager_ = Programar_Manager_ or require "Game/Minijuego_Programar/Programar_Manager"
     --#endregion
 PROGRAMAR_VIDAS = {
     love.graphics.newImage("Data/Programar_Screens/Program_UI/programar_vida_1.png"),
@@ -251,6 +262,8 @@ for i = 1, 2, 1 do
         PROGRAMAR_SCREENS[i][j] = love.graphics.newImage("Data/Programar_Screens/Code_"..i.."_"..j..".PNG")
     end
 end
+PROGRAMAR_MAL = love.audio.newSource("Data/Programar_Screens/programar_mal.ogg", 'static')
+PROGRAMAR_BIEN = love.audio.newSource("Data/Programar_Screens/programar_bien.ogg", 'static')
 --#endregion
 
 --#region DORMIR
@@ -262,6 +275,7 @@ DORMIR_PROFE_SPRITES = {
     love.graphics.newImage("Data/Dormir_Sprites/profe_pillado.png")
 
 }
+DORMIR_ESCRIBIR = love.audio.newSource("Data/Dormir_Sprites/dormir_escribir.ogg", 'static')
 DORMIR_FONT = love.graphics.newFont("Data/Dormir_Sprites/digital-7.ttf", WW*60/1920)
 
 --#endregion
@@ -386,6 +400,43 @@ function SPRITES_MAPPING_1()
     SPRITES_MAPPING_2()
 end
 
+function GenerateImageButtonMinigames(name)
+    local function alpha( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,1
+        end
+        return r,g,b,a
+     end
+
+    local function alpha2( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,0.7
+        end
+        return r,g,b,a
+     end
+    
+    local function alpha3( x, y, r, g, b, a )
+        if a ~= 0 then return r,g,b,a
+        end
+        return r,g,b,a
+     end
+
+    local normal, hovered, active = love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png"), love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png"), love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png")
+    normal:mapPixel(alpha)
+    hovered:mapPixel(alpha2)
+    active:mapPixel(alpha3)
+    MINIGAMES_BUTTONS[name].normal = love.graphics.newImage(normal)
+    MINIGAMES_BUTTONS[name].hovered = love.graphics.newImage(hovered)
+    MINIGAMES_BUTTONS[name].active = love.graphics.newImage(active)
+    MINIGAMES_BUTTONS[name].mask = normal
+end
+
+function SPRITES_MAPPING_4()
+    MINIGAMES_BUTTONS = {}
+    for k,v in ipairs(minigames_names) do
+        MINIGAMES_BUTTONS[v] = {}
+        GenerateImageButtonMinigames(v)
+    end
+end
+
 function GenerateImageButton_Info(name)
     local function alpha( x, y, r, g, b, a )
             if a ~= 0 then return r,g,b,1
@@ -461,5 +512,6 @@ function SPRITES_MAPPING_3()
         CHARACTERS_INFO_SILUETA[v] = {}
         GenerateImageButton_Info2(v)
     end
+    SPRITES_MAPPING_4()
 end
 --#endregion
