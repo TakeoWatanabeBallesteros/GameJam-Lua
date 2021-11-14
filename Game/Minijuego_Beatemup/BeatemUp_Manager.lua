@@ -55,6 +55,7 @@ function BeatemUp_Manager:keypressed(key)
 	player:Attack(key)
 end
 function BeatemUp_Manager:keyreleased(key)
+	player:NotAttack(key)
 end
 
 

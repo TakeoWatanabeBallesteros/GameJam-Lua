@@ -11,7 +11,7 @@ function Player:load()
    self.xVel = 0
    self.yVel = 0
    self.maxSpeed = 200
-   self.acceleration = 4000
+   self.acceleration = 400
    self.friction = 3500
    self.gravity = 1500
    self.jumpAmount = -500
@@ -86,15 +86,18 @@ end
 
 function Player:takeDamage(amount)
    self:tintRed()
-   self.hit = true
+   
    
    if self.health.current - amount > 0 then
       self.health.current = self.health.current - amount
-     
+   
+   elseif self.alive == false then
+   amount = 0
+   self:unTint(dt) 
    else 
       self.health.current = 0
       self:die()
-      self.hit = false
+      
       
    
    
@@ -105,6 +108,7 @@ end
 function Player:die()
    print("Player died")
    self.alive = false
+   love.event.quit(0)
 end
 
 function Player:respawn()
@@ -120,6 +124,7 @@ function Player:resetPosition()
 end
 
 function Player:tintRed()
+   self.hit = true
    self.color.green = 0
    self.color.blue = 0
 end
@@ -144,6 +149,7 @@ function Player:update(dt)
 end
 
 function Player:unTint(dt)
+   self.hit = false 
    self.color.red = math.min(self.color.red + self.color.speed * dt, 1)
    self.color.green = math.min(self.color.green + self.color.speed * dt, 1)
    self.color.blue = math.min(self.color.blue + self.color.speed * dt, 1)
@@ -293,6 +299,12 @@ function Player:Attack(key)
       self.attack = false
    end
 
+end
+
+function Player:NotAttack(key)
+   if (key == "space") then
+      self.attack = false
+   end
 end
 
 function Player:endContact(a, b, collision)
