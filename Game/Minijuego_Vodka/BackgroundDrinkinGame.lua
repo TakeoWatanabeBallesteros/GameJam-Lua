@@ -16,7 +16,7 @@ function BackgroundDrinkinGame:draw()
     local sy = WH/self.height
     local rr = 0
     love.graphics.draw(self.BACKGROUND_DRINKINGAME_Shown,xx,yy,rr,sx,sy,ox,oy,0,0)
-    if (moveStateDrinkingGame == 4) then love.graphics.draw(SAD_FACE_DRINKINGAME,550,350,0,1,1,0,0,0,0) end
+    if (moveStateDrinkingGame == 4) then love.graphics.draw(SAD_FACE_DRINKINGAME,WW/3,WH/3.5,0,1,1,0,0,0,0) end
 end
 function BackgroundDrinkinGame:mousepressed(x, y, button, istouch,presses )
 end

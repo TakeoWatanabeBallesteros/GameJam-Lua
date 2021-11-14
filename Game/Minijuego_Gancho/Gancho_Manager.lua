@@ -2,7 +2,14 @@ Gancho_Manager = Actor:extend()
 
 function Gancho_Manager:new()
     Gancho_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,0,0, 'Background')
-    Scene:getScene():addActorObj(Gancho_Peluche('takeo'))
+    Scene:getScene():addActorObj(Gancho_Peluche("takeo"))
+    Scene:getScene():addActorObj(Gancho_Peluche("marina"))
+    Scene:getScene():addActorObj(Gancho_Peluche("ricky"))
+    Scene:getScene():addActorObj(Gancho_Peluche("alex"))
+    Scene:getScene():addActorObj(Gancho_Peluche("arnau"))
+    Scene:getScene():addActorObj(Gancho_Peluche("veronika"))
+
+
 end
 
 function Gancho_Manager:update()
