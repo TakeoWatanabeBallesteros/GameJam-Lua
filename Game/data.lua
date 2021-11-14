@@ -69,6 +69,10 @@ DEFAULT_IMAGE = love.graphics.newImage("Data/Default.png")
     EDITOR_BACKGROUND = love.graphics.newImage("Data/UI_Backgrounds/fondo_custom.png")
 
     DIALOGUES_BACKGROUNDS = {}
+    DIALOGUES_BACKGROUNDS["arcade"] = love.graphics.newImage("Data/Dialogues_Backgrounds/arcade_background.png")
+    DIALOGUES_BACKGROUNDS["clase"] = love.graphics.newImage("Data/Dialogues_Backgrounds/clase_background.png")
+    DIALOGUES_BACKGROUNDS["intro"] = love.graphics.newImage("Data/Dialogues_Backgrounds/intro_background.png")
+    DIALOGUES_BACKGROUNDS["party"] = love.graphics.newImage("Data/Dialogues_Backgrounds/party_background.png")
     --#endregion
     --#region MINIGAMES_TUTORIALS
     MINIGAMES_TUTORIALS = {}
