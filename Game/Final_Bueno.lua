@@ -1,7 +1,7 @@
 Final_Bueno = Actor:extend()
 
 function Final_Bueno:new()
-    Final_Bueno.super.new(self,WIN_BACKGROUND.WHO,WW/2,WH/2,0,0,0, 'Background')
+    Final_Bueno.super.new(self,WIN_BACKGROUND.WHO,WW/2,WH/2,0,0,0, 'HUD')
 end
 
 function Final_Bueno:update()

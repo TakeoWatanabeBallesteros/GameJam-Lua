@@ -4,13 +4,13 @@ function Pong_Manager:new()
     require "Engine_Pong/data"
     self.skip = false
     Pong_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,0,0, 'Background')
+    Pong_Director.goIntro()
 end
 
 function Pong_Manager:update(dt)
     if not self.skip then
 
     else
-    Pong_Director.goIntro()
     Pong_Scene.getScene():update(dt)
     end
 end

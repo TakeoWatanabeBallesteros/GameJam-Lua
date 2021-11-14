@@ -1,7 +1,7 @@
 Final_Malo = Actor:extend()
 
 function Final_Malo:new()
-    Final_Malo.super.new(self,LOSE_BACKGROUND.WHO,WW/2,WH/2,0,0,0, 'Background')
+    Final_Malo.super.new(self,LOSE_BACKGROUND.WHO,WW/2,WH/2,0,0,0, 'HUD')
 end
 
 function Final_Malo:update()

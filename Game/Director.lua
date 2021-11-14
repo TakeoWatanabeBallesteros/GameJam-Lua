@@ -36,25 +36,7 @@ function StartGame()
     Main_FSM:setInitialState("null") Main_FSM:changeState('splash_01')
 end
 
-function OnChaoEnter()
-  Scene.getScene():removeActor(Dialog)
-  Scene.getScene():addActor(Final_Malo)
-end
 
-function OnChaoExit()
-  Scene.getScene():removeActor(Final_Malo)
-  Scene.getScene():addActor(Menu)
-end
-
-function OnFinalEnter()
-  Scene.getScene():removeActor(Dialog)
-  Scene.getScene():addActor(Final_Malo)
-end
-
-function OnFinalExit()
-  Scene.getScene():removeActor(Final_Malo)
-  Scene.getScene():addActor(Menu)
-end
 function onSplash_01Enter()
     love.mouse.setVisible(false)
     local s = SplashLib.new({background={0, 0, 0}})
@@ -259,4 +241,24 @@ function onPeleaEnter()
 end
 
 function onPeleaExit()
+end
+
+function onChaoEnter()
+  Scene.getScene():removeActor(Dialog)
+  Scene.getScene():addActor(Final_Malo)
+end
+
+function onChaoExit()
+  Scene.getScene():removeActor(Final_Malo)
+  Scene.getScene():addActor(Menu)
+end
+
+function onFinalEnter()
+  Scene.getScene():removeActor(Dialog)
+  Scene.getScene():addActor(Final_Malo)
+end
+
+function onFinalExit()
+  Scene.getScene():removeActor(Final_Malo)
+  Scene.getScene():addActor(Menu)
 end
