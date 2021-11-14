@@ -13,7 +13,7 @@ function Menu_Avatar:new()
     else self.name_3 = 'Vacio' end
     self.preview = {AVATAR_SILUET}
     self.title = 'ESCOGE A TU PERDEDOR'
-    Menu.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
+    Menu.super.new(self,SELECTOR_BACKGROUND,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
 function Menu_Avatar:update(dt)
@@ -94,8 +94,16 @@ function Menu_Avatar:update(dt)
 end
 
 function Menu_Avatar:draw()
+    local xx = self.position.x
+    local ox = self.origin.x
+    local yy = self.position.y
+    local oy = self.origin.y
     local sx = WW/1920
     local sy = WH/1080
+    local rr = 0
+    local sx = WW/1920
+    local sy = WH/1080
+    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.setColor(255, 255, 255, self.alpha)
     love.graphics.print(
         self.title,
@@ -107,15 +115,8 @@ function Menu_Avatar:draw()
         love.graphics.draw(value,WW/1.083-(value:getWidth()/2)*sx*0.5,WH/3-(value:getHeight()/2)*sy*0.5,0,sx*0.5,sy*0.5)
     end
     Suit.draw()
-    local xx = self.position.x
-    local ox = self.origin.x
-    local yy = self.position.y
-    local oy = self.origin.y
-    local sx = self.scale.x
-    local sy = self.scale.y
-    local rr = self.rot
+    
     love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
-    love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end
 
 function Menu_Avatar:mousepressed( x, y, _button, istouch, presses )
