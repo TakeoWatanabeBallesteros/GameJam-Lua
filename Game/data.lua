@@ -3,6 +3,7 @@
 WW, WH = love.graphics.getDimensions()
 --#endregion
 
+
 --#region AVATAR_ARRAYS
 local skins_colors = {'clara', 'intermedia', 'intermedia2', 'intermedia3', 'oscura', 'oscura2'}
 local eyes_colors = {'verde', 'azul', 'magenta', 'marron', 'morado'}
