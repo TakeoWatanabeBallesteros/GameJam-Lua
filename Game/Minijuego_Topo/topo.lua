@@ -50,7 +50,9 @@ function topo:update(dt)
 
   else
   self.time = self.time > 0 and self.time - dt or 0
-  if self.time == 0 then gamestate = "EndGame" end
+  if self.time == 0 then 
+    gamestate = "EndGame" 
+  end
   if gamestate == "TopoOut" then
        self.position.x = -300
        self.position.y = 0
@@ -93,6 +95,7 @@ function topo:draw()
     local sy = WH/self.height
     local rr = 0
     if gamestate ~= "EndGame"  then
+    COMPATIBILIDAD = COMPATIBILIDAD + points
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100)
     love.graphics.setColor(255, 0, 0)

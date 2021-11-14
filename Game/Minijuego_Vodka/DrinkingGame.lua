@@ -79,6 +79,7 @@ function DrinkingGame:update(dt)
       end
     elseif GameStateDrinkingGame == "EndGame" then
       AudioManager.StopSound(BACKGROUND_SOUND_DRINKINGAME)
+      COMPATIBILIDAD = COMPATIBILIDAD+self.points
       if not MINIGAME then
         Main_FSM:changeState('dialog')
       else Main_FSM:changeState('menu') MINIGAME = false end

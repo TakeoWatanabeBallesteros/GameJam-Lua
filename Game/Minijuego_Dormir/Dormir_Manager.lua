@@ -46,6 +46,9 @@ function Dormir_Manager:update(dt)
     self.timeToTurn = self.timeToTurn > 0 and self.timeToTurn - dt or 0
     self.profe:update(dt)
     if self.time == 0 or self.percent == 100 or self.lost then 
+        if self.time == 0 or self.percent == 100 then
+            COMPATIBILIDAD = COMPATIBILIDAD +10
+        end
         AudioManager.StopSound(DORMIR_ESCRIBIR)
         if not MINIGAME then
             Main_FSM:changeState('dialog')
