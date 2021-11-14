@@ -54,18 +54,18 @@
 		"tags": "",
 		"body": "Marina: Ah, pues nada. Igualmente toca emprenedoria.\nMarina: Nos vemos luego. \n<<scene:dormir>>\nMarina: Necesito ayuda con programación. Que falta nada para la entrega de la práctica, porfa.\n[[answer: Okey, supongo que no me queda otra. |Prog]]\n[[answer: La verdad es que estoy muy ocupado no haciendo nada. Déjame en paz. |Prog]]",
 		"position": {
-			"x": 455,
-			"y": -712
+			"x": 454,
+			"y": -713
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Prog",
 		"tags": "",
-		"body": "Marina: Vamos, es programación, no será muy difícil. \nMarina: Solo será imposible. Vamos a darle.\n<<scene:programar>>\nMarina: A ver, eres un inútil en programación. \nMarina: Eso quiere decir que estás como casi toda la clase, no te preocupes. \nMarina: Oye, ¿qué te parece venir conmigo al arcade? Será divertido.\nAcabas quedando con ella y vas a los arcade de Mataró.\n<<background:arcade>>\nMarina: Mira, hay una máquina para sacar peluches. \nMarina: ¿Podrías sacarme uno? Si lo haces te invito a un juego, al que quieras. \n<<scene:gancho>>\nMarina: Mira, ahí está el juego de los topos, te puedo invitar a ese.\nTe va a invitar a un juego. Esta es una oportunidad de oro, no la fastidies.\n<<scene:topo>>\nMarina: Te ha salido bastante bien. ¿Te apetece ir a tomar algo?\nMarina: Conozco un sitio que está muy bien.\n<<background:party>>\nMarina: Ten cuidado, no te vaya a dar un coma etílico bebiendo.\n<<scene:vodka>>\nMarina: Y es por eso por lo que los ornitorrincos no pueden tocar la pandereta. \nMarina: Eh, ¿has visto a esos de ahí intentando robar a gente de la forma más indiscreta posible?\nMarina: Creo que deberías hacer algo. Si, tú. [color=#ff0000]Vamos.[/color] \nCuando te quieres dar cuenta ya estás peleándote. \n<<scene:pelea>>\nMarina: [shake] ESO HA SIDO UNA PASADA [/shake]\nNo has estado nada mal. Los moratones en el cuerpo sobran, pero no ha estado mal.\n<<scene:final>>",
+		"body": "Marina: Vamos, es programación, no será muy difícil. \nMarina: Solo será imposible. Vamos a darle.\n<<scene:programar>>\nMarina: A ver, eres un inútil en programación. \nMarina: Eso quiere decir que estás como casi toda la clase, no te preocupes. \nMarina: Oye, ¿qué te parece venir conmigo al arcade? Será divertido.\nAcabas quedando con ella y vas a los arcade de Mataró.\n<<background:arcade>>\nMarina: Mira, hay una máquina para sacar peluches. \nMarina: ¿Podrías sacarme uno? Si lo haces te invito a un juego, al que quieras. \n<<scene:gancho>>\nMarina: Mira, ahí está el juego de los topos, te puedo invitar a ese.\nTe va a invitar a un juego. Esta es una oportunidad de oro, no la fastidies.\n<<scene:topo>>\nMarina: Te ha salido bastante bien. ¿Te apetece ir a tomar algo?\nMarina: Conozco un sitio que está muy bien.\n<<background:party>>\nMarina: Ten cuidado, no te vaya a dar un coma etílico bebiendo.\n<<scene:vodka>>\nMarina: Y es por eso por lo que los ornitorrincos no pueden tocar la pandereta. \nMarina: Eh, ¿has visto esos de ahí intentando ganar en el blackjack?\nMarina: Creo que deberías hacer algo. Si, tú. [color=#ff0000]Vamos.[/color] \nCuando te quieres dar cuenta ya estás jugando. \n<<scene:blackjack>>\nMarina: No has estado nada mal.\n<<scene:final>>",
 		"position": {
-			"x": 472,
-			"y": -436
+			"x": 470,
+			"y": -438
 		},
 		"colorID": 0
 	}
