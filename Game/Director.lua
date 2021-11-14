@@ -25,7 +25,7 @@ function StartGame()
     Main_FSM:addState("dormir", {enter = onDormirEnter, exit= onDormirExit, from='null'})
     Main_FSM:addState("pelea", {enter = onPeleaEnter, exit= onPeleaExit, from='null'})
 
-    Main_FSM:setInitialState("null") Main_FSM:changeState("splash_01")
+    Main_FSM:setInitialState("null") Main_FSM:changeState("pelea")
 end
 
 function onSplash_01Enter()

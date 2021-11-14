@@ -102,13 +102,13 @@ function Enemy:tintRed()
    self.color.blue = 0
 end
 
-function Enemy:remove()
-   --for i,v in ipairs(ActiveEnemies) do
-      if self.life == 0 then
-         self.physics.body:destroy()
+function Enemy.remove()
+   for i,v in ipairs(ActiveEnemies) do
+      if v.life == 0 then
+         v.body:remove()
       end
       
-   --end
+   end
 
    ActiveEnemies = {}
 end
@@ -204,8 +204,9 @@ function Enemy.beginContact(a, b, collision)
             
             player:takeDamage(instance.damage)
             instance:attack()
+            instance:takeDamage(player.damage)
          end
-         instance:takeDamage(player.damage)
+         --instance:takeDamage(player.damage)
          instance:incrementRage()
          instance:flipDirection()
          
