@@ -1,0 +1,72 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Vero: ¡¿[shake]Hey[/shake]?!, tú eres el/la nuev@, ¿no?\nAsí es\nVero: ¿Y qué es lo que más te gusta de la carrera?\n[[answer: ¡Sí! ¡Me encanta programar! |Programacion]]\n[[answer: Nah, prefiero avanzar animación |Animacion]]\n[[answer: No, prefiero adelantar de diseño |Diseno de Juegos]]",
+		"position": {
+			"x": 296,
+			"y": 251
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Programacion",
+		"tags": "",
+		"body": "Vero: A mí también me gusta programar.\nVero: Por cierto, he acabado el pong, si quieres te lo puedo enseñar.\n[[answer: Okey, a ver como te ha quedado. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo.... |Dormir]]",
+		"position": {
+			"x": 104,
+			"y": -36
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Animacion",
+		"tags": "",
+		"body": "Vero: Bueno, no es mi fuerte pero está bien.\nVero: Para mí pong le he incluido arte que he hecho yo.\nVero: A ver que te parece.\n[[answer: Seguro que te ha quedado muy bien. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo. |Dormir]]",
+		"position": {
+			"x": 530,
+			"y": -56
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Diseno de Juegos",
+		"tags": "",
+		"body": "Vero: Buff, como odio esa asignatura. \nVero: Ya nos veremos en clase\n<<scene:chao>>",
+		"position": {
+			"x": 615,
+			"y": 249
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pong",
+		"tags": "",
+		"body": "Vero: Bueno ya que estamos, hacemos una partida a ver quién gana\n<<scene:pong>>\nVero:  No ha estado mal.\nVero:  Que te ha parecido mi pong. \nVero:  Si quieres te puedo ayudar.\n[[answer: Okey, me vendría bien tu ayuda |Arcade]]\n[[answer: Muchas gracias, pero creo que yo puedo |Arcade]]",
+		"position": {
+			"x": 109,
+			"y": -334
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Dormir",
+		"tags": "",
+		"body": "Vero: Okey, pues yo avanzaré la animación en emprenedoria para aprovechar el tiempo.\n<<scene:dormir>>\nVero: Good morning, mientras dormías he hecho la mitad de la animación .\nVero: También he hecho la A3 que nos ha puesto el Marco y también te podría en ello.\n[[answer: Madre mía, sí que has avanzado en todo, no me iría mal . |Arcade]]\n[[answer: Yo creo que puedo, pero tendría que ser eficaz como tú. |Arcade]]",
+		"position": {
+			"x": 523,
+			"y": -337
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Arcade",
+		"tags": "",
+		"body": "Vero: [shake]Por cierto, que el [color=#ff0000]examen final[/color]es en nada.[/shake]\nVero: Podemos ir practicando con estas líneas de código.\n<<scene:programar>>\nVero: Creo que te falta práctica, pero con tiempo lo tienes.\nVero: Después de todo el trabajo que hemos hecho vamos un rato a divertirnos.\nVero: Me suena que hay un aracade aquí en Mataró.\nAcabas quedando con Vero para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nVero: ¡Mira una máquina de sacar peluches!\nVero: Me podrías sacar uno.\n<<scene:gancho>>\nVero: Ohhhh, que bonito.\nVero: Veamos que más juegos hay...\nVero: Mira, hay un juego del topo, a este te invito yo.\nOjo, Vero te ha invitado a jugar a algo. ! Esta oportunidad no la puedes dejar escapar!\n<<scene:topo>>\nVero: Hahaha, lo has hecho muy bien. Vamos a tomar algo, ¿no?.\nVero: Supongo que no me pasará nada, pero si acabo muy mal ayudame eh.\n<<background:party>>\nVero: ¡Vamos a ver quién bebe más rápido!\nVero: Supongo que no me ganarás al final de todo soy Rusa.\n<<scene:vodka>>\nVero: Hahaha, ha sido divertido aunque no me encuentro muy bien.\nVero: [shake]Cuidado[/shake], que esos tipos tiene muy mala pinta. \nDespués de tantos cubatas se te va la puta olla y te metes en la pelea contra esos tipos para impresionar a Vero.\n<<scne:pelea>>\nVero: Has sido muy valiente, pero no hacía falta pegarse, mírate como estás ahora.\nAl final de todo ha valido la pena, ya que has impresionado a Vero.\n<<scene:final>>",
+		"position": {
+			"x": 528,
+			"y": -620
+		},
+		"colorID": 0
+	}
+]
