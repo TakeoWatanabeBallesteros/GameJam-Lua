@@ -5,7 +5,7 @@ Programar_Manager_ = Actor:extend()
 
 function Programar_Manager_:new()
     local states = {'Start','Moving', 'Correct', 'Incorrect', 'Finish'}
-    self.currentState = 'Start'
+    self.currentState = 'Moving'
     self.screens = {{'print', 2}, {'while', 1}, {'repeat', 2}, {'code',2}, {'float',2}} --1 is correct and 2 is incorrect
     self.index = 1
    Programar_Manager_.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,1,0,0, 'Background')
@@ -13,6 +13,7 @@ function Programar_Manager_:new()
    self.i =1
    self.timer = 20
    self.skip = false
+   self.timer2 = 0
 end
 
 function Programar_Manager_:update(dt)
@@ -20,9 +21,10 @@ function Programar_Manager_:update(dt)
 
     else
     self.timer = self.timer > 0 and self.timer - dt or 0
-    if self.currentState == 'Start' then
-        self.currentState = 'Moving'
-        Programar_Manager_.ChangeScreen()
+    self.timer2 = self.timer2 > 0 and self.timer2 - dt or 0
+    if self.timer2 == 0 then
+        self.timer2 = 0.3
+        self:ChangeScreen()
     end
 end
 end
@@ -54,12 +56,10 @@ function Programar_Manager_:CodeLinesDraw()
     love.graphics.draw(PROGRAMAR_SCREENS[self.i][self.index],0,0,0,sx,sy)
 end
 
-function Programar_Manager_.ChangeScreen()
-    local o = Scene.getScene():getActor(Programar_Manager_)
-    if o.currentState == 'Moving' then
-    o.index = o.index < #o.screens and o.index + 1 or 1
-    o.drawing = o.screens[o.index]
-    Scene.getScene():addTimer(0.3, function() Programar_Manager_.ChangeScreen() end, false)
+function Programar_Manager_:ChangeScreen()
+    if self.currentState == 'Moving' then
+    self.index = self.index < #self.screens and self.index + 1 or 1
+    self.drawing = self.screens[self.index]
     end
 end
 
