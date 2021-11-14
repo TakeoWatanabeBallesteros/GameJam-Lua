@@ -88,7 +88,9 @@ function Dialog:draw()
         if y == -1 and self.dialogues_index < #self.dialogues then self.dialogues_index = self.dialogues_index + 1
         elseif y == 1 and self.dialogues_index > 1 then self.dialogues_index = self.dialogues_index - 1 end
     end
+
 end
+love.graphics.print(COMPATIBILIDAD,WW/1.2,WW/2,0,WW/1920, WH/1080,0,0,0,0)
 end
 
 function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
