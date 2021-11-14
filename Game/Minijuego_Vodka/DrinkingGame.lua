@@ -78,7 +78,9 @@ function DrinkingGame:update(dt)
         moveStateDrinkingGame = 2
       end
     elseif GameStateDrinkingGame == "EndGame" then
-      --Scene.getScene():addTimer(3, function() Main_FSM:changeState('gancho') end, false)
+      if not MINIGAME then
+        Main_FSM:changeState('dialog')
+      else Main_FSM:changeState('menu') MINIGAME = false end
       end
   
     
