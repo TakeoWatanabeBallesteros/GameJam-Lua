@@ -9,6 +9,7 @@ local points
 
 
 function topo:new()
+  love.graphics.setFont(TIMER_FONT)
     love.mouse.setVisible(false)
     topo.super.new(self,TOPO_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Middle")
     self.time = 30
@@ -41,7 +42,8 @@ function topo:new()
   
   points = 0
 
-  self.skip = false
+  --self.skip = false
+  self.skip = true
   
 end
 
@@ -96,9 +98,9 @@ function topo:draw()
     local rr = 0
     if gamestate ~= "EndGame"  then
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-    love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100)
+    love.graphics.print("TOPOS MUERTOS (ABONO): "..points,WW/2.4, WH/100,WW/1920*0.4,WH/1080*0.4)
     love.graphics.setColor(255, 0, 0)
-    love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09)
+    love.graphics.print(math.floor(self.time),WW/2.1, WH/1.09,WW/1920*0.7,WH/1080*0.7)
     love.graphics.setColor(255, 255, 255)
     else
       COMPATIBILIDAD = COMPATIBILIDAD + points

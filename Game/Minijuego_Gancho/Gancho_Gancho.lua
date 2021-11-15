@@ -10,7 +10,7 @@ local scaleFloat,posYFloat,shadowSpeed,speed,posPeluche
 
 function Gancho_Gancho:new()
   globalTimer = 10
-
+  love.graphics.setFont(TIMER_FONT)
   speed = 100
   Gancho_Gancho.super.new(self,GANCHO_GANCHO_ABIERTO,WW/2,-WH/6,1,0,0, 'Front')
   gravity = 10

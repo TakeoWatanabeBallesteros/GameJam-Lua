@@ -69,6 +69,7 @@ function Dialog:draw()
             width = self.dialogues[self.dialogues_index][1] ~= 'player_1' and WW/10 or WW/5
         end
     end
+    love.graphics.setFont(FONT_DIALOGUES_DEFAULT)
     love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)
 
     --display the menu
