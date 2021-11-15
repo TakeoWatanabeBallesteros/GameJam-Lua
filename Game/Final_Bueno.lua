@@ -25,7 +25,7 @@ function Final_Bueno:mousereleased( x, y, _button, istouch, presses )
 end
 
 function Final_Bueno:keypressed(_key)
-    if _key == 'space' then Main_FSM:changeState('menu') end
+    if _key == 'space' then Main_FSM:changeState('credits') end
 end
 
 function Final_Bueno:keyreleased(_key)
