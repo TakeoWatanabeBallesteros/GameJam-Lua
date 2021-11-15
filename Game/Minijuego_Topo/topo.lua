@@ -43,11 +43,11 @@ function topo:new()
   points = 0
 
   self.skip = false
-  
+  self.skip2 = false
 end
 
 function topo:update(dt)
-  if not self.skip then
+  if not self.skip2 then
 
   else
   self.time = self.time > 0 and self.time - dt or 0
@@ -113,7 +113,7 @@ function topo:draw()
     end
     love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)
-    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.topo, 0, 0, 0, sx, sy) end
+    if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.topo, 0, 0, 0, sx, sy) end
 end
 
 function topo:dist(b)
@@ -134,7 +134,12 @@ function topo:mousereleased(x,y,button,istouch,presses )
 end
 
 function topo:keypressed(key)
-  if key == 'space' then self.skip = true self.mazo.bool = true end
+  if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
+    self.skip = true
+    self.skip2=true
+elseif(key == 'space' and ON_PAUSE) then
+    self.skip = true
+end
 end
 function topo:keyreleased(key)
 end

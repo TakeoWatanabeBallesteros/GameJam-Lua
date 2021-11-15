@@ -11,6 +11,7 @@ function Dormir_Manager:new()
   self.time = 120
   self.percent = 50
   self.skip = false
+  self.skip2 = false
   self.lost = false
   self.timeToTurn = 0
   self.ap = 0
@@ -18,7 +19,7 @@ end
 
 function Dormir_Manager:update(dt)
     math.randomseed(os.time())
-    if not self.skip then
+    if not self.skip2 then
 
     else
     if self.timeToTurn == 0 then
@@ -92,7 +93,7 @@ function Dormir_Manager:draw()
         )
     love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)
-    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.clase, 0, 0, 0, sx, sy) end
+    if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.clase, 0, 0, 0, sx, sy) end
 end
 
 function Dormir_Manager:mousepressed( x, y, _button, istouch, presses )
@@ -102,9 +103,12 @@ function Dormir_Manager:mousereleased( x, y, _button, istouch, presses )
 end
 
 function Dormir_Manager:keypressed(_key)
-    if _key == 'space' then
+    if (_key == 'space' and MINIGAME) or (_key == 'space' and self.skip) then
         self.skip = true
+        self.skip2=true
         self.pressed = true
+    elseif(_key == 'space' and ON_PAUSE) then
+        self.skip = true
     end
 end
 

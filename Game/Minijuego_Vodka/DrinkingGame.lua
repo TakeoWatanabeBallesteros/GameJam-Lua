@@ -46,11 +46,15 @@ for _,v in ipairs(Scene.getScene():getActorList()) do
   background = v
   break
 end
+self.skip = false
+self.skip2 = false
 end
   
 end
 function DrinkingGame:update(dt)
+  if not self.skip2 then
 
+  else
   if GameStateDrinkingGame == "PlayingGame" then
       if moveStateDrinkingGame == 1 then playerBar.position.x = playerBar.position.x + self.speed*dt end
       if moveStateDrinkingGame == 2 then playerBar.position.x = playerBar.position.x - self.speed*dt end
@@ -85,7 +89,7 @@ function DrinkingGame:update(dt)
         Main_FSM:changeState('dialog')
       else Main_FSM:changeState('menu_minigames') MINIGAME = false end
       end
-  
+    end
     
 end
 function DrinkingGame:draw()
@@ -94,6 +98,7 @@ function DrinkingGame:draw()
   love.graphics.print("Points: "..self.points,WW/1.2,WH/30,0,WW/1920,WH/1080,0,0,0)
   love.graphics.print("Shots taken: "..self.shots,WW/1.2,WH/10,0,WW/1920,WH/1080,0,0,0)
   love.graphics.print("Tries: "..self.tries,WW/1.2,WH/6,0,WW/1920,WH/1080,0,0,0)
+  if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.beber, 0, 0, 0, sx, sy) end
   end
 end
 
@@ -105,7 +110,7 @@ end
 
 function DrinkingGame:keypressed(key)
   if GameStateDrinkingGame == "PlayingGame" then
-    if key == "space" then
+    if key == "space" and self.skip2 then
       if moveStateDrinkingGame == 1 or moveStateDrinkingGame == 2 then
       self.speed = self.speed +220
       self.tries = self.tries+1
@@ -130,7 +135,12 @@ function DrinkingGame:keypressed(key)
       Scene.getScene():addTimerObj(t)
       end
     end
-    end
+    elseif (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
+      self.skip = true
+      self.skip2=true
+  elseif(key == 'space' and ON_PAUSE) then
+      self.skip = true
+  end
   end
   end
   

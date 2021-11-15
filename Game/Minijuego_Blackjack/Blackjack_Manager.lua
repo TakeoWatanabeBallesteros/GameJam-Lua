@@ -19,10 +19,11 @@ function Blackjack_Manager:new(x,y)
     self.timer = 0
     self.timer2 = 60
     self.skip = false
+    self.skip2 = false
 end
 
 function Blackjack_Manager:update(dt)
-    if not self.skip then
+    if not self.skip2 then
 
     else
     math.randomseed(os.time())
@@ -97,7 +98,7 @@ function Blackjack_Manager:draw()
         )
         love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)
-    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.blackjack, 0, 0, 0, sx, sy) end
+    if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.blackjack, 0, 0, 0, sx, sy) end
 end
 
 function Blackjack_Manager:IntialCards()
@@ -187,7 +188,12 @@ end
 function Blackjack_Manager:mousereleased( x, y, _button, istouch, presses )
 end
 function Blackjack_Manager:keypressed(_key)
-    if _key == 'space' then self.skip = true end
+if (_key == 'space' and MINIGAME) or (_key == 'space' and self.skip) then
+    self.skip = true
+    self.skip2=true
+elseif(_key == 'space' and ON_PAUSE) then
+    self.skip = true
+end
 end
 function Blackjack_Manager:keyreleased(_key)
 end

@@ -133,6 +133,7 @@ function onEditorExit()
 end
 
 function onIntroEnter()
+  ON_PAUSE = false
   local d = Dialog('Data/Dialogues/Intro.json')
   Scene.getScene():addDialog(d)
   COMPATIBILIDAD = 50
@@ -156,7 +157,6 @@ function onDialogEnter()
 end
 
 function onDialogExit()
-  ON_PAUSE = true
 end
 
 function onTopoEnter()
@@ -164,6 +164,7 @@ function onTopoEnter()
   Scene.getScene():addActor(MAZO_TOPO_GAME)
   Scene.getScene():addActor(TOPO_TOPO_GAME)
   Scene.getScene():addActor(Topo_State_Manager)
+  ON_PAUSE = true
 end
 
 function onTopoExit()
@@ -178,6 +179,7 @@ function onBlackjackEnter()
   Scene.getScene():addActor(Blackjack_Player)
   Scene.getScene():addActor(Blackjack_Dealer)
   Scene.getScene():addActor(Blackjack_Manager)
+  ON_PAUSE = true
 end
 
 function onBlackjackExit()
@@ -189,6 +191,7 @@ end
 
 function onProgramarEnter()
   Scene.getScene():addActor(Programar_Manager_)
+  ON_PAUSE = true
 end
 
 function onProgramarExit()
@@ -197,6 +200,7 @@ end
 
 function onDormirEnter()
   Scene.getScene():addActor(Dormir_Manager)
+  ON_PAUSE = true
 end
 
 function onDormirExit()
@@ -205,6 +209,7 @@ end
 
 function onPongEnter()
   Scene:getScene():addActor(Pong_Manager)
+  ON_PAUSE = true
 end
 
 function onPongExit()
@@ -216,6 +221,7 @@ function onDrinkingGameEnter()
   Scene:getScene():addActor(SLIDER_DRINKING_GAME)
   Scene:getScene():addActor(PLAYERBAR_DRINKING_GAME)
   Scene:getScene():addActor(DRINKING_GAME)
+  ON_PAUSE = true
 end
 
 function onDrinkingGameExit()
@@ -229,6 +235,7 @@ function onGanchoEnter()
   Scene:getScene():addActor(Gancho_Background)
   Scene:getScene():addActor(Gancho_Gancho)
   Scene:getScene():addActor(Gancho_Manager)
+  ON_PAUSE = true
 end
 
 function onGanchoExit()
@@ -248,6 +255,7 @@ end
 function onChaoEnter()
   Scene.getScene():removeActor(Dialog)
   Scene.getScene():addActor(Final_Malo)
+  ON_PAUSE = true
 end
 
 function onChaoExit()
@@ -257,6 +265,7 @@ end
 function onFinalEnter()
   Scene.getScene():removeActor(Dialog)
   Scene.getScene():addActor(Final_Malo)
+  ON_PAUSE = true
 end
 
 function onFinalExit()
