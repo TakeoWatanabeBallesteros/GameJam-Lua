@@ -48,7 +48,7 @@ end
 
 function topo:update(dt)
   if not self.skip2 then
-
+    self.mazo = Scene.getScene():getActor(MAZO_TOPO_GAME)
   else
   self.time = self.time > 0 and self.time - dt or 0
   if self.time == 0 then 

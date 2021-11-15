@@ -33,11 +33,13 @@ function Mazo:draw()
 function Mazo:mousepressed(x, y, button, istouch)
       if button == 1 then 
         self.image = MazoHit_IMAGE_TOPO_GAME
-        Scene.getScene():addTimer(.1, function() self.image = MazoNoHit_IMAGE_TOPO_GAME end, false)
       end
 end
 
 function Mazo:mousereleased(x,y,button,istouch)
+    if button == 1 then 
+     self.image = MazoNoHit_IMAGE_TOPO_GAME
+    end
 end
 
 function Mazo:keypressed(key)
