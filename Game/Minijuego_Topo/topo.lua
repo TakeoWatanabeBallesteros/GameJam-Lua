@@ -59,10 +59,13 @@ function topo:update(dt)
        self.position.y = 0
        gamestate = "SetTimerForNewTopo"
        hole = math.random(1,11)
-       randomTime = math.random(0,100)
+       randomTime = math.random(0,100)/100
   end
   if gamestate == "SetTimerForNewTopo" then
-    Scene.getScene():addTimer(randomTime/100, function()gamestate = "SetTopoPos" end, false)
+    randomTime = randomTime > 0 and randomTime - dt or 0
+    if randomTime == 0 then
+      gamestate = "SetTopoPos"
+    end
   end
   
   if gamestate == "SetTopoPos" then
@@ -82,8 +85,7 @@ function topo:update(dt)
      
      gamestate = "HitTopo"
   end
-  
-  
+   
 end
 end
 function topo:draw()
@@ -105,11 +107,11 @@ function topo:draw()
       COMPATIBILIDAD = COMPATIBILIDAD + points
       AudioManager.StopSound(MICKEY_MUSIC_TOPO)
       Scene.getScene():removeActor(Timer)
-      love.mouse.setVisible(false)
       if not MINIGAME then
         love.mouse.setVisible(true)
         Main_FSM:changeState('dialog')
-    else Main_FSM:changeState('menu_minigames') MINIGAME = false end
+    else Main_FSM:changeState('menu_minigames') MINIGAME = false 
+      love.mouse.setVisible(true) end
     end
     love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)
@@ -137,6 +139,7 @@ function topo:keypressed(key)
   if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
     self.skip = true
     self.skip2=true
+    self.mazo.skip = true
 elseif(key == 'space' and ON_PAUSE) then
     self.skip = true
 end

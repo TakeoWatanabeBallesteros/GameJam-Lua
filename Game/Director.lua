@@ -264,7 +264,21 @@ end
 
 function onFinalEnter()
   Scene.getScene():removeActor(Dialog)
-  Scene.getScene():addActor(Final_Malo)
+  Scene.getScene():addActor(Final_Bueno)
+  if WHO == 'alex' then
+    CHARACTER_ALEX = true
+  elseif WHO == 'ricky' then
+    CHARACTER_RICKY = true
+  elseif WHO == 'takeo' then
+    CHARACTER_TAKEO = true
+  elseif WHO == 'arnau' then
+    CHARACTER_ARNAU = true
+  elseif WHO == 'marina' then
+    CHARACTER_MARINA = true
+  elseif WHO == 'vero' then
+    CHARACTER_VERO = true
+  end 
+  SaveManager:saveSettings()
   ON_PAUSE = true
 end
 

@@ -86,7 +86,7 @@ function Menu:draw()
     local oy = self.origin.y
     local sx = self.scale.x
     local sy = self.scale.y
-    local rr = self.rot
+    local rr = 0
     
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
 end

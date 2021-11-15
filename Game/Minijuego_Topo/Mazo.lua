@@ -4,7 +4,7 @@ local mx,my
 function Mazo:new()
     Mazo.super.new(self,MazoNoHit_IMAGE_TOPO_GAME,WW/2,WH/2,0,0,0, "Front")
     self.shadow = SHADOW_IMAGE_TOPO_GAME
-    self.bool = false
+    self.skip = false
 end
 function Mazo:update(dt)
       mx,my = love.mouse.getPosition()
@@ -24,7 +24,7 @@ function Mazo:draw()
     local sy = WH/self.height*0.4
     
     local rr = 0
-    if self.bool then
+    if self.skip then
     love.graphics.draw(self.shadow,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     end
