@@ -11,6 +11,7 @@ function Credits:update(dt)
 end
 
 function Credits:draw(sprite)
+    love.graphics.setColor(255, 255, 255, 1)
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y
