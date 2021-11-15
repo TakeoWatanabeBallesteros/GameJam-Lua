@@ -35,7 +35,7 @@ function StartGame()
     Main_FSM:addState("pelea", { enter = onPeleaEnter, exit= onPeleaExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("pong", { enter = onPongEnter, exit= onPongExit, from={'dialog', 'menu_minigames'}})
 
-    Main_FSM:setInitialState("null") Main_FSM:changeState('credits')
+    Main_FSM:setInitialState("null") Main_FSM:changeState('splash_01')
 end
 
 
