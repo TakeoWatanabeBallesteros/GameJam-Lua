@@ -25,7 +25,7 @@ function Characters_Selection:update(dt)
         WHO = 'ricky'
         Main_FSM:changeState('dialog')
     end
-    love.graphics.setColor(255,255,255)
+    love.graphics.setColor(255,255,255,1)
     Suit.layout:reset(0, 0)
     if Suit.ImageButton(CHARACTERS_BUTTONS.takeo.normal, {id = 62, mask = CHARACTERS_BUTTONS.takeo.mask, hovered = CHARACTERS_BUTTONS.takeo.hovered, active = CHARACTERS_BUTTONS.takeo.active}, Suit.layout:row(WW/1920,WH/1080)).hit and self.click then
         AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
@@ -74,13 +74,14 @@ function Characters_Selection:mousepressed( x, y, _button, istouch, presses )
 end
 
 function Characters_Selection:mousereleased( x, y, _button, istouch, presses )
+    self.click = true
 end
 
 function Characters_Selection:keypressed(_key)
 end
 
 function Characters_Selection:keyreleased(_key)
-    self.click = true
+    
 end
 
 return Characters_Selection
