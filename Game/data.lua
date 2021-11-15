@@ -384,6 +384,24 @@ BeatemUp_Manager = BeatemUp_Manager or require("Game/Minijuego_Beatemup/BeatemUp
 --#endregion
 
 --#region SPRITES MAPPING
+local function createThumbnail(fileName,scale)
+	scale = scale or 1
+	local img = love.graphics.newImage(fileName)
+	local canvas = love.graphics.newCanvas(img:getWidth()*scale , img:getHeight()*scale)
+	love.graphics.push("all")
+	local wasCanvas = love.graphics.getCanvas()
+	love.graphics.setCanvas(canvas)
+	love.graphics.clear()
+	
+	love.graphics.draw(img,0,0,0,scale)
+	love.graphics.pop()
+	love.graphics.setCanvas(wasCanvas)
+	local imageData = canvas:newImageData()
+	return imageData
+end
+
+
+
 function GenerateImageButton(name)
     local function alpha( x, y, r, g, b, a )
         if a ~= 0 then return r,g,b,1
@@ -403,7 +421,7 @@ function GenerateImageButton(name)
         return r,g,b,a
      end
 
-    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Buttons/boton_"..name..".png")
+    local normal, hovered, active = createThumbnail("Data/Avatar/Characters_Buttons/boton_"..name..".png",WW/1920), createThumbnail("Data/Avatar/Characters_Buttons/boton_"..name..".png",WW/1920), createThumbnail("Data/Avatar/Characters_Buttons/boton_"..name..".png",WW/1920)
     normal:mapPixel(alpha)
     hovered:mapPixel(alpha2)
     active:mapPixel(alpha3)
@@ -441,7 +459,7 @@ function GenerateImageButtonMinigames(name)
         return r,g,b,a
      end
 
-    local normal, hovered, active = love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png"), love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png"), love.image.newImageData("Data/Menu_Minijuegos/menu_minijuego_"..name..".png")
+    local normal, hovered, active = createThumbnail("Data/Menu_Minijuegos/menu_minijuego_"..name..".png",WW/1920), createThumbnail("Data/Menu_Minijuegos/menu_minijuego_"..name..".png",WW/1920), createThumbnail("Data/Menu_Minijuegos/menu_minijuego_"..name..".png",WW/1920)
     normal:mapPixel(alpha)
     hovered:mapPixel(alpha2)
     active:mapPixel(alpha3)
@@ -478,7 +496,7 @@ function GenerateImageButton_Info(name)
             return r,g,b,a
         end
 
-    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png"), love.image.newImageData("Data/Avatar/Characters_Info/info_"..name..".png")
+    local normal, hovered, active = createThumbnail("Data/Avatar/Characters_Info/info_"..name..".png",WW/1920), createThumbnail("Data/Avatar/Characters_Info/info_"..name..".png",WW/1920), createThumbnail("Data/Avatar/Characters_Info/info_"..name..".png",WW/1920)
     normal:mapPixel(alpha)
     hovered:mapPixel(alpha2)
     active:mapPixel(alpha3)
@@ -507,7 +525,7 @@ function GenerateImageButton_Info2(name)
             return r,g,b,a
         end
 
-    local normal, hovered, active = love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png"), love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png"), love.image.newImageData("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png")
+    local normal, hovered, active = createThumbnail("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png",WW/1920), createThumbnail("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png",WW/1920), createThumbnail("Data/Avatar/Characters_Info_Silueta/info_"..name.."_silueta.png",WW/1920)
     normal:mapPixel(alpha)
     hovered:mapPixel(alpha2)
     active:mapPixel(alpha3)
