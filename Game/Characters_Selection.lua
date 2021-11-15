@@ -71,10 +71,10 @@ function Characters_Selection:draw()
 end
 
 function Characters_Selection:mousepressed( x, y, _button, istouch, presses )
+    self.click = true
 end
 
 function Characters_Selection:mousereleased( x, y, _button, istouch, presses )
-    self.click = true
 end
 
 function Characters_Selection:keypressed(_key)
