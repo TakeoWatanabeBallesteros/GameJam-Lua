@@ -4,7 +4,6 @@ function Pong_Manager:new()
     require "Engine_Pong/data"
     self.skip = false
     Pong_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,0,0, 'Background')
-    Pong_Director.goIntro()
     self.skip2=false
 end
 
@@ -12,7 +11,7 @@ function Pong_Manager:update(dt)
     if not self.skip2 then
 
     else
-    Pong_Scene.getScene():update(dt)
+        Pong_Scene.getScene():update(dt)
     end
 end
 
@@ -38,6 +37,7 @@ function Pong_Manager:keypressed(key)
     if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
         self.skip = true
         self.skip2=true
+        Pong_Director.goIntro()
     elseif(key == 'space' and ON_PAUSE) then
         self.skip = true
     end

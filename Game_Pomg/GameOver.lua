@@ -11,6 +11,7 @@ end
 function Pong_GameOver:update(dt)
     if self.introDuration<=self.t then
         COMPATIBILIDAD = COMPATIBILIDAD +10
+        Pong_Director.goNone()
         if not MINIGAME then
             Main_FSM:changeState('dialog')
         else Main_FSM:changeState('menu_minigames') end

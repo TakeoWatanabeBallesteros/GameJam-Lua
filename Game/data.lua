@@ -45,6 +45,7 @@ Intro_02 = Intro_02 or require "Game/Intros/Intro_02"
 Intro_03 = Intro_03 or require "Game/Intros/Intro_03"
 Intro_04 = Intro_04 or require "Game/Intros/Intro_04"
 Menu = Menu or require "Game/Menu"
+Credits = Credits or require "Game/Credits"
 Menu_Characters = Menu_Characters or require "Game/Menu_Characters"
 Settings = Settings or require "Game/Settings"
 Editor = Editor or require "Game/Editor"
@@ -70,7 +71,7 @@ LOSE_BACKGROUND = {}
 for index, Q in ipairs(characters_names) do
     LOSE_BACKGROUND[Q] = love.graphics.newImage("Data/Lose_Backgrounds/derrota_"..Q..".png")
 end
-
+    CREDITS = love.graphics.newImage("Data/Credits/creditos_con_personas.png")
     --#region LOGOS
     LOVE2D_ICON = love.graphics.newImage("Data/Logos/love2d_icon.png")
     YARN_ICON = love.graphics.newImage("Data/Logos/yarn_icon.png")
@@ -86,8 +87,8 @@ end
     DIALOGUES_BACKGROUNDS = {}
     DIALOGUES_BACKGROUNDS["arcade"] = love.graphics.newImage("Data/Dialogues_Backgrounds/arcade_background.png")
     DIALOGUES_BACKGROUNDS["clase"] = love.graphics.newImage("Data/Dialogues_Backgrounds/clase_background.png")
-    DIALOGUES_BACKGROUNDS["intro"] = love.graphics.newImage("Data/Dialogues_Backgrounds/intro_background.png")
-    DIALOGUES_BACKGROUNDS["party"] = love.graphics.newImage("Data/Dialogues_Backgrounds/party_background.png")
+    DIALOGUES_BACKGROUNDS["intro"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Intro_Background.png")
+    DIALOGUES_BACKGROUNDS["party"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Party_Background.png")
     --#endregion
     --#region MINIGAMES_TUTORIALS
     MINIGAMES_TUTORIALS = {}
