@@ -110,7 +110,8 @@ function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 end
 
 function Dialog:mousepressed( x, y, _button, istouch, presses )
-    if not ON_PAUSE then
+    print("ap")
+    if not ON_PAUSE and _button == 1 then
         --slow down space bar
         if(not self.node.body:done()) and self.dialogues_index == #self.dialogues then --are we at the bottom? If not, keep traversing.
             --move to the next line on the body of the node. If it's done, do nothing.
