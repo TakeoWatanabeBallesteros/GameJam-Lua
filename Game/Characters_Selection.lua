@@ -7,6 +7,11 @@ function Characters_Selection:new()
 end
 
 function Characters_Selection:update(dt)
+    Suit.theme.color = {
+        normal  = {bg = {  192/255, 90/255, 124/255}, fg = {255/255,255/255,255/255}},
+        hovered = {bg = { 213/255,134/255, 161/255}, fg = {255/255,255/255,255/255}},
+        active  = {bg = {221/255, 169/255,   186/255}, fg = {225/255,225/255,225/255}}
+    }
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
     if Suit.ImageButton(CHARACTERS_BUTTONS.alex.normal, {id = 60, mask = CHARACTERS_BUTTONS.alex.mask, hovered = CHARACTERS_BUTTONS.alex.hovered, active = CHARACTERS_BUTTONS.alex.active}, Suit.layout:row(WW/1920,WH/1080)).hit and self.click then

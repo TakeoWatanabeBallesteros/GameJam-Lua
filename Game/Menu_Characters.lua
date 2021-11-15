@@ -6,6 +6,11 @@ function Menu_Characters:new()
 end
 
 function Menu_Characters:update(dt)
+    Suit.theme.color = {
+        normal  = {bg = {  192/255, 90/255, 124/255}, fg = {255/255,255/255,255/255}},
+        hovered = {bg = { 213/255,134/255, 161/255}, fg = {255/255,255/255,255/255}},
+        active  = {bg = {221/255, 169/255,   186/255}, fg = {225/255,225/255,225/255}}
+    }
     Suit.layout:reset(WW/2-(WW/5/2), WH/1.09)
     if Suit.Button("ATRAS", {id=41}, Suit.layout:row(WW/5, WH/20)).hit then
         Main_FSM:changeState('menu')

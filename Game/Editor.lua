@@ -7,6 +7,11 @@ function Editor:new()
 end
 
 function Editor:update(dt)
+    Suit.theme.color = {
+        normal  = {bg = {  192/255, 90/255, 124/255}, fg = {255/255,255/255,255/255}},
+        hovered = {bg = { 213/255,134/255, 161/255}, fg = {255/255,255/255,255/255}},
+        active  = {bg = {221/255, 169/255,   186/255}, fg = {225/255,225/255,225/255}}
+    }
     self:AvatarButtons()
     self:UI_BUTTONS()
 end

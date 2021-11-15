@@ -19,9 +19,9 @@ end
 function Menu_Avatar:update(dt)
     self.alpha = self.alpha < 1 and self.alpha + dt/1.5 or 1
     Suit.theme.color = {
-        normal  = {bg = { 66/255, 66/255, 66/255, self.alpha}, fg = {188/255,188/255,188/255, self.alpha}},
-        hovered = {bg = { 50/255,153/255,187/255, self.alpha}, fg = {255/255,255/255,255/255, self.alpha}},
-        active  = {bg = {255/255,153/255,  0/255, self.alpha}, fg = {225/255,225/255,225/255, self.alpha}}
+        normal  = {bg = {  192/255, 90/255, 124/255, self.alpha-0.2}, fg = {255/255,255/255,255/255, self.alpha}},
+        hovered = {bg = { 213/255,134/255, 161/255, self.alpha-0.1}, fg = {255/255,255/255,255/255, self.alpha}},
+        active  = {bg = {221/255, 169/255,   186/255, self.alpha}, fg = {225/255,225/255,225/255, self.alpha}}
     }
     love.graphics.setFont(FONT_BUTTONS_BIG)
     Suit.layout:reset(WW/2-(WW/1.05)/2, WH/5.5)
