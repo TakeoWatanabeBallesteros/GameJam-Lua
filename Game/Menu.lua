@@ -62,6 +62,7 @@ function Menu:update(dt)
 end
 
 function Menu:draw()
+    love.graphics.setFont(FONT_BUTTONS)
     love.graphics.draw(MENU_BACKGROUND,0,0,0,WW/1920, WH/1080)
     love.graphics.setColor(162/255, 89/255, 126/255, self.alpha)
     --[[ love.graphics.print(
