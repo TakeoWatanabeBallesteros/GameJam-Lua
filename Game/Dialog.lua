@@ -151,7 +151,10 @@ function Dialog:keypressed(key)
                 self.menu.select=#self.node.choices
             end  
         end
-        if key == 'space' then
+        if(self.menu.select<=0) then 
+            self.menu.select=#self.node.choices
+        end  
+        if key == 'space' and self.menu.select < 0 then
             self.node=self.yarn:make_choice(self.node, self.menu.select)
         end
     end
