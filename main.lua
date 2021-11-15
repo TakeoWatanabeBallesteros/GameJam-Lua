@@ -1,11 +1,10 @@
-Data = Data or require "Game/data"
-
 local appId = require("applicationId")
 
 function love.load(arg)
+  require "Game/data"
   SaveManager:load()
-  love.window.setFullscreen(true)
-  WW, WH = love.graphics.getDimensions()
+  --love.window.setFullscreen(true)
+  --WW, WH = love.graphics.getDimensions()
   print(WW, WH)
   StartGame()
   love.audio.setVolume(GAME_SETTINGS_VOLUME_MASTER)
