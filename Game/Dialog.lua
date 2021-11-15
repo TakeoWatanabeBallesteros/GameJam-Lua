@@ -139,6 +139,8 @@ function Dialog:keypressed(key)
     --In case there arechoices,
     --display our simple menu
     elseif(self.node.has_choices) and self.node.body:done() and self.dialogues_index == #self.dialogues then
+        if not self.menu.select then self.menu.select = 1 
+        elseif self.menu.select>#self.node.choices then self.menu.select = 1 end
         if key == "down" then
             self.menu.select=self.menu.select+1
             if(self.menu.select>#self.node.choices) then 
@@ -149,13 +151,11 @@ function Dialog:keypressed(key)
             self.menu.select=self.menu.select-1
             if(self.menu.select<=0) then 
                 self.menu.select=#self.node.choices
-            end  
+            end
         end
-        if(self.menu.select<=0) then 
-            self.menu.select=#self.node.choices
-        end  
-        if key == 'space' and self.menu.select < 0 then
+        if key == 'space' and self.menu.select<= #self.node.choices then
             self.node=self.yarn:make_choice(self.node, self.menu.select)
+            self.menu.selec = 1
         end
     end
 end

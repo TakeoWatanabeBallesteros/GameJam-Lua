@@ -1,23 +1,23 @@
 --Takeo Watanabe y Jan de Nobel
 --#region ALL_CLASES
-Pong_Object = Pong_Object or require "Engine_Pong/object"
-Pong_FSM = Pong_FSM or require('Engine_Pong/fsm')
-Pong_Vector = Pong_Vector or require "Engine_Pong/vector"
-Pong_Scene = Pong_Scene or require "Engine_Pong/scene"
-Pong_Actor = Pong_Actor or require "Engine_Pong/actor"
-Pong_AudioManager = Pong_AudioManager or require "Engine_Pong/audioManager"
-Pong_Field = Pong_Field or require "Game_Pomg/Field"
-Pong_Director = Pong_Director or require "Game_Pomg/Director"
-Pong_PaddleP1 = Pong_PaddleP1 or require "Game_Pomg/PaddleP1"
-Pong_PaddleP2 = Pong_PaddleP2 or require "Game_Pomg/PaddleP2"
-Pong_Ball = Pong_Ball or require "Game_Pomg/Ball"
-Pong_Settings = Pong_Settings or require "Game_Pomg/Settings"
-Pong_HUD = Pong_HUD or require "Game_Pomg/HUD"
-Pong_CameraShake = Pong_CameraShake or require "Game_Pomg/CameraShake"
-Pong_Intro = Pong_Intro or require "Game_Pomg/Intro"
-Pong_Menu = Pong_Menu or require "Game_Pomg/Menu"
-Pong_GameOver = Pong_GameOver or require "Game_Pomg/GameOver"
-Pong_GameSelect = Pong_GameSelect or require "Game_Pomg/GameSelect"
+Pong_Object = require "Engine_Pong/object"
+Pong_FSM = require('Engine_Pong/fsm')
+Pong_Vector =  require "Engine_Pong/vector"
+Pong_Scene = require "Engine_Pong/scene"
+Pong_Actor = require "Engine_Pong/actor"
+Pong_AudioManager = require "Engine_Pong/audioManager"
+Pong_Field = require "Game_Pomg/Field"
+Pong_Director = require "Game_Pomg/Director"
+Pong_PaddleP1 = require "Game_Pomg/PaddleP1"
+Pong_PaddleP2 = require "Game_Pomg/PaddleP2"
+Pong_Ball = require "Game_Pomg/Ball"
+Pong_Settings = require "Game_Pomg/Settings"
+Pong_HUD = require "Game_Pomg/HUD"
+Pong_CameraShake = require "Game_Pomg/CameraShake"
+Pong_Intro = require "Game_Pomg/Intro"
+Pong_Menu = require "Game_Pomg/Menu"
+Pong_GameOver =  require "Game_Pomg/GameOver"
+Pong_GameSelect = require "Game_Pomg/GameSelect"
 --#endregion
 --#region WINDOW
 --#endregion
