@@ -2,40 +2,40 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<background:clase>>\nVero: ¡¿[shake]Hey[/shake]?!, tú eres el/la nuev@, ¿no?\nAsí es\nVero: ¿Y qué es lo que más te gusta de la carrera?\n[[answer: ¡Sí! ¡Me encanta programar! |Programacion]]\n[[answer: Nah, prefiero avanzar animación |Animacion]]\n[[answer: No, prefiero adelantar de diseño |Diseno de Juegos]]",
+		"body": "<<background:clase>>\nVero: ¡¿[shake]Hey[/shake]?!, tú eres el/la nuev@, ¿no?\nAnte la presencia de Vero, intimidado, contestas que sí.\nVero: ¡Blyat! Y dime, ¿qué es lo que más te gusta de la carrera?\n[[answer: ¡Me encanta programar! |Programacion]]\n[[answer: ¡Me encanta animación! |Animacion]]\n[[answer: ¡Me encanta diseño! |Diseno de Juegos]]",
 		"position": {
-			"x": 296,
-			"y": 249
+			"x": 295,
+			"y": 248
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Programacion",
 		"tags": "",
-		"body": "Vero: A mí también me gusta programar.\nVero: Por cierto, he acabado el pong, si quieres te lo puedo enseñar.\n[[answer: Okey, a ver como te ha quedado. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo.... |Dormir]]",
+		"body": "Vero: A mí también me gusta programar.\nVero: Solo un poco más de tecnología y tendré programada la máquina del tiempo para que (letras rusas)\nVero: Por cierto, he acabado el pong, si quieres te lo puedo enseñar.\n[[answer: Okey, a ver como te ha quedado. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo.... |Dormir]]",
 		"position": {
-			"x": 103,
-			"y": -37
+			"x": 101,
+			"y": -39
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Animacion",
 		"tags": "",
-		"body": "Vero: Bueno, no es mi fuerte pero está bien.\nVero: Para mí pong le he incluido arte que he hecho yo.\nVero: A ver que te parece.\n[[answer: Seguro que te ha quedado muy bien. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo. |Dormir]]",
+		"body": "Vero: Bueno, no es mi fuerte pero está bien.\nVero: Aunque soy más de programación, ahora estamos haciendo el pong, ¿sabes?.\nVero: A ver que te parece.\n[[answer: Seguro que te ha quedado muy bien. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo. |Dormir]]",
 		"position": {
-			"x": 481,
-			"y": -32
+			"x": 480,
+			"y": -33
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Diseno de Juegos",
 		"tags": "",
-		"body": "Vero: Buff, como odio esa asignatura. \nVero: Ya nos veremos en clase\n<<scene:chao>>",
+		"body": "Vero: Buff, tanta letra me asquea, me voy a la playa. \nVero: Ya nos veremos en clase\n<<scene:chao>>",
 		"position": {
-			"x": 615,
-			"y": 249
+			"x": 613,
+			"y": 247
 		},
 		"colorID": 0
 	},
@@ -52,10 +52,10 @@
 	{
 		"title": "Dormir",
 		"tags": "",
-		"body": "Vero: Okey, pues yo avanzaré la animación en emprenedoria para aprovechar el tiempo.\n<<scene:dormir>>\nVero: Good morning, mientras dormías he hecho la mitad de la animación .\nVero: También he hecho la A3 que nos ha puesto el Marco y también te podría ayudar en ello.\n[[answer: Madre mía, sí que has avanzado en todo, no me iría mal . |Arcade]]\n[[answer: Yo creo que puedo, pero tendría que ser eficaz como tú. |Arcade]]",
+		"body": "Vero: Okey, pues yo avanzaré la animación en emprenedoria para aprovechar el tiempo.\n<<scene:dormir>>\nVero: Good morning, mientras dormías he hecho la mitad de la animación, ya Stalin tiene cogido por los huevos a Hitler.\nVero: También he hecho la A3 que nos ha puesto el Marco, hay que disparar a satelides de E E U U.\nVero: Te podría ayudar con ello.\n[[answer: Madre mía, sí que has avanzado en todo, no me iría mal . |Arcade]]\n[[answer: Yo creo que puedo, pero tendría que ser eficaz como tú. |Arcade]]",
 		"position": {
-			"x": 457,
-			"y": -306
+			"x": 455,
+			"y": -308
 		},
 		"colorID": 0
 	},
