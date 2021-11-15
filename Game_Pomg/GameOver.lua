@@ -14,7 +14,7 @@ function Pong_GameOver:update(dt)
         Pong_Director.goNone()
         if not MINIGAME then
             Main_FSM:changeState('dialog')
-        else Main_FSM:changeState('menu_minigames') end
+        else Main_FSM:changeState('menu_minigames') MINIGAME = false end
     end
     self.t = self.t + dt
 end
