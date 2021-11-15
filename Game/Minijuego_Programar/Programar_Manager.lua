@@ -58,8 +58,8 @@ end
 
 function Programar_Manager_:ChangeScreen()
     if self.currentState == 'Moving' then
-    self.index = self.index < #self.screens and self.index + 1 or 1
-    self.drawing = self.screens[self.index]
+        self.index = self.index < #self.screens and self.index + 1 or 1
+        self.drawing = self.screens[self.index]
     end
 end
 

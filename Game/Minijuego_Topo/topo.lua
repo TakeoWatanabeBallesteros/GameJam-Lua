@@ -107,6 +107,7 @@ function topo:draw()
       Scene.getScene():removeActor(Timer)
       love.mouse.setVisible(false)
       if not MINIGAME then
+        love.mouse.setVisible(true)
         Main_FSM:changeState('dialog')
     else Main_FSM:changeState('menu_minigames') MINIGAME = false end
     end

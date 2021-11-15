@@ -13,7 +13,7 @@ function Menu_Minigames:update(dt)
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.beber.normal, {id = 34, mask =    MINIGAMES_BUTTONS.beber.mask, hovered = MINIGAMES_BUTTONS.beber.hovered, active = MINIGAMES_BUTTONS.beber.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
+        if Suit.ImageButton(MINIGAMES_BUTTONS.beber.normal, {id = 34, mask =    MINIGAMES_BUTTONS.beber.mask, hovered = MINIGAMES_BUTTONS.beber.hovered, active = MINIGAMES_BUTTONS.beber.active}, Suit.layout:row(0,0)).hit then
             Main_FSM:changeState('vodka')
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
             MINIGAME = true
@@ -43,16 +43,15 @@ function Menu_Minigames:update(dt)
     Suit.layout:reset(0, 0)
         if Suit.ImageButton(MINIGAMES_BUTTONS.pong.normal, {id = 38, mask =  MINIGAMES_BUTTONS.pong.mask, hovered = MINIGAMES_BUTTONS.pong.hovered, active = MINIGAMES_BUTTONS.pong.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
             Main_FSM:changeState('pong')
-            print('play')
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
             MINIGAME = true
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
-        if Suit.ImageButton(MINIGAMES_BUTTONS.programar.normal, {id = 39,    mask = MINIGAMES_BUTTONS.programar.mask, hovered = MINIGAMES_BUTTONS.programar.hovered, active = MINIGAMES_BUTTONS.programar.active}, Suit.layout:row(WW/1920,WH/1080)).hit then
-            Main_FSM:changeState('programar')
+        if Suit.ImageButton(MINIGAMES_BUTTONS.programar.normal, {id = 39,    mask = MINIGAMES_BUTTONS.programar.mask, hovered = MINIGAMES_BUTTONS.programar.hovered, active = MINIGAMES_BUTTONS.programar.active}, Suit.layout:row(0,0)).hit then
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
             MINIGAME = true
+            Main_FSM:changeState('programar')
         end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)

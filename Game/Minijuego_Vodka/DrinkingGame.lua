@@ -81,6 +81,7 @@ function DrinkingGame:update(dt)
       AudioManager.StopSound(BACKGROUND_SOUND_DRINKINGAME)
       COMPATIBILIDAD = COMPATIBILIDAD+self.points
       if not MINIGAME then
+        love.mouse.setVisible(true)
         Main_FSM:changeState('dialog')
       else Main_FSM:changeState('menu_minigames') MINIGAME = false end
       end

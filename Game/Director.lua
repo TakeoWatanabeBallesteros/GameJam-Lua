@@ -85,6 +85,7 @@ end
 
 function onMenu_MinigamesEnter()
   Scene.getScene():addActor(Menu_Minigames)
+  Scene:getScene():removeActor(Pong_Manager)
 end
 
 function onMenu_MinigamesExit()
