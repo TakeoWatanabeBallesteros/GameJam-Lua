@@ -13,11 +13,12 @@ function Programar_Manager_:new()
    self.i =1
    self.timer = 20
    self.skip = false
+   self.skip2 = false
    self.timer2 = 0
 end
 
 function Programar_Manager_:update(dt)
-    if not self.skip then
+    if not self.skip2 then
 
     else
     self.timer = self.timer > 0 and self.timer - dt or 0
@@ -47,7 +48,7 @@ function Programar_Manager_:draw()
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
   love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)
-  if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.programar, 0, 0, 0, sx, sy) end
+  if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.programar, 0, 0, 0, sx, sy) end
 end
 
 function Programar_Manager_:CodeLinesDraw()
@@ -92,8 +93,10 @@ function Programar_Manager_:keypressed(_key)
                     Main_FSM:changeState('dialog')
                 else  Main_FSM:changeState('menu_minigames') MINIGAME = false  end
             end
-        elseif not self.skip then
-            print('skiped')
+        elseif (_key == 'space' and MINIGAME) or (_key == 'space' and self.skip) then
+            self.skip = true
+            self.skip2=true
+        elseif(_key == 'space' and ON_PAUSE) then
             self.skip = true
         end
     end

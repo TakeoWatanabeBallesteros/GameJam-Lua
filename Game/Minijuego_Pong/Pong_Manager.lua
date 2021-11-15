@@ -5,10 +5,11 @@ function Pong_Manager:new()
     self.skip = false
     Pong_Manager.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,0,0, 'Background')
     Pong_Director.goIntro()
+    self.skip2=false
 end
 
 function Pong_Manager:update(dt)
-    if not self.skip then
+    if not self.skip2 then
 
     else
     Pong_Scene.getScene():update(dt)
@@ -26,7 +27,7 @@ function Pong_Manager:draw()
     local rr = 0
     Pong_Scene.getScene():draw()
     love.graphics.setBackgroundColor(0, 0, 0)
-    if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.pong, 0, 0, 0, sx, sy) end
+    if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.pong, 0, 0, 0, sx, sy) end
 end
 
 function Pong_Manager:mousepressed(x, y, button, istouch,presses )
@@ -34,7 +35,12 @@ end
 function Pong_Manager:mousereleased(x,y,button,istouch,presses )
 end
 function Pong_Manager:keypressed(key)
-    if key == 'space' then self.skip = true end
+    if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
+        self.skip = true
+        self.skip2=true
+    elseif(key == 'space' and ON_PAUSE) then
+        self.skip = true
+    end
 end
 function Pong_Manager:keyreleased(key)
 end

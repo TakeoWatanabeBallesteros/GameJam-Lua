@@ -19,10 +19,11 @@ function Gancho_Gancho:new()
   shadow.img = GANCHO_SOMBRA
   shadow.position = Vector.new(self.position.x,self.position.y +WH/1.7)
   self.skip = false
+  self.skip2 = false
 end
 
 function Gancho_Gancho:update(dt)
-  if not self.skip then
+  if not self.skip2 then
 
   else
   shadow.position.x = self.position.x
@@ -164,7 +165,7 @@ function Gancho_Gancho:draw()
   love.graphics.setColor(255, 255, 255)
   if gameStates < 4 then love.graphics.draw(shadow.img,shadow.position.x,shadow.position.y,0,ssx,ssy,ox,oy,0,0) end
   love.graphics.setBackgroundColor(0, 0, 0)
-  if not self.skip then love.graphics.draw(MINIGAMES_TUTORIALS.gancho, 0, 0, 0, sx, sy) end
+  if not self.skip2 then love.graphics.draw(MINIGAMES_TUTORIALS.gancho, 0, 0, 0, sx, sy) end
 end
 
 function Gancho_Gancho:mousepressed(x, y, button, istouch,presses )
@@ -177,10 +178,15 @@ function Gancho_Gancho:keypressed(key)
   if key == "a" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
   if key == "d" then AudioManager.PlayMusic(GANCHO_AUDIO,GAME_SETTINGS_VOLUME_EFFECTS,false) end
   if key == 'space' then 
-    if  self.skip == true and gameStates < 2  then
+    if  self.skip == true and gameStates < 2 and self.skip2 then
     gameStates = 2 
   end
-  self.skip = true 
+  if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then
+    self.skip = true
+        self.skip2=true
+elseif(key == 'space' and ON_PAUSE) then
+    self.skip = true
+end
 end
 end
 function Gancho_Gancho:keyreleased(key)
