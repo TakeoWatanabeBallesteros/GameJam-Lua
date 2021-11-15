@@ -82,7 +82,7 @@ function DrinkingGame:update(dt)
       COMPATIBILIDAD = COMPATIBILIDAD+self.points
       if not MINIGAME then
         Main_FSM:changeState('dialog')
-      else Main_FSM:changeState('menu') MINIGAME = false end
+      else Main_FSM:changeState('menu_minigames') MINIGAME = false end
       end
   
     

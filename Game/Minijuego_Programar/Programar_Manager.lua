@@ -73,12 +73,12 @@ function Programar_Manager_:keypressed(_key)
             AudioManager.PlaySound(PROGRAMAR_BIEN, GAME_SETTINGS_VOLUME_EFFECTS, false)
             --self.currentState = 'Correct'
             if self.i ==2 then 
-                COMPATIBILIDAD = COMPATIBILIDAD +10
-                Scene.getScene():removeActor(Timer)
                 self.currentState = 'Finish'
+                Scene.getScene():removeActor(Timer)
                 if not MINIGAME then
+                    COMPATIBILIDAD = COMPATIBILIDAD +10
                     Main_FSM:changeState('dialog')
-                else  Main_FSM:changeState('menu') MINIGAME = false  end
+                else  Main_FSM:changeState('menu_minigames') MINIGAME = false  end
             end
             if self.i ==1 then self.i = 2 end
         elseif self.skip or (self.skip and self.timer == 0) then
@@ -86,12 +86,11 @@ function Programar_Manager_:keypressed(_key)
             AudioManager.PlaySound(PROGRAMAR_MAL, GAME_SETTINGS_VOLUME_EFFECTS, false)
             self.errores = self.errores < 3 and self.errores + 1 or 3
             if self.errores ==3 then
-                Scene.getScene():removeActor(Timer)
-                print("Bad")
                 self.currentState = 'Finish'
+                Scene.getScene():removeActor(Timer)
                 if not MINIGAME then
                     Main_FSM:changeState('dialog')
-                else  Main_FSM:changeState('menu') MINIGAME = false  end
+                else  Main_FSM:changeState('menu_minigames') MINIGAME = false  end
             end
         elseif not self.skip then
             self.skip = true

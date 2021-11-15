@@ -52,7 +52,7 @@ function Dormir_Manager:update(dt)
         AudioManager.StopSound(DORMIR_ESCRIBIR)
         if not MINIGAME then
             Main_FSM:changeState('dialog')
-        else Main_FSM:changeState('menu') MINIGAME = false end
+        else Main_FSM:changeState('menu_minigames') MINIGAME = false end
     end
 end
 end

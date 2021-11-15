@@ -13,7 +13,7 @@ function Pong_GameOver:update(dt)
         COMPATIBILIDAD = COMPATIBILIDAD +10
         if not MINIGAME then
             Main_FSM:changeState('dialog')
-        else Main_FSM:changeState('menu') end
+        else Main_FSM:changeState('menu_minigames') end
     end
     self.t = self.t + dt
 end

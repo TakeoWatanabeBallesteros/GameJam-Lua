@@ -107,7 +107,7 @@ function topo:draw()
       love.mouse.setVisible(false)
       if not MINIGAME then
         Main_FSM:changeState('dialog')
-    else Main_FSM:changeState('menu') MINIGAME = false end
+    else Main_FSM:changeState('menu_minigames') MINIGAME = false end
     end
     love.graphics.setColor(255,255,255, self.alpha)
     love.graphics.setBackgroundColor(0, 0, 0)

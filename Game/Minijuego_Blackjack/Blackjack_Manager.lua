@@ -49,7 +49,7 @@ function Blackjack_Manager:update(dt)
     if self.timer2 == 0 then
         if not MINIGAME then
             Main_FSM:changeState('dialog')
-        else Main_FSM:changeState('menu') MINIGAME = false end
+        else Main_FSM:changeState('menu_minigames') MINIGAME = false end
     end
     Blackjack_Manager.super.update(self,dt)
     end
@@ -162,7 +162,7 @@ function Blackjack_Manager:DealerPlays()
         print('dealer: ', cards[i])
         if self.dealer[1] == 1 and self.dealer[3] <= 10 then self.dealer[3] = self.dealer[3]+11
         elseif  self.dealer[1] == 1 and self.dealer[3] > 10 then self.dealer[3] = self.dealer[3]+1
-        elseif self.dealer[1] + self.dealer[3] > 21 then currentState = 'Win'
+        elseif self.dealer[1] + self.dealer[3] > 21 then currentState = 'Win'if not MINIGAME then COMPATIBILIDAD = COMPATIBILIDAD +1 end
         self.timer = 1.5
         self.dealer[3] = self.dealer[1] + self.dealer[3] 
         else self.dealer[3] = self.dealer[1] + self.dealer[3] end
@@ -172,10 +172,10 @@ function Blackjack_Manager:DealerPlays()
 end
 
 function Blackjack_Manager:CheckWin()
-    if self.dealer[3] < self.player[3] and self.player[3] <= 21 then currentState = 'Win'
+    if self.dealer[3] < self.player[3] and self.player[3] <= 21 then currentState = 'Win' if not MINIGAME then COMPATIBILIDAD = COMPATIBILIDAD +1 end
     elseif self.dealer[3] <= 21 and self.player[3]==self.dealer[3] then currentState = 'Draw'
     elseif self.dealer[3] <= 21 and self.player[3]<self.dealer[3] then currentState = 'Lose'
-    elseif self.dealer[3] > 21 and self.player[3] <= 21 then currentState = 'Win'
+    elseif self.dealer[3] > 21 and self.player[3] <= 21 then currentState = 'Win' if not MINIGAME then COMPATIBILIDAD = COMPATIBILIDAD +1 end
     elseif self.dealer[3] > 21 and self.player[3] > 21 then currentState = 'Draw'
     end
     self.timer = 1.5

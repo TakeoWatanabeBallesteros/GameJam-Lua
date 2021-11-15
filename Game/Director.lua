@@ -9,7 +9,8 @@ function StartGame()
                                                                                     'menu_characters', 'menu_minigames', 'intro', 'pong',
                                                                                     "topo", "vodka", "blackjack", "gancho", "programar","dormir", 'chao', 'final'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
-    Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from={'menu',"programar"}})
+    Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from={'menu','pong',
+    "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
     Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})

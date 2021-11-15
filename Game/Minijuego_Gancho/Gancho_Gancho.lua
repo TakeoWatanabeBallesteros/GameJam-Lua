@@ -127,7 +127,7 @@ end
     Scene:getScene():removeActor(Gancho_Peluche)
     if not MINIGAME then
       Main_FSM:changeState('dialog')
-    else Main_FSM:changeState('menu') MINIGAME = false end
+    else Main_FSM:changeState('menu_minigames') MINIGAME = false end
   end
   if gameStates == 9 then
     if self.position.y > -WH/6 then self.position.y = self.position.y -120*dt 
@@ -142,7 +142,7 @@ end
     --Pantalla de derrota
     if not MINIGAME then
       Main_FSM:changeState('dialog')
-    else Main_FSM:changeState('menu') MINIGAME = false end
+    else Main_FSM:changeState('menu_minigames') MINIGAME = false end
   end
 end
 end

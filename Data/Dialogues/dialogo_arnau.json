@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Arnau: ¡¿[shake]Holiiii UwU. [/shake] ¿Eres el nuevo no? Hihihihihi.\nLa hermosa y excitante apariencia de este hombre afeminado te ha puesto algo nervioso.\nAnte tremendo bellezón, rápidamente contestas que sí, que eres nuev@. \nArnau: Uyyy, hihihihi. Bueno, y cuéntame, ¿Qué es lo que más te gusta de la carrera?\n[[answer: Pues... me gusta la programación |Programacion]]\n[[answer: ¡Me flipa el arte! |Animacion]]\n[[answer: ¡Me paso el día diseñándote a cuatro en mi cama! |DisenodeJogo]]",
+		"body": "<<background:clase>>\nArnau: ¡¿[shake]Holiiii UwU. [/shake] ¿Eres el nuevo no? Hihihihihi.\nLa hermosa y excitante apariencia de este hombre afeminado te ha puesto algo nervioso.\nAnte tremendo bellezón, rápidamente contestas que sí, que eres nuev@. \nArnau: Uyyy, hihihihi. Bueno, y cuéntame, ¿Qué es lo que más te gusta de la carrera?\n[[answer: Pues... me gusta la programación |Programacion]]\n[[answer: ¡Me flipa el arte! |Animacion]]\n[[answer: ¡Me paso el día diseñándote a cuatro en mi cama! |DisenodeJogo]]",
 		"position": {
 			"x": 286,
-			"y": 234
+			"y": 233
 		},
 		"colorID": 0
 	},
@@ -34,8 +34,8 @@
 		"tags": "",
 		"body": "Arnau: Bro, hasta para mí ha sido raro.\nArnau: Y mira que hay raritos en el[shake] Grindr [/shake] eh. \nArnau: Además, a mí lo único que me gusta del diseño es el Tardón hehehe uGu. \nArnau: Anyways, das miedito, chao uWu.\n<<scene:chao>>",
 		"position": {
-			"x": 594,
-			"y": 224
+			"x": 593,
+			"y": 223
 		},
 		"colorID": 0
 	},
@@ -45,7 +45,7 @@
 		"body": "Arnau: a verlo, y el pong también hehehe, a ver si me ganas uwuwuwuwu.\n<<scene:pong>>\nMiras expectante la respuesta del Arnau, ¿Qué le habrá parecido el pong? ¿Le parecerás más atractivo?\nArnau: ufff mira al bertuh. ¿Por qué solo me gustan los tomtos heteros?\nBueno, el chaval está empanado. A ver si dice algo del pong...\nArnau: Aunque el Ryo también está fuerte eh. Y el Ramón es muy sexy también...\nArnau: Uy perdona, me distraje UwU. Muy bonito el pong hehe. A ver si me das una clase de programación.\n[[answer: Venga, hagamos el test juntos. |Prog]]\n[[answer: Sii, te enseño, a ver si haces esto bien. |Prog]]",
 		"position": {
 			"x": 95,
-			"y": -346
+			"y": -348
 		},
 		"colorID": 0
 	},
@@ -54,8 +54,8 @@
 		"tags": "",
 		"body": "Arnau: Duerme bebé, bonito que eres bonito.\n<<scene:dormir>>\nArnau: Buenos días coshita, ¿has visto la nueva tarea de programación?\nArnau: ¿Me ayudas uGu?\nLa verdad es que no te has mirado la tarea, pero más perdido que Arnau es imposible ir...\n[[answer:Si, ¡te ayudaré!. |Prog]]\n[[answer: Te ayudaré, pero primero vayamos a ayudarnos manual y mutuamente en el baño tontorrón. |mePoneX]]",
 		"position": {
-			"x": 504,
-			"y": -356
+			"x": 414,
+			"y": -352
 		},
 		"colorID": 0
 	},
@@ -64,8 +64,8 @@
 		"tags": "",
 		"body": "<<scene:programar>>\nArnau: Eres un crack hihihihi.\nArnau: ¡Oye! Me has caído bien, ¿te apetece ir al arcade esta noche?.\nAceptas, vas a tener tu primera cita con Arnau para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nArnau: [shake]AAAAAAAAAAAAAAAAH![/shake] ¡Pero cuántos peluchitos, me exsito! uwu\nArnau: Sácame unooooooo! A ver si sabes cuál quiero hihihi.\n<<scene:gancho>>\nArnau: [shake]HIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHI[/shake]. [color=#ff0000] tkmbb[/color]\nArnau: Veamos que más juegos hay...\nArnau: Mira, hay un juego del topo, ¡Ahora me toca invitarte!\nOjo, Arnau te ha invitado a jugar a algo. !Esta oportunidad no la puedes dejar escapar! \nArnau: Solo pondré una condición, tienes que imaginarte que yo soy el mazo y tu el topo, UwU! Hihihi. \nArnau: Es broma bebé. Va, si te haces 10 topos te invito a un chupito, si no me invitas tú.\n<<scene:topo>>\nArnau: Hihihihihi, ¡Habrá que ir a por ese chupito!\nArnau: Me sé un sitio muy chulo, ¡vamos!\n<<background:party>>\nArnau: Mi última cita no bebía, ¿sabes? \nArnau: En general no se tragaba nada...\nArnau: Espero que tú sí que bebas como yo, ¡hay que pasarlo bien!\nArnau: ¡A ver quien bebe más!\n<<scene:vodka>>\nArnau va bastante taja, borracho, tontito... ¡Es hora de escucharle y hacerle sentir cómodo!\nArnau: Y por eso el tomto del grindr no quiso quedar, ¿sabes? La Cora me dice que me corte el pelo pero no sé… Dejaré de ser una diva. Hihihi. \nArnau: Uy ¿Y ese croupier tan sexy?\nHabéis visto un sitio donde se puede jugar al blackjack, aunque Arnau se haya fijado solo en el croupier.\nArnau: ¿Serías capaz de ganarle? Eso me pondría muchísimo uWu.\n<<scene:blackjack>>\nArnau: ¡Qué bien me lo he pasado, ha sido un gran día!\nDespués de un largo día, lo único que deseas es que Arnau se lo haya pasado igual de bien que tú.\n<<scene:final>>",
 		"position": {
-			"x": 518,
-			"y": -628
+			"x": 472,
+			"y": -727
 		},
 		"colorID": 0
 	},
@@ -74,8 +74,8 @@
 		"tags": "",
 		"body": "Arnau: ¿Pero cómo me dices eso?\nArnau: Supongo que era broma, aunque si quieres no lo es uwu.\nArnau: Hagamos el test de programación!\n[[answer: Vamos. |Prog]]",
 		"position": {
-			"x": 837,
-			"y": -580
+			"x": 738,
+			"y": -350
 		},
 		"colorID": 0
 	}

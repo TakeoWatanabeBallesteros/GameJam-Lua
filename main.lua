@@ -1,6 +1,7 @@
 local appId = require("applicationId")
 
 function love.load(arg)
+  love.window.setFullscreen(true)
   require "Game/data"
   SaveManager:load()
   --love.window.setFullscreen(true)
