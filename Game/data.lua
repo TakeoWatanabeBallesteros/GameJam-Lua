@@ -176,6 +176,10 @@ FONT_DIALOGUES_DEFAULT = love.graphics.newFont("/Data/Fonts/Burbin Casual NC.ttf
 --#endregion
 --#region AUDIOS
 AUDIO_BUTTON_CLICK = love.audio.newSource("/Data/click.mp3", "static")
+CHARACTERS_MUSIC = {}
+for index, value in ipairs(characters_names) do
+    CHARACTERS_MUSIC[value] = love.audio.newSource("Data/Music/musica_"..value..".ogg", "stream")
+end
 --#endregion
 --#region SETTINGS
     --#region GAME_SETTINGS

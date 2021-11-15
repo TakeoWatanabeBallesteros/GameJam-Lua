@@ -162,10 +162,12 @@ function onCharacter_SelectExit()
 end
 
 function onDialogEnter()
+  AudioManager.PlayMusic(CHARACTERS_MUSIC[WHO], GAME_SETTINGS_VOLUME_MUSIC, true)
   ON_PAUSE = false
 end
 
 function onDialogExit()
+  AudioManager.StopSound(CHARACTERS_MUSIC[WHO])
 end
 
 function onTopoEnter()
