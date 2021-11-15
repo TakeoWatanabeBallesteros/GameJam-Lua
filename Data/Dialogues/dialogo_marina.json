@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<background:clase>>\nMarina: Hola, tú eres nuev@, ¿verdad?\nMiras nervioso a Marina, rápidamente contestar que sí.\nMarina: Perfecto, necesitaré un informe sobre tus aptitudes cognitivas. ¿Cuál es tu asignatura favorita?\n[[answer: Me gusta mucho Programación |Enfermo]]\n[[answer: Me encanta Arte |Animacion]]\n[[answer: Me gusta Diseño de Juegos|Diseño de Juegos kek]]",
+		"body": "<<background:clase>>\nMarina: Hola, tú eres nuev@, ¿verdad?\nMiras nervioso a Marina, rápidamente contestas que sí.\nMarina: Perfecto, necesitaré un informe sobre tus aptitudes cognitivas. ¿Cuál es tu asignatura favorita?\n[[answer: Me gusta mucho Programación |Enfermo]]\n[[answer: Me encanta Arte |Animacion]]\n[[answer: Me gusta Diseño de Juegos|Diseño de Juegos kek]]",
 		"position": {
-			"x": -48,
-			"y": 215
+			"x": -52,
+			"y": 211
 		},
 		"colorID": 0
 	},
@@ -24,8 +24,8 @@
 		"tags": "",
 		"body": "Marina: A mi también me gusta mucho el arte, espero que podamos hacer equipo para llegar al diez.\nMarina: Pero no te atrevas a quitarme la matrícula, [shake]EH[/shake].\nMarina: Es divertido aunque hay que tener mucha paciencia para no reventar la tableta contra el escritorio. \nMarina: Yo solo llevo 6 rotas jaja.\nMarina: Bien, ¿y tú qué tal llevas el pong? Yo ya lo tengo casi terminado, me faltan los retoques finales.\nMarina: ¿Quieres verlo?\n[[answer: Okey, vamos a verlo. |Pong]]\n[[answer: Ayer estuve toda la noche jugando al lol y quiero dormir un poco, buenas noches. |Dormir]]",
 		"position": {
-			"x": 57,
-			"y": -143
+			"x": 55,
+			"y": -145
 		},
 		"colorID": 0
 	},
@@ -34,8 +34,8 @@
 		"tags": "",
 		"body": "Marina: Son interesantes las clases, la verdad es que después de leerse 50 papers se puede hacer una buena síntesis.\nMarina: Aunque ahora toca acabar lo de programación...\nMarina: Mira, ¿quieres ver mi pong? \n[[answer: No sé a qué viene pero sí, supongo. |Pong]]\n[[answer: No gracias, preferiría hacer cualquier otra cosa. |Dormir]]",
 		"position": {
-			"x": 390,
-			"y": -40
+			"x": 388,
+			"y": -42
 		},
 		"colorID": 0
 	},
