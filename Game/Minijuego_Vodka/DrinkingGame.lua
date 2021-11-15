@@ -120,10 +120,10 @@ function DrinkingGame:keypressed(key)
   if GameStateDrinkingGame == "PlayingGame" then
     if key == "space" and self.skip2 then
       if moveStateDrinkingGame == 1 or moveStateDrinkingGame == 2 then
-      self.speed = self.speed +220
       self.tries = self.tries+1
       if playerBar.position.x > slider.position.x-slider.width*0.1 and playerBar.position.x < slider.position.x+slider.width*0.1 then
        self.shots = self.shots+1
+       self.speed = self.speed +220
        lastmoveStateDrinkingGame = moveStateDrinkingGame
        moveStateDrinkingGame = 3
        self.points = self.points+3
