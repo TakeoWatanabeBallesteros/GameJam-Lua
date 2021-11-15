@@ -85,7 +85,7 @@ function Menu:draw()
         self.title,
         self.font,
         (WW/2) - self.font:getWidth(self.title) * 0.5,
-         (WH/1.4)
+         (WH/1.5)
         )
     love.graphics.setColor(255, 255, 255, self.alpha)
     Suit.draw()

@@ -19,7 +19,7 @@ function Intro_03:draw()
         'MADE WITH YARNEDITOR',
         FONT_TITLE_2,
         (WW * 0.5) - FONT_TITLE_2:getWidth('MADE WITH YARNEDITOR') * 0.5,
-         WH/2 + self.width*0.5 - FONT_TITLE_2:getHeight('MADE WITH YARNEDITOR') * 0.5
+         WH/2 + self.width*0.7 - FONT_TITLE_2:getHeight('MADE WITH YARNEDITOR') * 0.5
         )
     local xx = self.position.x
     local ox = self.origin.x

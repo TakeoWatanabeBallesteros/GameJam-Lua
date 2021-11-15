@@ -308,5 +308,5 @@ function onFinalEnter()
 end
 
 function onFinalExit()
-  Scene.getScene():removeActor(Final_Malo)
+  Scene.getScene():removeActor(Final_Bueno)
 end

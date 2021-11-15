@@ -27,6 +27,7 @@ function Menu_Avatar:update(dt)
     Suit.layout:reset(WW/2-(WW/1.05)/2, WH/5.5)
     Suit.layout:padding(WH/20)
     if Suit.Button(self.name_1, {id=16}, Suit.layout:row(WW/1.5, WH/5)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if SaveManager:checkFile('avatar_1.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_1_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_1_SETTINGS_EYES],
@@ -36,6 +37,7 @@ function Menu_Avatar:update(dt)
         AVATAR_SELECTED = 1
     end
     if Suit.Button(self.name_2, {id=17}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if SaveManager:checkFile('avatar_2.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_2_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_2_SETTINGS_EYES],
@@ -45,6 +47,7 @@ function Menu_Avatar:update(dt)
         AVATAR_SELECTED = 2
     end
     if Suit.Button(self.name_3, {id=18}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if SaveManager:checkFile('avatar_3.txt') then 
             self.preview = {AVATAR_SKINS[AVATAR_3_SETTINGS_SKINS],
                             AVATAR_EYES[AVATAR_3_SETTINGS_EYES],
@@ -56,6 +59,7 @@ function Menu_Avatar:update(dt)
     Suit.layout:reset(WW/1.47+(WW/6/2), WH/1.38-(WH/19*4/2))
     Suit.layout:padding(WH/21.6)
     if Suit.Button("CONTINUAR", {id=19}, Suit.layout:row(WW/6, WH/19)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if #self.preview > 1 then
             if AVATAR_SELECTED == 1 then SaveManager:loadAvatar_1()
             elseif AVATAR_SELECTED == 2 then SaveManager:loadAvatar_2()
@@ -69,6 +73,7 @@ function Menu_Avatar:update(dt)
         end
     end
     if Suit.Button("EDITAR", {id=20}, Suit.layout:row(WW/6, WH/19)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SELECTED then
             if AVATAR_SELECTED == 1 then SaveManager:loadAvatar_1()
             elseif AVATAR_SELECTED == 2 then SaveManager:loadAvatar_2()
@@ -76,6 +81,7 @@ function Menu_Avatar:update(dt)
         Main_FSM:changeState('editor') end
     end
     if Suit.Button("BORRAR", {id=21}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SELECTED == 1 then
             SaveManager:deleteAvatar_1()
             self.preview = {AVATAR_SILUET}

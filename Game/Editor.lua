@@ -33,41 +33,49 @@ end
 function Editor:AvatarButtons()
     Suit.layout:reset(WW/6-(WW/30/2), WH/10)
     if Suit.Button("<", {id=23}, Suit.layout:row(WW/30, WH/16.875)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_SKIN >1 then AVATAR_SETTINGS_SKIN = AVATAR_SETTINGS_SKIN -1 
         else AVATAR_SETTINGS_SKIN = #AVATAR_SKINS end
     end
     Suit.layout:padding((WH/4.7)-(WH/10)-(WH/16.875))
     if Suit.Button("<", {id=24}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_HAIR >1 then AVATAR_SETTINGS_HAIR = AVATAR_SETTINGS_HAIR -1 
         else AVATAR_SETTINGS_HAIR = #AVATAR_HAIRS end
     end
     Suit.layout:padding((WH/2.7)-(WH/4.8)-(WH/16.875))
     if Suit.Button("<", {id=25}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_EYE >1 then AVATAR_SETTINGS_EYE = AVATAR_SETTINGS_EYE -1 
         else AVATAR_SETTINGS_EYE = #AVATAR_EYES end
     end
     Suit.layout:padding((WH/1.2)-(WH/2.7)-(WH/16.875))
     if Suit.Button("<", {id=26}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_CLOTH >1 then AVATAR_SETTINGS_CLOTH = AVATAR_SETTINGS_CLOTH -1 
         else AVATAR_SETTINGS_CLOTH = #AVATAR_CLOTHES end
     end
     Suit.layout:reset(WW/1.95-(WW/30/2), WH/10)
     if Suit.Button(">", {id=27}, Suit.layout:row(WW/30, WH/16.875)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_SKIN < #AVATAR_SKINS then AVATAR_SETTINGS_SKIN = AVATAR_SETTINGS_SKIN +1 
         else AVATAR_SETTINGS_SKIN = 1 end
     end
     Suit.layout:padding((WH/4.7)-(WH/10)-(WH/16.875))
     if Suit.Button(">", {id=28}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_HAIR <#AVATAR_HAIRS  then AVATAR_SETTINGS_HAIR = AVATAR_SETTINGS_HAIR +1 
         else AVATAR_SETTINGS_HAIR = 1 end
     end
     Suit.layout:padding((WH/2.7)-(WH/4.8)-(WH/16.875))
     if Suit.Button(">", {id=29}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_EYE <#AVATAR_EYES then AVATAR_SETTINGS_EYE = AVATAR_SETTINGS_EYE +1 
         else AVATAR_SETTINGS_EYE = 1 end
     end
     Suit.layout:padding((WH/1.2)-(WH/2.7)-(WH/16.875))
     if Suit.Button(">", {id=30}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if AVATAR_SETTINGS_CLOTH <#AVATAR_CLOTHES then AVATAR_SETTINGS_CLOTH = AVATAR_SETTINGS_CLOTH +1 
         else AVATAR_SETTINGS_CLOTH = 1 end
     end
@@ -81,6 +89,7 @@ function Editor:UI_BUTTONS()
     Suit.layout:reset(WW/1.3-(WW/5/2), WH/1.3)
     Suit.layout:padding(40)
     if Suit.Button("CONTINUAR", {id=31}, Suit.layout:row(WW/5, WH/20)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         AVATAR_SETTINGS_NAME = self.name.text
         if AVATAR_SELECTED == 1 then SaveManager:saveAvatar_1()
         elseif AVATAR_SELECTED == 2 then SaveManager:saveAvatar_2()
@@ -93,6 +102,7 @@ function Editor:UI_BUTTONS()
         AudioManager.StopSound(MUSICA_EDITOR)
     end
     if Suit.Button("ATRAS", {id=32}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         Main_FSM:changeState('menu_avatar')
     end
 end

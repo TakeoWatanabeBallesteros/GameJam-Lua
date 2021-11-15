@@ -5,7 +5,7 @@ function love.load(arg)
   require "Game/data"
   SaveManager:load()
   --love.window.setFullscreen(true)
-  --WW, WH = love.graphics.getDimensions()
+  WW, WH = love.graphics.getDimensions()
   print(WW, WH)
   StartGame()
   love.audio.setVolume(GAME_SETTINGS_VOLUME_MASTER)

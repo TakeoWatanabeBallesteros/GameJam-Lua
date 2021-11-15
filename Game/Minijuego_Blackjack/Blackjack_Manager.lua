@@ -40,9 +40,11 @@ function Blackjack_Manager:update(dt)
     Suit.layout:reset(WW/2-WW/20, WH/1.2)
     Suit.layout:padding(10)
     if Suit.Button("Pedir Carta", {id=54}, Suit.layout:row(WW/10, WH/24)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if currentState == "Waiting" then currentState = 'Hit'end
     end
     if Suit.Button("Plantarse", {id=55}, Suit.layout:row()).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         if currentState == "Waiting" then currentState = 'Stay' end
     end
     self.timer = self.timer > 0 and self.timer - dt or 0

@@ -110,6 +110,30 @@ function Dialog:shakyText(updatesPerSecond,maxDistance,repeats,_text,x,y)
 end
 
 function Dialog:mousepressed( x, y, _button, istouch, presses )
+    if not ON_PAUSE then
+        --slow down space bar
+        if(not self.node.body:done()) and self.dialogues_index == #self.dialogues then --are we at the bottom? If not, keep traversing.
+            --move to the next line on the body of the node. If it's done, do nothing.
+            
+            --if not, check to see if space it prssed. 
+            --if it is, move to the next line in the body
+            if _button == 1 then
+                --the text is the text, and the command is whether or not
+                --the text is actually a lua command and should be skipped.
+                repeat
+                    self.script, self.command=self.node.body:traverse()
+                until not self.command
+                --text=script.who .. ": " .. script.text
+                if self.script then self.text=self.script.text 
+                else return end
+                if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
+                local i = {self.script.who, self.text}
+                if i[1] == 'Marina' or i[1] == 'Ricky' then for k,v in ipairs(i[2]) do if v[1][1] == 0 and v[1][2] == 0 and v[1][3] == 0 then v[1] = {1,1,1} end end end
+                table.insert(self.dialogues, i)
+                self.dialogues_index = self.dialogues_index + 1
+            end
+        end
+    end
 end
 function Dialog:mousereleased( x, y, _button, istouch, presses )
 end
