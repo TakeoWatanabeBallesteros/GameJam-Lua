@@ -7,11 +7,12 @@ function StartGame()
     Main_FSM:addState("splash_04",{ enter = onSplash_04Enter, exit = onSplash_04Exit , from="splash_03"})
     Main_FSM:addState("menu",{ enter= onMenuEnter, exit= onMenuExit, from={"splash_01", "splash_02", "splash_03", 'splash_04', 'settings', 'menu_avatar', 
                                                                                     'menu_characters', 'menu_minigames', 'intro', 'pong',
-                                                                                    "topo", "vodka", "blackjack", "gancho", "programar","dormir", 'chao', 'final'}})
+                                                                                    "topo", "vodka", "blackjack", "gancho", "programar","dormir", 'chao', 'final', 'credits'}})
     Main_FSM:addState("menu_characters", {enter=onMenu_CharactersEnter, exit=onMenu_CharactersExit, from='menu'})
     Main_FSM:addState("menu_minigames", {enter=onMenu_MinigamesEnter, exit=onMenu_MinigamesExit, from={'menu','pong',
     "topo", "vodka", "blackjack", "gancho", "programar","dormir"}})
     Main_FSM:addState("settings", {enter=onSettingsEnter, exit=onSettingsExit, from='menu'})
+    Main_FSM:addState("credits", {enter=onCreditsEnter, exit=onCreditsExit, from={'menu', 'chao','final', 'null'}})
     Main_FSM:addState("play",{ enter= onPlayEnter, exit= onPlayExit, from="menu"})
     Main_FSM:addState("menu_avatar", { parent='play', enter=onMenu_AvatarEnter, exit=onMenu_AvatarExit, from={'play', 'editor'}})
     Main_FSM:addState("editor", { parent='play', enter=onEditorEnter, exit=onEditorExit, from='menu_avatar'})
@@ -34,7 +35,7 @@ function StartGame()
     Main_FSM:addState("pelea", { enter = onPeleaEnter, exit= onPeleaExit, from={'dialog', 'menu_minigames'}})
     Main_FSM:addState("pong", { enter = onPongEnter, exit= onPongExit, from={'dialog', 'menu_minigames'}})
 
-    Main_FSM:setInitialState("null") Main_FSM:changeState('splash_01')
+    Main_FSM:setInitialState("null") Main_FSM:changeState('credits')
 end
 
 
@@ -106,6 +107,14 @@ end
   
 function onSettingsExit()
   Scene.getScene():removeActor(Settings)
+end
+
+function onCreditsEnter()
+  Scene.getScene():addActor(Credits)
+end
+
+function onCreditsExit()
+Scene.getScene():removeActor(Credits)
 end
   
 function onPlayEnter()
