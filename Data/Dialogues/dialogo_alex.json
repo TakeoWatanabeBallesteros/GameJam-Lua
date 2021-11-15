@@ -4,7 +4,7 @@
 		"tags": "",
 		"body": "<<background:clase>>\nAlex: ¡¿[shake]EEEHH! ¿Qué pasó amor?[/shake] Te veo muy solit@ por acá… Wait, tú no me suenas, ¿eres nuev@?\nLa primera impresión ha sido extraña. Qué exceso de confianza tiene este sexy fuckboy... \nRápidamente contestas que sí, que eres nuev@. \nAlex: ¿¿Qué tú ta haciendo, macaco?? Seguro que programación con esa cara de SesaLover que me llevas.\n[[answer: ¡Sí, estoy avanzando programación! |Programacion]]\n[[answer: Nah, prefiero animar como Deivid |Animacion]]\n[[answer: No, prefiero adelantar el trabajo de diseño |DisenodeJogo]]",
 		"position": {
-			"x": 286,
+			"x": 284,
 			"y": 235
 		},
 		"colorID": 0
@@ -14,8 +14,8 @@
 		"tags": "",
 		"body": "Alex: Yo tremendo flow que tengo programando. ¿Quieres ver mi pong?\n[[answer: Venga, enséñame que tal tu pong, pesao. |Pong]]\n[[answer: Prefiero dormirme, ya me enseñarás el pong esta noche bebé... |Dormir]]",
 		"position": {
-			"x": 92,
-			"y": -48
+			"x": 90,
+			"y": -50
 		},
 		"colorID": 0
 	},
@@ -24,8 +24,8 @@
 		"tags": "",
 		"body": "Alex: Bro, solo respeto a los artistas que hacen diseños para el Real Betis Balompié. \nAlex: Y no tiene pinta de que sea así. \nAlex: Cómo diría la de neox, NEXT.\n<<scene:chao>>",
 		"position": {
-			"x": 391,
-			"y": -50
+			"x": 389,
+			"y": -52
 		},
 		"colorID": 0
 	},
@@ -34,38 +34,38 @@
 		"tags": "",
 		"body": "Alex: ¿Si o qué? ¿Quién hace diseño bro? \nAlex: [shake] XD [/shake]. Nah en verdad de locos eh, que he sacado un [color=#c80d0d]24+1[/color] en el game concept loco\nAlex: Mira mi diseño macaco del pong bro\n[[answer: Venga, a ver que tal tu pong. |Pong]]\n[[answer: La verdad es que tengo sueñecito, creo que dormiré un poco en clase... |Dormir]]",
 		"position": {
-			"x": 600,
-			"y": 229
+			"x": 599,
+			"y": 228
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Pong",
 		"tags": "",
-		"body": "Alex: Al igual y me ganas eh tontit@.\n<<scene:pong>>\nAlex: Te ha dejado loco eh\nAlex: La verdad es si hubiera tenido más tiempo habría metido una ambientación brasileira espectacular.\nAlex: Lleno de sopa de macaco, Neymar por aquí, Carnaval por allá bueno bueno cuanta samba, niño.\nAlex: Nah, ahora hablando en serio, ¿Cómo vas con programación? La gente está [shake]SUFRIENDO.[/shake]\n[[answer: Pero que me estás contando. Programación es fácil, ponme a prueba. |Prog]]\n[[answer: Sinceramente, no he hecho nada de programación aun, así que me iría bien una clase. |Prog]]",
+		"body": "Alex: Al igual y me ganas eh tontit@.\n<<scene:pong>>\nAlex: Te ha dejado loco eh, ni un punto me has metido, soy una bestia.\nAlex: La verdad es si hubiera tenido más tiempo habría metido una ambientación brasileira espectacular.\nAlex: Pero la programación está más clean que la tuya 100%.\nAlex: Nah, ahora hablando en serio, ¿Cómo vas con programación? La gente está [shake]SUFRIENDO.[/shake]\n[[answer: Pero que me estás contando. Programación es fácil, ponme a prueba. |Prog]]\n[[answer: Sinceramente, me iría bien una clase. |Prog]]",
 		"position": {
-			"x": 99,
-			"y": -344
+			"x": 97,
+			"y": -348
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Dormir",
 		"tags": "",
-		"body": "Alex: Pero que atrevido, espero que al menos sueñes en mí, bebé, y que no te pille la profe eh.\n<<scene:dormir>>\nAlex: Buenos días bro, mientras dormías me he marcado un viaje mental a las maldivas, por la puta cara.\nAlex: Ahora toca hacer programación que tanto procrastinar no te convierte en el bicho, [shake] SUUUUUU.[/shake]\n[[answer: Yo también quiero ser el bicho. |Prog]]\n[[answer: Fuck el bicho bro, odio programación y te odio a ti xd. |mePoneX]]",
+		"body": "Alex: Pero que atrevido, espero que al menos sueñes conmigo, bebé, y que no te pille la profe eh.\n<<scene:dormir>>\nAlex: Buenos días bro, mientras dormías me he echado 5 rankeds y las he perdido todas.\nAlex: Ahora toca hacer programación que tanto procrastinar no te convierte en el bicho, [shake] SUUUUUU.[/shake]\n[[answer: Yo también quiero ser el bicho. |Prog]]\n[[answer: Fuck el bicho bro, odio programación y te odio a ti xd. |mePoneX]]",
 		"position": {
-			"x": 506,
-			"y": -354
+			"x": 501,
+			"y": -359
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Prog",
 		"tags": "",
-		"body": "<<scene:programar>>\nAlex: Tremendos console writelines hago.\nAlex: A don Sesa le agradezco el poder que me ha sido otorgado.\nAlex: Ni The Coding Master programa así... Aunque cansa tanto trabajo... Podríamos...\nAlex: Ir al arcade un rato esta noche, ¿no?\nAcabas quedando con Alex para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nAlex: ¡Cata cata, hay tremenda máquina para sacar peluches!\nAlex: Venga va, seguro que no eres capaz de sacarme el más top.\n<<scene:gancho>>\nAlex: Hehehe, ta loco tio.\nAlex: Veamos que más juegos hay...\nAlex: Mira, hay un juego del topo, te puedo invitar a ese si quieres jaja.\nOjo, Alex te ha invitado a jugar a algo. !Esta oportunidad no la puedes dejar escapar! \nAlex: Espero que al menos mates a 10 topos bro.. \n<<scene:topo>>\nAlex: Jajajaja, bastante accurate en verdad eh. Pero que me dices, ¿vamos a tomar algo?.\nAlex: Pero ten cuidado con los tremendos porros que hay eh, en la UAB uno no sabe lo que se está metiendo.\n<<background:party>>\nAlex: A la mierda, vaya ambiente. Olvida lo que dije, esta noche se festeja.\nAlex: ¡Vamos a ver quien traga más rápido!\n<<scene:vodka>>\nAlex: Y por eso es que Mesut Ozil es el mediocentro ofensivo más infravalorado del siglo. En fin, terrible.\nAlex: [shake]¡Ay mi madre el bicho![/shake] ¡Despertó!\nAlex: Despertó el tremendo jugador de blackjack que llevo dentro al ver a ese sexy bad ass croupier.\nDespués de que Alex pierda todas sus partidas al blackjack, intentas impresionarlo jugando tú.\n<<scene:blackjack>>\nAlex: Not bad. Bueno bro, va siendo hora de irse a casa.\nDespués de un largo día, lo único que deseas es que Alex se lo haya pasado igual de bien que tú.\n<<scene:final>>",
+		"body": "<<scene:programar>>\nAlex: Tremendos console writelines hago.\nCon miedo le contestas que solo tiene 13 líneas de codigo, a lo que el responde:\nAlex: Agarramela que me crece jaja.\nAlex: Nah, soy un máquina, a don Sesa le agradezco el poder que me ha sido otorgado.\nAlex: Ni Ap Lil Code programa así... Aunque cansa tanto trabajo... Podríamos...\nAlex: Ir al arcade un rato esta noche, ¿no?\nAcabas quedando con Alex para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nAlex: ¡Ufff, hay tremenda máquina para sacar peluches!\nAlex: Venga va, seguro que no eres capaz de sacarme el más top.\n<<scene:gancho>>\nAlex: Hehehe, ta loco tio.\nAlex: Veamos que más juegos hay...\nAlex: Mira, hay un juego del topo, te puedo invitar a ese si quieres jaja.\nOjo, Alex te ha invitado a jugar a algo. !Esta oportunidad no la puedes dejar escapar! \nAlex: Espero que al menos mates a 5 topos bro.. \nCon miedo dices; Por el culo te la hinco bro.\nAlex: ¿Eres tonto tío? Aunque cierto es, me falta avenida pública.\nAlex: Calla ya y mata topos tontito.\n<<scene:topo>>\nAlex: Jajajaja, bastante accurate en verdad eh. Pero que me dices, ¿vamos a tomar algo?.\nAlex: Pero ten cuidado con los tremendos porros que hay eh, en la UAB uno no sabe lo que se está metiendo.\n<<background:party>>\nAlex: ¡Vamos a ver quien traga más rápido!\n<<scene:vodka>>\nAlex: Buah tío, esque no puedo potar tío, intento potar pero no puedo.\nAlex: [shake]...[/shake]\nAlex: [shake]¡Ay mi madre el bicho![/shake] ¡Despertó!\nAlex: Despertó el tremendo jugador de blackjack que llevo dentro al ver a ese sexy bad ass croupier.\nDespués de que Alex pierda todas sus partidas al blackjack, intentas impresionarlo jugando tú.\n<<scene:blackjack>>\nAlex: Not bad. Bueno bro, va siendo hora de irse a casa.\nDespués de un largo día, lo único que deseas es que Alex se lo haya pasado igual de bien que tú.\n<<scene:final>>",
 		"position": {
-			"x": 519,
-			"y": -627
+			"x": 518,
+			"y": -629
 		},
 		"colorID": 0
 	},
@@ -75,7 +75,7 @@
 		"body": "Alex: ¿Pero cómo me dices eso?\nAlex: ¿Tú sabes lo que me pone que me traten así?\nAlex: Anyways, vamos a hacer el fucking test de programación jaja. \n[[answer: Sin miedo al éxito. |Prog]]\n[[answer: Yes daddy, espero no suspender. |Prog]]",
 		"position": {
 			"x": 841,
-			"y": -578
+			"y": -580
 		},
 		"colorID": 0
 	}
