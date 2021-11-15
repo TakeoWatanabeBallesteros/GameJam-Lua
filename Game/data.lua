@@ -86,8 +86,8 @@ end
     DIALOGUES_BACKGROUNDS = {}
     DIALOGUES_BACKGROUNDS["arcade"] = love.graphics.newImage("Data/Dialogues_Backgrounds/arcade_background.png")
     DIALOGUES_BACKGROUNDS["clase"] = love.graphics.newImage("Data/Dialogues_Backgrounds/clase_background.png")
-    DIALOGUES_BACKGROUNDS["intro"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Intro_background.png")
-    DIALOGUES_BACKGROUNDS["party"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Party_background.png")
+    DIALOGUES_BACKGROUNDS["intro"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Intro_Background.png")
+    DIALOGUES_BACKGROUNDS["party"] = love.graphics.newImage("Data/Dialogues_Backgrounds/Party_Background.png")
     --#endregion
     --#region MINIGAMES_TUTORIALS
     MINIGAMES_TUTORIALS = {}
