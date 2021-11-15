@@ -11,6 +11,7 @@ end
 function Settings:update(dt)
     Suit.layout:reset(WW/2-WW/5/2, WH/1.09)
     if Suit.Button("ATRAS", {id=9}, Suit.layout:row(WW/5, WH/20)).hit then
+        AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
         Main_FSM:changeState('menu')
     end
     Suit.layout:reset(WW/2-(WW/5)/2, WH/2-(WW/20)*3/2)

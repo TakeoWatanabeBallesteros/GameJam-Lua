@@ -103,6 +103,7 @@ function Menu_Avatar:draw()
     local rr = 0
     local sx = WW/1920
     local sy = WH/1080
+    love.graphics.setFont(FONT_BUTTONS)
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
     love.graphics.setColor(255, 255, 255, self.alpha)
     love.graphics.print(

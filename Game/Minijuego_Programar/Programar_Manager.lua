@@ -70,7 +70,7 @@ function Programar_Manager_:mousereleased( x, y, _button, istouch, presses )
 end
 function Programar_Manager_:keypressed(_key)
     if _key == 'space' then
-        if self.index == 1 and self.skip then
+        if self.index == 1 and self.skip2 then
             AudioManager.PlaySound(PROGRAMAR_BIEN, GAME_SETTINGS_VOLUME_EFFECTS, false)
             --self.currentState = 'Correct'
             if self.i ==2 then 
@@ -82,7 +82,7 @@ function Programar_Manager_:keypressed(_key)
                 else  Main_FSM:changeState('menu_minigames') MINIGAME = false  end
             end
             if self.i ==1 then self.i = 2 end
-        elseif self.skip or (self.skip and self.timer == 0) then
+        elseif self.skip2 or (self.skip2 and self.timer == 0) then
             --self.currentState = 'Incorrect'
             AudioManager.PlaySound(PROGRAMAR_MAL, GAME_SETTINGS_VOLUME_EFFECTS, false)
             self.errores = self.errores < 3 and self.errores + 1 or 3
