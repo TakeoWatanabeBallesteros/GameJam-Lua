@@ -15,7 +15,7 @@
 		"body": "Ricky: Pues enséñame bro que yo con esto no me aclaro jaja.\nRicky: Es que mira que miseria de pong que me ha salido.\n[[answer: Supongo que no me queda otra. |Pong]]\n[[answer: La verdad es que preferiria amputarme una pierna. |Dormir]]",
 		"position": {
 			"x": -439,
-			"y": -68
+			"y": -70
 		},
 		"colorID": 0
 	},
@@ -44,15 +44,15 @@
 		"tags": "",
 		"body": "Ricky: Vamos a echar una partidita. Mira, si ganas tenemos sexo...\nRicky: Si pierdes también. ¡Vamos a darle!\n<<scene:pong>>\nRicky: Esta fresquísimo, ¿eh?\nRicky: Aún queda algo de tiempo hasta la entrega. Vamos a mejorarlo un poquito.\n[[answer: Pero si es tu puto trabajo hazlo tú solo desgraciado. |Prog]]\n[[answer: Lo que sea por pasar tiempo contigo hermoso. |Prog]]",
 		"position": {
-			"x": -471,
-			"y": -370
+			"x": -473,
+			"y": -371
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Dormir",
 		"tags": "",
-		"body": "Ricky: Pues buena suerte bro.\nRicky: Ahora toca emprenedoria, intenta no sobarte en clase jaja.\n<<scene:dormir>>\nRicky: Bro, que se me habia olvidado añadirle una cosa al pong, necesito ayuda urgente. \n[[answer: Ugh, está bien. Pero me debes 50 euros y una copia física de Ronaldinho Soccer 64. |Prog]]\n[[answer: Okey, supongo que no me queda otra. |Prog]]",
+		"body": "Ricky: Pues buena suerte bro.\nRicky: Ahora toca emprenedoria, intenta no sobarte en clase jaja.\n<<scene:dormir>>\nRicky: Bro, que se me habia olvidado añadirle una cosa al pong, necesito ayuda urgente. \n[[answer: Ugh, está bien. Pero me debes una copia física de Ronaldinho Soccer 64. |Prog]]\n[[answer: Okey, supongo que no me queda otra. |Prog]]",
 		"position": {
 			"x": -48,
 			"y": -397

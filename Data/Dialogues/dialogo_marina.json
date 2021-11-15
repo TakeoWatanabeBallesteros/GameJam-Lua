@@ -2,20 +2,20 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "<<background:clase>>\nMarina: Hola, tú eres nuev@, ¿verdad?\nAsí es.\nMarina: Necesitaré un informe sobre tus aptitudes cognitivas. ¿Cuál es tu asignatura favorita?\n[[answer: Me gusta mucho Programación |Enfermo]]\n[[answer: Me encanta Arte |Animacion]]\n[[answer: Me gusta Diseño de Juegos|Diseño de Juegos kek]]",
+		"body": "<<background:clase>>\nMarina: Hola, tú eres nuev@, ¿verdad?\nMiras nervioso a Marina, rápidamente contestar que sí.\nMarina: Perfecto, necesitaré un informe sobre tus aptitudes cognitivas. ¿Cuál es tu asignatura favorita?\n[[answer: Me gusta mucho Programación |Enfermo]]\n[[answer: Me encanta Arte |Animacion]]\n[[answer: Me gusta Diseño de Juegos|Diseño de Juegos kek]]",
 		"position": {
 			"x": -48,
-			"y": 216
+			"y": 215
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Enfermo",
 		"tags": "",
-		"body": "Marina: Ya hay que ser masoca, que te vaya bien... \nMarina: Adiós...\nMarina: Ugh...\n<<scene:chao>>",
+		"body": "Marina: Con lo interesante que son las otras. Hay que ser masoca, que te vaya bien... \nMarina: Adiós...\nMarina: Ugh...\n<<scene:chao>>",
 		"position": {
-			"x": -250,
-			"y": -59
+			"x": -254,
+			"y": -63
 		},
 		"colorID": 0
 	},
@@ -24,37 +24,37 @@
 		"tags": "",
 		"body": "Marina: A mi también me gusta mucho el arte, espero que podamos hacer equipo para llegar al diez.\nMarina: Pero no te atrevas a quitarme la matrícula, [shake]EH[/shake].\nMarina: Es divertido aunque hay que tener mucha paciencia para no reventar la tableta contra el escritorio. \nMarina: Yo solo llevo 6 rotas jaja.\nMarina: Bien, ¿y tú qué tal llevas el pong? Yo ya lo tengo casi terminado, me faltan los retoques finales.\nMarina: ¿Quieres verlo?\n[[answer: Okey, vamos a verlo. |Pong]]\n[[answer: Ayer estuve toda la noche jugando al lol y quiero dormir un poco, buenas noches. |Dormir]]",
 		"position": {
-			"x": 59,
-			"y": -141
+			"x": 57,
+			"y": -143
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Diseño de Juegos kek",
 		"tags": "",
-		"body": "Marina: Son interesantes las clases, la verdad es que después de leerse 50 papers se puede hacer una buena síntesis. \nMarina: Aunque ahora toca acabar lo de programación...\nMarina: Mira, ¿quieres ver mi pong? \n[[answer: No sé a qué viene pero sí, supongo. |Pong]]\n[[answer: No gracias, preferiría hacer cualquier otra cosa. |Dormir]]",
+		"body": "Marina: Son interesantes las clases, la verdad es que después de leerse 50 papers se puede hacer una buena síntesis.\nMarina: Aunque ahora toca acabar lo de programación...\nMarina: Mira, ¿quieres ver mi pong? \n[[answer: No sé a qué viene pero sí, supongo. |Pong]]\n[[answer: No gracias, preferiría hacer cualquier otra cosa. |Dormir]]",
 		"position": {
 			"x": 390,
-			"y": -39
+			"y": -40
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Pong",
 		"tags": "",
-		"body": "Marina: Si ganas tú me compras un disco de K-POP. \nMarina: Si gano yo me compras dos. Dale.\n<<scene:pong>>\nMarina: Buff, la verdad es que hay que cambiar cosas. \nMarina: Pero prefiero centrarme en analizar la programación desde una perspectiva más objetiva. Voy a hacer un test de habilidades, ¡ayúdame! \n[[answer: Pero hazlo tu zángana, no te jode. |Prog]]\n[[answer: Si me regalas un pingüino de mascota trato hecho. |Prog]]",
+		"body": "Marina: Si ganas tú me compras un disco de K-POP. \nMarina: Si gano yo me compras dos. Dale.\n<<scene:pong>>\nMarina: Buff, la verdad es que hay que cambiar cosas.\nMarina: Pero prefiero centrarme en analizar la programación desde una perspectiva más objetiva. Voy a hacer un test de habilidades, ¡ayúdame! \n[[answer: Vale. |Prog]]",
 		"position": {
-			"x": 76,
-			"y": -474
+			"x": 71,
+			"y": -479
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Dormir",
 		"tags": "",
-		"body": "Marina: Ah, pues nada. Igualmente toca emprenedoria.\nMarina: Nos vemos luego. \n<<scene:dormir>>\nMarina: Necesito ayuda con programación. Que falta nada para la entrega de la práctica, porfa.\n[[answer: Okey, supongo que no me queda otra. |Prog]]\n[[answer: Me encantaría ayudarte. |Prog]]",
+		"body": "Marina: Ah, pues nada. Igualmente toca emprenedoria, nadie presta atención.\nMarina: Yo aprovecharé para leer y filosofar intrínsecamente sobre la existencia humana.\nMarina: Nos vemos luego. \n<<scene:dormir>>\nMarina: Tanta filosofía me ha frito el cerebro.\nMarina: Necesito ayuda con programación. Que falta nada para la entrega de la práctica, porfa.\n[[answer: Me encantaría ayudarte. |Prog]]",
 		"position": {
-			"x": 375,
+			"x": 373,
 			"y": -483
 		},
 		"colorID": 0
@@ -62,9 +62,9 @@
 	{
 		"title": "Prog",
 		"tags": "",
-		"body": "Marina: Vamos, es programación, no será muy difícil. \nMarina: Solo será imposible. Vamos a darle.\n<<scene:programar>>\nMarina: A ver, de manera objetiva hablando, eres un inútil programación. \nMarina: Eso quiere decir que estás como casi toda la clase, no te preocupes. \nMarina: Oye, ¿qué te parece venir conmigo al arcade? Será divertido.\nAcabas quedando con ella y vas a los arcade de Mataró.\n<<background:arcade>>\nMarina: Mira, hay una máquina para sacar peluches. \nMarina: ¿Podrías sacarme uno? Si lo haces te invito a un juego, al que quieras. \n<<scene:gancho>>\nMarina: Mira, ahí está el juego de los topos, te puedo invitar a ese si quieres.\nAcabas aceptando.\nTe va a invitar al juego de los topos. Esta es una oportunidad de oro, no la fastidies.\n<<scene:topo>>\nMarina: Te ha salido bastante bien. ¿Te apetece ir a tomar algo?\nMarina: Conozco un sitio que está muy bien.\n<<background:party>>\nMarina: Ten cuidado, según un paper el alcohol es malo. (Jimin, 2008)\n<<scene:vodka>>\nMarina: Y es por eso objetivamente cualquier cantante de kpop es superior a los mortales. \nMarina: Eh, ¿has visto esos de ahí intentando ganar en el blackjack?\nMarina: Creo que deberías hacer algo. Si, tú. [color=#ff0000]Vamos.[/color] \nCuando te quieres dar cuenta ya estás jugando. \n<<scene:blackjack>>\nMarina: No has estado nada mal.\nVamos a ver como ha ido el día!\n<<scene:final>>",
+		"body": "Marina: Espero que no sea demasiado difícil. \nMarina: Aunque preferiría estar en la naturaleza haciendo teorías conspiranoicas sobre aliens, ¡Vamos a programar!\n<<scene:programar>>\nMarina: A ver, de manera objetiva hablando, no lo sé. \nMarina: Es que no lo sé, a veces me cuestiono la existencia humana, ¿Sabes?.\nDefinitivamente, te has dado cuenta. El coco de Marina es funciona al 200%.\nMarina: Oye, me gustaría relajarme un rato. ¿Qué te parece venir conmigo al arcade? Será divertido.\nAcabas quedando con ella y vas a los arcade de Mataró.\n<<background:arcade>>\nMarina: Mira, hay una máquina para sacar peluches. \nMarina: ¿Podrías sacarme uno? Si lo haces te invito a un juego, al que quieras. \n<<scene:gancho>>\nMarina: Mira, ahí está el juego de los topos, te puedo invitar a ese si quieres.\nAcabas aceptando.\nTe va a invitar al juego de los topos. Esta es una oportunidad de oro, no la fastidies.\n<<scene:topo>>\nMarina: Te ha salido bastante bien. ¿Te apetece ir a tomar algo?\nMarina: Conozco un sitio que está muy bien.\n<<background:party>>\nMarina: Ten cuidado, según un paper el alcohol es malo. Lo dijo Notch. (Notch, 2008)\nMarina: Pero vamos, yo creo que no beberé. Seguro que tu no bebes tampoco, te sentaría mal.\nEs hora de demostrarle a Marina que puedo beber y no emborracharme.\n<<scene:vodka>>\nVaya, finalmente es Marina quién se ha emborrachado. Es hora de escucharla y cuidarla. \nToca hacerla sentir cómoda, no la mires como si estuviese loca.\nMarina: Y es por eso te digo que Squid Game no es la mejor serie coreana.\nMarina: ¿Por qué me miras como si estuviese borracha? Que no diga que los aliens existen no significa que no existan.\nMarina: Eh, ¿has visto esos de ahí intentando ganar en el blackjack?\nMarina: Creo que deberías hacer algo. Si, tú. [color=#ff0000]Vamos.[/color] \nCuando te quieres dar cuenta ya estás jugando. \n<<scene:blackjack>>\nMarina: No has estado nada mal.\nVamos a ver como ha ido el día!\n<<scene:final>>",
 		"position": {
-			"x": 243,
+			"x": 241,
 			"y": -740
 		},
 		"colorID": 0
