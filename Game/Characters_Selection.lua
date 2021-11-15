@@ -83,6 +83,4 @@ function Characters_Selection:keyreleased(_key)
     self.click = true
 end
 
-
-
 return Characters_Selection
