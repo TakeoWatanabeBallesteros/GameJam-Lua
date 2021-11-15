@@ -49,6 +49,7 @@ function Settings:sliders()
     if Suit.Slider(self.slider_music, {id=14}, Suit.layout:row(WW/6.4, WH/54)).changed then
         GAME_SETTINGS_VOLUME_MUSIC = self.slider_music.value
         SaveManager:saveSettings()
+        AudioManager.PlayMusic(MUSICA_MENU, GAME_SETTINGS_VOLUME_MUSIC, true)
     end
     Suit.Label('VOLUMEN EFFECTOS: '..tostring(math.floor(self.slider_effects.value*100)),  {id=12},Suit.layout:row(300,0))
     if Suit.Slider(self.slider_effects, {id=15}, Suit.layout:row(WW/6.4, WH/54)).changed then

@@ -130,7 +130,7 @@ function SaveManager:saveSettings()
   settings.mainVolume = GAME_SETTINGS_VOLUME_MASTER
   settings.musicVolume = GAME_SETTINGS_VOLUME_MUSIC
   settings.effectVolume = GAME_SETTINGS_VOLUME_EFFECTS
-  
+  love.audio.setVolume(GAME_SETTINGS_VOLUME_MASTER)
   love.filesystem.write("settings.txt", Serialize(settings))
 
   local characters_fucked = {}

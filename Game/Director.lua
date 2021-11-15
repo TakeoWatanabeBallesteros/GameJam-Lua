@@ -87,18 +87,22 @@ end
 function onMenu_MinigamesEnter()
   Scene.getScene():addActor(Menu_Minigames)
   Scene:getScene():removeActor(Pong_Manager)
+  AudioManager.PlayMusic(MUSICA_MINIJUEGOS, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
 
 function onMenu_MinigamesExit()
   Scene.getScene():removeActor(Menu_Minigames)
+  AudioManager.StopSound(MUSICA_MINIJUEGOS)
 end
 
 function onMenu_CharactersEnter()
   Scene.getScene():addActor(Menu_Characters)
+  AudioManager.PlayMusic(MUSICA_MINIJUEGOS, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
   
 function onMenu_CharactersExit()
   Scene.getScene():removeActor(Menu_Characters)
+  AudioManager.StopSound(MUSICA_MINIJUEGOS)
 end
   
 function onSettingsEnter()
@@ -111,10 +115,12 @@ end
 
 function onCreditsEnter()
   Scene.getScene():addActor(Credits)
+  AudioManager.PlayMusic(MUSICA_CREDITS, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
 
 function onCreditsExit()
 Scene.getScene():removeActor(Credits)
+AudioManager.StopSound(MUSICA_CREDITS)
 end
   
 function onPlayEnter()
@@ -127,6 +133,7 @@ end
 
 function onMenu_AvatarEnter()
   Scene.getScene():addActor(Menu_Avatar)
+  AudioManager.PlayMusic(MUSICA_EDITOR, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
 
 function onMenu_AvatarExit()
@@ -135,10 +142,12 @@ end
 
 function onEditorEnter()
   Scene.getScene():addActor(Editor)
+  AudioManager.PlayMusic(MUSICA_EDITOR, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
 
 function onEditorExit()
   Scene.getScene():removeActor(Editor)
+  AudioManager.StopSound(MUSICA_EDITOR)
 end
 
 function onIntroEnter()
@@ -162,6 +171,7 @@ function onCharacter_SelectExit()
 end
 
 function onDialogEnter()
+  ON_PAUSE = true
   AudioManager.PlayMusic(CHARACTERS_MUSIC[WHO], GAME_SETTINGS_VOLUME_MUSIC, true)
   ON_PAUSE = false
 end
@@ -190,6 +200,7 @@ function onBlackjackEnter()
   Scene.getScene():addActor(Blackjack_Player)
   Scene.getScene():addActor(Blackjack_Dealer)
   Scene.getScene():addActor(Blackjack_Manager)
+  AudioManager.PlayMusic(MUSICA_BLACKJACK, GAME_SETTINGS_VOLUME_MUSIC, true)
   ON_PAUSE = true
 end
 
@@ -198,15 +209,18 @@ function onBlackjackExit()
   Scene.getScene():removeActor(Blackjack_Player)
   Scene.getScene():removeActor(Blackjack_Dealer)
   Scene.getScene():removeActor(Blackjack_Manager)
+  AudioManager.StopSound(MUSICA_BLACKJACK)
 end
 
 function onProgramarEnter()
   Scene.getScene():addActor(Programar_Manager_)
+  AudioManager.PlayMusic(MUSICA_PROGRAMAR, GAME_SETTINGS_VOLUME_MUSIC, true)
   ON_PAUSE = true
 end
 
 function onProgramarExit()
   Scene.getScene():removeActor(Programar_Manager_)
+  AudioManager.StopSound(MUSICA_PROGRAMAR)
 end
 
 function onDormirEnter()

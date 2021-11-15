@@ -90,6 +90,7 @@ function Editor:UI_BUTTONS()
         table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_HAIRS[AVATAR_SETTINGS_HAIR])
         table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTH])
         Main_FSM:changeState('intro')
+        AudioManager.StopSound(MUSICA_EDITOR)
     end
     if Suit.Button("ATRAS", {id=32}, Suit.layout:row()).hit then
         Main_FSM:changeState('menu_avatar')

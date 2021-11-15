@@ -42,7 +42,8 @@ function Dialog:draw()
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()
-    if self.dialogues[self.dialogues_index][1] ~= 'player_1' then love.graphics.draw(AVATAR_CHARACTERS[string.lower(self.dialogues[self.dialogues_index][1])], 0, 0, 0,sx, sy) end
+    if self.dialogues[self.dialogues_index][1] ~= 'player_1' and not ((self.node.has_choices and self.node.body:done()) and self.dialogues_index == #self.dialogues)
+     then love.graphics.draw(AVATAR_CHARACTERS[string.lower(self.dialogues[self.dialogues_index][1])], 0, 0, 0,sx, sy) end
     love.graphics.draw(DIALOG_BOXES[self.dialogues[self.dialogues_index][1]], 0, 0, 0, sx, sy)
     if self.dialogues[self.dialogues_index][1] == 'player_1' then
         for index, value in ipairs(AVATAR_SETTINGS_SPRITES) do
@@ -74,7 +75,7 @@ function Dialog:draw()
         end
     end
     love.graphics.setFont(FONT_DIALOGUES_DEFAULT)
-    love.graphics.print("-Press Spacebar to Cycle Through Text-", WW/4, WH-50)
+    love.graphics.print("-Haz click al espacio o al raton para avanzar, muevuete por el diálgo con la rueda-", WW/4, WH-(WH/21.6))
 
     --display the menu
     if(self.node.has_choices and self.node.body:done()) and self.dialogues_index == #self.dialogues then

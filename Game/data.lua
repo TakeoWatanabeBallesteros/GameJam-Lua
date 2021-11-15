@@ -180,6 +180,12 @@ CHARACTERS_MUSIC = {}
 for index, value in ipairs(characters_names) do
     CHARACTERS_MUSIC[value] = love.audio.newSource("Data/Music/musica_"..value..".ogg", "stream")
 end
+MUSICA_BLACKJACK = love.audio.newSource("/Data/Music/musica_blackjack.ogg", "stream")
+MUSICA_PROGRAMAR = love.audio.newSource("/Data/Music/musica_programar.ogg", "stream")
+MUSICA_CREDITS = love.audio.newSource("/Data/Music/musica_creditos.ogg", 'stream')
+MUSICA_EDITOR = love.audio.newSource("Data/Music/musica_editor.ogg", 'stream')
+MUSICA_MINIJUEGOS = love.audio.newSource("/Data/Music/musica_minijuegos.ogg", 'stream')
+MUSICA_MENU = love.audio.newSource("/Data/Music/musica_menu.ogg", 'stream')
 --#endregion
 --#region SETTINGS
     --#region GAME_SETTINGS

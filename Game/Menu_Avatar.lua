@@ -64,7 +64,8 @@ function Menu_Avatar:update(dt)
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_EYES[AVATAR_SETTINGS_EYE])
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_HAIRS[AVATAR_SETTINGS_HAIR])
             table.insert(AVATAR_SETTINGS_SPRITES, AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTH])
-            Main_FSM:changeState('intro') 
+            Main_FSM:changeState('intro')
+            AudioManager.StopSound(MUSICA_EDITOR)
         end
     end
     if Suit.Button("EDITAR", {id=20}, Suit.layout:row(WW/6, WH/19)).hit then
@@ -90,6 +91,7 @@ function Menu_Avatar:update(dt)
     end
     if Suit.Button("MENU", {id=22}, Suit.layout:row()).hit then
         Main_FSM:changeState('menu')
+        AudioManager.StopSound(MUSICA_EDITOR)
     end
 end
 
