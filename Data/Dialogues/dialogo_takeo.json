@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Takeo: ¡¿[shake]BRO BRO BRO[/shake] QUIERES VER EL TREMENDO CÓDIGO QUE ME HE MARCADO?! Wait, tu no me suenas, ¿eres nuev@?\nSi.\nTakeo: ¿Tú también eres asexual? Si quieres podemos ir a programar juntos.\n[[answer: ¡Sí! ¡Me encanta programar! |Enfermo]]\n[[answer: Nah, prefiero avanzar animación |Animacion]]\n[[answer: No, prefiero adelantar de diseño |Diseño de Juegos kek]]",
+		"body": "<<background:clase>>\nTakeo: ¡¿[shake]BRO BRO BRO[/shake] QUIERES VER EL TREMENDO CÓDIGO QUE ME HE MARCADO?! Wait, tu no me suenas, ¿eres nuev@?\nSi.\nTakeo: ¿Tú también eres asexual? Si quieres podemos ir a programar juntos.\n[[answer: ¡Sí! ¡Me encanta programar! |Enfermo]]\n[[answer: Nah, prefiero avanzar animación |Animacion]]\n[[answer: No, prefiero adelantar de diseño |Diseño de Juegos kek]]",
 		"position": {
-			"x": 299,
-			"y": 254
+			"x": 298,
+			"y": 253
 		},
 		"colorID": 0
 	},

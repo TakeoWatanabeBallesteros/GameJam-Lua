@@ -140,7 +140,7 @@ Yarnparse.load=function(self, filename)
                                   elseif p.action=="scene" then
                                     Main_FSM:changeState(p.arguments)
                                   elseif p.action=="background" then
-                                    Scene.getScene():getActor(Dialog).background = DIALOGUES_BACKGROUNDS[p.arguments]
+                                    DIALOG_BACKGROUND = DIALOGUES_BACKGROUNDS[p.arguments]
                                   else
                                     if(self.exposed[p.action]) then
                                         self.exposed[p.action](p.arguments)

@@ -93,6 +93,7 @@ function Programar_Manager_:keypressed(_key)
                 else  Main_FSM:changeState('menu_minigames') MINIGAME = false  end
             end
         elseif not self.skip then
+            print('skiped')
             self.skip = true
         end
     end

@@ -17,10 +17,14 @@ function Dialog:new(filename)
     self.yarn=Yarnparse:load(filename)
     self.node=self.yarn:get_node("Start")
     self.dialog_background = require('Game/Dialog_Background')()
-    self.background = DIALOGUES_BACKGROUNDS.intro
+    DIALOG_BACKGROUND = DIALOGUES_BACKGROUNDS.intro
     --get our starting text, store it in the text buffer.
-    self.script=self.node.body:traverse() --this allows us to go line by line
-    self.text= self.script.text --our global text buffer, for showing one line at a time.
+    repeat
+        self.script, self.command=self.node.body:traverse()
+    until not self.command
+    --text=script.who .. ": " .. script.text
+    if self.script then self.text=self.script.text 
+    else return end
     if self.script.who ~= 'player_1' then self.text[1][2] = self.script.who..': ' .. self.text[1][2] end
     local i = {self.script.who, self.text}
     if i[1] == 'Ricky' or i[1] == 'Marina' then for k,v in ipairs(i[2]) do if v[1][1] == 0 and v[1][2] == 0 and v[1][3] == 0 then v[1] = {1,1,1} end end end
@@ -34,7 +38,7 @@ end
 
 function Dialog:draw()
     if not ON_PAUSE then
-    self.dialog_background:draw(self.background)
+    self.dialog_background:draw(DIALOG_BACKGROUND)
     love.graphics.setColor(255, 255, 255, 1)
     local sx = WW / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getWidth()
     local sy = WH / DIALOG_BOXES[self.dialogues[self.dialogues_index][1]]:getHeight()

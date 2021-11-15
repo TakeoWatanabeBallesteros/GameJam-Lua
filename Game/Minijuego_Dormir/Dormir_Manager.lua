@@ -102,7 +102,7 @@ function Dormir_Manager:mousereleased( x, y, _button, istouch, presses )
 end
 
 function Dormir_Manager:keypressed(_key)
-    if _key == 'space' then 
+    if _key == 'space' then
         self.skip = true
         self.pressed = true
     end

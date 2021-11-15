@@ -117,7 +117,6 @@ end
 
 function suit:mouseReleasedOn(id)
 	if not self.mouse_button_down and self:isActive(id) and self:isHovered(id) then
-		if id == 39 then print("fock u") end
 		self.hit = id
 		return true
 	end
