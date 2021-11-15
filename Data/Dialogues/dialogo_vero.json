@@ -12,10 +12,10 @@
 	{
 		"title": "Programacion",
 		"tags": "",
-		"body": "Vero: A mí también me gusta programar.\nVero: Solo un poco más de tecnología y tendré programada la máquina del tiempo para que (letras rusas)\nVero: Por cierto, he acabado el pong, si quieres te lo puedo enseñar.\n[[answer: Okey, a ver como te ha quedado. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo.... |Dormir]]",
+		"body": "Vero: A mí también me gusta programar.\nVero: Solo un poco más de tecnología y tendré programada la máquina del tiempo para que мы можем вторгнуться в Германию. \nVero: [color=#ff0000]Je, Je, Je[/color]\nVero: Por cierto, he acabado el pong, si quieres te lo puedo enseñar.\n[[answer: Okey, a ver como te ha quedado. |Pong]]\n[[answer: Bueno es que ahora no tengo tiempo.... |Dormir]]",
 		"position": {
-			"x": 101,
-			"y": -39
+			"x": 100,
+			"y": -40
 		},
 		"colorID": 0
 	},
@@ -42,10 +42,10 @@
 	{
 		"title": "Pong",
 		"tags": "",
-		"body": "Vero: Bueno ya que estamos, hacemos una partida a ver quién gana\n<<scene:pong>>\nVero:  No ha estado mal.\nVero:  Que te ha parecido mi pong. \nVero:  Si quieres te puedo ayudar.\n[[answer: Okey, me vendría bien tu ayuda |Arcade]]\n[[answer: Muchas gracias, pero creo que yo puedo |Arcade]]",
+		"body": "Vero: Bueno ya que estamos, hacemos una partida a ver quién gana:\n<<scene:pong>>\nVero: Vero nunca pierde.\nVero: ¿Qué te ha parecido mi pong? \nVero: Si quieres te puedo ayudar.\n[[answer: Okey, me vendría bien tu ayuda |Arcade]]\n[[answer: Muchas gracias, pero creo que yo puedo |Arcade]]",
 		"position": {
-			"x": 145,
-			"y": -302
+			"x": 144,
+			"y": -303
 		},
 		"colorID": 0
 	},
@@ -54,18 +54,18 @@
 		"tags": "",
 		"body": "Vero: Okey, pues yo avanzaré la animación en emprenedoria para aprovechar el tiempo.\n<<scene:dormir>>\nVero: Good morning, mientras dormías he hecho la mitad de la animación, ya Stalin tiene cogido por los huevos a Hitler.\nVero: También he hecho la A3 que nos ha puesto el Marco, hay que disparar a satelides de E E U U.\nVero: Te podría ayudar con ello.\n[[answer: Madre mía, sí que has avanzado en todo, no me iría mal . |Arcade]]\n[[answer: Yo creo que puedo, pero tendría que ser eficaz como tú. |Arcade]]",
 		"position": {
-			"x": 455,
-			"y": -308
+			"x": 454,
+			"y": -309
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Arcade",
 		"tags": "",
-		"body": "Vero: [shake]Por cierto, que el [color=#ff0000]examen final[/color]es en nada.[/shake]\nVero: Podemos ir practicando con estas líneas de código.\n<<scene:programar>>\nVero: Creo que te falta práctica, pero con tiempo lo tienes.\nVero: Después de todo el trabajo que hemos hecho vamos un rato a divertirnos.\nVero: Me suena que hay un arcade aquí en Mataró.\nAcabas quedando con Vero para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nVero: ¡Mira una máquina de sacar peluches!\nVero: Me podrías sacar uno.\n<<scene:gancho>>\nVero: Ohhhh, que bonito.\nVero: Veamos que más juegos hay...\nVero: Mira, hay un juego del topo, a este te invito yo.\nOjo, Vero te ha invitado a jugar a algo. ¡Esta oportunidad no la puedes dejar escapar!\n<<scene:topo>>\nVero: Hahaha, lo has hecho muy bien. Vamos a tomar algo, ¿no?.\n<<background:party>>\nVero: ¡Vamos a ver quién bebe más rápido!\nVero: Supongo que no me ganarás al final de todo soy Rusa.\n<<scene:vodka>>\nVero: Hahaha, ha sido divertido, mi día a día.\nVero: [shake]Mira![/shake], hay un puesto de blackjack, nada como combinar vodka y apuestas. \nDespués de tantos cubatas solo te queda aceptar tu destino.\n<<scene:blackjack>>\nVero: Has sido muy valiente, chico atrevido, vuamos!.\nAl final de todo ha valido la pena el día, ¿Habrás impresionado a Vero?.\n<<scene:final>>",
+		"body": "Vero: [shake]Por cierto,el [color=#ff0000]examen final[/color]es en nada.[/shake]\nVero: Podemos ir practicando con estas líneas de código.\n<<scene:programar>>\nVero: Creo que te falta práctica, pero con tiempo lo tienes, lástima que lo que falte [color=#ff0000]es tiempo[/color].\nVero: Después de todo el trabajo que hemos hecho, toca salir y divertirnos.\nVero: Me suena que hay un arcade aquí en Mataró.\nAcabas quedando con Vero para ir a jugar a algunos juegos en una sala de recreativas.\n<<background:arcade>>\nVero: Mira, ¡una máquina de sacar peluches!\nVero: Me podrías sacar uno.\n<<scene:gancho>>\nVero: Ohhhh, que bonito.\nVero: Veamos que más juegos hay...\nVero: Mira, hay un juego del topo, a este te invito yo.\nOjo, Vero te ha invitado a jugar a algo. ¡Esta oportunidad no la puedes dejar escapar!\n<<scene:topo>>\nVero: Hahaha, lo has hecho muy bien. Vamos a tomar algo, ¿no?.\n<<background:party>>\nVero: ¡Vamos a ver quién bebe más rápido!\nVero: Supongo que no me ganarás, todo está en mis genes de Rusa.\n<<scene:vodka>>\nVero: Hahaha, ha sido divertido, mi día a día.\nVero: [shake]Mira![/shake], hay un puesto de blackjack, nada como combinar vodka y apuestas. \nDespués de tantos cubatas solo queda aceptar tu destino.\n<<scene:blackjack>>\nVero: Has sido muy valiente, chico atrevido, vuamos!.\nAl final de todo ha valido la pena el día, ¿Habrás impresionado a Vero?.\n<<scene:final>>",
 		"position": {
-			"x": 321,
-			"y": -550
+			"x": 319,
+			"y": -552
 		},
 		"colorID": 0
 	}
