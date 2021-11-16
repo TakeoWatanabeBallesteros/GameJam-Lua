@@ -30,8 +30,10 @@ function Pong_Manager:draw()
 end
 
 function Pong_Manager:mousepressed(x, y, button, istouch,presses )
+    Pong_Scene.getScene():mousepressed(x, y, button, istouch, presses )
 end
 function Pong_Manager:mousereleased(x,y,button,istouch,presses )
+    Pong_Scene.getScene():mousereleased(x, y, button, istouch, presses )
 end
 function Pong_Manager:keypressed(key)
     if (key == 'space' and MINIGAME) or (key == 'space' and self.skip) then

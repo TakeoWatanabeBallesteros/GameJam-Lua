@@ -91,7 +91,6 @@ function Blackjack_Manager:draw()
             (WH/2.5) - FONT_BUTTONS_BIG:getHeight('EMPATE') * 0.5
             )
         end
-    Suit:draw()
     love.graphics.print(
         math.floor(self.timer2),
         self.font,

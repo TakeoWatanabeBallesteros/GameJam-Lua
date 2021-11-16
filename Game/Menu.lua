@@ -5,9 +5,7 @@ function Menu:new()
     self.alpha = 0
     self.font = FONT_TITLE
     self.title = "Tecno Dates"
-    --love.graphics.setFont(love.graphics.newFont("/Data/pong.ttf", 70))
     Menu.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
-    self.hit = false
     AudioManager.PlayMusic(MUSICA_MENU, GAME_SETTINGS_VOLUME_MUSIC, true)
 end
 
@@ -44,12 +42,9 @@ function Menu:update(dt)
     end
     Suit.layout:reset((WW/2-(WW/5)/2)+(WW/4.6)/2, (WH/2-(WW/20)*3/2)+(2*WH/15))
     if Suit.Button("CREDITOS", {id=5}, Suit.layout:row(WW/4.8, WH/20)).hit then
-        if not self.hit then self. hit = true
-        else
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
             Main_FSM:changeState('credits')
             AudioManager.StopSound(MUSICA_MENU)
-        end
     end
     Suit.layout:reset(WW/2-(WW/2.3)/2, (WH/2-(WW/20)*3/2)+(3*WH/15))
     if Suit.Button("SALIR", {id=6}, Suit.layout:row(WW/2.3, WH/20)).hit then
@@ -88,7 +83,6 @@ function Menu:draw()
          (WH/1.5)
         )
     love.graphics.setColor(255, 255, 255, self.alpha)
-    Suit.draw()
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y

@@ -50,4 +50,16 @@ function Pong_Scene:draw()
   end
 end
 
+function Pong_Scene:mousepressed(x, y, _button, istouch, presses)
+  for _,v in ipairs(self:getActorList()) do
+    if v:is(Pong_Menu) or v:is(Pong_Settings) then v:mousepressed(x, y, _button, istouch, presses) end
+  end
+end
+
+function Pong_Scene:mousereleased(x, y, _button, istouch, presses)
+  for _,v in ipairs(self:getActorList()) do
+    if v:is(Pong_Menu) or v:is(Pong_Settings) then v:mousereleased(x, y, _button, istouch, presses) end
+  end
+end
+
 return Pong_Scene

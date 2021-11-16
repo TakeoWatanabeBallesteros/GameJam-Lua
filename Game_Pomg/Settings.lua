@@ -104,17 +104,9 @@ function Pong_Settings:draw()
             color = {0.8, 0.8, 0.9, 1}
         end
 
-        function love.mousepressed( x, y, _button, istouch, presses )
-            if _button == 1 then
-                self.ap = true
-            end
-        end
+        
 
-        function love.mousereleased( x, y, _button, istouch, presses )
-            if _button == 1 then
-                self.ap = true
-            end
-        end
+        
 
         button.now = love.mouse.isDown(1)
         if button.now and not button.last and hot then
@@ -145,6 +137,18 @@ function Pong_Settings:draw()
         cursorY = cursorY + (buttonHeigth + margin)
     end
     love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
+end
+
+function Pong_Settings:mousepressed( x, y, _button, istouch, presses )
+    if _button == 1 then
+        self.ap = true
+    end
+end
+
+function Pong_Settings:mousereleased( x, y, _button, istouch, presses )
+    if _button == 1 then
+        self.ap = true
+    end
 end
 
 return Pong_Settings

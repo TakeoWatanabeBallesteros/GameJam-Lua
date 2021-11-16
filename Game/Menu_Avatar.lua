@@ -123,7 +123,6 @@ function Menu_Avatar:draw()
     for index, value in ipairs(self.preview) do
         love.graphics.draw(value,WW/1.083-(value:getWidth()/2)*sx*0.5,WH/3-(value:getHeight()/2)*sy*0.5,0,sx*0.5,sy*0.5)
     end
-    Suit.draw()
     
     love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
 end

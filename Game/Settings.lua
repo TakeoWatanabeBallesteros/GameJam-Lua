@@ -34,7 +34,6 @@ function Settings:draw()
             hovered = {bg = { 213/255,134/255, 161/255}, fg = {255/255,255/255,255/255}},
             active  = {bg = {221/255, 169/255,   186/255}, fg = {225/255,225/255,225/255}}
     } end
-    Suit.draw()
 end
 
 function Settings:sliders()

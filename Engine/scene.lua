@@ -101,6 +101,7 @@ function Scene:draw()
       if v.layer == value then v:draw() end
     end
   end
+  Suit.draw()
 end
 
 function love.mousepressed( x, y, _button, istouch, presses )

@@ -32,7 +32,6 @@ function Editor:draw()
     love.graphics.draw(AVATAR_EYES[AVATAR_SETTINGS_EYE], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_HAIRS[AVATAR_SETTINGS_HAIR], 0, 0, 0,sx, sy)
     love.graphics.draw(AVATAR_CLOTHES[AVATAR_SETTINGS_CLOTH], 0, 0, 0,sx, sy)
-    Suit:draw()
 end
 
 function Editor:AvatarButtons()

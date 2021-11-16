@@ -2,7 +2,6 @@ Menu_Minigames = Actor:extend()
 
 function Menu_Minigames:new()
     self.font = FONT_BUTTONS_BIG
-    self.hit = false
     Menu_Minigames.super.new(self,DEFAULT_IMAGE,WW/2,WH/2,0,-1,0, 'HUD')
 end
 
@@ -55,12 +54,9 @@ function Menu_Minigames:update(dt)
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
         if Suit.ImageButton(MINIGAMES_BUTTONS.programar.normal, {id = 39,mask = MINIGAMES_BUTTONS.programar.mask, hovered = MINIGAMES_BUTTONS.programar.hovered, active = MINIGAMES_BUTTONS.programar.active}, Suit.layout:row(0,0)).hit then
-        if not self.hit then self. hit = true
-        else
             AudioManager.PlaySound(AUDIO_BUTTON_CLICK, GAME_SETTINGS_VOLUME_EFFECTS, false)
             MINIGAME = true
             Main_FSM:changeState('programar')
-        end
     end
     love.graphics.setColor(255,255,255)
     Suit.layout:reset(0, 0)
@@ -85,7 +81,6 @@ function Menu_Minigames:draw()
     local rr = 0
     love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
     love.graphics.draw(MINIGAMES_BUTTONS_UI, 0, 0, 0, sx, sy)
-    Suit.draw()
 end
 
 function Menu_Minigames:mousepressed( x, y, _button, istouch, presses )

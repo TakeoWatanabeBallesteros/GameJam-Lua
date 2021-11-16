@@ -72,7 +72,6 @@ end
 function Characters_Selection:draw()
     love.graphics.setBackgroundColor(255,255,255)
     love.graphics.setColor(255, 255, 255, 1)
-    Suit.draw()
 end
 
 function Characters_Selection:mousepressed( x, y, _button, istouch, presses )

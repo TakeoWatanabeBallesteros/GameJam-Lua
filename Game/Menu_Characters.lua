@@ -100,7 +100,6 @@ function Menu_Characters:draw()
     love.graphics.setBackgroundColor(230/255, 196/255, 214/255)
     love.graphics.setFont(FONT_BUTTONS)
     love.graphics.setColor(255, 255, 255, 1)
-    Suit.draw()
     local xx = self.position.x
     local ox = self.origin.x
     local yy = self.position.y
