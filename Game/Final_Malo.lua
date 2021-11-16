@@ -19,6 +19,7 @@ function Final_Malo:draw()
 end
 
 function Final_Malo:mousepressed( x, y, _button, istouch, presses )
+    if _button == 1 then Main_FSM:changeState('credits') end
 end
 
 function Final_Malo:mousereleased( x, y, _button, istouch, presses )

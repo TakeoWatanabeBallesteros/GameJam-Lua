@@ -19,6 +19,7 @@ function Final_Bueno:draw()
 end
 
 function Final_Bueno:mousepressed( x, y, _button, istouch, presses )
+    if _button == 1 then Main_FSM:changeState('credits') end
 end
 
 function Final_Bueno:mousereleased( x, y, _button, istouch, presses )
